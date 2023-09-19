@@ -1,4 +1,4 @@
-** sch_path: /home/jstine/ecen4303/inv_test/xschem/sim/tb_inv.sch
+** sch_path: /home/jstine/ecen4303/ecen4303F23/xschem/sim/tb_inv.sch
 **.subckt tb_inv in out
 *.ipin in
 *.opin out
