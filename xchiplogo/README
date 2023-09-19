@@ -1,0 +1,8 @@
+To make some chip graffiti, follow the procedure below:
+
+1.)  Copy files over to directory
+2.)  convert -compress none file.png file.pbm
+3.)  xchiplogo file.pbm file.mag
+4.)  Insert your new graffiti in  your final design (do not connect 
+     it to any other layout.
+
