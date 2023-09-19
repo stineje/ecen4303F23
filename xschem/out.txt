@@ -1,0 +1,63 @@
+Setting Cadence to 64-bit mode.
+CADENCE=/import/programs/cadence
+Added /import/programs/cadence/GENUS/current/bin to PATH
+Added /import/programs/cadence/ICADVM/current/bin to PATH
+Added /import/programs/cadence/PEGASUS/current/bin to PATH
+Added /import/programs/cadence/INNOVUS/current/bin to PATH
+Added /import/programs/cadence/LIBERATE/current/bin to PATH
+Added /import/programs/cadence/QUANTUS/current/bin to PATH
+Added /import/programs/cadence/PVS/current/bin to PATH
+Added /import/programs/cadence/SPECTRE/current/bin to PATH
+Added /import/programs/cadence/SSV/current/bin to PATH
+Added /import/programs/cadence/XCELIUM/current/bin to PATH
+Added /import/programs/cadence/ICADVM/current/tools/lib to LD_LIBRARY_PATH
+Added /import/programs/cadence/ICADVM/current/tools/lib64 to LD_LIBRARY_PATH
+Cadence tools setup complete.
+Added /import/programs/magic/bin to PATH
+Magic tool setup complete.
+Added /import/programs/irsim/bin to PATH
+IRSIM tool setup complete.
+MENTOR=/import/programs/mentor
+MGC_HOME=/import/programs/mentor/calibre/current
+Added /import/programs/mentor/calibre/current/bin to PATH
+Added /import/programs/mentor/infact/current/bin to PATH
+Added /import/programs/mentor/questasim/current/bin to PATH
+Mentor tool setup complete.
+SYNOPSYS=/import/programs/synopsys
+Added /import/programs/synopsys/fm/current/bin to PATH
+Added /import/programs/synopsys/mw/current/bin to PATH
+Added /import/programs/synopsys/fusioncompiler/current/bin to PATH
+Added /import/programs/synopsys/hspice/current/bin to PATH
+Added /import/programs/synopsys/lc/current/bin to PATH
+Added /import/programs/synopsys/prime/current/bin to PATH
+Added /import/programs/synopsys/raphael/current/bin to PATH
+Added /import/programs/synopsys/icc/current/bin to PATH
+Added /import/programs/synopsys/icc2/current/bin to PATH
+Added /import/programs/synopsys/starrc/current/bin to PATH
+Added /import/programs/synopsys/syn/current/bin to PATH
+Added /import/programs/synopsys/vc_static/current/bin to PATH
+Added /import/programs/synopsys/vcs/current/bin to PATH
+Added /import/programs/synopsys/verdi/current/bin to PATH
+Added /import/programs/synopsys/wv/current/bin to PATH
+Added /import/programs/synopsys/hspice/current/hspice/bin to PATH
+Synopsys tools setup complete.
+Added /import/programs/verilator/current/bin to PATH
+Verilator setup complete.
+Added /import/programs/dtc/current/bin to PATH
+Device Tree Compiler setup complete.
+Added /import/programs/fastfieldsolvers/fastercap to PATH
+FasterCap Setup Complete.
+Added /import/programs/netgen/bin to PATH
+Netgen tool setup complete.
+Added /import/programs/xschem/bin to PATH
+Xschem tool setup complete.
+Added /import/programs/ngspice/bin to PATH
+ngspice tool setup complete.
+Added /import/programs/Imperas/bin/Linux64 to PATH
+Added /import/programs/Imperas/bin/Linux64 to LD_LIBRARY_PATH
+Added /import/programs/Imperas/lib/Linux64/External/lib to LD_LIBRARY_PATH
+Imperas tools setup complete.
+Added /import/programs/gaw3/bin to PATH
+gaw tool setup complete.
+Added /import/programs/mmi/bin to PATH
+MMI tool setup complete.

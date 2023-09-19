@@ -1,0 +1,75 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: ** sch_path: /import/yukari1/lrburle/inv_test/xschem/sim/tb_inv.sch
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Warning: vin: no DC value, transient time 0 value used
+
+No. of Data Rows : 1801
+vsw                 =  8.639738e-01
+vil                 =  7.424500e-01
+vih                 =  9.757828e-01
+vol                 =  6.775488e-02
+voh                 =  1.745108e+00
+VTC measurements
+vsw = 8.639738e-01
+vil = 7.424500e-01
+vih = 9.757828e-01
+voh = 1.745108e+00
+vol = 6.775488e-02
+
+binary raw file "tb_inv_vtc.raw"
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Warning: vin: no DC value, transient time 0 value used
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+vdd                                        1.8
+in                                           0
+out                                        1.8
+vin#branch                                   0
+vvdd#branch                       -1.92912e-12
+
+
+No. of Data Rows : 2020
+
+Error: measure  t_rise  trig(TRIG) : out of interval
+ meas tran t_rise trig v(out) val=1.800000e-01 rise=2 targ v(out) val=1.620000e+00 rise=2 failed!
+
+
+Error: measure  t_fall  trig(TRIG) : out of interval
+ meas tran t_fall trig v(out) val=1.620000e+00 fall=2 targ v(out) val=1.800000e-01 fall=2 failed!
+
+t_delay             =  2.507729e-11 targ=  1.525077e-09 trig=  1.500000e-09
+TRAN measurements
+t_delay = 2.507729e-11
+Error(checkvalid): vector t_rise is not available or has zero length.
+Error(checkvalid): vector t_fall is not available or has zero length.
+
+binary raw file "tb_inv_tran.raw"
+binary raw file "./tb_inv.raw"
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Warning: vin: no DC value, transient time 0 value used
+
+Total analysis time (seconds) = 0.083
+
+Total elapsed time (seconds) = 2.307 
+
+Total DRAM available = 128432.594 MB.
+DRAM currently available = 51014.422 MB.
+Maximum ngspice program size =  242.047 MB.
+Current ngspice program size =   90.531 MB.
+
+Shared ngspice pages =    4.223 MB.
+Text (code) pages =    7.465 MB.
+Stack = 0 bytes.
+Library pages =  165.492 MB.
+
