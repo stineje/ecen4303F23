@@ -61,16 +61,16 @@ write tb_inv_tran.raw
 **** end user architecture code
 **.ends
 
-* expanding   symbol:  /home/jstine/ecen4303/inv_test/xschem/inv.sym # of pins=2
-** sym_path: /home/jstine/ecen4303/inv_test/xschem/inv.sym
-** sch_path: /home/jstine/ecen4303/inv_test/xschem/inv.sch
+* expanding   symbol:  inv.sym # of pins=2
+** sym_path: /home/jstine/ecen4303/ecen4303F23/xschem/sim/inv.sym
+** sch_path: /home/jstine/ecen4303/ecen4303F23/xschem/sim/inv.sch
 .subckt inv A Y
 *.opin Y
 *.ipin A
-XM1 Y A VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.26 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XM1 Y A VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
-XM2 Y A GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.52 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XM2 Y A GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
 .ends

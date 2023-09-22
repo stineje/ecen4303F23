@@ -1,4 +1,4 @@
-v {xschem version=3.4.2 file_version=1.2
+v {xschem version=3.4.3 file_version=1.2
 }
 G {}
 K {}
@@ -14,7 +14,7 @@ lab=A}
 N 60 -70 100 -70 {
 lab=A}
 N 140 -40 140 -20 {
-lab=#net1}
+lab=GND}
 N 140 -220 140 -200 {
 lab=VDD}
 N 140 -120 180 -120 {
@@ -28,16 +28,16 @@ lab=VDD}
 N 140 -210 160 -210 {
 lab=VDD}
 N 140 -70 160 -70 {
-lab=#net1}
+lab=GND}
 N 160 -70 160 -30 {
-lab=#net1}
+lab=GND}
 N 140 -30 160 -30 {
-lab=#net1}
+lab=GND}
 C {devices/opin.sym} 180 -120 0 0 {name=p1 lab=Y}
 C {devices/ipin.sym} 30 -120 0 0 {name=p2 lab=A}
 C {sky130_fd_pr/pfet_01v8.sym} 120 -170 0 0 {name=M1
 L=0.15
-W=1.26
+W=0.42
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -51,7 +51,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} 120 -70 0 0 {name=M2
 L=0.15
-W=0.52
+W=0.42
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -63,14 +63,5 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/code.sym} -140 -140 0 0 {name=TT_MODELS
-only_toplevel=true
-format="tcleval( @value )"
-value="
-** opencircuitdesign pdks install
-.lib $::SKYWATER_MODELS/sky130.lib.spice tt
-
-"
-spice_ignore=false}
 C {devices/vdd.sym} 140 -220 0 0 {name=l1 lab=VDD}
 C {devices/gnd.sym} 140 -20 0 0 {name=l2 lab=GND}

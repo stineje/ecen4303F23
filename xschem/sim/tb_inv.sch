@@ -13,17 +13,17 @@ N 160 -130 160 -110 {
 lab=VDD}
 N 240 -150 240 -110 {
 lab=in}
-N 350 -140 390 -140 {
+N 240 -240 280 -240 {
 lab=in}
-N 490 -140 540 -140 {
+N 580 -240 610 -240 {
 lab=out}
 C {devices/vsource.sym} 160 -80 0 0 {name=vvdd value=1.8}
 C {devices/vsource.sym} 240 -80 0 0 {name=vin value="PULSE(0 1.8 1n 1n 4n 10n)"}
 C {devices/gnd.sym} 160 -30 0 0 {name=l1 lab=GND}
 C {devices/gnd.sym} 240 -30 0 0 {name=l3 lab=GND}
 C {devices/vdd.sym} 160 -130 0 0 {name=l4 lab=VDD}
-C {devices/ipin.sym} 350 -140 0 0 {name=p1 lab=in}
-C {devices/opin.sym} 540 -140 0 0 {name=p2 lab=out}
+C {devices/ipin.sym} 240 -240 0 0 {name=p1 lab=in}
+C {devices/opin.sym} 610 -240 0 0 {name=p2 lab=out}
 C {devices/lab_pin.sym} 240 -150 0 0 {name=p3 sig_type=std_logic lab=in}
 C {sky130_fd_pr/corner.sym} 10 -330 0 0 {name=CORNER only_toplevel=true corner=tt}
 C {devices/code.sym} 10 -150 0 0 {name=COMMANDS only_toplevel=false value="
@@ -68,4 +68,4 @@ set filetype=binary
 write tb_inv_tran.raw
 .endc
 "}
-C {/home/jstine/ecen4303/inv_test/xschem/inv.sym} 430 -140 0 0 {name=x1}
+C {inv.sym} 430 -240 0 0 {name=x1}
