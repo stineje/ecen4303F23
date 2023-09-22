@@ -1,7 +1,12 @@
-* NGSPICE file created from inv.ext - technology: sky130A
+* NGSPICE file created from buf.ext - technology: sky130A
 
 .subckt inv Y A GND VDD
 X0 Y A GND GND sky130_fd_pr__nfet_01v8 ad=0.128 pd=1.45 as=0.153 ps=1.57 w=0.42 l=0.15
 X1 Y A VDD VDD sky130_fd_pr__pfet_01v8 ad=0.12 pd=1.41 as=0.12 ps=1.41 w=0.42 l=0.15
+.ends
+
+.subckt buf A Y vdd gnd
+Xinv_0 inv_1/A A gnd vdd inv
+Xinv_1 Y inv_1/A gnd vdd inv
 .ends
 

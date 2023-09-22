@@ -1,0 +1,10 @@
+| units: 500000 tech: sky130A format: MIT
+x inv_0/A VSUBS inv_1/A VSUBS s=6132,314 d=5124,290 l=30 w=84 x=124 y=111 sky130_fd_pr__nfet_01v8
+x inv_0/A inv_1/vdd inv_1/A inv_1/vdd s=4788,282 d=4788,282 l=30 w=84 x=124 y=348 sky130_fd_pr__pfet_01v8
+x inv_1/A VSUBS inv_1/Y VSUBS s=6132,314 d=5124,290 l=30 w=84 x=342 y=111 sky130_fd_pr__nfet_01v8
+x inv_1/A inv_1/vdd inv_1/Y inv_1/vdd s=4788,282 d=4788,282 l=30 w=84 x=342 y=348 sky130_fd_pr__pfet_01v8
+= inv_1/A inv_0/Y
+= inv_1/A li_198_226#
+= VSUBS inv_0/gnd
+= VSUBS inv_1/gnd
+= inv_1/vdd inv_0/vdd

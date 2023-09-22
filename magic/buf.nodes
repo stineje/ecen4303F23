@@ -1,0 +1,5 @@
+inv_1/Y 404 286 li
+inv_1/A 319 264 li
+VSUBS 270 111 ndif
+inv_0/A 101 264 li
+inv_1/vdd 243 312 nw

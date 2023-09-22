@@ -50,5 +50,25 @@ GND                                        |GND
 Cell pin lists are equivalent.
 Device classes inv and inv are equivalent.
 
+Subcircuit summary:
+Circuit 1: buf                             |Circuit 2: buf                             
+-------------------------------------------|-------------------------------------------
+inv (2)                                    |inv (2)                                    
+Number of devices: 2                       |Number of devices: 2                       
+Number of nets: 5                          |Number of nets: 5                          
+---------------------------------------------------------------------------------------
+Netlists match uniquely.
+
+Subcircuit pins:
+Circuit 1: buf                             |Circuit 2: buf                             
+-------------------------------------------|-------------------------------------------
+A                                          |A                                          
+Y                                          |Y                                          
+gnd                                        |GND                                        
+vdd                                        |VDD                                        
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes buf and buf are equivalent.
+
 Final result: Circuits match uniquely.
 .

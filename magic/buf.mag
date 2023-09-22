@@ -1,0 +1,28 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1695311499
+<< locali >>
+rect 232 476 268 546
+rect 2 224 76 302
+rect 198 226 296 302
+rect 416 226 508 290
+rect 218 -8 256 60
+use inv  inv_0
+timestamp 1600264764
+transform 1 0 124 0 1 151
+box -122 -159 166 448
+use inv  inv_1
+timestamp 1600264764
+transform 1 0 342 0 1 151
+box -122 -159 166 448
+<< labels >>
+rlabel locali 26 262 26 262 0 A
+port 1 e
+rlabel locali 460 260 460 260 0 Y
+port 2 w
+rlabel locali 244 512 244 512 0 vdd
+port 3 n
+rlabel locali 236 26 236 26 1 gnd
+port 4 n
+<< end >>
