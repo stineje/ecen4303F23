@@ -43,10 +43,10 @@ N 140 -260 140 -240 {
 lab=VDD}
 N 90 -260 140 -260 {
 lab=VDD}
-N -70 100 -10 100 {
-lab=GND}
-N -70 70 -10 70 {
+N -30 -30 -10 -30 {
 lab=VDD}
+N -30 -10 -10 -10 {
+lab=GND}
 C {devices/opin.sym} 180 -120 0 0 {name=p1 lab=Y}
 C {devices/ipin.sym} 30 -120 0 0 {name=p2 lab=A}
 C {sky130_fd_pr/pfet_01v8.sym} 120 -170 0 0 {name=M1
@@ -79,7 +79,7 @@ spiceprefix=X
 }
 C {devices/lab_pin.sym} 90 -260 0 0 {name=p3 sig_type=std_logic lab=VDD}
 C {devices/lab_pin.sym} 110 20 0 0 {name=p4 sig_type=std_logic lab=GND}
-C {devices/ipin.sym} -70 70 0 0 {name=p5 lab=VDD}
-C {devices/ipin.sym} -70 100 0 0 {name=p6 lab=GND}
-C {devices/lab_pin.sym} -10 70 0 1 {name=p7 sig_type=std_logic lab=VDD}
-C {devices/lab_pin.sym} -10 100 0 1 {name=p8 sig_type=std_logic lab=GND}
+C {devices/ipin.sym} -30 -30 0 0 {name=p5 lab=VDD}
+C {devices/lab_pin.sym} -10 -30 0 1 {name=p6 sig_type=std_logic lab=VDD}
+C {devices/ipin.sym} -30 -10 0 0 {name=p7 lab=GND}
+C {devices/lab_pin.sym} -10 -10 0 1 {name=p8 sig_type=std_logic lab=GND}

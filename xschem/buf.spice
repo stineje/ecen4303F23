@@ -3,20 +3,13 @@
 *.PININFO A:I Y:O VDD:I GND:I
 x1 A net1 GND VDD inv
 x2 net1 Y GND VDD inv
-**** begin user architecture code
-
-** opencircuitdesign pdks install
-.lib /programs/open_pdks/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
-
-
-**** end user architecture code
 .ends
 
 * expanding   symbol:  inv.sym # of pins=2
 ** sym_path: /home/jstine/ecen4303/ecen4303F23/xschem/inv.sym
 ** sch_path: /home/jstine/ecen4303/ecen4303F23/xschem/inv.sch
 .subckt inv A Y GND VDD
-*.PININFO Y:O A:I
+*.PININFO Y:O A:I VDD:I GND:I
 XM1 Y A VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
