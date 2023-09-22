@@ -1,0 +1,92 @@
+** sch_path: /home/jstine/ecen4303/ecen4303F23/xschem/sim/tb_buf.sch
+**.subckt tb_buf in out
+*.ipin in
+*.opin out
+vvdd VDD GND 1.8
+vin in GND PULSE(0 1.8 1n 1n 4n 10n)
+x1 out in buf
+**** begin user architecture code
+
+.param mc_mm_switch=0
+.param mc_pr_switch=0
+.include /programs/open_pdks/share/pdk/sky130A/libs.tech/ngspice/corners/tt.spice
+.include /programs/open_pdks/share/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
+.include /programs/open_pdks/share/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
+.include /programs/open_pdks/share/pdk/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
+
+
+
+.control
+* VTC analysis
+DC vin 0 1.8 .1m
+save all
+let VP = 1.8
+let vo_mid = VP/2
+let dvout = deriv(v(out))
+meas DC VSW find v(in) when v(out)=vo_mid
+meas DC VOL MIN v(out) from=0 to=1.8
+meas DC VOH MAX v(out) from=0 to=1.8
+meas DC VIL find v(in) WHEN dvout=1 CROSS=1
+meas DC VIH find v(in) WHEN dvout=1 CROSS=2
+
+ VTC measurements
+print VSW
+print VIL
+print VIH
+print VOH
+print VOL
+echo
+set filetype=binary
+write tb_buf_vtc.raw v(out) v(in) dvout VSW VIL VIH VOH VOL
+
+* Transient analysis
+TRAN 0.01n 20n
+save all
+let VP=1.8
+let per10 = VP*0.1
+let per50 = VP*0.5
+let per90 = VP*0.9
+meas TRAN t_rise  TRIG v(out) VAL=per10 rise=1  TARG v(out) VAL=per90 rise=1
+meas TRAN t_fall  TRIG v(out) VAL=per90 fall=1  TARG v(out) VAL=per10 fall=1
+meas TRAN t_delay  TRIG v(in) VAL=per50 rise=1 TARG v(out) VAL=per50 fall=1
+echo TRAN measurements
+print t_delay
+print t_rise
+print t_fall
+echo
+set filetype=binary
+write tb_buf_tran.raw
+.endc
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  buf.sym # of pins=2
+** sym_path: /home/jstine/ecen4303/ecen4303F23/xschem/sim/buf.sym
+** sch_path: /home/jstine/ecen4303/ecen4303F23/xschem/sim/buf.sch
+.subckt buf Y A
+*.ipin A
+*.opin Y
+x1 A net1 inv
+x2 net1 Y inv
+.ends
+
+
+* expanding   symbol:  inv.sym # of pins=2
+** sym_path: /home/jstine/ecen4303/ecen4303F23/xschem/sim/inv.sym
+** sch_path: /home/jstine/ecen4303/ecen4303F23/xschem/sim/inv.sch
+.subckt inv A Y
+*.opin Y
+*.ipin A
+XM1 Y A VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 Y A GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+.GLOBAL GND
+.GLOBAL VDD
+.end
