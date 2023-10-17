@@ -3,7 +3,7 @@
 *.ipin in
 *.opin out
 vvdd VDD GND 1.8
-vin in GND PULSE(0 1.8 1n 1n 4n 10n)
+vin in GND PULSE(0 1.8 2n 1n 1n 2n)
 x1 in out inv
 **** begin user architecture code
 
@@ -39,14 +39,14 @@ set filetype=binary
 write tb_inv_vtc.raw v(out) v(in) dvout VSW VIL VIH VOH VOL
 
 * Transient analysis
-TRAN 0.01n 20n
+TRAN 1p 20n
 save all
 let VP=1.8
 let per10 = Vp*0.1
 let per50 = Vp*0.5
 let per90 = Vp*0.9
-meas TRAN t_rise  TRIG v(out) VAL=per10 rise=2  TARG v(out) VAL=per90 rise=2
-meas TRAN t_fall  TRIG v(out) VAL=per90 fall=2  TARG v(out) VAL=per10 fall=2
+meas TRAN t_rise  TRIG v(out) VAL=per10 rise=1  TARG v(out) VAL=per90 rise=1
+meas TRAN t_fall  TRIG v(out) VAL=per90 fall=1  TARG v(out) VAL=per10 fall=1
 meas TRAN t_delay  TRIG v(in) VAL=per50 rise=1 TARG v(out) VAL=per50 fall=1
 echo TRAN measurements
 print t_delay

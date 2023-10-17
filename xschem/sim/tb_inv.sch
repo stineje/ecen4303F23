@@ -18,7 +18,7 @@ lab=in}
 N 580 -240 610 -240 {
 lab=out}
 C {devices/vsource.sym} 160 -80 0 0 {name=vvdd value=1.8}
-C {devices/vsource.sym} 240 -80 0 0 {name=vin value="PULSE(0 1.8 1n 1n 4n 10n)"}
+C {devices/vsource.sym} 240 -80 0 0 {name=vin value="PULSE(0 1.8 2n 1n 1n 2n)"}
 C {devices/gnd.sym} 160 -30 0 0 {name=l1 lab=GND}
 C {devices/gnd.sym} 240 -30 0 0 {name=l3 lab=GND}
 C {devices/vdd.sym} 160 -130 0 0 {name=l4 lab=VDD}
@@ -50,14 +50,14 @@ set filetype=binary
 write tb_inv_vtc.raw v(out) v(in) dvout VSW VIL VIH VOH VOL
 
 * Transient analysis
-TRAN 0.01n 20n
+TRAN 1p 20n
 save all
 let VP=1.8
 let per10 = Vp*0.1
 let per50 = Vp*0.5
 let per90 = Vp*0.9
-meas TRAN t_rise  TRIG v(out) VAL=per10 rise=2  TARG v(out) VAL=per90 rise=2
-meas TRAN t_fall  TRIG v(out) VAL=per90 fall=2  TARG v(out) VAL=per10 fall=2
+meas TRAN t_rise  TRIG v(out) VAL=per10 rise=1  TARG v(out) VAL=per90 rise=1
+meas TRAN t_fall  TRIG v(out) VAL=per90 fall=1  TARG v(out) VAL=per10 fall=1
 meas TRAN t_delay  TRIG v(in) VAL=per50 rise=1 TARG v(out) VAL=per50 fall=1
 echo TRAN measurements
 print t_delay
