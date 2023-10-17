@@ -3,7 +3,7 @@
 *.ipin in
 *.opin out
 vvdd VDD GND 1.8
-vin in GND PULSE(0 1.8 2n 1n 1n 2n)
+vin in GND PULSE(0 1.8 2n 250p 250p 5n 10n 3)
 x1 in out inv
 **** begin user architecture code
 
@@ -39,7 +39,7 @@ set filetype=binary
 write tb_inv_vtc.raw v(out) v(in) dvout VSW VIL VIH VOH VOL
 
 * Transient analysis
-TRAN 1p 20n
+TRAN 1p 40n
 save all
 let VP=1.8
 let per10 = Vp*0.1

@@ -18,7 +18,7 @@ lab=in}
 N 580 -240 610 -240 {
 lab=out}
 C {devices/vsource.sym} 160 -80 0 0 {name=vvdd value=1.8}
-C {devices/vsource.sym} 240 -80 0 0 {name=vin value="PULSE(0 1.8 2n 1n 1n 2n)"}
+C {devices/vsource.sym} 240 -80 0 0 {name=vin value="PULSE(0 1.8 2n 250p 250p 5n 10n 3)"}
 C {devices/gnd.sym} 160 -30 0 0 {name=l1 lab=GND}
 C {devices/gnd.sym} 240 -30 0 0 {name=l3 lab=GND}
 C {devices/vdd.sym} 160 -130 0 0 {name=l4 lab=VDD}
@@ -50,7 +50,7 @@ set filetype=binary
 write tb_inv_vtc.raw v(out) v(in) dvout VSW VIL VIH VOH VOL
 
 * Transient analysis
-TRAN 1p 20n
+TRAN 1p 40n
 save all
 let VP=1.8
 let per10 = Vp*0.1
