@@ -1,19 +1,22 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1695311499
+timestamp 1697747334
 << locali >>
+rect 2 476 11 545
 rect 232 476 268 546
-rect 2 224 76 302
-rect 198 226 296 302
+rect 198 301 199 302
+rect 2 226 76 301
+rect 198 226 296 301
 rect 416 226 508 290
 rect 218 -8 256 60
+rect 499 -8 508 61
 use inv  inv_0
-timestamp 1600264764
+timestamp 1695393163
 transform 1 0 124 0 1 151
 box -122 -159 166 448
 use inv  inv_1
-timestamp 1600264764
+timestamp 1695393163
 transform 1 0 342 0 1 151
 box -122 -159 166 448
 << labels >>

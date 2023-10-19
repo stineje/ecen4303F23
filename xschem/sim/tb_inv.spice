@@ -1,4 +1,4 @@
-** sch_path: /home/jstine/ecen4303/ecen4303F23/xschem/sim/tb_inv.sch
+** sch_path: /home/jstine/Desktop/ecen4303F23/xschem/sim/tb_inv.sch
 **.subckt tb_inv in out
 *.ipin in
 *.opin out
@@ -62,8 +62,8 @@ write tb_inv_tran.raw
 **.ends
 
 * expanding   symbol:  inv.sym # of pins=2
-** sym_path: /home/jstine/ecen4303/ecen4303F23/xschem/sim/inv.sym
-** sch_path: /home/jstine/ecen4303/ecen4303F23/xschem/sim/inv.sch
+** sym_path: /home/jstine/Desktop/ecen4303F23/xschem/sim/inv.sym
+** sch_path: /home/jstine/Desktop/ecen4303F23/xschem/sim/inv.sch
 .subckt inv A Y
 *.opin Y
 *.ipin A
