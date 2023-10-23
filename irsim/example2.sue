@@ -31,3 +31,20 @@ proc SCHEMATIC_example2 {} {
   make_wire 480 580 540 580
 }
 
+proc ICON_example2 args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}} {M {}} {dpc {}}}
+  icon_term -type input -origin {-120 -40} -name a
+  icon_term -type input -origin {-120 0} -name b
+  icon_term -type input -origin {120 -40} -orient RX -name c
+  icon_term -type output -origin {120 0} -name Out2
+  icon_property -origin {0 0} -size large -anchor center -label example2
+  icon_line -120 -60 120 -60 120 60 -120 60 -120 -60
+  icon_property -origin {-110 -40} -label a
+  icon_property -origin {-110 0} -label b
+  icon_property -origin {110 -40} -anchor e -label c
+  icon_property -origin {110 0} -anchor e -label Out2
+  icon_property -origin {-120 280} -type user -name name
+  icon_property -origin {-120 300} -type user -name M
+  icon_property -origin {-120 320} -type user -name dpc
+}
+

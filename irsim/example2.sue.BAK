@@ -7,7 +7,6 @@ proc SCHEMATIC_example2 {} {
   make pmos -origin {420 410}
   make pmos -orient RX -origin {540 370}
   make pmos -origin {420 330}
-  make output -name Out -origin {670 450}
   make global -orient RXY -name vdd -origin {480 250}
   make global -name gnd -origin {480 660}
   make input -orient RXY -name b -origin {600 510}
@@ -16,6 +15,7 @@ proc SCHEMATIC_example2 {} {
   make input -orient RXY -name c -origin {600 370}
   make input -name b -origin {360 410}
   make input -name a -origin {360 330}
+  make output -name Out2 -origin {670 450}
   make_wire 540 450 420 450
   make_wire 540 450 670 450
   make_wire 540 410 540 450
@@ -29,5 +29,22 @@ proc SCHEMATIC_example2 {} {
   make_wire 420 550 420 580
   make_wire 420 580 480 580
   make_wire 480 580 540 580
+}
+
+proc ICON_example2 args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}} {M {}} {dpc {}}}
+  icon_term -type input -origin {-120 -40} -name a
+  icon_term -type input -origin {-120 0} -name b
+  icon_term -type input -origin {120 -40} -orient RX -name c
+  icon_term -type output -origin {120 0} -name Out2
+  icon_property -origin {0 0} -size large -anchor center -label example2
+  icon_line -120 -60 120 -60 120 60 -120 60 -120 -60
+  icon_property -origin {-110 -40} -label a
+  icon_property -origin {-110 0} -label b
+  icon_property -origin {110 -40} -anchor e -label c
+  icon_property -origin {110 0} -anchor e -label Out2
+  icon_property -origin {-120 280} -type user -name name
+  icon_property -origin {-120 300} -type user -name M
+  icon_property -origin {-120 320} -type user -name dpc
 }
 
