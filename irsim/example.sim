@@ -1,0 +1,10 @@
+|
+|type gate source drain length width
+|---- ---- ------ ----- ------ -----
+p a vdd n1 2 4
+p b n1 out 2 4
+p c vdd out 2 4
+
+n a out n2 2 4
+n b out n2 2 4
+n c n2 gnd 2 4
