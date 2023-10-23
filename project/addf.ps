@@ -1,0 +1,202 @@
+%!PS-Adobe-2.0
+%%Pages: 1
+%%EndComments
+%!
+/MSAVE { /mStat save def } def
+/MRESTORE { mStat restore } def
+/SET { exch def } def
+/SF { /wi SET theFont [wi 0 0 FSIZE 0 0] makefont setfont } def
+/L { newpath moveto lineto stroke } def
+/VL { 2 index exch L } def
+/HL { 1 index L } def
+/BOX { /@yb SET /@xb SET /@yt SET /@xt SET newpath
+ @xb @yb moveto @xb @yt lineto @xt @yt lineto @xt @yb lineto closepath } def
+/SL { moveto show } def
+/SR { exch dup /@xr SET 2 index stringwidth pop sub dup
+ 0 le { pop 0 @xr 3 -1 roll SC } { exch FSIZE 2 div sub moveto show }
+ ifelse } def
+/SCP { /@s SET @s stringwidth pop /@sw SET @sw 2 div sub
+ dup @sw add maxX gt { pop maxX @sw sub } if exch moveto @s show } def
+/SC { FSIZE 2 div sub /@y SET /@x2 SET /@x1 SET /@s SET
+ /@l @x2 @x1 sub def /@x @x1 @x2 add 2 div def
+ /@w @s stringwidth pop def @l @w gt
+ { @y @x @s SCP }
+ { @l FSIZE mul @w 1 add div dup MINFSIZE lt
+ { pop } { /svf currentfont def SF @y @x @s SCP svf setfont } ifelse }ifelse
+} def
+/LE { exch GX GY FSIZE 2 div add SR /@x GX def
+ { dup stringwidth pop /@w SET /@x @x FSIZE add def @x @w add
+ 720 ge { /@x GX FSIZE add def /GY GY FSIZE 2 add sub def } if
+ @x GY SL /@x @x @w add def } repeat /GY GY FSIZE 4 add sub def } def
+/FSIZE 9 def /MINFSIZE 4 def /maxX 718 def
+612 0 translate
+90 rotate
+36 56 translate
+1 setlinecap 0.6 setlinewidth 
+/theFont /Helvetica findfont def FSIZE SF
+%%Page: 1 1
+%%PageOrientation: Landscape
+MSAVE
+0.82 setgray
+0 505 720 520 BOX fill
+0 setgray
+0 505 720 520 BOX stroke
+(addf.ps)6 513 FSIZE 2 div sub SL
+(Sun Oct 22 21:39:09 2023
+) 716 513 SR
+0 -20 720 520 BOX stroke
+0 setlinewidth [1 3] 0 setdash /svfnt currentfont def
+theFont 0.7 FSIZE mul scalefont setfont
+(time \(ns\)) 0 -1 0 SC
+0 505 -1 VL
+(0.00) 0 0 -10 SC
+112 505 -1 VL
+(25.00) 0 224 -10 SC
+224 505 -1 VL
+(50.00) 0 448 -10 SC
+336 505 -1 VL
+(75.00) 0 672 -10 SC
+448 505 -1 VL
+(100.00) 0 896 -10 SC
+560 505 -1 VL
+(125.00) 0 1120 -10 SC
+672 505 -1 VL
+(150.00) 0 1344 -10 SC
+0 0 718 HL
+0.6 setlinewidth [] 0 setdash svfnt setfont
+(In)717 490 SR
+(Out)717 462 SR
+0 478 501 VL
+0 501 0 502 L
+0 478 0 477 L
+(X)0 0 490 SC
+0 502 89 HL
+0 477 89 HL
+89 478 501 VL
+89 502 89 501 L
+89 477 89 478 L
+89 501 90 502 L
+89 478 90 477 L
+(0)0 89 490 SC
+90 502 178 HL
+90 477 178 HL
+179 478 501 VL
+178 502 179 501 L
+178 477 179 478 L
+179 501 180 502 L
+179 478 180 477 L
+(1)89 179 490 SC
+180 502 268 HL
+180 477 268 HL
+269 478 501 VL
+268 502 269 501 L
+268 477 269 478 L
+269 501 269 502 L
+269 478 269 477 L
+(2)179 269 490 SC
+269 502 358 HL
+269 477 358 HL
+358 478 501 VL
+358 502 358 501 L
+358 477 358 478 L
+358 501 359 502 L
+358 478 359 477 L
+(3)269 358 490 SC
+359 502 447 HL
+359 477 447 HL
+448 478 501 VL
+447 502 448 501 L
+447 477 448 478 L
+448 501 449 502 L
+448 478 449 477 L
+(4)358 448 490 SC
+449 502 537 HL
+449 477 537 HL
+538 478 501 VL
+537 502 538 501 L
+537 477 538 478 L
+538 501 538 502 L
+538 478 538 477 L
+(5)448 538 490 SC
+538 502 627 HL
+538 477 627 HL
+627 478 501 VL
+627 502 627 501 L
+627 477 627 478 L
+627 501 628 502 L
+627 478 628 477 L
+(6)538 627 490 SC
+628 502 717 HL
+628 477 717 HL
+(7)627 717 490 SC
+0 451 473 VL
+0 473 0 474 L
+0 451 0 449 L
+(X)0 0 462 SC
+0 451 473 VL
+0 473 0 474 L
+0 451 0 449 L
+(X)0 0 462 SC
+0 474 89 HL
+0 449 89 HL
+89 451 473 VL
+89 474 89 473 L
+89 449 89 451 L
+89 473 90 474 L
+89 451 90 449 L
+(0)0 89 462 SC
+90 474 268 HL
+90 449 268 HL
+269 451 473 VL
+268 474 269 473 L
+268 449 269 451 L
+269 473 269 474 L
+269 451 269 449 L
+(1)89 269 462 SC
+269 451 473 VL
+269 474 269 473 L
+269 449 269 451 L
+269 473 269 474 L
+269 451 269 449 L
+(3)269 269 462 SC
+269 474 358 HL
+269 449 358 HL
+359 451 473 VL
+358 474 359 473 L
+358 449 359 451 L
+359 473 359 474 L
+359 451 359 449 L
+(2)269 359 462 SC
+359 451 473 VL
+359 474 359 473 L
+359 449 359 451 L
+359 473 359 474 L
+359 451 359 449 L
+(0)359 359 462 SC
+359 474 447 HL
+359 449 447 HL
+448 451 473 VL
+447 474 448 473 L
+447 449 448 451 L
+448 473 449 474 L
+448 451 449 449 L
+(1)359 448 462 SC
+448 451 473 VL
+449 474 448 473 L
+449 449 448 451 L
+448 473 449 474 L
+448 451 449 449 L
+(3)448 448 462 SC
+449 474 627 HL
+449 449 627 HL
+627 451 473 VL
+627 474 627 473 L
+627 449 627 451 L
+627 473 628 474 L
+627 451 628 449 L
+(2)448 627 462 SC
+628 474 717 HL
+628 449 717 HL
+(3)627 717 462 SC
+showpage MRESTORE
+%%EOF

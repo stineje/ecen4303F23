@@ -2,27 +2,33 @@
 stepsize 20.0
 h vdd
 l gnd
-ana A B CI S CO
+vector In A B CI
+vector Out CO S
+ana -h in Out
 analyzer
-l A B CI
+setvector In 000
 s
-h A
+assert Out 00
+setvector In 001
 s
-l A
-h B
+assert Out 01
+setvector In 010
 s
-h A B
+assert Out 01
+setvector In 011
 s
-h CI
-l A B
+assert Out 10
+setvector In 100
 s
-h A
+assert Out 01
+setvector In 101
 s
-l A
-h B
+assert Out 10
+setvector In 110
 s
-h A B
+assert Out 10
+setvector In 111
 s
-h CI
-s
+assert Out 11
+
 
