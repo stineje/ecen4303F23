@@ -1,0 +1,148 @@
+%!PS-Adobe-2.0
+%%Pages: 1
+%%EndComments
+%!
+/MSAVE { /mStat save def } def
+/MRESTORE { mStat restore } def
+/SET { exch def } def
+/SF { /wi SET theFont [wi 0 0 FSIZE 0 0] makefont setfont } def
+/L { newpath moveto lineto stroke } def
+/VL { 2 index exch L } def
+/HL { 1 index L } def
+/BOX { /@yb SET /@xb SET /@yt SET /@xt SET newpath
+ @xb @yb moveto @xb @yt lineto @xt @yt lineto @xt @yb lineto closepath } def
+/SL { moveto show } def
+/SR { exch dup /@xr SET 2 index stringwidth pop sub dup
+ 0 le { pop 0 @xr 3 -1 roll SC } { exch FSIZE 2 div sub moveto show }
+ ifelse } def
+/SCP { /@s SET @s stringwidth pop /@sw SET @sw 2 div sub
+ dup @sw add maxX gt { pop maxX @sw sub } if exch moveto @s show } def
+/SC { FSIZE 2 div sub /@y SET /@x2 SET /@x1 SET /@s SET
+ /@l @x2 @x1 sub def /@x @x1 @x2 add 2 div def
+ /@w @s stringwidth pop def @l @w gt
+ { @y @x @s SCP }
+ { @l FSIZE mul @w 1 add div dup MINFSIZE lt
+ { pop } { /svf currentfont def SF @y @x @s SCP svf setfont } ifelse }ifelse
+} def
+/LE { exch GX GY FSIZE 2 div add SR /@x GX def
+ { dup stringwidth pop /@w SET /@x @x FSIZE add def @x @w add
+ 720 ge { /@x GX FSIZE add def /GY GY FSIZE 2 add sub def } if
+ @x GY SL /@x @x @w add def } repeat /GY GY FSIZE 4 add sub def } def
+/FSIZE 9 def /MINFSIZE 4 def /maxX 718 def
+612 0 translate
+90 rotate
+36 55 translate
+1 setlinecap 0.6 setlinewidth 
+/theFont /Helvetica findfont def FSIZE SF
+%%Page: 1 1
+%%PageOrientation: Landscape
+MSAVE
+0.82 setgray
+0 506 720 521 BOX fill
+0 setgray
+0 506 720 521 BOX stroke
+(example.ps)6 514 FSIZE 2 div sub SL
+(Mon Oct 23 09:02:54 2023
+) 713 514 SR
+0 -19 720 521 BOX stroke
+0 setlinewidth [1 3] 0 setdash /svfnt currentfont def
+theFont 0.7 FSIZE mul scalefont setfont
+(time \(ns\)) 0 -1 1 SC
+1 505 -3 VL
+(0.00) 0 2 -9 SC
+112 505 -3 VL
+(25.00) 0 224 -9 SC
+224 505 -3 VL
+(50.00) 0 448 -9 SC
+336 505 -3 VL
+(75.00) 0 672 -9 SC
+447 505 -3 VL
+(100.00) 0 894 -9 SC
+559 505 -3 VL
+(125.00) 0 1118 -9 SC
+671 505 -3 VL
+(150.00) 0 1342 -9 SC
+-2 1 718 HL
+0.6 setlinewidth [] 0 setdash svfnt setfont
+(In)715 464 SR
+(out)715 393 SR
+1 432 494 VL
+1 494 3 497 L
+1 432 3 428 L
+(X)1 1 464 SC
+3 497 88 HL
+3 428 88 HL
+90 432 494 VL
+88 497 90 494 L
+88 428 90 432 L
+90 494 92 497 L
+90 432 92 428 L
+(0)1 90 464 SC
+92 497 177 HL
+92 428 177 HL
+179 432 494 VL
+177 497 179 494 L
+177 428 179 432 L
+179 494 181 497 L
+179 432 181 428 L
+(1)90 179 464 SC
+181 497 267 HL
+181 428 267 HL
+269 432 494 VL
+267 497 269 494 L
+267 428 269 432 L
+269 494 271 497 L
+269 432 271 428 L
+(2)179 269 464 SC
+271 497 356 HL
+271 428 356 HL
+358 432 494 VL
+356 497 358 494 L
+356 428 358 432 L
+358 494 360 497 L
+358 432 360 428 L
+(3)269 358 464 SC
+360 497 445 HL
+360 428 445 HL
+447 432 494 VL
+445 497 447 494 L
+445 428 447 432 L
+447 494 449 497 L
+447 432 449 428 L
+(4)358 447 464 SC
+449 497 535 HL
+449 428 535 HL
+537 432 494 VL
+535 497 537 494 L
+535 428 537 432 L
+537 494 539 497 L
+537 432 539 428 L
+(5)447 537 464 SC
+539 497 624 HL
+539 428 624 HL
+626 432 494 VL
+624 497 626 494 L
+624 428 626 432 L
+626 494 628 497 L
+626 432 628 428 L
+(6)537 626 464 SC
+628 497 716 HL
+628 428 716 HL
+(7)626 716 464 SC
+0.68 setgray
+1 421 1 365 BOX fill
+0 setgray
+1 365 421 VL
+1 421 269 HL
+269 365 421 VL
+269 365 358 HL
+358 365 421 VL
+358 421 447 HL
+447 365 421 VL
+447 365 537 HL
+537 365 421 VL
+537 421 626 HL
+626 365 421 VL
+626 365 716 HL
+showpage MRESTORE
+%%EOF
