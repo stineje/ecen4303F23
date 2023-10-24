@@ -9,4 +9,5 @@
 # Special SUE version which includes file modification times.
 
 set auto_index(SCHEMATIC_example2) [list source [file join $dir example2.sue]]
-set mtimes {{example2.sue 1698076401}}
+set auto_index(ICON_example2) [list source [file join $dir example2.sue]]
+set mtimes {{example2.sue 1698076914}}
