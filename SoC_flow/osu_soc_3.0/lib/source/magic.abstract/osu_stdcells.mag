@@ -1,0 +1,169 @@
+magic
+tech scmos
+timestamp 1081302731
+<< metal1 >>
+rect -209 430 -187 436
+rect -230 330 -187 336
+rect -209 310 -195 316
+rect -230 210 -196 216
+rect -209 196 -190 202
+rect -230 96 -188 102
+rect -209 71 -187 77
+rect -230 -29 -187 -23
+rect -209 -53 -174 -47
+rect -230 -153 -174 -147
+<< m2contact >>
+rect -221 430 -209 436
+rect -242 330 -230 336
+rect -221 310 -209 316
+rect -242 210 -230 216
+rect -221 196 -209 202
+rect -242 96 -230 102
+rect -221 71 -209 77
+rect -242 -29 -230 -23
+rect -221 -53 -209 -47
+rect -242 -153 -230 -147
+<< metal2 >>
+rect -242 216 -230 330
+rect -242 102 -230 210
+rect -242 -23 -230 96
+rect -242 -147 -230 -29
+rect -242 -170 -230 -153
+rect -221 316 -209 430
+rect -221 202 -209 310
+rect -221 77 -209 196
+rect -221 -47 -209 71
+rect -221 -170 -209 -53
+use FILL fill_0
+timestamp 1018054153
+transform 1 0 -189 0 1 333
+box -8 -3 16 105
+use AND2X1 and2x1_0
+timestamp 1053722159
+transform 1 0 -181 0 1 333
+box -8 -3 40 105
+use AND2X2 AND2X2_0
+timestamp 1053022145
+transform 1 0 -149 0 1 333
+box -8 -3 40 105
+use AOI21X1 AOI21X1_0
+timestamp 1053722243
+transform 1 0 -116 0 1 333
+box -7 -3 39 105
+use AOI22X1 AOI22X1_0
+timestamp 1053022145
+transform 1 0 -84 0 1 333
+box -8 -3 46 105
+use BUFX2 BUFX2_0
+timestamp 1053722803
+transform 1 0 -43 0 1 333
+box -5 -3 28 105
+use BUFX4 BUFX4_0
+timestamp 1053722803
+transform 1 0 -19 0 1 333
+box -9 -3 37 105
+use DFFNEGX1 DFFNEG_0
+timestamp 1052851797
+transform 1 0 16 0 1 333
+box -8 -3 104 105
+use NOR3X1 nor3x1_0
+timestamp 1053022145
+transform 1 0 114 0 1 333
+box -7 -3 68 105
+use DFFPOSX1 dffpos_0
+timestamp 1048618183
+transform 1 0 -200 0 1 213
+box -8 -3 104 105
+use FAX1 FAX1_0
+timestamp 1053025068
+transform 1 0 -101 0 1 213
+box -5 -3 126 105
+use HAX1 HAX1_0
+timestamp 1052770320
+transform 1 0 22 0 1 213
+box -5 -3 84 105
+use INVX1 invx1_0
+timestamp 1053022145
+transform 1 0 105 0 1 213
+box -9 -3 26 105
+use INVX2 INVX2_0
+timestamp 1053022145
+transform 1 0 121 0 1 213
+box -9 -3 26 105
+use INVX4 INVX4_0
+timestamp 1053722803
+transform 1 0 137 0 1 213
+box -9 -3 28 105
+use INVX8 INVX8_0
+timestamp 1053722803
+transform 1 0 161 0 1 213
+box -9 -3 45 105
+use NAND2X1 nand2x1_0
+timestamp 1053022145
+transform 1 0 -194 0 1 99
+box -8 -3 32 105
+use NAND3X1 nand3x1_0
+timestamp 1053022145
+transform 1 0 -170 0 1 99
+box -8 -3 40 105
+use NOR2X1 nor2x1_0
+timestamp 1053022145
+transform 1 0 -135 0 1 99
+box -8 -3 32 105
+use OAI21X1 OAI21X1_0
+timestamp 1053722159
+transform 1 0 -109 0 1 99
+box -8 -3 34 105
+use OAI22X1 OAI22X1_0
+timestamp 1053021427
+transform 1 0 -73 0 1 99
+box -8 -3 46 105
+use OR2X1 or2x1_0
+timestamp 1053022145
+transform 1 0 -29 0 1 99
+box -8 -3 40 105
+use OR2X2 OR2X2_0
+timestamp 1053022145
+transform 1 0 5 0 1 99
+box -7 -3 35 105
+use TBUFX1 TBUFX1_0
+timestamp 1053722803
+transform 1 0 41 0 1 99
+box -5 -3 42 105
+use TBUFX2 TBUFX2_0
+timestamp 1053722803
+transform 1 0 81 0 1 99
+box -5 -3 60 105
+use XOR2X1 xor2x1_0
+timestamp 1053359338
+transform 1 0 139 0 1 99
+box -8 -3 64 105
+use MUX2X1 MUX2X1_0
+timestamp 1053021328
+transform 1 0 195 0 1 99
+box -5 -3 53 105
+use XNOR2X1 XNOR2X1_0
+timestamp 1054159935
+transform 1 0 -186 0 1 -26
+box -8 -3 64 105
+use LATCH LATCH_0
+timestamp 1071163339
+transform 1 0 -130 0 1 -26
+box -8 -3 64 105
+use DFFSR DFFSR_0
+timestamp 1071163401
+transform 1 0 -74 0 1 -26
+box -8 -3 184 105
+use CLKBUF1 CLKBUF1_0
+timestamp 1069013294
+transform 1 0 -176 0 1 -150
+box -8 -3 80 105
+use CLKBUF2 CLKBUF2_0
+timestamp 1069013403
+transform 1 0 -104 0 1 -150
+box -8 -3 112 105
+use CLKBUF3 CLKBUF3_0
+timestamp 1069013472
+transform 1 0 0 0 1 -150
+box -8 -3 144 105
+<< end >>

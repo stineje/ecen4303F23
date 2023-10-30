@@ -1,0 +1,856 @@
+#!/bin/csh -f
+
+#### quickQoR version 1.4
+
+#### Syntax:  quickQoR <stepName>
+
+#### For Astro Reports
+#### Assumes ./log/<stepName>.log  ;  ./report/<stepName>.rpt   ;   ./report/<stepName>.sum   ;  ./report/<stepName>.skew 
+####  - except for check_setup, init_design, investigate, run, and chip (if given as steps) 
+
+#### For Only Error/Warning Parsing of a specific Astro Log File use:
+#### Syntax: ./quickQoR error <logfileName>
+
+#### For PC Reports
+#### Assumes PC run from inside of RCMD and uses RCMD naming conventions only
+#### Supports individual step name, run, or chip as a step name
+
+#### To test setup:
+####   - quickQoR test
+
+#### Notes:
+
+
+
+############################################################################
+
+###Process Arguments
+
+##Determine if check_design is the current step
+set CHECKDESIGN = 0
+if ( $argv[1] == "check_setup" ) then
+   set CHECKDESIGN = 1
+endif
+
+##Determine if error/warning mode only is set
+set ERRORONLY = 0
+if ( $argv[1] == "error" ) then
+   set ERRORONLY = 1
+endif
+
+##Determine if chip mode is set
+set CHIPMODE = 0
+if ( $argv[1] == "chip" ) then
+   set CHIPMODE = 1
+endif
+
+
+#############################################################################
+
+###Test Setup
+if ( $argv[1] == "test" ) then
+   echo "checking paths to programs called"
+   which egrep
+   which sed
+   which uniq
+   echo "test completed"
+   exit
+endif
+
+#############################################################################
+
+
+###Define logs, prSummary, Timing and Skew Reports and Astro defaults
+
+##Astro Reports
+set NUMSTEPS = 8
+set CURRENTSTEP = 1
+set RESULTTYPE = "Progression"
+set RESULTTARGET = "of target $argv[1]"
+
+##Default case
+set LOG = ./log/$argv[1].log
+set PRSUM = ./report/$argv[1].sum
+set TIM = ./report/$argv[1].rpt
+set PTIM = ./report/$argv[1]_propagated.rpt
+set SKEW = ./report/$argv[1].skew
+set SKEW2 = ./report/$argv[1].skew.worst
+set SKEW3 = ./report/$argv[1].skew.best
+
+
+##check_setup case - $argv[1] = check_setup
+if ( $CHECKDESIGN == 1 ) then
+   set NUMSTEPS = 3
+   set RESULTTYPE = "Error/Warning"
+   set RESULTTARGET = "for $LOG"
+endif
+
+##Init design case - $argv[1] = init_design
+if ( $argv[1] == "init_design" ) then
+     set PRSUM = ./report/initial_pr.sum
+endif
+
+##Investigation Flow case - $argv[1] = investigate
+if ( $argv[1] == "investigate" ) then
+     set PRSUM = ./report/trialroute.sum
+     set TIM = ./report/trialroute.rpt
+     set PTIM = ./report/trialroute_propagated.rpt
+     set SKEW = ./report/trialclock.skew
+     set SKEW2 = ./report/trialclock.skew.worst
+     set SKEW3 = ./report/trialclock.skew.best
+endif
+
+##Jupiter Virtual Flat Flow case - $argv[1] = investigate
+if ( $argv[1] == "feasibility" ) then
+     set PRSUM = ./report/feasibility.sum
+     set TIM = ./report/feasibility.rpt
+     set PTIM = ./report/feasibility_propagated.rpt
+     set SKEW = ./report/trialclock.skew
+     set SKEW2 = ./report/trialclock.skew.worst
+     set SKEW3 = ./report/trialclock.skew.best
+endif
+
+##Run Command Case - $argv[1] = run
+if ( $argv[1] == "run" ) then
+     set PRSUM = ./report/post_route.sum
+     set TIM = ./report/post_route.rpt
+     set PTIM = ./report/post_route_propagated.rpt
+     set SKEW = ./report/post_route.skew
+endif
+
+##Run Command Case - $argv[1] = chip ==> i.e. CHIPMODE = 1
+##Add support for chip step 
+##assume investigate flow if log/investigate.log exists
+##assume jxt flow if log/feasibility.log exists
+if ( $CHIPMODE == 1 ) then
+     set LOG = ./log/chip.log
+     set PRSUM = ./report/post_route.sum
+     set TIM = ./report/post_route.rpt
+     set PTIM = ./report/post_route_propagated.rpt
+     set SKEW = ./report/post_route.skew
+     if ( -e ./log/investigate.log ) then
+        set PRSUM = ./report/trialroute.sum
+        set TIM = ./report/trialroute.rpt
+        set PTIM = ./report/trialroute_propagated.rpt
+        set SKEW = ./report/trialclock.skew
+        set SKEW2 = ./report/trialclock.skew.worst
+        set SKEW3 = ./report/trialclock.skew.best
+      endif
+     if ( -e ./log/feasibility.log ) then
+        set PRSUM = ./report/feasibility.sum
+        set TIM = ./report/feasibility.rpt
+        set PTIM = ./report/feasibility_propagated.rpt
+        set SKEW = ./report/trialclock.skew
+        set SKEW2 = ./report/trialclock.skew.worst
+        set SKEW3 = ./report/trialclock.skew.best
+      endif
+endif
+
+if ( $ERRORONLY == 1 ) then
+   set NUMSTEPS = 2
+   set LOG = $argv[2]
+   set RESULTTYPE = "Error/Warning"
+   set RESULTTARGET = "for $LOG"
+endif
+
+#############################################################################
+
+###Need to build chip.log if CHIPMODE is 1
+###   - build from catting other logs into one based on time
+
+
+if ( $CHIPMODE == 1 ) then
+
+   cd ./log
+   rm -f chip.list
+   rm -f chip.log
+   rm -f chip.scr
+   ls -tr > chip.list
+   touch chip.scr
+   echo "#\!/bin/csh -f" >> chip.scr
+   cat chip.list | awk '{print "cat " $1}' | egrep '(\.log)' | egrep -v '(physopt|log\.pc)' | awk '{print $1 " " $2 " >> chip.log"}'  >> chip.scr
+   chmod 777 chip.scr
+   ./chip.scr
+
+   cd ..
+   #echo "./log/chip.log has been created"
+
+endif
+
+
+############################################################################
+
+###Check for existance of Astro Logs and files and flag
+
+set LOGEXISTS = 0
+if ( ( -e $LOG ) || ( -e $LOG.tcl ) ) then
+     set LOGEXISTS = 1
+endif
+
+if ( -e $LOG.tcl ) then
+     set LOG = $LOG.tcl
+endif
+if ( -e $LOG ) then
+     set LOG = $LOG
+endif
+
+set PRSUMEXISTS = 0
+if ( -e $PRSUM ) then
+     set PRSUMEXISTS = 1
+endif
+set TIMEXISTS = 0
+if ( -e $TIM ) then
+     set TIMEXISTS = 1
+endif
+set PTIMEXISTS = 0
+if ( -e $PTIM ) then
+     set PTIMEXISTS = 1
+endif
+set SKEWEXISTS = 0
+if ( -e $SKEW ) then
+     set SKEWEXISTS = 1
+endif
+set SKEW2EXISTS = 0
+if ( -e $SKEW2 ) then
+     set SKEW2EXISTS = 1
+endif
+set SKEW3EXISTS = 0
+if ( -e $SKEW3 ) then
+     set SKEW3EXISTS = 1
+endif
+
+
+#############################################################################
+
+
+##Determine if Physical Compiler could have been run, and if so
+##   include parsing of RCMD PC files
+
+##   To check if PC was run:
+##      - basically if place_opt or run are the targets PC could have been run
+##      - then check for prescence of appropriate log file
+
+set PCNUMSTEPS = 0
+set PCCURRENTSTEP = 1
+set CHECKPCANY = 0
+
+## 1 is for create design, 2 is physopt, 3 is post_physopt
+set CHECKPC1 = 0
+set CHECKPC2 = 0
+set CHECKPC3 = 0
+
+set PCLOG1 = ./log/create_design.log.pc
+set PCLOG2 = ./log/physopt.log
+set PCLOG3 = ./log/post_physopt.log
+
+set PCWMDB = ./report/wmdb.results.lst
+
+set PCPNET2 = ./report/physopt.pnet_option.lst
+set PCCONG2 = ./report/physopt.congestion
+set PCTIM2 = ./report/physopt.timing
+set PCQOR2 = ./report/physopt.qor
+
+set PCPNET3 = ./report/post_physopt.pnet_option.lst
+set PCCONG3 = ./report/post_physopt.congestion
+set PCTIM3 = ./report/post_physopt.timing
+set PCQOR3 = ./report/post_physopt.qor
+
+
+##Determine if PC reports/logs need to be parsed
+##1st must be in proper stage, and then check for precence of file to see if PC was run
+if ( ($argv[1] == "init_design") || ($argv[1] == "run") || ($CHIPMODE == 1) ) then
+   if ( -e $PCLOG1 ) then
+        set CHECKPC1 = 1
+        @ PCNUMSTEPS += 3
+   endif
+endif
+if ( ($argv[1] == "place_opt") || ($argv[1] == "run") || ($CHIPMODE == 1) ) then
+   if ( -e $PCLOG2 ) then
+        set CHECKPC2 = 1
+        @ PCNUMSTEPS += 5
+   endif
+endif
+if ( ($argv[1] == "place_opt") || ($argv[1] == "clock_opt") || ($argv[1] == "run") || ($CHIPMODE == 1) ) then
+   if ( -e $PCLOG3 ) then
+        set CHECKPC3 = 1
+        @ PCNUMSTEPS += 5
+   endif
+endif
+
+##Set general checkPC variable
+if ( ($CHECKPC1 == 1) || ($CHECKPC2 == 1) || ($CHECKPC3 == 1) ) then
+   set CHECKPCANY = 1
+endif
+
+
+#####################################################################################
+
+###Header
+
+echo "======================================================================="
+echo "RCMD-Toolbox: quickQoR: $RESULTTYPE Results $RESULTTARGET"
+echo ""
+
+if ( $LOGEXISTS == 0 ) then
+  echo ""
+  echo "no $LOG exists, exiting quickQoR"
+  echo ""
+  exit
+endif
+
+
+if ( ($CHIPMODE == 1) && ($CHECKPCANY == 1) ) then
+  echo "List of All PC Versions Used:"
+  echo ""
+endif
+
+
+if ( $CHECKPC1 == 1 ) then
+   egrep '(Version.*for)' $PCLOG1 |  sed 's/  Version/PC Version (create cell):/g'
+endif
+if ( $CHECKPC2 == 1 ) then
+   egrep '(Version.*for)' $PCLOG2 |  sed 's/  Version/PC Version (physopt):/g'
+endif
+if ( $CHECKPC3 == 1 ) then
+   egrep '(Version.*for)' $PCLOG3 |  sed 's/  Version/PC Version (post_physopt):/g'
+endif
+
+if ( $CHIPMODE == 1 ) then
+  echo ""
+  echo "List of All Astro Versions Used:"
+  echo ""
+endif
+
+egrep '(Version.*for|INTERNAL_USE_ONLY|SunOS|Linux|HP-UX)' $LOG | egrep -v '(#\(|version|Scripts)' | sed 's/  Version/Astro Version:/g;s/^SunOS/Astro OS: SunOS/g;s/^Linux/Astro OS: Linux/g;s/^HP/Astro OS: HP-UX/g'
+
+echo "======================================================================="
+
+if ( $ERRORONLY == 1 ) then
+   echo ""
+   echo "++++++++++++++++++++++++++++++++++++++++++++++"
+   echo ""
+   echo "Log file Parsed: $LOG"
+   echo ""
+   echo "++++++++++++++++++++++++++++++++++++++++++++++"
+   goto report_error_only
+endif
+
+
+#################################################################################
+
+####PC Section
+
+if ( $CHECKPCANY == 1 ) then
+
+
+   ###Write MDB
+
+
+   if ( $CHECKPC1 == 1 ) then
+
+      echo ""
+      echo ""
+      echo "-----------------------------------------------------------------------"
+      echo "PC Section $PCCURRENTSTEP of $PCNUMSTEPS : Write MDB during create design"
+      echo "-----------------------------------------------------------------------"
+      echo ""
+
+      cat $PCWMDB
+
+      @ PCCURRENTSTEP += 1
+
+   endif
+
+
+
+   if ( ($CHECKPC2 == 1) || ($CHECKPC3 == 1) ) then
+
+      ###QOR
+
+      if ( $CHECKPC2 == 1 ) then
+
+         echo ""
+         echo ""
+         echo "-----------------------------------------------------------------------"
+         echo "PC Section $PCCURRENTSTEP of $PCNUMSTEPS : QOR PhysOpt Step"
+         echo "-----------------------------------------------------------------------"
+         echo ""
+
+	 egrep '(Operating Conditions| -delay )' $PCTIM2
+         cat $PCQOR2
+
+         @ PCCURRENTSTEP += 1
+
+
+      endif
+
+      if ( $CHECKPC3 == 1 ) then
+
+         echo ""
+         echo ""
+         echo "-----------------------------------------------------------------------"
+         echo "PC Section $PCCURRENTSTEP of $PCNUMSTEPS : QOR Results Post PhysOpt Step"
+         echo "-----------------------------------------------------------------------"
+         echo ""
+
+	 egrep '(Operating Conditions)' $PCTIM3
+         cat $PCQOR3
+
+         @ PCCURRENTSTEP += 1
+
+
+      endif
+
+      ###Congestion
+      if ( $CHECKPC2 == 1 ) then
+
+         echo ""
+         echo ""
+         echo "-----------------------------------------------------------------------"
+         echo "PC Section $PCCURRENTSTEP of $PCNUMSTEPS : Congestion Results PhysOpt Step"
+         echo "-----------------------------------------------------------------------"
+         echo ""
+
+         cat $PCCONG2
+
+         @ PCCURRENTSTEP += 1
+
+
+      endif
+
+      if ( $CHECKPC3 == 1 ) then
+
+         echo ""
+         echo ""
+         echo "-----------------------------------------------------------------------"
+         echo "PC Section $PCCURRENTSTEP of $PCNUMSTEPS : Congestion Results Post PhysOpt Step"
+         echo "-----------------------------------------------------------------------"
+         echo ""
+
+         cat $PCCONG3
+
+         @ PCCURRENTSTEP += 1
+
+
+      endif
+  
+      ###PNET
+      if ( $CHECKPC2 == 1 ) then
+
+         echo ""
+         echo ""
+         echo "-----------------------------------------------------------------------"
+         echo "PC Section $PCCURRENTSTEP of $PCNUMSTEPS : PNET Report PhysOpt Step"
+         echo "-----------------------------------------------------------------------"
+         echo ""
+
+         cat $PCPNET2
+
+         @ PCCURRENTSTEP += 1
+
+
+      endif
+
+      if ( $CHECKPC3 == 1 ) then
+
+         echo ""
+         echo ""
+         echo "-----------------------------------------------------------------------"
+         echo "PC Section $PCCURRENTSTEP of $PCNUMSTEPS : PNET Report Post PhysOpt Step"
+         echo "-----------------------------------------------------------------------"
+         echo ""
+
+         cat $PCPNET3
+
+         @ PCCURRENTSTEP += 1
+
+
+      endif
+   
+   ##endif 2 or 3
+   endif
+
+
+   ###ERRORS and Warnings
+
+   if ( $CHECKPC1 == 1 ) then
+
+      echo ""
+      echo ""
+      echo "-----------------------------------------------------------------------"
+      echo "PC Section $PCCURRENTSTEP of $PCNUMSTEPS : Errors Create Design Step"
+      echo "-----------------------------------------------------------------------"
+      echo ""
+
+      egrep '(Error|error|ERROR)'  $PCLOG1
+
+      @ PCCURRENTSTEP += 1
+
+      echo ""
+      echo ""
+      echo "-----------------------------------------------------------------------"
+      echo "PC Section $PCCURRENTSTEP of $PCNUMSTEPS : Warnings Create Design Step"
+      echo "-----------------------------------------------------------------------"
+      echo ""
+
+      egrep '(Warning|warning|WARNING|PSYN-024|PSYN-025|PSYN-039|UID-401)'  $PCLOG1
+
+      @ PCCURRENTSTEP += 1
+
+   endif
+
+   if ( $CHECKPC2 == 1 ) then
+
+      echo "" 
+      echo "" 
+      echo "-----------------------------------------------------------------------"
+      echo "PC Section $PCCURRENTSTEP of $PCNUMSTEPS : Errors Physopt Step"
+      echo "-----------------------------------------------------------------------"
+      echo "" 
+
+      egrep '(Error|error|ERROR)'  $PCLOG2
+
+      @ PCCURRENTSTEP += 1
+
+      echo ""
+      echo ""
+      echo "-----------------------------------------------------------------------"
+      echo "PC Section $PCCURRENTSTEP of $PCNUMSTEPS : Warnings Physopt Step"
+      echo "-----------------------------------------------------------------------"
+      echo "" 
+      
+      egrep '(Warning|warning|WARNING|PSYN-024|PSYN-025|PSYN-039|UID-401)'  $PCLOG2
+
+      @ PCCURRENTSTEP += 1
+
+   endif
+
+   if ( $CHECKPC3 == 1 ) then
+
+      echo "" 
+      echo "" 
+      echo "-----------------------------------------------------------------------"
+      echo "PC Section $PCCURRENTSTEP of $PCNUMSTEPS : Errors Post Physopt Step"
+      echo "-----------------------------------------------------------------------"
+      echo "" 
+
+      egrep '(Error|error|ERROR)'  $PCLOG3
+
+      @ PCCURRENTSTEP += 1
+
+      echo ""
+      echo ""
+      echo "-----------------------------------------------------------------------"
+      echo "PC Section $PCCURRENTSTEP of $PCNUMSTEPS : Warnings Post Physopt Step"
+      echo "-----------------------------------------------------------------------"
+      echo "" 
+      
+      egrep '(Warning|warning|WARNING|PSYN-024|PSYN-025|PSYN-039|UID-401)'  $PCLOG3
+
+      @ PCCURRENTSTEP += 1
+
+   endif
+
+
+
+##endif any PC
+endif
+
+
+#################################################################################
+
+####Astro Sections
+
+###Check Setup section
+
+if ( $CHECKDESIGN == 1 ) then
+
+   echo ""
+   echo ""
+   echo "-----------------------------------------------------------------------"
+   echo "Astro Section $CURRENTSTEP of $NUMSTEPS : Check Setup Results"
+   echo "-----------------------------------------------------------------------"
+   echo ""
+
+   egrep '(;;|;#|RCMD)' $LOG | egrep -v '(;;==|textWindow|configureWindow|iconifyWindow|;# Scheme|;; ;# Tcl|;## |;##expand#)'
+
+
+   ##check/give status if PC Astro was run
+   if ( -e ./log/psyn_shell.log ) then
+	echo ""
+	echo ""
+	echo "Contents of psyn_shell.log:"
+	cat ./log/psyn_shell.log
+   endif
+
+   goto report_error_only
+
+   @ CURRENTSTEP += 1
+
+endif
+
+
+###Timing Summary
+
+echo ""
+echo ""
+echo "-----------------------------------------------------------------------"
+echo "Astro Section $CURRENTSTEP of $NUMSTEPS : Timing Results (and Xtalk, if any)"
+echo "-----------------------------------------------------------------------"
+echo ""
+
+if ( $TIMEXISTS == 1 ) then 
+   if ( $PTIMEXISTS == 1 ) then 
+      echo "Non Propagated Timing Report:"
+   endif
+   echo "Timing Summary  ++++++++++"
+   echo ""
+   #egrep -m 34 '(\**Anal|\**Para|\**LPE|\**Wire Delay|\**Ideal Net|\**Bor|\**abled|\**\(M|\**Tool|\**Version|\**Design|\**Date)' $TIM | egrep -v '(DIS|MET|Time Borrow|Timing Wire Delay Model)'
+   egrep '(\**Anal|\**Para|\**LPE|\**Wire Delay|\**Ideal Net|\**Bor|\**abled|\**\(M|\**Tool|\**Version|\**Design|\**Date)' $TIM | egrep -v '(DIS|MET|Time Borrow|Timing Wire Delay Model)'
+   echo ""
+   egrep '(ASTSUM)' $TIM
+endif
+
+if ( $PTIMEXISTS == 1 ) then 
+   echo ""
+   echo ""
+   echo "Propagated Timing Report:"
+   echo "Timing Summary  ++++++++++"
+   echo ""
+   #egrep -m 34 '(\**Anal|\**Para|\**LPE|\**Wire Delay|\**Ideal Net|\**Bor|\**abled|\**\(M|\**Tool|\**Version|\**Design|\**Date)' $TIM | egrep -v '(DIS|MET|Time Borrow|Timing Wire Delay Model)'
+   egrep '(\**Anal|\**Para|\**LPE|\**Wire Delay|\**Ideal Net|\**Bor|\**abled|\**\(M|\**Tool|\**Version|\**Design|\**Date)' $TIM | egrep -v '(DIS|MET|Time Borrow|Timing Wire Delay Model)'
+   echo ""
+   egrep '(ASTSUM)' $TIM
+endif
+
+if ( ($TIMEXISTS == 0) && ($PTIMEXISTS == 0) ) then 
+   echo "No Timing Report Exists for this step"
+endif
+
+echo ""
+echo ""
+echo "Timing Progression ++++++++"
+echo ""
+
+egrep '(;;|;#|ASTSUM|PDSSUM|NOISESUM|ROUTESUM|constraints has been generated| Noise Analysis St|.*\/.*\(.*\) nets .*|without interconnect RC)' $LOG | egrep -v '(^XT: )' | egrep -v '(;;==|textWindow|configureWindow|iconifyWindow|;# Scheme|;; ;# Tcl|;## |;##expand#)'
+
+echo ""
+
+
+##xtalk noise used to be in timing report as well
+#if ( $TIMEXISTS == 1 ) then 
+   #egrep '(There are.*xtalk noise violations on.*nets)' $TIM
+   #egrep '(No xtalk noise violations found in the design)' $TIM
+#endif
+
+
+@ CURRENTSTEP += 1
+
+###Skew Summary
+
+echo ""
+echo ""
+echo "-----------------------------------------------------------------------"
+echo "Astro Section $CURRENTSTEP of $NUMSTEPS : Skew Results"
+echo "-----------------------------------------------------------------------"
+echo ""
+
+
+if ( $SKEWEXISTS == 1 ) then 
+   egrep '(Clock:|The clock global skew   = |The longest path delay  = |The shortest path delay = |Clock local skew \(positive\) =|Clock local skew \(negative\) =|Clock delay \(start point\)   =|Clock delay \(end point\)     =)' $SKEW
+endif
+
+if ( $SKEW2EXISTS == 1 ) then 
+   echo ""
+   echo "Worst case:"
+   egrep '(Clock:|The clock global skew   = |The longest path delay  = |The shortest path delay = |Clock local skew \(positive\) =|Clock local skew \(negative\) =|Clock delay \(start point\)   =|Clock delay \(end point\)     =)' $SKEW2
+endif
+
+if ( $SKEW3EXISTS == 1 ) then 
+   echo ""
+   echo "Best case:"
+   egrep '(Clock:|The clock global skew   = |The longest path delay  = |The shortest path delay = |Clock local skew \(positive\) =|Clock local skew \(negative\) =|Clock delay \(start point\)   =|Clock delay \(end point\)     =)' $SKEW3
+endif
+
+
+if ( ($SKEWEXISTS == 0) && ($SKEW2EXISTS == 0) && ($SKEW3EXISTS == 0) ) then 
+   echo "No skew report exists for this step"
+endif
+
+
+@ CURRENTSTEP += 1
+
+###Utilization and Congestion
+
+echo ""
+echo ""
+echo "-----------------------------------------------------------------------"
+echo "Astro Section $CURRENTSTEP of $NUMSTEPS : Utilization and Placement Congestion"
+echo "-----------------------------------------------------------------------"
+echo ""
+
+
+echo "Utilization - summary (if any)"
+echo "++++++++++++++++++++++++++++++++++++++++++++"
+echo ""
+
+if ( $PRSUMEXISTS == 1 ) then 
+   egrep '(Number of .*:|unit|Cell\/Core)' $PRSUM | egrep -v '(Cell\/Row|Contacts:|Number of Cell Rows:)'
+endif
+
+if ( $PRSUMEXISTS == 0 ) then 
+   echo "No PR Summary exists for this step"
+endif
+
+echo ""
+
+echo "Placement Congestion - current log (if any)"
+echo "+++++++++++++++++++++++++++++++++++++++++++++++"
+echo ""
+egrep '(;;|;#|Overflow)' $LOG | egrep '(;;|;#|GRCs)' | egrep '(;;|;#|DSR)' | egrep -v '(;;==|textWindow|configureWindow|iconifyWindow|;# Scheme|;; ;# Tcl|;## |;##expand#)'
+echo ""
+echo "Placement Congestion - summary (if any) "
+echo "+++++++++++++++++++++++++++++++++++++++++++++++"
+echo ""
+
+
+if ( $PRSUMEXISTS == 1 ) then 
+   egrep '(GRCs)' $PRSUM | egrep '(Total|Horizontal|Vertical)'
+endif
+if ( $PRSUMEXISTS == 0 ) then 
+   echo "No PR Summary exists for this step"
+endif
+
+echo ""
+
+@ CURRENTSTEP += 1
+
+echo ""
+echo ""
+echo "-----------------------------------------------------------------------"
+echo "Astro Section $CURRENTSTEP of $NUMSTEPS : Global Route Congestion"
+echo "-----------------------------------------------------------------------"
+echo ""
+
+
+echo "Global Route Congestion - current log (if any)"
+echo "+++++++++++++++++++++++++++++++++++++++++++++++"
+echo ""
+egrep '(;;|;#|Overflow)' $LOG | egrep '(;;|;#|GRCs)' | egrep -v '(DSR)' | egrep -v '(;;==|textWindow|configureWindow|iconifyWindow|;# Scheme|;; ;# Tcl|;## |;##expand#)'
+echo ""
+echo "Global Route Congestion - summary (if any)"
+echo "+++++++++++++++++++++++++++++++++++++++++++++++"
+echo ""
+
+if ( $PRSUMEXISTS == 1 ) then 
+   egrep '(GRCs)' $PRSUM | egrep -v '(Total|Horizontal|Vertical)'
+endif
+if ( $PRSUMEXISTS == 0 ) then 
+   echo "No PR Summary exists for this step"
+endif
+
+
+@ CURRENTSTEP += 1
+
+###Routing Violations
+
+echo ""
+echo ""
+echo "-----------------------------------------------------------------------"
+echo "Astro Section $CURRENTSTEP of $NUMSTEPS : Detail Routing Summary (including Antenna Violations, if set)"
+echo "-----------------------------------------------------------------------"
+echo ""
+
+echo "Route Violations - current log (if any)"
+echo "+++++++++++++++++++++++++++++++++++++++++++++++"
+echo ""
+egrep '(;;|;#|TOTAL VIOLATIONS|@ Total nets not meeting constraints)' $LOG | egrep -v '(;;==|textWindow|configureWindow|iconifyWindow|;# Scheme|;; ;# Tcl|;## |;##expand#)'
+echo ""
+
+if ( $PRSUMEXISTS == 1 ) then 
+   echo "Routing Violation Summary (if any):"
+   echo "++++++++++++++++++++++++++++++++++++"
+   egrep '(Violations =)' $PRSUM 
+   echo ""
+   echo "Wire Length Summary (if any):"
+   echo "++++++++++++++++++++++++++++++++++++"
+   egrep '(Statistics|Total Wire Length\(count\)|Total Number of Contacts)' $PRSUM | egrep -v '(Design Statistics:)'
+   egrep '(%.*%|Horizontal/Vertical Wire Distribution|Total|==============================================================)' $PRSUM | egrep -v '(:| = |Slack|=======================================================================|============================================================================)'
+
+endif
+if ( $PRSUMEXISTS == 0 ) then 
+   echo "Route Violations and Wire Length Summary (if any)"
+   echo "+++++++++++++++++++++++++++++++++++++++++++++++"
+   echo ""
+   echo "No PR Summary exists for this step"
+endif
+
+
+@ CURRENTSTEP += 1
+
+report_error_only:
+
+###Errors
+
+echo ""
+echo ""
+echo "-----------------------------------------------------------------------"
+echo "Astro Section $CURRENTSTEP of $NUMSTEPS : Abbreviated Errors"
+echo "-----------------------------------------------------------------------"
+echo ""
+
+egrep '(;;|;#|ERROR|error|Error|fail|Fail|FAIL|incorrrect|No such form|Existing SDC data in cell|caught signal )' $LOG | egrep -v '(_error_|Brief Error Summary|Error Type              Num     Description|WARNING|= 0|Total area error|are 0|error cell|Fail to start NullXServer| 0 have Errors|congestion map only|via number \(0\)|ERROR : area|minimum pitch is used|Please run timer)' | egrep -v '(;;==|textWindow|configureWindow|iconifyWindow|;# Scheme|;; ;# Tcl|;## |;##expand#)' | uniq
+
+
+@ CURRENTSTEP += 1
+
+###Warnings
+
+echo ""
+echo ""
+echo "-----------------------------------------------------------------------"
+echo "Astro Section $CURRENTSTEP of $NUMSTEPS : Abbreviated Warnings"
+echo "-----------------------------------------------------------------------"
+echo ""
+
+egrep '(;;|;#|WARNING|Warning|warning|does not have model or timing view)' $LOG | egrep -v '(CellLock:|License|timing-spacing|<polyCont|Cannot find any match for \(\)|Existing scan chain group|Pins cannot be abutted)'| egrep -v '(;;==|textWindow|configureWindow|iconifyWindow|;# Scheme|;; ;# Tcl|;## |;##expand#)' | uniq
+
+@ CURRENTSTEP += 1
+
+if ( $ERRORONLY == 1 ) then
+   goto done
+endif
+
+if ( $CHECKDESIGN == 1 ) then
+   goto done
+endif
+
+
+###RunTimes
+
+
+echo ""
+echo ""
+echo "-----------------------------------------------------------------------"
+echo "Astro Section $CURRENTSTEP  of $NUMSTEPS : Run Times and Memory"
+echo "-----------------------------------------------------------------------"
+echo ""
+
+egrep '(RCMD-CPU|RCMD-WALL|RCMD-MEM|Thank you for using Astro|RCMD-INFO:          Starting|Wrapper-<|*RCMD-<)' $LOG | sed 's/Seconds/Seconds CPU time this step/g;s/tr: Stop Watch Time for.*Elp:/Cumulative Elapsed:/g' | sed 's/Thank you for using Astro/      +++ end of command file +++/g'
+
+
+@ CURRENTSTEP += 1
+
+
+
+done:
+
+###Done
+echo ""
+echo ""
+echo "======================================================================"
+echo "RCMD-Toolbox: quickQoR: $RESULTTYPE Report Completed $RESULTTARGET"
+echo "======================================================================"
+echo ""
+
+

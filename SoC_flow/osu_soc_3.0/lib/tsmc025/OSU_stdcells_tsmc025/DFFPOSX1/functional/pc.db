@@ -1,0 +1,9 @@
+#
+OSU_stdcells_tsmc025 udp_dff symbol
+I2
+#
+IIT_stdcells_tsmc025 not symbol
+I1
+#
+IIT_stdcells_tsmc025 buf symbol
+I0

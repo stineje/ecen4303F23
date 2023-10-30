@@ -1,0 +1,28 @@
+# Real (MOSIS-Defined) Layers
+# Cadence layer     Cadence layer purpose       GDSII layer
+# -------------     ---------------------       -----------
+pwell               drawing                     41  0
+nwell               drawing                     42  0
+active              drawing                     43  0
+poly                drawing                     46  0
+sblock              drawing                     29  0
+nselect             drawing                     45  0
+pselect             drawing                     44  0
+cc                  drawing                     25  0
+cc                  drawing                     47  0
+cc                  drawing                     48  0
+metal1              drawing                     49  0
+metal1              pin				81  0
+via                 drawing                     50  0
+metal2              drawing                     51  0
+metal2		    pin                         82  0
+via2                drawing                     61  0
+metal3              drawing                     62  0
+metal3              pin                         83  0
+
+glass               drawing                     52  0
+glass               drawing                     64  0
+glass               drawing                     67  0
+pad                 drawing                     26  0
+
+text                drawing                     126 0

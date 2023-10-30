@@ -1,0 +1,58 @@
+# OSU SoC flow with Synopsys Tools
+
+# setup environment variable
+# assume INSTALLATION_DIR is where osu_soc_v2.5 is installed
+setenv OSUcells INSTALLATION_DIR/synopsys
+
+# setup work directory
+mkdir work
+cd work
+
+# make sure .avntrc, compile_dc.tcl, Makefile, tech.ef, streamout.map 
+# and cmd directory are copied
+cp -f INSTALLATION_DIR/synopsys/flow/ami05/* .
+cp INSTALLATION_DIR/synopsys/flow/ami05/.avntrc .
+
+# copy verilog files
+cp INSTALLATION_DIR/synopsys/source/verilog/* 
+
+# copy pads data file
+cp INSTALLATION_DIR/synopsys/source/iopads.tdf . 
+
+
+# synthesis w/o pads
+dc_shell-t -f compile_dc.tcl
+
+# syntheis w/ pads requires modification of compile_dc.tcl
+# by replacing multiplyadd.v with multiplyadd_pads.v at the line of
+# set my_verilog_files.
+# then use the same command to run syth
+
+
+
+
+# place & route preparation
+# point to reference library
+ln -s INSTALLTION_DIR/synopsys/lib/ami05/osu05_stdcells osu05_stdcells
+
+# clean up design directory
+make clean 		
+
+# remove old design folder
+rm -rf multiplyadd	
+
+# prerun (optional)
+make check_setup
+
+# run place & route w/o pads
+make chip
+
+# place & route w/ pads requires modification of .avntrc
+# by including file iopads.tdf at the line of
+# define tdf_file.
+# then use the same required commands to run place & route.
+
+# See OSU Design Flow Documentation for more details
+
+
+

@@ -1,0 +1,1772 @@
+#!/usr/bin/perl  
+
+sub usage {
+print<<END;
+############################################################
+# Copyright Synopsys Inc. 2004
+#
+# RCMD_QoR.prl
+#	Version 1.0
+#
+#
+############################################################
+# USAGE:
+############################################################
+# rcmd_toolbox/RCMD_QoR.prl -clean 
+#	-> removes ./RCMD_QoR.setup
+#	-> removes <location>/RCMD_QoR.ignore)
+#
+#	Precidence for RCMD_QoR.ignore
+#		-> look in ./rcmd_toolbox/RCMD_QoR.ignore
+#		-> then look in ./cmd/rcmd_toolbox/RCMD_QoR.ignore
+#		-> then look in ./RCMD_QoR.ignore
+#
+############################################################
+# rcmd_toolbox/RCMD_QoR.prl -setup_only 
+#	-> creates ./RCMD_QoR.setup
+#	-> creates ./RCMD_QoR.ignore
+#	-> after running, please edit RCMD_QoR.setup HTML_DIR 
+#		to customize location
+#
+# 	WARNING: HTML_DIR is ALWAYS completely overwritten. 
+# 
+############################################################
+# rcmd_toolbox/RCMD_QoR.prl 
+#	-> creates rcmd_toolbox/RAM_QoR.setup if necessary
+# 	Parses logs,prsum,timing,skews from filenames in RAM_QoR.setup
+# 	Creates HTML directory at specified location.
+# 
+# 	WARNING: all log files are parsed in the order 
+#		they appear in the setup file.
+#
+# 	NOTE: The default setup file is creating by listing logs 
+#	and reports in the chronological directory listing.
+############################################################
+END
+}
+
+$tool_box_dir = "./rcmd_toolbox/";
+
+##dump text file to rcmd_toolbox_reports by default
+$tool_box_reports_dir = "./rcmd_toolbox_reports/";
+##create it if it doesn't exist
+$system_cmd = "mkdir -p $tool_box_reports_dir";
+system ($system_cmd) == 0 or die "ERROR: RCMD_QoR: could not execute $system_cmd\n";
+
+##Always create/use setup file in working directory
+##j#$setup_file = "${tool_box_dir}RCMD_QoR.setup";
+$setup_file = "./RCMD_QoR.setup";
+
+
+##check for custom ignore file in ./rcmd_toolbox
+##then check in ./cmd/rcmd_toolbox
+##otherwise create it in working directory
+##j#$ignore_file = "${tool_box_dir}RCMD_QoR.ignore";
+$ignore_file = "./RCMD_QoR.ignore";
+$found_rcmd_qor_ignore = 0;
+if (-e "$tool_box_dir/RCMD_QoR.ignore") {
+   $found_rcmd_qor_ignore = 1;
+   $ignore_file = "${tool_box_dir}RCMD_QoR.ignore";
+}
+if ($found_rcmd_qor_ignore == 0) {
+   if (-e "./cmd/rcmd_toolbox/RCMD_QoR.ignore") {
+      $found_rcmd_qor_ignore = 1;
+      $ignore_file = "./cmd/rcmd_toolbox/RCMD_QoR.ignore";
+   }
+}
+if ($found_rcmd_qor_ignore == 0) {
+   $ignore_file = "./RCMD_QoR.ignore";
+}
+
+
+$makefile = "Makefile";
+$dump_dir = "report";
+$log_dir = "log";
+$html_flag = "on";
+$html_timestamp = "off";
+$html_dir = "./html";
+$ignore_items_flag = "on";
+############################################################
+&usage;
+$setup="on";
+$results ="on";
+$clean ="off";
+if ($ARGV[0] ne ""){
+	unless ($ARGV[0] =~ /(-setup_only|-usage|-help|-clean)/)  {
+		print "ERROR: Only the following arguments are accepted:\n";
+		print "-setup_only\n";
+		print "-clean\n";
+		print "-help\n";
+		print "-usage\n";
+		print "Calling RCMD_QoR.prl with no arguments is the only way to create results.\n";
+		die;
+	}
+}
+if ($ARGV[0] eq "-setup_only"){$results = "off";$setup="on";}
+if ($ARGV[0] eq "-usage"){$results = "off";$setup="off";}
+if ($ARGV[0] eq "-help"){$results = "off";$setup="off";}
+if ($ARGV[0] eq "-clean"){$clean = "on";$results = "off";$setup="off";}
+
+##j#if ($clean eq "on"){
+	##j#system ("rm rcmd_toolbox/RCMD_QoR.setup rcmd_toolbox/RCMD_QoR.ignore");
+	##j#print "Removing existing setup and ignore files\n";
+	##j#print "./rcmd_toolbox/RCMD_QoR.setup\n";
+	##j#print "./rcmd_toolbox/RCMD_QoR.ignore\n";
+##j#}
+
+if ($clean eq "on"){
+	system ("rm $setup_file $ignore_file");
+	print "Removing existing setup and ignore files\n";
+	print "$setup_file\n";
+	print "$ignore_file\n";
+}
+
+if ($setup eq "on"){
+	if (-e "${setup_file}") {
+		if ($results eq "off"){
+                	print "ERROR: Please delete old setup and ignore files first\n";
+                	print "To delete setup, run with \"-clean\" option\n";
+        	}
+	}
+	else {&setup;}
+	if ($results eq "off"){
+		print "WARNING: Creating Setup only, no results\n";
+	}
+}
+unless ($results eq "off"){
+	&get_report_file_names;
+	&get_ignore_items;
+	&parse_final_prsum;
+	&parse_progressive_prsum;
+	&parse_progressive_slack;
+	&parse_progressive_skew;
+	&parse_progressive_log;
+	&print_final_results;
+	&print_log_files;
+	&print_progressive_prsum;
+	&print_progressive_slack;
+	&print_progressive_skew;
+	&print_progressive_log;
+	&finish_html;
+	&setup_txt_only_version;
+	&print_final_results_txt;
+	&print_progressive_prsum_txt;
+	&print_progressive_slack_txt;
+	&print_progressive_skew_txt;
+	&print_progressive_log_txt;
+	&finish_txt;
+}
+
+
+
+
+
+
+
+
+
+############################################################
+sub finish_txt{
+	close STDOUT;
+	print STDERR "Exiting QoR script..\n";
+}
+############################################################
+sub setup_txt_only_version{
+	close STDOUT;
+	open (STDOUT,">${tool_box_reports_dir}/QoR_summary.txt") || die "FATAL ERROR: Can't open txt summary output file: ${tool_box_reports_dir}/QoR_summary.txt\n"; 
+}
+############################################################
+sub finish_html{
+	if ($html_flag eq "on"){
+        	print "<\html><\pre>\n";
+	}
+}
+############################################################
+sub get_ignore_items{
+	
+	unless (-e "${ignore_file}"){
+		print "Warning: Created a default ignore file\n";
+		open (IGNORE,">$ignore_file") || die "FATAL ERROR: Can't open $ignore_file\n";
+print IGNORE<<END;
+# ignored items.
+###commands not to print
+IGNORE: ;# Scheme
+IGNORE: ;;==
+IGNORE: textWindow
+IGNORE: configureWindow
+IGNORE: iconifyWindow
+### WARNINGS To Ignore
+IGNORE: WARNING : License key
+IGNORE: CellLock
+IGNORE: timing-spacing
+IGNORE: <polyCont|Cannot find any match for \(\)
+IGNORE: Existing scan chain group
+IGNORE: Pins cannot be abutted
+IGNORE: WARNING: a combinational loop is detected
+IGNORE: WARNING:Ignore single must-join pin
+IGNORE: WARNING:Cannot find any fat via
+IGNORE: an implicit ignore pin since it is a stop pin
+IGNORE: CG-WARNING: cannot find tech info about mask layer
+### ERRORS To ignore
+IGNORE: Total area error
+IGNORE: congestion map only
+IGNORE: via number \(0\)
+IGNORE: minimum pitch is used
+IGNORE: Please run timer
+IGNORE:  0 have Errors
+IGNORE: error cell
+END
+		close IGNORE;
+	}
+	open (IGNORE,"$ignore_file") || die "FATAL ERROR: Can't open ignore file: $ignore_file\n";
+	while (<IGNORE>){
+		if  (/^IGNORE:/){
+		chomp;
+		/IGNORE:\s+(.*)$/;
+		$ignore_items{$1}="1";
+		#print "**$1**\n";
+		}
+	}
+	
+}
+############################################################
+sub get_report_file_names{
+open (INPUT,"$setup_file") || die "FATAL ERROR: Can't open $setup_file\n";
+while (<INPUT>){
+	#print;
+	if (/^PRSUM/){
+		/PRSUM\s+(\S+)/;
+		push (@prsum,"$1");
+	}
+	elsif (/^SLACK/){
+		/SLACK\s+(\S+)/;
+		push (@slack,"$1");
+	}
+	elsif (/^SKEW/){
+		/SKEW\s+(\S+)/;
+		push (@skew,"$1");
+	}
+	elsif (/^LOG/){
+		/LOG\s+(\S+)/;
+		push (@log,"$1");
+	}
+	elsif (/^HTML_DIR/){
+		/HTML_DIR\s+(\S+)/;
+		$html_dir = $1;
+		if ($html_dir eq "local"){
+			print "htmldir is $html_dir\n";
+			$html_dir = `pwd`;
+			$html_dir .= "/html";
+			chmod $html_dir;
+		}
+		print "HTML_DIR **$html_dir**\n";
+	}
+	#elsif (/^BROWSER_PATH/){
+		#/BROWSER_PATH\s+(\S+)/;
+		#$browser_path = $1;
+		#if ($browser_path eq "default"){$browser_path = $html_dir;}
+	#}
+	elsif (/^HTML_FLAG/){
+		/HTML_FLAG\s+(\S+)/;
+		if ($1 eq "on"){ $html_flag = "on";}
+		else{$html_flag = "off";}
+	}
+	elsif (/^HTML_TIMESTAMP/){
+		/HTML_TIMESTAMP\s+(\S+)/;
+		if ($1 eq "on"){ $html_timestamp = "on";}
+		else{$html_timestamp = "off";}
+	}
+}
+
+#foreach (@prsum){ print "PRSUM: $_\n"; }
+#foreach (@slack){ print "SLACK: $_\n"; }
+#foreach (@skew){ print "SKEW: $_\n"; }
+#foreach (@log){ print "LOG: $_\n"; }
+
+$time = ` date '+%m_%d_20%y.%H%M'`;
+#print "$time\n";
+if ($html_timestamp eq "on"){$html_dir.= ".$time";}
+#else {$html_dir.= "/html";}
+chomp $html_dir;
+print "HTML_DIR: $html_dir\n";
+print "Over-writing existing HTML_DIR: $html_dir\n";
+system ("rm -r $html_dir");
+system ("mkdir -p $html_dir");
+system ("chmod 775 $html_dir");
+if ($html_flag eq "on"){
+	open (STDOUT,">${html_dir}/index.html") || die "FATAL ERROR: Can't open ${html_dir}/index.html\n";
+	print "<html><pre>\n";
+}
+}
+############################################################
+sub setup{
+#prompt user for log dir and reports dir..
+print "No setup file exist: {$setup_file}..\n";
+print "Creating a default\n";
+#`sleep 1`;
+print "Defaulting to \"$dump_dir\" for Timing,Skew,PrSummaries reports\n";
+#`sleep 1`;
+print "Defaulting to \"$log_dir\" for Log files\n";
+#`sleep 1`;
+print "Html is \"on\" by default\n";
+#`sleep 1`;
+print "Html Timestamp is \"off\" by default\n";
+#`sleep 1`;
+print "Html Directory is \"local\" by default\n";
+#`sleep 1`;
+print "If ignore file doesn't exist create a default: $ignore_items_flag\n";
+`sleep 2`;
+
+foreach (`ls -lrt ${log_dir}`){
+	#print;
+        if (/\.log/){
+                /\s(\S+log.*)/;
+                print "LOG: $1\n";
+                push (@log,"$log_dir/$1");
+        }
+}
+
+
+##get report file names from report/dump directory
+print "Reading report directory contents\n";
+
+foreach (`ls -lrt ${dump_dir}`){
+	#print;
+	if (/\.sum/){
+		/\s(\S+sum)\b/;
+		#print "SUM: $1\n";
+		push (@sum,"$dump_dir/$1");
+	}
+	elsif (/\.rpt/){
+		/\s(\S+rpt)\b/;
+		#print "TIME RPT: $1\n";
+		if (/\.noise_report\b/){print "WARNING, Ignoring: $_--> It looks like a noise report\n";}
+		else {push (@rpt,"$dump_dir/$1");}
+	}
+	elsif (/\.skew/){
+		/\s(\S+skew)\b/;
+		#print "SKEW: $1\n";
+		push (@skew,"$dump_dir/$1");
+	}
+}
+
+
+
+##Create setup file using filenames parsed from Makefile and dump directory.
+print "creating $setup_file\n";
+open (SETUP,">$setup_file") || die "FATAL ERROR: Can't create $setup_file\n";
+$cwd = `pwd`;
+chomp $cwd;
+if ($html_dir eq "default"){$html_dir = "${cwd}/html";}
+print SETUP "HTML_DIR $html_dir\n"; 
+print SETUP "HTML_TIMESTAMP $html_timestamp\n"; 
+print SETUP "HTML_FLAG $html_flag\n"; 
+foreach (@log){
+	print "LOG ";
+	print;
+	print "\n";
+	print SETUP "LOG ";
+	print SETUP;
+	print SETUP "\n";
+}
+	`sleep 1`;
+foreach (@sum){
+	print "PRSUM ";
+	print;
+	print "\n";
+	print SETUP "PRSUM ";
+	print SETUP;
+	print SETUP "\n";
+}
+	`sleep 1`;
+foreach (@rpt){
+	print "SLACK ";
+	print;
+	print "\n";
+	print SETUP "SLACK ";
+	print SETUP;
+	print SETUP "\n";
+}
+	`sleep 1`;
+foreach (@skew){
+	print "SKEW ";
+	print;
+	print "\n";
+	print SETUP "SKEW ";
+	print SETUP;
+	print SETUP "\n";
+}
+	`sleep 1`;
+#print SETUP "BROWSER_PATH $browser_path\n"; 
+print "Closing $setup_file\n";
+close SETUP;
+
+}#END setup
+############################################################
+sub parse_final_prsum{
+
+$file = $prsum[$#prsum];
+open (FINALPRSUM,$file) || die "FATAL ERROR: Can't open Final PRSUM: $file\n$file is referred to in the RCMD_QoR.setup file, please ensure it exists\n";
+$html = $file;
+$html =~ s/report/$html_dir/;
+#print "parse final prsum: $html\n";
+#open (HTML,">${html}.html.final") || die "FATAL ERROR: Can't open html prsum: ${html}.html\n";
+#print HTML "<html>\n<pre>\n";
+##print "parsing final prsum\n";
+while(<FINALPRSUM>){
+	#$html = $_;
+	if (/^Cell Name:/){
+		/:\s+(\S+)\b/;
+		$pr_general{cell_name} = "$1";
+	}
+	elsif (/^\s+Total\s+Standard\s+Cell\s+Area:/){
+		/Area:\s+(\S+)\b/;
+		$pr_general{std_cell_area} = "$1";
+	}
+	elsif (/^\s+Number of Module Cells:/){
+		/^\s+Number of Module Cells:\s+(\S+)\b/;
+		$pr_general{inst_count} = "$1";
+	}
+	elsif (/^\s+Cell\/Core\s+Ratio:/){
+		/^\s+Cell\/Core\s+Ratio:\s+(\S+)\b/;
+		$pr_general{cell_core_ratio} = "$1";
+	}
+	elsif (/^\s+Cell\/Chip\s+Ratio:/){
+		/^\s+Cell\/Chip\s+Ratio:\s+(\S+)\b/;
+		$pr_general{cell_chip_ratio} = "$1";
+	}
+	elsif (/Tile Utilization/){
+		$_ = <FINALPRSUM>;
+		$_ = <FINALPRSUM>;
+		$_ = <FINALPRSUM>;
+		/unit\s+\S+\s+\S+\s+(\S+\%)/;
+		$pr_general{unitTile_util} = "$1";
+	}
+	elsif (/^\s+Chip\s+Size:/){
+		/width\s+(\S+)\b.*height\s+(\S+)\b.*area\s+(\S+)\b/;
+		$pr_general{chip_width} = "$1";
+		$pr_general{chip_height} = "$2";
+		$pr_general{chip_area} = "$3";
+	}
+	#find timing info and store the index in @step_index
+	#store data from each result in %{$step_index[0-$#step_index]}
+	elsif (/\[TIMING\]/){
+		FIND_TIMING: while (<FINALPRSUM>){
+			if (/============================/){
+				last FIND_TIMING;
+			}
+		}
+		GET_ALL_TIMING: while (<FINALPRSUM>){
+			if (/============================/){
+				last GET_ALL_TIMING;
+			}
+			chomp;
+			push (@raw_pr_timing,$_);
+			@tokens = split;
+			for ($x=0;$x<=$#tokens;$x++){
+			}
+			push (@pr_step_index,$tokens[0]);
+			${$tokens[0]}{setup_slack} = $tokens[1];
+			${$tokens[0]}{setup_num} = $tokens[2];
+			${$tokens[0]}{setup_total} = $tokens[3];
+			${$tokens[0]}{setup_target} = $tokens[4];
+			${$tokens[0]}{hold_slack} = $tokens[5];
+			${$tokens[0]}{hold_num} = $tokens[6];
+			${$tokens[0]}{trans_num} = $tokens[7];
+			${$tokens[0]}{cap_num} = $tokens[8];
+			${$tokens[0]}{run_time} = $tokens[9];
+			
+		}
+	}
+	elsif (/:\s+Overflow\s+=\s+/){
+		#/^(\S+)\.\s+(Both|V|H)\s+\S+:\s+Overflow = (\S+)\s+Max\s+=\s+(\S+)\s+.*GRCs\s+=\s+(\S+)\s\((\S+)\)/;
+		if (/Both\s+Dirs/){$_ = "\n".$_;}
+		$pr_general{GRCS} .= "$_";
+	}
+	elsif (/FINAL QUALITY/){
+		UNTIL_END_OF_GR: while (<FINALPRSUM>){
+			if (/Overflow/){
+				$pr_general{PLACE_CONG} = $_;
+				$_ = <FINALPRSUM>;
+				$pr_general{PLACE_CONG} .= "$_";
+				$_ = <FINALPRSUM>;
+				$pr_general{PLACE_CONG} .= "$_";
+			}
+			elsif (/TOTAL RUN TIME/){
+				last UNTIL_END_OF_GR;
+			}
+		}
+	}
+	elsif (/Track\s+Assignment\s+Information/){
+                UNTIL_END_OF_TA: while (<FINALPRSUM>){
+			if(/Total\s+wire\s+length\s+in\s+chip/){
+				/:\s+(\S+)\b/;
+				$wire_length{ta} = $1;
+			}
+			elsif(/Peak\s+memory\s+size\s+in\s+Track\s+Assignment/){
+				/is\s+(\S+)\s+Mbytes/;
+				$mem_usage{ta} = $1;
+				last UNTIL_END_OF_TA;
+			}
+		}
+	}
+	elsif (/Detailed\s+Routing\s+Information/){
+		UNTIL_END_OF_DR: while (<FINALPRSUM>){
+			if (/Violations\s+=\s+/){
+				/Violations\s+=\s+(\S+),/;
+				$final_violations = $1;
+			}
+			elsif(/Signal Wiring Statistics/){
+				UNTIL_DETAIL_WLENGTH: while(<FINALPRSUM>){
+					if(/Total\s+Wire\s+Length/){
+						/:\s+(\S+\.\S+)\(/;
+						$wire_length{dr} = $1;
+						last UNTIL_DETAIL_WLENGTH;
+					}	
+				}
+			last UNTIL_END_OF_DR;
+			}
+		}
+	}
+
+#print HTML $html;
+}
+close FINALPRSUM;
+#print HTML "</html>\n</pre>\n";
+#close HTML;
+
+}#END parse_final_prsum
+#############################################################
+sub print_log_files{
+print "************************************************************\n";
+print "LOG FILES AND REPORTS..\n";
+print "************************************************************\n";
+
+$html_local = "html";
+if ($html_timestamp eq "on"){$html_local = "/html.$time";}
+#$browser_path .= "/${html_local}";
+
+foreach (@log){ 
+        /\/(\S+\.log)/;
+	#$htm_file = $browser_path."/".$1.".html";
+	$htm_file = $1.".html";
+	print "LOG: <a href=\"http:$htm_file\">$1</a><br>"; 
+}
+foreach (@slack) { 
+        /\/(\S+\.rpt)/;
+	#$htm_file = $browser_path."/".$1.".html";
+	$htm_file = $1.".html";
+	#$htm_file = $html_dir.$1.".html";
+	print "TIMING: <a href=\"$htm_file\">$1</a><br>"; 
+}
+foreach (@skew){ 	
+        /\/(\S+\.skew)/;
+	#$htm_file = $browser_path."/".$1.".html";
+	#$htm_file = $html_dir.$1.".html";
+	$htm_file = $1.".html";
+	print "SKEW: <a href=\"$htm_file\">$1</a><br>"; 
+}
+foreach (@prsum){ 
+        /\/(\S+\.sum)/;
+	#$htm_file = $browser_path."/".$1.".html";
+	#$htm_file = $html_dir.$1.".html";
+	$htm_file = $1.".html";
+	print "PRSUM: <a href=\"$htm_file\">$1</a><br>"; 
+}
+
+
+}
+#############################################################
+sub print_final_results{
+print "************************************************************\n";
+print "GENERAL INFO..\n";
+print "************************************************************\n";
+print "<table border=1><tr>\n";
+print "<td>Astro_version</td>	<td>$pr_general{version}</td></tr>\n";
+print "<td>cell_name</td>	<td>$pr_general{cell_name}</td></tr>\n";
+print "<td>inst_count</td>	<td>$pr_general{inst_count}\n</td></tr>";
+print "<td>std_cell_area</td>	<td>$pr_general{std_cell_area}\n</td></tr>";
+print "<td>cell_core_ratio</td>	<td>$pr_general{cell_core_ratio}%\n</td></tr>";
+print "<td>cell_chip_ratio</td>	<td>$pr_general{cell_chip_ratio}%\n</td></tr>";
+print "<td>unitTile_util</td>	<td>$pr_general{unitTile_util}\n</td></tr>";
+print "<td>chip_width</td>	<td>$pr_general{chip_width}\n</td></tr>";
+print "<td>chip_height</td>	<td>$pr_general{chip_height}\n</td></tr>";
+print "<td>chip_area</td>	<td>$pr_general{chip_area}\n</td></tr>";
+print "</table>\n";
+print "************************************************************\n";
+print "TIMING INFO..\n";
+print "************************************************************\n";
+print "Constraint report:\n";
+$file = $slack[$#slack];
+$file =~ /\/(\S+).rpt/;
+#print "STAGE: $1\n";
+$stage = $1;
+
+print "<table border=1><tr>\n";
+printf "<td>Stage</td>";
+printf "<td>Max</td>";
+printf "<td>#</td>";
+printf "<td>Min</td>";
+printf "<td>#</td>";
+printf "<td>trans</td>";
+printf "<td>nets</td>";
+printf "<td>cap</td>";
+print "</tr><tr>\n";
+
+printf "<td>$stage</td>";
+printf "<td>${$stage}{max_WNS}</td>";
+printf "<td>${$stage}{max_violator_count}</td>";
+printf "<td>${$stage}{min_WNS}</td>";
+printf "<td>${$stage}{min_violator_count}</td>";
+printf "<td>${$stage}{total_trans_violations}</td>";
+printf "<td>${$stage}{net_trans_violations}</td>";
+printf "<td>${$stage}{cap_violations}</td>";
+print "</tr></table>\n\n";
+
+print "Skew report:\n";
+
+print "<table border=1><tr>\n";
+print "<td>Clock</td>";
+print "<td>Stage</td>";
+print "<td>global</td>";
+print "<td>local_pos</td>";
+print "<td>local_neg</td>";
+print "<td>max_delay</td>";
+print "<td>min_delay</td>";
+print "</tr>\n";
+
+foreach $clock (@clocks){
+	print "<tr>\n";
+        #print "Clock: $clock\n";
+
+        $file = $skew[$#skew];
+	$file =~ /\/(\S+).skew/;
+                print "<td>$clock</td>\n";
+
+                $stage = $1;
+                print "<td>$stage</td>\n";
+
+                $item = "${stage}_global";
+                print "<td>${$clock}{$item}</td>";
+
+                $item = "${stage}_local_pos";
+                print "<td>${$clock}{$item}</td>";
+
+                $item = "${stage}_local_neg";
+                print "<td>${$clock}{$item}</td>";
+
+                $item = "${stage}_longest_path";
+                print "<td>${$clock}{$item}</td>";
+
+                $item = "${stage}_shortest_path";
+                print "<td>${$clock}{$item}</td>";
+                print "</tr>\n";
+}
+print "</table>\n";
+
+
+
+print "************************************************************\n";
+print "ROUTING INFO..\n";
+print "************************************************************\n";
+
+printf "%20s","Mem(MB)";
+printf "%14s","wirelength(um)";
+print "\n";
+
+printf "%10s","Global";
+printf "%10s","$mem_usage{gr}";
+printf "%14s","$wire_length{gr}";
+print "\n";
+
+printf "%10s","TrAssign";
+printf "%10s","$mem_usage{ta}";
+printf "%14s","$wire_length{ta}";
+print "\n";
+
+printf "%10s","DRoute";
+printf "%10s","N/A";
+printf "%14s","$wire_length{dr}";
+print "\n";
+print "\n";
+
+
+print "Placement ..\n\n";
+print "$pr_general{PLACE_CONG}\n";
+
+print "Global..\n\n";
+#printf "%10s","Stage";
+#printf "%10s","Overflow";
+#printf "%10s","Max";
+#printf "%10s","GRCs";
+#printf "%10s","%";
+#print "\n";
+#for ($x=0;$x<=$#pr_global_route;$x++){
+	#@grtokens = split (/\s+/,@pr_global_route[$x]);
+	#for ($y=0;$y<=$#grtokens;$y++){
+		#printf "%10s","$grtokens[$y]";
+	#}
+	#print "\n";
+#}
+                print "$pr_general{GRCS}\n"; 
+
+
+print "\n";
+print "Detail Route..\n\n";
+print "Final_violations $final_violations\n";
+}# END print_final_results
+#############################################################
+sub parse_progressive_prsum{
+#print "parse_progressive_prsum\n";
+foreach $file (@prsum){
+	#print "Opening prsum: $file\n";
+	open (PRSUM,$file) || die "FATAL ERROR: Can't open $file\n$file is referred
+ to in the RCMD_QoR.setup file, please ensure it exists\n";
+	$file =~ /\/(\S+\.sum)/;
+	$html = "${html_dir}/${1}.html";
+	$htmlf = "${1}.html";
+	open (HTML,">$html") || die "FATAL ERROR: Can't open $html\n";
+	print HTML "<html>\n<pre>\n";
+	$file =~ /\/(\S+).sum/;
+	#print "STAGE: $1\n";
+	$stage = $1;
+
+	while (<PRSUM>){
+		$html_line = $_;
+		if (/Number of Module Cells/){
+			/:\s+(\S+)/;
+			#print "$1\n";
+			chomp $html_line;
+			$html_line = "<a name=\"instance_count\">$html_line</a>";
+			${$stage}{instance_count} = "<a href=\"${htmlf}#instance_count\">$1</a>";
+			${$stage}{instance_count_txt} = $1;
+		}
+		if (/Total Standard Cell Area/){
+			/:\s+(\S+)/;
+			#print "$1\n";
+			chomp $html_line;
+			$html_line = "<a name=\"instance_count\">$html_line</a>";
+			${$stage}{cell_area} = "<a href=\"${htmlf}#cell_area\">$1</a>";
+			${$stage}{cell_area_txt} = $1;
+		}
+		if (/Cell\/Core\s+Ratio/){
+			/:\s+(\S+)/;
+			chomp $html_line;
+			$html_line = "<a name=\"instance_count\">$html_line</a>";
+			${$stage}{cell_core_ratio} = "<a href=\"${htmlf}#cell_core_ratio\">$1</a>";
+			${$stage}{cell_core_ratio_txt} = $1;
+		}
+		if (/Cell\/Chip\s+Ratio/){
+			/:\s+(\S+)/;
+			chomp $html_line;
+			$html_line = "<a name=\"instance_count\">$html_line</a>";
+			${$stage}{cell_chip_ratio} = "<a href=\"${htmlf}#cell_chip_ratio\">$1</a>";
+			${$stage}{cell_chip_ratio_txt} = $1;
+		}
+	print HTML "$html_line";
+	}
+	close PRSUM;
+        print HTML "</html>\n</pre>\n";
+	close HTML;
+
+}
+} #END parse_progressive_prsum
+#############################################################
+sub print_progressive_prsum{
+print "************************************************************\n";
+print "Progressive design stats...\n\n";
+print "<table border=1><tr>\n";
+print "<td>Stage</td>\n";
+print "<td>#Cells</td>\n";
+print "<td>Area</td>\n";
+print "<td>Cell/Core</td>\n";
+print "<td>Cell/Chip</td>\n";
+print "</tr>\n";
+foreach $file (@prsum){
+	#$prsum[$x] =~ /prsum.(\S+)/;
+	#print "STAGE: $1\n";
+	$file =~ /\/(\S+).sum/;
+	$stage = $1;
+	print "<tr>\n";
+	print "<td>$stage</td>\n";
+	print "<td>${$stage}{instance_count}</td>\n";
+	print "<td>${$stage}{cell_area}</td>\n";
+	print "<td>${$stage}{cell_core_ratio}</td>\n";
+	print "<td>${$stage}{cell_chip_ratio}</td>\n";
+        print "</tr>\n";
+}
+print "</table>\n";
+
+print "************************************************************\n";
+} #END print_progressive_prsum
+#############################################################
+sub parse_progressive_slack{
+#print "parse_progressive_slack\n";
+foreach $file (@slack){
+	$max_WNS=0;
+	$min_WNS=0;
+        ##print "Opening slack report: $file\n";
+        open (SLACK,$file) || die "FATAL ERROR: Can't open $file\n$file is referred to in the RCMD_QoR.setup file, please ensure it exists\n";
+
+        $file =~ /\/(\S+\.rpt)/;
+        $html = "${html_dir}/${1}.html";
+        $htm_file = "${1}.html";
+        open (HTML,">$html") || die "FATAL ERROR: Can't open $html\n";
+	#print "Creating $html\n";
+        print HTML "<html>\n<pre>\n";
+        $file =~ /\/(\S+).rpt/;
+        #print "STAGE: $1\n";
+        $stage = $1;
+	${$stage}{LPE_Operating_Cond} = "n/a";
+	${$stage}{LPE_Mode} = "n/a";
+	${$stage}{max_WNS}= "-";
+	${$stage}{min_WNS}= "-";
+	${$stage}{total_trans_violations} = "-";
+	${$stage}{net_trans_violations} = "-";
+	${$stage}{cap_violations} = "-";
+
+        while (<SLACK>){
+		$html_line = $_;
+		if (/Analysis Type/){                
+			/:\s+(.*)$/;
+			${$stage}{Analysis_Type} = $1;
+			${$stage}{Analysis_Type} =~ s/\s+//g;
+			${$stage}{Analysis_Type} =~ s/Max/Mx/g;
+			${$stage}{Analysis_Type} =~ s/Min/Mn/g;
+		}
+		if (/Parasitic Source/){            
+			/:\s+(.*)$/;
+			${$stage}{Parasitic_Source} = $1;
+			${$stage}{Parasitic_Source} =~ s/\s+//g;
+			${$stage}{Parasitic_Source} =~ s/fromparasiticview/PARA/g;
+		}
+		if (/LPE Operating Cond/){  
+			/:\s+(.*)$/;
+			${$stage}{LPE_Operating_Cond} = $1;
+			${$stage}{LPE_Operating_Cond} =~ s/\s+//g;
+			${$stage}{LPE_Operating_Cond} =~ s/Max/Mx/g;
+			${$stage}{LPE_Operating_Cond} =~ s/Nom/Nm/g;
+			${$stage}{LPE_Operating_Cond} =~ s/Min/Mn/g;
+		}
+		if (/LPE Mode/){     
+			/:\s+(.*)$/;
+			$tmp = $1;
+			$tmp =~ s/_/ /g;
+			${$stage}{LPE_Mode} = $tmp;
+			${$stage}{LPE_Mode} =~ s/\s+//g;
+			${$stage}{LPE_Mode} =~ s/Real/Rl/g;
+			${$stage}{LPE_Mode} =~ s/Virtual/Virt/g;
+		}
+		if (/Wire Delay/){    
+			/:\s+(.*)$/;
+			${$stage}{Wire_Delay} = $1;
+			${$stage}{Wire_Delay} =~ s/\s+//g;
+		}
+		if (/Time Borrowing/){              
+			/:\s+(.*)$/;
+			${$stage}{Time_Borrowing} = 0;
+			if ($1 =~ "Enabled"){ ${$stage}{Time_Borrowing} = 1;}
+		}
+		if (/Time Borrowing Method/){
+			/:\s+(.*)$/;
+			$tmp = $1;
+			if ($1 eq "Standard"){$tmp = "Stndrd";}
+			${$stage}{Time_Borrowing_Method} = $tmp;
+		}
+		if (/Preset\/Clear Arcs/){             
+			/:\s+(.*)$/;
+			${$stage}{Preset_Clear_Arcs} = 0;
+			if ($1 =~ "Enabled"){ ${$stage}{Time_Borrowing} = 1;}
+		}
+		if (/Recovery\/Removal Arcs/){         
+			/:\s+(.*)$/;
+			${$stage}{Recovery_Removal_Arcs} = 0;
+			if ($1 =~ "Enabled"){ ${$stage}{Recovery_Removal_Arcs} = 1;}
+		}
+		if (/Scan Enable/){                   
+			/:\s+(.*)$/;
+			${$stage}{Scan_Enable} = 0;
+			if ($1 =~ "Enabled"){ ${$stage}{Scan_Enable} = 1;}
+		}
+		if (/Inter Clock Paths/){            
+			/:\s+(.*)$/;
+			${$stage}{Inter_Clock_Paths} = 0;
+			if ($1 =~ "Enabled"){ ${$stage}{Inter_Clock_Paths} = 1;}
+		}
+		if (/Default Clock/){               
+			/:\s+(.*)$/;
+			${$stage}{Default_Clock} = 0;
+			if ($1 =~ "Enabled"){ ${$stage}{Default_Clock} = 1;}
+		}
+		if (/Ideal Network Delay/){        
+			/:\s+(.*)$/;
+			${$stage}{Ideal_Network_Delay} = 0;
+			if ($1 =~ "Enabled"){ ${$stage}{Ideal_Network_Delay} = 1;}
+		}
+		if (/Mixed Clock\/Signal Paths/){ 
+			/:\s+(.*)$/;
+			${$stage}{Mixed_Clock_Signal_Paths} = 0;
+			if ($1 =~ "Enabled"){ ${$stage}{Mixed_Clock_Signal_Paths} = 1;}
+		}
+		if (/Include Xtalk/){            
+			/:\s+(.*)$/;
+			${$stage}{Include_Xtalk} = 0;
+			if ($1 =~ "Enabled"){ ${$stage}{Include_Xtalk} = 1;}
+		}
+		if (/Include Non-Propagated Nets/){   
+			/:\s+(.*)$/;
+			${$stage}{Include_Non_Propagated_Nets} = 0;
+			if ($1 =~ "Enabled"){ ${$stage}{Include_Non_Propagated_Nets} = 1;}
+		}
+		if (/Include Lib Max Transition/){   
+			/:\s+(.*)$/;
+			${$stage}{Include_Lib_Max_Transition} = 0;
+			if ($1 =~ "Enabled"){ ${$stage}{Include_Lib_Max_Transition} = 1;}
+		}
+		if (/Include Lib Max Capacitance/){ 
+			/:\s+(.*)$/;
+			${$stage}{Include_Lib_Max_Capacitance} = 0;
+			if ($1 =~ "Enabled"){ ${$stage}{Include_Lib_Max_Capacitance} = 1;}
+		}
+		if (/Ignore Clock Uncertainty/){   
+			/:\s+(.*)$/;
+			${$stage}{Ignore_Clock_Uncertainty} = 0;
+			if ($1 =~ "Enabled"){ ${$stage}{Ignore_Clock_Uncertainty} = 1;}
+		}
+		if (/Ignore Propagated Clock/){   
+			/:\s+(.*)$/;
+			${$stage}{Ignore_Propagated_Clock} = 0;
+			if ($1 =~ "Enabled"){ ${$stage}{Ignore_Propagated_Clock} = 1;}
+		}
+		if (/Set IO Clock Latency/){          
+			/:\s+(.*)$/;
+			${$stage}{Set_IO_Clock_Latency} = 0;
+			if ($1 =~ "Enabled"){ ${$stage}{Set_IO_Clock_Latency} = 1;}
+		}
+		if (/Load Useful Skew From DB/){     
+			/:\s+(.*)$/;
+			${$stage}{Load_Useful_Skew_From_DB} = 0;
+			if ($1 =~ "Enabled"){ ${$stage}{Load_Useful_Skew_From_DB} = 1;}
+		}
+		if (/Enable Clock Gating Checks/){  
+			/:\s+(.*)$/;
+			${$stage}{Enable_Clock_Gating_Checks} = 0;
+			if ($1 =~ "Enabled"){ ${$stage}{Enable_Clock_Gating_Checks} = 1;}
+		}
+		if (/Multiple Clocks Per Register/){  
+			/:\s+(.*)$/;
+			${$stage}{Multiple_Clocks_Per_Register} = 0;
+			if ($1 =~ "Enabled"){ ${$stage}{Multiple_Clocks_Per_Register} = 1;}
+		}
+		if (/Include CRPR/){                 
+			/:\s+(.*)$/;
+			${$stage}{Include_CRPR} = 0;
+			if ($1 =~ "Enabled"){ ${$stage}{Include_CRPR} = 1;}
+		}
+		if (/Operating Conditions/){ 
+			/:\s+(\S+)\s+\(Max\)/;
+			${$stage}{Max_Operating_Conditions} = $1;
+			$_ = <SLACK>;
+			$html_line .= $_;
+			/:\s+(\S+)\s+\(Min\)/;
+			${$stage}{Min_Operating_Conditions} = $1;
+		}
+
+
+                if (/Slack Histogram/){
+			$html_line  = "<a name=\"histogram\">$_</a>\n";
+			HISTOGRAM: while (<SLACK>){
+				if (/Start point/){
+					$html_line .= $_;
+					last HISTOGRAM;
+				}
+				else{
+					if (/^\s*0\.00/){
+						/^\s*0\.00\s+\S+\s+(\S+)\s+\S+\s+(\S+)/;
+						${$stage}{max_violator_count} = "<a href=\"$htm_file#histogram\">$1</a>";
+						${$stage}{min_violator_count} = "<a href=\"$htm_file#histogram\">$2</a>";
+						${$stage}{max_violator_count_txt} = $1;
+						${$stage}{min_violator_count_txt} = $2;
+						$_ = "<b>$_</b>";
+					}
+					$html_line .= $_;
+				}
+			}
+			#print HTML $html_line;
+			${$stage}{histogram} = $html_line;
+                }
+                elsif ((/Delay\s+Type\s+:\s+Max/) and ($max_WNS eq "0")){
+			print HTML $html_line;
+			$max_WNS=1;
+			$line = <SLACK>;
+			$line =~ /:\s+(\S+)\s+/;
+			#print "SETUP SLACK: $1\n";
+			${$stage}{max_WNS}= "<a href=\"$htm_file#max_wns\">$1</a>";
+			${$stage}{max_WNS_txt}= $1;
+			$html_line  = "<a name=\"max_wns\"><b>$line</b></a>\n";
+                }
+                elsif ((/Delay\s+Type\s+:\s+Min/) and ($min_WNS eq "0")){
+			print HTML $html_line;
+			$min_WNS=1;
+			$line = <SLACK>;
+			$line =~ /:\s+(\S+)\s+/;
+			#print "HOLD SLACK: $1\n";
+			${$stage}{min_WNS}= "<a href=\"$htm_file#min_wns\">$1</a>";
+			${$stage}{min_WNS_txt}= $1;
+			$html_line  = "<a name=\"min_wns\"><b>$line</b></a>\n";
+                }
+                elsif (/Transition\s+Time\s+Violations/) {
+			TRANS: while (<SLACK>){
+				if (/[Tt]ransition\s+time\s+violations/){
+					if (/[Nn]o/){
+						${$stage}{total_trans_violations} = 0;
+						${$stage}{net_trans_violations} = 0;
+						${$stage}{total_trans_violations_txt} = 0;
+						${$stage}{net_trans_violations_txt} = 0;
+						$html_line .= "<b>$_</b>";
+					}
+					else{
+						/[Tt]here\s+are\s+(\S+)\s[Tt]ransition\s+time\s+violations\s+on\s+(\S+)\s/;
+						${$stage}{total_trans_violations} = "<a href=\"$htm_file#trans\">$1</a>";
+						${$stage}{net_trans_violations} = "<a href=\"$htm_file#trans\">$2</a>";
+						${$stage}{total_trans_violations_txt} = $1;
+						${$stage}{net_trans_violations_txt}= $2;
+						$html_line .= "<a name=\"trans\"><b>$_</b></a>";
+					}
+					last TRANS;
+				}
+			}
+                }
+                elsif (/Maximum\s+Capacitance\s+Constraint\s+Violations/) {
+			CAP: while (<SLACK>){
+				if (/[Mm]ax\s+capacitance\s+violations/){
+					if (/[Nn]o/){
+						${$stage}{cap_violations} = 0;
+						${$stage}{cap_violations_txt} = 0;
+						$html_line .= "<b>$_</b>";
+					#}
+					}
+					else{
+						/[Tt]here\s+are\s+(\S+)\sMax\s+[Cc]apacitance/;
+						${$stage}{cap_violations} = "<a href=\"$htm_file#cap\">$1</a>";
+						${$stage}{cap_violations_txt} = $1;
+						$html_line .= "<a name=\"cap\"><b>$_</b></a>";
+					}
+					#}
+					last CAP;
+				}
+			}
+                }
+		print HTML $html_line;
+        }
+        close SLACK;
+        print HTML "</html>\n</pre>\n";
+	close HTML;
+}
+#print "END of parse_progressive_slack\n";
+} #END parse_progressive_slack
+#############################################################
+sub print_progressive_slack{
+print "************************************************************\n";
+print "Progressive design slack...\n\n";
+print "<table border =1><tr>\n";
+print "<td>Stage</td>\n";
+print "<td>Max</td>\n";
+print "<td>#</td>\n";
+print "<td>Min</td>\n";
+printf "<td>#</td>\n";
+printf "<td>trans</td>\n";
+printf "<td>nets</td>\n";
+printf "<td>cap</td>\n";
+printf "<td>Anal ysis Type</td>\n";
+printf "<td>Para Src</td>\n";
+printf "<td>LPE Op Cond</td>\n";
+printf "<td>LPE Mode</td>\n";
+printf "<td>Wire Del</td>\n";
+printf "<td>Time Brw</td>\n";
+printf "<td>Brw Meth</td>\n";
+printf "<td>Pres Clr Arc</td>\n";
+printf "<td>Rec Rem Arcs</td>\n";
+printf "<td>Scan Enbl</td>\n";
+printf "<td>Intr Clk Pth</td>\n";
+printf "<td>Dflt Clk</td>\n";
+printf "<td>Idl Ntwrk Del</td>\n";
+printf "<td>Mix Clk/ Sig Path</td>\n";
+printf "<td>Inc Xtlk</td>\n";
+printf "<td>Inc Non Prop Nets</td>\n";
+printf "<td>Inc Lib Max Trans</td>\n";
+printf "<td>Inc Lib Max Cap</td>\n";
+printf "<td>Ignr Clk Unc</td>\n";
+printf "<td>Ignr Prop Clk</td>\n";
+printf "<td>Set IO Clk Latn</td>\n";
+printf "<td>Load Usefl Skew FrDB</td>\n";
+printf "<td>En Clk Gat Chk</td>\n";
+printf "<td>Mult Clks Per Reg</td>\n";
+printf "<td>Inc CRPR</td>\n";
+printf "<td>Max Op Cond</td>\n";
+printf "<td>Min Op Cond</td>\n";
+printf "<td>Stage</td>\n";
+print "</tr>\n";
+foreach $file (@slack){
+        $file =~ /\/(\S+).rpt/;
+        #print "STAGE: $1\n";
+        $stage = $1;
+	$htm_file = $stage.".rpt.html";
+	printf "<td><a href=\"$htm_file\">$stage</a></td>\n";
+        #printf "<td>$stage</td>\n";
+        printf "<td>${$stage}{max_WNS}</td>\n";
+        printf "<td>${$stage}{max_violator_count}</td>\n";
+        printf "<td>${$stage}{min_WNS}</td>\n";
+        printf "<td>${$stage}{min_violator_count}</td>\n";
+        printf "<td>${$stage}{total_trans_violations}</td>\n";
+        printf "<td>${$stage}{net_trans_violations}</td>\n";
+        printf "<td>${$stage}{cap_violations}</td>\n";
+	printf "<td>${$stage}{Analysis_Type}</td>\n";
+	printf "<td>${$stage}{Parasitic_Source}</td>\n";
+	printf "<td>${$stage}{LPE_Operating_Cond}</td>\n";
+	printf "<td>${$stage}{LPE_Mode}</td>\n";
+	printf "<td>${$stage}{Wire_Delay}</td>\n";
+	printf "<td>${$stage}{Time_Borrowing}</td>\n";
+	printf "<td>${$stage}{Time_Borrowing_Method}</td>\n";
+	printf "<td>${$stage}{Preset_Clear_Arcs}</td>\n";
+	printf "<td>${$stage}{Recovery_Removal_Arcs}</td>\n";
+	printf "<td>${$stage}{Scan_Enable}</td>\n";
+	printf "<td>${$stage}{Inter_Clock_Paths}</td>\n";
+	printf "<td>${$stage}{Default_Clock}</td>\n";
+	printf "<td>${$stage}{Ideal_Network_Delay}</td>\n";
+	printf "<td>${$stage}{Mixed_Clock_Signal_Paths}</td>\n";
+	printf "<td>${$stage}{Include_Xtalk}</td>\n";
+	printf "<td>${$stage}{Include_Non_Propagated_Nets}</td>\n";
+	printf "<td>${$stage}{Include_Lib_Max_Transition}</td>\n";
+	printf "<td>${$stage}{Include_Lib_Max_Capacitance}</td>\n";
+	printf "<td>${$stage}{Ignore_Clock_Uncertainty}</td>\n";
+	printf "<td>${$stage}{Ignore_Propagated_Clock}</td>\n";
+	printf "<td>${$stage}{Set_IO_Clock_Latency}</td>\n";
+	printf "<td>${$stage}{Load_Useful_Skew_From_DB}</td>\n";
+	printf "<td>${$stage}{Enable_Clock_Gating_Checks}</td>\n";
+	printf "<td>${$stage}{Multiple_Clocks_Per_Register}</td>\n";
+	printf "<td>${$stage}{Include_CRPR}</td>\n";
+	printf "<td>${$stage}{Max_Operating_Conditions}</td>\n";
+	printf "<td>${$stage}{Min_Operating_Conditions}</td>\n";
+	printf "<td><a href=\"$htm_file\">$stage</a></td>\n";
+        #printf "<td>$stage</td>\n";
+	print "</tr>\n";
+}
+print "</table>\n";
+
+print "************************************************************\n";
+} #END print_progressive_slack
+#############################################################
+sub parse_progressive_skew{
+#print "parse_progressive_skew\n";
+foreach $file (@skew){
+        #print "Opening skew report: $file\n";
+        open (SKEW,$file) || die "FATAL ERROR: Can't open $file\n$file is referred to in the RCMD_QoR.setup file, please ensure it exists\n";
+
+        $file =~ /\/(\S+\.skew)/;
+        $html = "${html_dir}/${1}.html";
+        $htm_file = "${1}.html";
+	#print "opening $html\n";
+        open (HTML,">$html") || die "FATAL ERROR: Can't open $html\n";
+        print HTML "<html>\n<pre>\n";
+        $file =~ /\/(\S+).skew/;
+        #print "STAGE: $1\n";
+        $stage = $1;
+
+        while (<SKEW>){
+		$html_line = $_;	
+                if (/Clock\s+Global\s+Skew\s+Report/){
+			#print "Global skew..\n";
+			GLOBAL: while (<SKEW>){
+				#print HTML;
+				#print;
+				if (/Clock:/){
+					/Clock:\s+(\S+)/;	
+					$current_clock = $1;
+					$html_line .= "<a name=\"${current_clock}\"><b>$_</b></a>";
+					$new_clock = "true";
+					foreach $clock (@clocks){
+						if ($clock eq "$1"){
+							$new_clock = "false";
+						}
+					}
+					if ($new_clock eq "true"){
+						push (@clocks,$1);
+						#print "Found new clock: $1\n";
+					}
+					else{
+						#print "Found existing clock: $1\n";
+					}
+				}
+				elsif (/The\s+clock\s+global\s+skew/){
+					/=\s+(\S+)/;	
+					${$current_clock}{"${stage}_global"} = "<a href=\"$htm_file#${current_clock}\">$1</a>";
+					${$current_clock}{"${stage}_global_txt"} = $1;
+					#print "$clocks[$#clocks] at $stage - global skew - $1\n";
+					$html_line .= "<b>$_</b>";
+				}
+				elsif (/The\s+longest\s+path\s+delay/){
+					/=\s+(\S+)/;	
+					${$current_clock}{"${stage}_longest_path"} = "<a href=\"$htm_file#${current_clock}\">$1</a>";
+					${$current_clock}{"${stage}_longest_path_txt"} = $1;
+					#print "$clocks[$#clocks] at $stage - longest path - $1\n";
+					$html_line .= "<b>$_</b>";
+				}
+				elsif (/The\s+shortest\s+path\s+delay/){
+					/=\s+(\S+)/;	
+					${$current_clock}{"${stage}_shortest_path"} = "<a href=\"$htm_file#${current_clock}\">$1</a>";
+					${$current_clock}{"${stage}_shortest_path_txt"} = $1;
+					#print "$clocks[$#clocks] at $stage - shortest path - $1\n";
+					#print "Breaking out of GLOBAL\n";
+					$html_line .= "<b>$_</b>";
+					last GLOBAL;
+				}
+			}
+                }
+                elsif (/Clock\s+Local\s+Skew\s+Report\s+\(1\)/){
+			#print "Local skew..\n";
+                        LOCAL: while (<SKEW>){
+                                if (/Start\s+point:/){
+					$html_line .= $_;
+                                        last LOCAL;
+                                }
+                                elsif (/Clock:/){
+					$html_line .= $_;
+                                        /Clock:\s+(\S+)/;
+					$clock = $1;
+                                        #print "Found clock: $clock\n";
+                                }
+                                elsif (/Clock\s+local\s+skew\s+\(positive\)/){
+                                        /=\s+(\S+)/;
+                                        ${$clock}{"${stage}_local_pos"} = "<a href=\"$htm_file#${current_clock}_localpos\">$1</a>";
+                                        ${$clock}{"${stage}_local_pos_txt"} = $1;
+                                        #print "$clock at $stage - pos local skew - $1\n";
+                                        $html_line .= "<a name=\"${clock}_localpos\"><b>$_</b></a>";
+
+                                }
+                                elsif (/Clock\s+local\s+skew\s+\(negative\)/){
+                                        /=\s+(\S+)/;
+                                        ${$clock}{"${stage}_local_neg"} = "<a href=\"$htm_file#${current_clock}_localneg\">$1</a>";
+                                        ${$clock}{"${stage}_local_neg_txt"} = $1;
+                                        #print "$clock at $stage - neg local skew - $1\n";
+                                        $html_line .= "<a name=\"${clock}_localneg\"><b>$_</b></a>";
+                                }
+                        }
+                }
+		print HTML $html_line ;
+        }
+        close SKEW;
+        print HTML "</html>\n</pre>\n";
+	close HTML;
+}
+} #END parse_progressive_skew
+
+#############################################################
+sub print_progressive_skew{
+print "************************************************************\n";
+print "Progressive clock skew...\n\n";
+print "<table border=1>\n";
+foreach $clock (@clocks){
+	print "<tr>\n";
+	print "<td>Clock</td>";
+	print "<td>Stage</td>";
+	print "<td>global</td>";
+	print "<td>local_pos</td>";
+	print "<td>local_neg</td>";
+	print "<td>max_delay</td>";
+	print "<td>min_delay</td>";
+	print "</tr>\n";
+	#print "Clock: $clock\n";
+	foreach $file (@skew){
+		print "<tr>\n";
+		print "<td>$clock</td>";
+        	$file =~ /\/(\S+).skew/;
+        	$stage = $1;
+        	printf "<td>$stage</td>";
+
+		$item = "${stage}_global";
+        	printf "<td>${$clock}{$item}</td>";
+
+		$item = "${stage}_local_pos";
+        	printf "<td>${$clock}{$item}</td>";
+
+		$item = "${stage}_local_neg";
+        	printf "<td>${$clock}{$item}</td>";
+
+		$item = "${stage}_longest_path";
+        	printf "<td>${$clock}{$item}</td>";
+
+		$item = "${stage}_shortest_path";
+        	printf "<td>${$clock}{$item}</td>";
+        	print "</tr>\n";
+	}
+}
+print "</table>\n";
+print "************************************************************\n";
+} #END print_progressive_skew
+
+#############################################################
+sub parse_progressive_log{
+foreach $file (@log){
+        #print "Opening log file: $file\n";
+        open (LOG,$file) || die "FATAL ERROR: Can't open $file\n$file is referred to in the RCMD_QoR.setup file, please ensure it exists\n";
+
+        $file =~ /\/(\S+\.log)/;
+        $html = "${html_dir}/${1}.html";
+	$html_file = "${1}.html";
+        open (HTML,">$html") || die "FATAL ERROR: Can't open $html\n";
+        print HTML "<html>\n<pre>\n";
+        $file =~ /\/(\S+).log/;
+        #print "STAGE: $1\n";
+        $stage = $1;
+
+	$IGNORED{$stage};
+	$LOGS{$stage};
+	$OPTIMIZATIONS{$stage};
+	$ROUTES{$stage};
+	$line_number = 0;
+
+        while (<LOG>){
+		$html_line = $_;
+		$line_number+=1;
+        	if (/^\s+Version\s+(.*)$/){
+                	$pr_general{version} = "$1";
+        	}
+                if ((/RCMD/) or (/WARNING/) or (/Warning/) or (/warning/) or (/Fail/) or (/fail/) or (/error/) or (/Error/) or (/FAIL/) or (/ERROR/) or (/^;/)){
+			chomp $html_line;
+			$html_line = "<A NAME=\"link_${line_number}\"><b>$html_line</b></A>\n";
+			$match = "no";
+			MATCH: foreach $key (keys %ignore_items){
+				if (/$key/){
+					$IGNORED{$stage} .= "Line <A HREF=\"${html_file}#link_$line_number\">$line_number:</A> $_";
+					$IGNORED_txt{$stage} .= "Line $line_number: $_";
+					$match = "yes";
+					last MATCH;
+				}
+			}
+			if ($match eq "no"){
+				$LOGS{$stage} .= "Line <A HREF=\"${html_file}#link_$line_number\">$line_number:</A> $_";
+				$LOGS_txt{$stage} .= "Line $line_number: $_";
+			}
+                }
+                if ((/SUM:/) or (/^;/)){
+                        #print "Line $line_number: $_";
+                        #$OPTIMIZATIONS{$stage} .= "Line $line_number: $_";
+			chomp $html_line;
+			$html_line = "<A NAME=\"link_${line_number}\"><b>$html_line</b></A>\n";
+			$OPTIMIZATIONS{$stage} .= "Line <A HREF=\"${html_file}#link_$line_number\">$line_number:</A> $_";
+			$OPTIMIZATIONS_txt{$stage} .= "Line $line_number: $_";
+                }
+                if ((/\@\@\@\@\@\@\@\s+TOTAL\s+VIOLATIONS/) or (/Loop/) or (/^;/)){
+                        #print "Line $line_number: $_";
+			#$ROUTES{$stage} .= "Line $line_number: $_";
+			chomp $html_line;
+			$html_line = "<A NAME=\"link_${line_number}\"><b>$html_line</b></A>\n";
+			$ROUTES{$stage} .= "Line <A HREF=\"${html_file}#link_$line_number\">$line_number:</A> $_";
+			$ROUTES_txt{$stage} .= "Line $line_number: $_";
+                }
+		print HTML $html_line;
+
+        }
+        close LOG;
+        print HTML "</html>\n</pre>\n";
+	close HTML;
+}
+} #END parse_progressive_log
+#############################################################
+sub print_progressive_log{
+print "************************************************************\n";
+print "ROUTING VIOLATIONS...\n\n";
+foreach $file (@log){
+        $file =~ /log\/(\S+)\.log/;
+        print "STAGE: $1\n";
+        $stage = $1;
+	print $ROUTES{$stage};
+}
+
+print "************************************************************\n";
+print "TIMING OPTIMIZATIONS...\n\n";
+foreach $file (@log){
+        $file =~ /log\/(\S+)\.log/;
+        print "STAGE: $1\n";
+        $stage = $1;
+	print $OPTIMIZATIONS{$stage};
+}
+
+print "************************************************************\n";
+print "LOG WARNINGS/ERRORS...\n\n";
+foreach $file (@log){
+        $file =~ /log\/(\S+)\.log/;
+        print "STAGE: $1\n";
+        $stage = $1;
+	print $LOGS{$stage};
+}
+print "************************************************************\n";
+print "IGNORED LOG WARNINGS/ERRORS...\n\n";
+foreach $file (@log){
+        $file =~ /log\/(\S+)\.log/;
+        print "STAGE: $1\n";
+        $stage = $1;
+	print $IGNORED{$stage};
+}
+} #END print_progressive_log
+#############################################################
+#########################################################
+sub print_progressive_prsum_txt{
+print "************************************************************\n";
+print "PROGRESSIVE DESIGN STATS...\n";
+print "************************************************************\n";
+printf "%12s","Stage";
+printf "%12s","#Cells";
+printf "%12s","Area";
+printf "%12s","Cell/Core";
+printf "%12s","Cell/Chip";
+print "\n";
+foreach $file (@prsum){
+	$file =~ /\/(\S+).sum/;
+	$stage = $1;
+	printf "%12s","$stage";
+	printf "%12s","${$stage}{instance_count_txt}";
+	printf "%12s","${$stage}{cell_area_txt}";
+	printf "%12s","${$stage}{cell_core_ratio_txt}";
+	printf "%12s","${$stage}{cell_chip_ratio_txt}";
+        print "\n";
+}
+        print "\n";
+
+} #END print_progressive_prsum
+#############################################################
+sub print_progressive_slack_txt{
+printf "************************************************************\n";
+printf "PROGRESSIVE DESIGN SLACK...\n";
+printf "************************************************************\n";
+printf "%20s","Stage";
+printf "%8s","Max";
+printf "%8s","#";
+printf "%8s","Min";
+printf "%8s","#";
+printf "%8s","trans";
+printf "%8s","nets";
+printf "%8s","cap";
+printf "\n";
+foreach $file (@slack){
+        $file =~ /\/(\S+).rpt/;
+        #printf "STAGE: $1\n";
+        $stage = $1;
+	$htm_file = $stage.".rpt.html";
+	printf "%20s","$stage";
+        printf "%8s","${$stage}{max_WNS_txt}";
+        printf "%8s","${$stage}{max_violator_count_txt}";
+        printf "%8s","${$stage}{min_WNS_txt}";
+        printf "%8s","${$stage}{min_violator_count_txt}";
+        printf "%8s","${$stage}{total_trans_violations_txt}";
+        printf "%8s","${$stage}{net_trans_violations_txt}";
+        printf "%8s","${$stage}{cap_violations_txt}";
+	print "\n";
+}
+print "\n";
+printf "************************************************************\n";
+print "PROGRESSIVE TIMER SETUP..\n";
+printf "************************************************************\n";
+printf "%20s","Stage";
+printf "%9s","Analysis";
+printf "%8s","ParaSrc";
+printf "%8s","OpCond";
+printf "%9s","LPEMode";
+printf "%8s","WireDel";
+printf "%8s","IntrClk";
+printf "%8s","IncXtlk";
+printf "%8s","IgnrUnc";
+printf "%10s","IgnrPrpCk";
+printf "%11s","SetIOCkLat";
+printf "%11s","EnCkGatChk";
+printf "%11s","MltCkPrReg";
+printf "%8s","IncCRPR";
+print "\n";
+foreach $file (@slack){
+        $file =~ /\/(\S+).rpt/;
+        $stage = $1;
+	$htm_file = $stage.".rpt.html";
+	printf "%20s","$stage";
+	printf "%9s","${$stage}{Analysis_Type}";
+	printf "%8s","${$stage}{Parasitic_Source}";
+	printf "%8s","${$stage}{LPE_Operating_Cond}";
+	printf "%9s","${$stage}{LPE_Mode}";
+	printf "%8s","${$stage}{Wire_Delay}";
+	printf "%8s","${$stage}{Inter_Clock_Paths}";
+	printf "%8s","${$stage}{Include_Xtalk}";
+	printf "%8s","${$stage}{Ignore_Clock_Uncertainty}";
+	printf "%10s","${$stage}{Ignore_Propagated_Clock}";
+	printf "%11s","${$stage}{Set_IO_Clock_Latency}";
+	printf "%11s","${$stage}{Enable_Clock_Gating_Checks}";
+	printf "%11s","${$stage}{Multiple_Clocks_Per_Register}";
+	printf "%8s","${$stage}{Include_CRPR}";
+	print "\n";
+}
+print "\n";
+print "\n";
+printf "%20s","Stage";
+printf "%8s","TimeBrw";
+printf "%8s","BrwMeth";
+printf "%8s","PrClArc";
+printf "%8s","RcRmArc";
+printf "%6s","ScnEn";
+printf "%7s","DfltCk";
+printf "%9s","IdlNtwkDl";
+printf "%10s","MxCkSgPth";
+printf "%12s","IncNnPrpNet";
+printf "%8s","LibTran";
+printf "%7s","LibCap";
+printf "%12s","UseflSkFrDB";
+printf "%6s","MaxOp";
+printf "%6s","MinOp";
+printf "\n";
+foreach $file (@slack){
+        $file =~ /\/(\S+).rpt/;
+        $stage = $1;
+	$htm_file = $stage.".rpt.html";
+	printf "%20s","$stage";
+	printf "%8s","${$stage}{Time_Borrowing}";
+	printf "%8s","${$stage}{Time_Borrowing_Method}";
+	printf "%8s","${$stage}{Preset_Clear_Arcs}";
+	printf "%8s","${$stage}{Recovery_Removal_Arcs}";
+	printf "%6s","${$stage}{Scan_Enable}";
+	printf "%7s","${$stage}{Default_Clock}";
+	printf "%9s","${$stage}{Ideal_Network_Delay}";
+	printf "%10s","${$stage}{Mixed_Clock_Signal_Paths}";
+	printf "%12s","${$stage}{Include_Non_Propagated_Nets}";
+	printf "%8s","${$stage}{Include_Lib_Max_Transition_txt}";
+	printf "%7s","${$stage}{Include_Lib_Max_Capacitance}";
+	printf "%12s","${$stage}{Load_Useful_Skew_From_DB}";
+	printf "%6s","${$stage}{Max_Operating_Conditions}";
+	printf "%6s","${$stage}{Min_Operating_Conditions}";
+	print "\n";
+}
+	print "\n";
+
+} #END print_progressive_slack
+#############################################################
+sub print_progressive_skew_txt{
+printf "************************************************************\n";
+printf "PROGRESSIVE CLOCK SKEW...\n";
+printf "************************************************************\n";
+	printf "%20s","Clock";
+	printf "%14s","Stage";
+	printf "%10s","global";
+	printf "%10s","local_pos";
+	printf "%10s","local_neg";
+	printf "%10s","max_delay";
+	printf "%10s","min_delay";
+	printf "\n";
+foreach $clock (@clocks){
+	foreach $file (@skew){
+		printf "%20s","$clock";
+        	$file =~ /\/(\S+).skew/;
+        	$stage = $1;
+        	printf "%14s","$stage";
+
+		$item = "${stage}_global_txt";
+        	printf "%10s","${$clock}{$item}";
+
+		$item = "${stage}_local_pos_txt";
+        	printf "%10s","${$clock}{$item}";
+
+		$item = "%10s","${stage}_local_neg";
+        	printf "${$clock}{$item}";
+
+		$item = "${stage}_longest_path_txt";
+        	printf "%10s","${$clock}{$item}";
+
+		$item = "${stage}_shortest_path_txt";
+        	printf "%10s","${$clock}{$item}";
+		printf "\n";
+	}
+}
+printf "\n";
+} #END print_progressive_skew
+
+#############################################################
+sub print_progressive_log_txt{
+printf "************************************************************\n";
+printf "ROUTING VIOLATIONS...\n";
+printf "************************************************************\n";
+foreach $file (@log){
+        $file =~ /log\/(\S+)\.log/;
+        printf "STAGE: $1\n";
+        $stage = $1;
+	printf $ROUTES_txt{$stage};
+}
+
+printf "************************************************************\n";
+printf "TIMING OPTIMIZATIONS...\n";
+printf "************************************************************\n";
+foreach $file (@log){
+        $file =~ /log\/(\S+)\.log/;
+        printf "STAGE: $1\n";
+        $stage = $1;
+	printf $OPTIMIZATIONS_txt{$stage};
+}
+
+printf "************************************************************\n";
+printf "LOG WARNINGS/ERRORS...\n";
+printf "************************************************************\n";
+foreach $file (@log){
+        $file =~ /log\/(\S+)\.log/;
+        printf "STAGE: $1\n";
+        $stage = $1;
+	printf $LOGS_txt{$stage};
+}
+printf "************************************************************\n";
+printf "IGNORED LOG WARNINGS/ERRORS...\n";
+printf "************************************************************\n";
+foreach $file (@log){
+        $file =~ /log\/(\S+)\.log/;
+        printf "STAGE: $1\n";
+        $stage = $1;
+	printf $IGNORED_txt{$stage};
+}
+printf "************************************************************\n";
+} #END print_progressive_log
+#############################################################
+#############################################################
+sub print_final_results_txt{
+print "************************************************************\n";
+print "GENERAL INFO..\n";
+print "************************************************************\n";
+printf "%14s","Astro_version";
+printf "  $pr_general{version}\n";
+printf "%14s","cell_name";
+printf "%14s","$pr_general{cell_name}\n";
+printf "%14s","inst_count";
+printf "%14s","$pr_general{inst_count}\n";
+printf "%14s","std_cell_area";
+printf "%14s","$pr_general{std_cell_area}\n";
+printf "%14s","cell_core_ratio";
+printf "%14s","$pr_general{cell_core_ratio}%\n";
+printf "%14s","cell_chip_ratio";
+printf "%14s","$pr_general{cell_chip_ratio}%\n";
+printf "%14s","unitTile_util";
+printf "%14s","$pr_general{unitTile_util}\n";
+printf "%14s","chip_width";
+printf "%14s","$pr_general{chip_width}\n";
+printf "%14s","chip_height";
+printf "%14s","$pr_general{chip_height}\n";
+printf "%14s","chip_area";
+printf "%14s","$pr_general{chip_area}\n";
+print "************************************************************\n";
+print "TIMING INFO..\n";
+print "************************************************************\n";
+print "Constraint report:\n";
+$file = $slack[$#slack];
+$file =~ /\/(\S+).rpt/;
+#print "STAGE: $1\n";
+$stage = $1;
+
+printf "%20s","Stage";
+printf "%8s","Max";
+printf "%8s","#";
+printf "%8s","Min";
+printf "%8s","#";
+printf "%8s","trans";
+printf "%8s","nets";
+printf "%8s","cap";
+print "\n";
+printf "%20s","$stage";
+printf "%8s","${$stage}{max_WNS_txt}";
+printf "%8s","${$stage}{max_violator_count_txt}";
+printf "%8s","${$stage}{min_WNS_txt}";
+printf "%8s","${$stage}{min_violator_count_txt}";
+printf "%8s","${$stage}{total_trans_violations_txt}";
+printf "%8s","${$stage}{net_trans_violations_txt}";
+printf "%8s","${$stage}{cap_violations_txt}";
+print "\n\n";
+
+print "Skew report:\n";
+
+printf "%20s","Clock";
+printf "%14s","Stage";
+printf "%10s","global";
+printf "%10s","local_pos";
+printf "%10s","local_neg";
+printf "%10s","max_delay";
+printf "%10s","min_delay";
+print "\n";
+
+foreach $clock (@clocks){
+        #print "Clock: $clock\n";
+
+        $file = $skew[$#skew];
+	$file =~ /\/(\S+).skew/;
+                printf "%20s","$clock";
+
+                $stage = $1;
+                printf "%14s","$stage";
+
+                $item = "${stage}_global_txt";
+                printf "%10s","${$clock}{$item}";
+
+                $item = "${stage}_local_pos_txt";
+                printf "%10s","${$clock}{$item}";
+
+                $item = "${stage}_local_neg_txt";
+                printf "%10s","${$clock}{$item}";
+
+                $item = "${stage}_longest_path_txt";
+                printf "%10s","${$clock}{$item}";
+
+                $item = "${stage}_shortest_path_txt";
+                printf "%10s","${$clock}{$item}";
+                print "\n";
+}
+print "\n";
+
+
+
+print "************************************************************\n";
+print "ROUTING INFO..\n";
+print "************************************************************\n";
+
+printf "%20s","Mem(MB)";
+printf "%14s","wirelength(um)";
+print "\n";
+
+printf "%10s","Global";
+printf "%10s","$mem_usage{gr}";
+printf "%14s","$wire_length{gr}";
+print "\n";
+
+printf "%10s","TrAssign";
+printf "%10s","$mem_usage{ta}";
+printf "%14s","$wire_length{ta}";
+print "\n";
+
+printf "%10s","DRoute";
+printf "%10s","N/A";
+printf "%14s","$wire_length{dr}";
+print "\n";
+print "\n";
+
+
+print "Global..\n\n";
+#printf "%10s","Stage";
+#printf "%10s","Overflow";
+#printf "%10s","Max";
+#printf "%10s","GRCs";
+#printf "%10s","%";
+#print "\n";
+#for ($x=0;$x<=$#pr_global_route;$x++){
+	#@grtokens = split (/\s+/,@pr_global_route[$x]);
+	#for ($y=0;$y<=$#grtokens;$y++){
+		#printf "%10s","$grtokens[$y]";
+	#}
+	#print "\n";
+#}
+print "$pr_general{GRCS}\n";
+
+
+print "\n";
+print "Detail Route..\n\n";
+print "Final_violations $final_violations\n";
+}# END print_final_results_txt
+#############################################################
+

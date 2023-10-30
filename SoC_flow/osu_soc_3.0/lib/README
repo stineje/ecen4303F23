@@ -1,0 +1,39 @@
+OSU Standard Cell Libaray
+
+Supported Technologies
+AMI 0.5um -> ami05
+AMI 0.35um -> ami035
+TSMC 0.25um -> tsmc025
+TSMC 0.18um -> tsmc018
+
+Directory structure
+-------------------
+./tsmc018/osu_stdcells_tsmc018	DFII Library for Cadence ICFB
+         /abstract		Abstract run directory to create lef file
+         /signalstorm		Signalstorm run directory for all timing files
+         /html			HTML cell documentation
+         /lib			Container folder for all library files
+
+Similarly for the other 3 technologies.
+
+./source/gds2			GDS streams of all cell libraries
+        /magic			Magic layout of all cells
+        /magic.abstract		Magic layouts with pin names
+	/pads_ami05		Magic layouts for AMI 0.5 pads
+	/pads_ami035		Magic layouts for AMI 0.35 pads
+	/sue			Sue schematics for AMI 0.5
+	/osu_stdcells.area	Area in lambda-square for all cells
+
+Note for AMI 0.5um
+------------------
+osu05_stdcells.lef		Lef file without stacked vias
+osu05_stdcells.stacks.lef	Lef file with stacked vias
+
+Both files are valid for Mosis. The file without stacked
+vias is provided for Magic 6.5, which doesn't support
+stacked vias. The stacked vias file can be used for
+Cadence Virtuoso and Magic 7.3.
+
+-------------
+Johannes Grad
+jgrad@ece.iit.edu

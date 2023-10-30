@@ -1,0 +1,536 @@
+#***********************************************************
+#  TECHNOLOGY DEFINITION: DUMPED ON Sat Jul 31 18:01:16 2004
+
+#  BY jgrad
+#***********************************************************
+
+(DEFLIBPATH
+    (LIBPATH osu05_stdcells ./tech )
+ENDDEFLIBPATH)
+
+(DEFTECH 1.0
+
+  (DEFVIEWTYPE
+    (VIEWTYPE MASKLAYOUT
+      (DBUPERUU  1000 )
+      (USERUNITS MICRONS )
+      (MINGRID   0.15 )
+    ENDVIEWTYPE)
+  ENDDEFVIEWTYPE)
+
+  (DEFUNITS
+    (VOLTAGE     volt         )
+    (CURRENT     milliampere  )
+    (CAPACITANCE picofarad    )
+    (RESISTANCE  ohm          )
+    (INDUCTANCE  nanohenry    )
+    (CONDUCTANCE siemens      )
+    (TIME        picosecond   )
+    (FREQUENCY   megahertz    )
+    (POWER       milliwatt    )
+  ENDDEFUNITS)
+
+    (DEFDISPLAY
+        (LAYER nwell
+            (PURPOSE drawing )
+            (NUMBER 1 )
+            (COLOR brown )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+            (STREAMDATA 0 0 )
+        )
+        (LAYER nwell
+            (PURPOSE pin )
+            (NUMBER 1 )
+            (COLOR brown )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER nwell
+            (PURPOSE net )
+            (NUMBER 1 )
+            (COLOR brown )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER nwell
+            (PURPOSE boundary )
+            (NUMBER 1 )
+            (COLOR brown )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER nactive
+            (PURPOSE drawing )
+            (NUMBER 2 )
+            (COLOR tan )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+            (STREAMDATA 0 0 )
+        )
+        (LAYER nactive
+            (PURPOSE pin )
+            (NUMBER 2 )
+            (COLOR tan )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER nactive
+            (PURPOSE net )
+            (NUMBER 2 )
+            (COLOR tan )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER nactive
+            (PURPOSE boundary )
+            (NUMBER 2 )
+            (COLOR tan )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER pactive
+            (PURPOSE drawing )
+            (NUMBER 3 )
+            (COLOR grey )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+            (STREAMDATA 0 0 )
+        )
+        (LAYER pactive
+            (PURPOSE pin )
+            (NUMBER 3 )
+            (COLOR grey )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER pactive
+            (PURPOSE net )
+            (NUMBER 3 )
+            (COLOR grey )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER pactive
+            (PURPOSE boundary )
+            (NUMBER 3 )
+            (COLOR grey )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER poly
+            (PURPOSE drawing )
+            (NUMBER 4 )
+            (COLOR chocolate )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+            (STREAMDATA 0 0 )
+        )
+        (LAYER poly
+            (PURPOSE pin )
+            (NUMBER 4 )
+            (COLOR chocolate )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER poly
+            (PURPOSE net )
+            (NUMBER 4 )
+            (COLOR chocolate )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER poly
+            (PURPOSE boundary )
+            (NUMBER 4 )
+            (COLOR chocolate )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER cc
+            (PURPOSE drawing )
+            (NUMBER 5 )
+            (COLOR white )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+            (STREAMDATA 0 0 )
+        )
+        (LAYER cc
+            (PURPOSE pin )
+            (NUMBER 5 )
+            (COLOR white )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER cc
+            (PURPOSE net )
+            (NUMBER 5 )
+            (COLOR white )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER cc
+            (PURPOSE boundary )
+            (NUMBER 5 )
+            (COLOR white )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER metal1
+            (PURPOSE drawing )
+            (NUMBER 6 )
+            (COLOR blue )
+            (FILL +diagonals )
+            (SELECTABLE t )
+            (VISIBLE t )
+            (STREAMDATA 0 0 )
+        )
+        (LAYER metal1
+            (PURPOSE pin )
+            (NUMBER 6 )
+            (COLOR blue )
+            (FILL +diagonals )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER metal1
+            (PURPOSE net )
+            (NUMBER 6 )
+            (COLOR blue )
+            (FILL +diagonals )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER metal1
+            (PURPOSE boundary )
+            (NUMBER 6 )
+            (COLOR blue )
+            (FILL +diagonals )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER via
+            (PURPOSE drawing )
+            (NUMBER 7 )
+            (COLOR yellow )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+            (STREAMDATA 0 0 )
+        )
+        (LAYER via
+            (PURPOSE pin )
+            (NUMBER 7 )
+            (COLOR yellow )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER via
+            (PURPOSE net )
+            (NUMBER 7 )
+            (COLOR yellow )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER via
+            (PURPOSE boundary )
+            (NUMBER 7 )
+            (COLOR yellow )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER metal2
+            (PURPOSE drawing )
+            (NUMBER 8 )
+            (COLOR orange )
+            (FILL -diagonals )
+            (SELECTABLE t )
+            (VISIBLE t )
+            (STREAMDATA 0 0 )
+        )
+        (LAYER metal2
+            (PURPOSE pin )
+            (NUMBER 8 )
+            (COLOR orange )
+            (FILL -diagonals )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER metal2
+            (PURPOSE net )
+            (NUMBER 8 )
+            (COLOR orange )
+            (FILL -diagonals )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER metal2
+            (PURPOSE boundary )
+            (NUMBER 8 )
+            (COLOR orange )
+            (FILL -diagonals )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER via2
+            (PURPOSE drawing )
+            (NUMBER 9 )
+            (COLOR magenta )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+            (STREAMDATA 0 0 )
+        )
+        (LAYER via2
+            (PURPOSE pin )
+            (NUMBER 9 )
+            (COLOR magenta )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER via2
+            (PURPOSE net )
+            (NUMBER 9 )
+            (COLOR magenta )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER via2
+            (PURPOSE boundary )
+            (NUMBER 9 )
+            (COLOR magenta )
+            (FILL solid )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER metal3
+            (PURPOSE drawing )
+            (NUMBER 10 )
+            (COLOR cyan )
+            (FILL horizontals )
+            (SELECTABLE t )
+            (VISIBLE t )
+            (STREAMDATA 0 0 )
+        )
+        (LAYER metal3
+            (PURPOSE pin )
+            (NUMBER 10 )
+            (COLOR cyan )
+            (FILL horizontals )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER metal3
+            (PURPOSE net )
+            (NUMBER 10 )
+            (COLOR cyan )
+            (FILL horizontals )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+        (LAYER metal3
+            (PURPOSE boundary )
+            (NUMBER 10 )
+            (COLOR cyan )
+            (FILL horizontals )
+            (SELECTABLE t )
+            (VISIBLE t )
+        )
+    ENDDEFDISPLAY)
+
+    (DEFLAYER
+        (LAYER nwell MASK
+            (LAYERCLASS UNKNOWN ) # Choose DIFF VIAD POLY VIAP METAL1 VIA1 METAL2 ...
+            (WIDTHSEP 0 0 )
+            (GEOMETRY 0 0 )
+            (ELECTRICAL  0 0 0 0 )
+        ENDLAYER)
+        (LAYER nactive MASK
+            (LAYERCLASS UNKNOWN ) # Choose DIFF VIAD POLY VIAP METAL1 VIA1 METAL2 ...
+            (WIDTHSEP 0 0 )
+            (GEOMETRY 0 0 )
+            (ELECTRICAL  0 0 0 0 )
+        ENDLAYER)
+        (LAYER pactive MASK
+            (LAYERCLASS UNKNOWN ) # Choose DIFF VIAD POLY VIAP METAL1 VIA1 METAL2 ...
+            (WIDTHSEP 0 0 )
+            (GEOMETRY 0 0 )
+            (ELECTRICAL  0 0 0 0 )
+        ENDLAYER)
+        (LAYER poly MASK
+            (LAYERCLASS UNKNOWN ) # Choose DIFF VIAD POLY VIAP METAL1 VIA1 METAL2 ...
+            (WIDTHSEP 0 0 )
+            (GEOMETRY 0 0 )
+            (ELECTRICAL  0 0 0 0 )
+        ENDLAYER)
+        (LAYER cc VIA
+            (LAYERCLASS UNKNOWN ) # Choose DIFF VIAD POLY VIAP METAL1 VIA1 METAL2 ...
+            (WIDTHSEP 0 0.9 )
+            (GEOMETRY 0 0 )
+            (ELECTRICAL  0 0 0 0 )
+        ENDLAYER)
+        (LAYER metal1 ROUTING
+            (LAYERCLASS UNKNOWN ) # Choose DIFF VIAD POLY VIAP METAL1 VIA1 METAL2 ...
+            (WIDTHSEP 0.9 0.9 )
+            (GEOMETRY 0 0 )
+            (ELECTRICAL  0.09 3.2e-05 0 0 )
+            (GRID 3 1.5 HORIZONTAL )
+            (TRACKSX 2.4 1.2 )
+            (TRACKSY 3 1.5 )
+        ENDLAYER)
+        (LAYER via VIA
+            (LAYERCLASS UNKNOWN ) # Choose DIFF VIAD POLY VIAP METAL1 VIA1 METAL2 ...
+            (WIDTHSEP 0.6 0.9 )
+            (GEOMETRY 0 0 )
+            (ELECTRICAL  0 0 0 0 )
+        ENDLAYER)
+        (LAYER metal2 ROUTING
+            (LAYERCLASS UNKNOWN ) # Choose DIFF VIAD POLY VIAP METAL1 VIA1 METAL2 ...
+            (WIDTHSEP 0.9 0.9 )
+            (GEOMETRY 0 0 )
+            (ELECTRICAL  0.09 1.6e-05 0 0 )
+            (GRID 2.4 1.2 VERTICAL )
+            (TRACKSX 2.4 1.2 )
+            (TRACKSY 3 1.5 )
+        ENDLAYER)
+        (LAYER via2 VIA
+            (LAYERCLASS UNKNOWN ) # Choose DIFF VIAD POLY VIAP METAL1 VIA1 METAL2 ...
+            (WIDTHSEP 0.6 0.9 )
+            (GEOMETRY 0 0 )
+            (ELECTRICAL  0 0 0 0 )
+        ENDLAYER)
+        (LAYER metal3 ROUTING
+            (LAYERCLASS UNKNOWN ) # Choose DIFF VIAD POLY VIAP METAL1 VIA1 METAL2 ...
+            (WIDTHSEP 1.5 0.9 )
+            (GEOMETRY 0 0 )
+            (ELECTRICAL  0.05 1e-05 0 0 )
+            (GRID 3 1.5 HORIZONTAL )
+            (TRACKSX 2.4 1.2 )
+            (TRACKSY 3 1.5 )
+        ENDLAYER)
+    ENDDEFLAYER)
+
+    (DEFVIADEFAULT
+        (VIA M3_M2
+            (ROUTEB metal2 (RECT ( -0.6 -0.6 ) , ( 0.6 0.6 ) ) )
+            (CUT via2 (RECT ( -0.3 -0.3 ) , ( 0.3 0.3 ) ) )
+            (ROUTET metal3 (RECT ( -0.9 -0.9 ) , ( 0.9 0.9 ) ) )
+            (SPACING 2.4 BY 2.4 )
+#            (RESISTANCE 0 )
+#            (CAPACITANCE 0 )
+        ENDVIA)
+        (VIA M2_M1
+            (ROUTEB metal1 (RECT ( -0.6 -0.6 ) , ( 0.6 0.6 ) ) )
+            (CUT via (RECT ( -0.3 -0.3 ) , ( 0.3 0.3 ) ) )
+            (ROUTET metal2 (RECT ( -0.6 -0.6 ) , ( 0.6 0.6 ) ) )
+            (SPACING 1.8 BY 1.8 )
+#            (RESISTANCE 0 )
+#            (CAPACITANCE 0 )
+        ENDVIA)
+    ENDDEFVIADEFAULT)
+
+    (DEFVIARULE
+        (VIARULE viagen21 GENERATE
+            (LAYER metal1 HORIZONTAL
+                (WIDTH 1.2 120 )
+                (OVERHANG 0.3 )
+                (METALOVERHANG 0 )
+            ENDLAYER)
+            (LAYER metal2 VERTICAL
+                (WIDTH 1.2 120 )
+                (OVERHANG 0.3 )
+                (METALOVERHANG 0 )
+            ENDLAYER)
+            (LAYER via CUT
+                (RECT ( -0.3 -0.3 ) , ( 0.3 0.3 ) )
+                (SPACING 1.5 1.5 )
+            ENDLAYER)
+        ENDVIARULE)
+        (VIARULE viagen32 GENERATE
+            (LAYER metal3 HORIZONTAL
+                (WIDTH 1.8 180 )
+                (OVERHANG 0.6 )
+                (METALOVERHANG 0 )
+            ENDLAYER)
+            (LAYER metal2 VERTICAL
+                (WIDTH 1.2 120 )
+                (OVERHANG 0.6 )
+                (METALOVERHANG 0 )
+            ENDLAYER)
+            (LAYER via2 CUT
+                (RECT ( -0.3 -0.3 ) , ( 0.3 0.3 ) )
+                (SPACING 2.1 2.1 )
+            ENDLAYER)
+        ENDVIARULE)
+        (VIARULE TURN1 TURN
+            (LAYER metal1 HORIZONTAL
+            ENDLAYER)
+            (LAYER metal1 VERTICAL
+            ENDLAYER)
+        ENDVIARULE)
+        (VIARULE TURN2 TURN
+            (LAYER metal2 HORIZONTAL
+            ENDLAYER)
+            (LAYER metal2 VERTICAL
+            ENDLAYER)
+        ENDVIARULE)
+        (VIARULE TURN3 TURN
+            (LAYER metal3 HORIZONTAL
+            ENDLAYER)
+            (LAYER metal3 VERTICAL
+            ENDLAYER)
+        ENDVIARULE)
+    ENDDEFVIARULE)
+
+    (DEFSITEDEFAULT
+        (SITE core standard
+            (BBOX ( 0 0 ) , ( 2.4 30 ) )
+            (SYMMETRY MY )
+#            (SGRID 0 0 0 0 )
+        ENDSITE)
+        (SITE IO ioCircuit
+            (BBOX ( 0 0 ) , ( 90 300 ) )
+            (SYMMETRY MY )
+#            (SGRID 0 0 0 0 )
+        ENDSITE)
+        (SITE corner ioCircuit
+            (BBOX ( 0 0 ) , ( 300 300 ) )
+            (SYMMETRY R90 MY )
+#            (SGRID 0 0 0 0 )
+        ENDSITE)
+    ENDDEFSITEDEFAULT)
+
+    (DEFCHIPDEFAULT
+#        (STANDARDORIENT VERTICAL )
+        (GRIDMASK 0.15 )
+        (GRIDPLACE 2.4 3 0 0 )
+        (GRIDROUTE 2.4 3 1.2 1.5 )
+        (GRIDSITEROW 2.4 3 0 0 )
+     ENDDEFCHIPDEFAULT)
+
+ENDDEFTECH)

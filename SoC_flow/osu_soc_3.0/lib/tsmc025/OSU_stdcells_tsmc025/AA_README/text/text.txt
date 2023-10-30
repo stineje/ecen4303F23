@@ -1,0 +1,7 @@
+These are the IIT standard cells for 0.25um.
+They have to be used with the NCSU_TechLib_tsmc03 technology file.
+
+Voltage: 2.5V
+1 Lambda=0.15u
+
+Johannes Grad, IIT

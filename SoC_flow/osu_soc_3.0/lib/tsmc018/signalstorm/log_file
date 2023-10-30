@@ -1,0 +1,125 @@
+Data Integrity Checks:
+======================
+Info   : Table data should preferably be continuously increasing,
+         even when it is independent of the output load. Such non increasing
+         table data was found in all the cells of the library
+Info   : Load_Limit is more than maximum load axis value in following cell(s)
+         AND2X1
+         AND2X2
+         AOI21X1
+         AOI22X1
+         BUFX2
+         BUFX4
+         DFFNEGX1
+         DFFPOSX1
+         FAX1
+         HAX1
+         INVX1
+         INVX2
+         INVX4
+         INVX8
+         MUX2X1
+         NAND2X1
+         NAND3X1
+         NOR2X1
+         NOR3X1
+         OAI21X1
+         OAI22X1
+         OR2X1
+         OR2X2
+         TBUFX1
+         TBUFX2
+         XNOR2X1
+         XOR2X1
+Warning: Fanout Limit is missing/zero for all the output/inout pins in the
+         library
+Info   : Unspecified/zero output pin capacitances for the following cases
+         (<cell>-><pin>)
+         AND2X1->Y
+         AND2X2->Y
+         AOI21X1->Y
+         AOI22X1->Y
+         BUFX2->Y
+         BUFX4->Y
+         CLKBUF1->Y
+         CLKBUF2->Y
+         CLKBUF3->Y
+         DFFNEGX1->Q
+         DFFPOSX1->Q
+         DFFSR->Q
+         FAX1->YC
+         FAX1->YS
+         HAX1->YC
+         HAX1->YS
+         INVX1->Y
+         INVX2->Y
+         INVX4->Y
+         INVX8->Y
+         LATCH->Q
+         MUX2X1->Y
+         NAND2X1->Y
+         NAND3X1->Y
+         NOR2X1->Y
+         NOR3X1->Y
+         OAI21X1->Y
+         OAI22X1->Y
+         OR2X1->Y
+         OR2X2->Y
+         XNOR2X1->Y
+         XOR2X1->Y
+Warning: All Buffers in the library have output slew ratio greater than
+         max value of 0.5
+Info   : Wireload models are not present in the library
+Info   : Signal integrity checks not present in the library
+Info   : Pad Cell not found in library
+Warning: Slew_limit for input pins is not defined for one or more cells in the
+         library
+Warning: Slew_limit for output pins is not defined for one or more cells in the
+         library
+Info   : ROUTING_LAYER construct is not defined in the library
+Info   : MIN_POROSITY construct is not defined in the library
+Warning: MPWL arc not defined for the following cases (<cell>-><pin>)
+         LATCH->CLK
+Info   : SetUp/Hold Data is negative for all sequential cells in the
+         library
+Tool specific Checks:
+=====================
+Signal integrity Analysis tools specific checks:
+
+Warning: Signal integrity construct(s):
+             CT_TOLERANCE
+             CT_RES_LOW
+             CT_RES_HIGH
+             VDROP_LIMIT
+         is(are) not present in the library. This will affect quality of
+         results of the Signal Integrity Analysis tools
+--------------------------------------------------------------------------------
+
+Power Analysis tools specific checks:
+
+No Issues Detected
+--------------------------------------------------------------------------------
+
+Synthesis tools specific checks:
+
+Warning: Synthesis construct(s)
+             pad_type
+             is_clock_gating_cell
+             clock_gating_integrated_cell
+             complimentary_pin
+             fault_model
+         is(are) not present in the library. This will affect the quality of
+         results of Synthesis tools
+--------------------------------------------------------------------------------
+
+DFT tools specific checks:
+
+Warning: DFT construct(s)
+             dont_fault
+             TEST_FUNCTION
+             x_function
+             test_output_only
+         is(are) not present in the library. This will affect the quality
+         of result of test synthesis tools
+--------------------------------------------------------------------------------
+

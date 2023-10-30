@@ -1,0 +1,32 @@
+magic
+tech scmos
+timestamp 1091055464
+use PADFC PADFC_0
+timestamp 1091052278
+transform 1 0 -487 0 1 3
+box 487 -3 1503 1013
+use PADGND PADGND_0
+timestamp 1091055079
+transform 1 0 1120 0 1 -6
+box -3 -3 453 1500
+use PADVDD PADVDD_0
+timestamp 1091055094
+transform 1 0 1623 0 1 -1
+box -3 -3 453 1500
+use PADINC PADINC_0
+timestamp 1091055132
+transform 1 0 2147 0 1 -1
+box -3 -3 453 1500
+use PADINOUT PADINOUT_0
+timestamp 1091055042
+transform 1 0 2666 0 1 -6
+box -3 -3 453 1500
+use PADNC PADNC_0
+timestamp 1091055161
+transform 1 0 3205 0 1 -11
+box -3 -3 453 1013
+use PADOUT PADOUT_0
+timestamp 1091055219
+transform 1 0 3734 0 1 10
+box -3 -3 453 1500
+<< end >>

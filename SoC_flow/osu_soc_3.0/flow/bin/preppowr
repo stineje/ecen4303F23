@@ -1,0 +1,230 @@
+#!/usr/bin/bash
+
+EXT2SPICE="/import/cad1/bin/ext2spice"
+
+#default simulation temperature:
+temp="20"
+
+NO="\x1b[0;0m"
+RD="\x1b[31;01m"
+GR="\x1b[32;01m"
+
+show_usage() {
+	echo "This should be ran from the magic directory."
+	echo
+	echo "Usage:"
+	echo
+	echo "Force the top level name:"
+	echo " `basename ${0}` -f <top level name>"
+	echo
+	echo "Keep the current extraction:"
+	echo " `basename ${0}` -k"
+	echo
+	echo "Change operation temperature (default is ${temp}):"
+	echo " `basename ${0}` -t <temperature in celcius>"
+}
+
+do_bad() {
+	echo -e "${RD}!!!${NO}"
+}
+
+do_good() {
+	if [ "${1}" ]; then
+		echo -e "${GR}${1}${NO}"
+	else
+		echo -e "${GR}done${NO}"
+	fi
+}
+
+working_on() {
+	if [ "${1}" ]; then
+		echo -n "${1}: "
+	fi
+}
+
+while [ ${#} -gt 0 ]; do
+	a=${1}
+	shift
+
+	case "${a}" in
+
+	-f)
+		toplevel="${1}"
+		;;
+	-k)
+		keep=y
+		;;
+	-t)
+		temp="${1}"
+		;;
+	-h)
+		show_usage
+		exit 0
+		;;
+	esac
+done
+
+working_on "Top level name   "
+
+if [ -z "${toplevel}" ]; then
+	# see if we can figure out the top level name
+	if [ -f ../seultra.scr ]; then
+	    toplevel=`grep "DESIGN" seultra.scr | grep hdl | awk -F\" '{print $2}' | awk -F. '{print $2}' | awk -F: '{print $1}'`
+	else
+		do_bad
+		echo
+		echo "Could not determine top level name."
+		show_usage
+		exit 127;
+	fi
+fi
+
+if [ -f ${toplevel}.mag ]; then
+	do_good "${toplevel}"
+else
+	do_bad
+	echo
+	echo "Top level file (${toplevel}.mag) is missing!"
+	echo
+	exit 127
+fi
+
+working_on "Technology       "
+
+if [ -f ../osu025_stdcells.lef ]; then
+        do_good "TSMC 0.25um"
+        techfile="-T SCN5M_SUBM.15"
+	models="/import/cad2/osu_stdcells/models/tsmc025.spice"
+        ampl="2.5"
+        tsmc25=y
+elif [ -f ../osu018_stdcells.lef ]; then
+        do_good "TSMC 0.18um"
+        techfile="-T SCN6M_SUBM.10"
+	models="/import/cad2/osu_stdcells/models/tsmc018.spice"
+        ampl="1.8"
+        tsmc18=y
+elif [ -f ../osu05_stdcells.lef ]; then
+	do_good "AMI 0.5um"
+	models="/import/cad2/osu_stdcells/models/ami06.spice"
+	techfile=""
+	ampl="5"
+	ami06=y
+else
+	do_bad
+	echo
+        echo "Unknown Technology."
+	echo
+	echo "Are you running `basename ${0}` from the magic directory?"
+        exit 127
+fi
+
+working_on "Extracting Layout"
+
+# generate a magic command file
+cat << EOF > .magic
+:load ${toplevel}
+:drc off
+:extract all
+:quit
+yes
+EOF
+
+if [ -z "${keep}" ]; then
+	# remove *.ext to make sure the extraction is clean
+	rm -f *.ext
+
+	# extract the magic layout
+	magic ${techfile} -dNULL &> magic.log
+else
+	# try to keep the current extraction
+	if [ ! -f "${toplevel}.ext" ]; then
+		echo -e "${toplevel}.ext missing.  Extraction forced. "
+ 
+		# remove *.ext to make sure the extraction is clean
+		rm -f *.ext
+
+		# extract the magic layout
+		magic ${techfile} -dNULL &> magic.log
+
+		# force the .spice file to be regenerated
+		rm -f ${toplevel}.spice
+	fi
+fi
+
+rm -f .magic
+
+# better error checking could possibly be done
+if [ ! -f "${toplevel}.ext" ]; then
+	do_bad
+	echo
+	echo "Extraction failed.  See magic.log for details."
+	exit 127
+else
+	do_good "ok"
+fi
+
+working_on "Creating netlist "
+
+if [ -z "${keep}" ]; then
+	${EXT2SPICE} -F -y 6 -f spice3 ${toplevel}.ext &> /dev/null
+else
+	if [ ! -f ${toplevel}.spice ]; then
+		echo -e "${toplevel}.spice missing.  ext2spice forced. "
+		${EXT2SPICE} -F -y 6 -f spice3 ${toplevel}.ext &> /dev/null
+	fi
+fi
+
+if [ ! -f ${toplevel}.spice ]; then
+	do_bad
+	echo
+	echo "ext2spice failed."
+	exit 127
+fi
+
+[ -d powermill ] || mkdir powermill
+
+# put together the hspice netlist
+if [ -f ${models} ]; then
+	cat ${toplevel}.spice ${models} > powermill/${toplevel}.sp
+else
+	do_bad
+	echo
+	echo "The transistor models are missing!  Please report this problem."
+	exit 127
+fi
+
+cat << EOF >> powermill/${toplevel}.sp
+.param vdd=${ampl}
+vsupply vdd 0 'vdd'
+
+.temp ${temp}
+.end
+EOF
+
+# create a powermill config file
+cat << EOF > powermill/powrmill.conf
+; PowerMill configuration options
+;
+; To run PowerMill: 
+; powrmill -n myNetlist.sp -n powrmill.cmd -c powrmill.conf -t <endtime in ns> 
+
+; report power
+report_node_powr vdd
+
+; set simulation and model accuracy
+set_sim_eou sim=3 model=3
+set_mesg_opt limit_per_mesg=1
+EOF
+
+# create a powermill vector command file
+cat << EOF > powermill/powrmill.cmd
+/* PowerMill Stimulus command file */
+
+/* Replace A,B,Cin with a comma-delimited list of inputs. */
+/* The number of inputs should be the same as the width   */
+/* of each vector in the stimulus file (powrmill.vec)     */
+
+(is=nsvt) (en=powrmill.vec) (ot= A,B,Cin);
+EOF
+
+do_good "ok"

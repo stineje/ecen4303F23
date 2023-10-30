@@ -1,0 +1,22 @@
+# SUE version MMI_SUE4.2.10
+
+proc SCHEMATIC_PADVDD {} {
+  make nmos -W 100 -origin {430 350}
+  make global -orient RXY -name Vdd -origin {430 240}
+  make global -name Gnd -origin {430 430}
+  make_wire 430 400 370 400
+  make_wire 370 400 370 350
+  make_wire 430 400 430 390
+  make_wire 430 400 430 430
+  make_wire 430 310 430 240
+}
+
+proc ICON_PADVDD args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}} {M {}} {dpc {}}}
+  icon_property -origin {-50 20} -type user -name name
+  icon_property -origin {-50 40} -type user -name M
+  icon_property -origin {-50 60} -type user -name dpc
+  icon_property -origin {10 -120} -label PadVdd
+  icon_line 0 -140 0 0 100 0 100 -140 0 -140 0 -140
+}
+

@@ -1,0 +1,7 @@
+set history 100
+alias a alias
+a u unalias
+a ls 'ls -F'
+a la 'ls -a'
+a ll 'ls -laF'
+a hh 'history 10'

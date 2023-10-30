@@ -1,0 +1,7 @@
+SG_DB_NAME="signalstorm";
+SG_HALF_WIDTH_HOLD_FLAG="true";
+SG_KEEP_LOG="0";
+SG_SIM_NAME="hspice";
+SG_SIM_TYPE="HSPICE";
+SG_SPICE_SUPPLY0_NAMES="gnd gnd2";
+SG_SPICE_SUPPLY1_NAMES="vdd vdd2";

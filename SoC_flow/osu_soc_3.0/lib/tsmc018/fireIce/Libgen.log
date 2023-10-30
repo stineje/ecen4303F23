@@ -1,0 +1,139 @@
+
+
+  LibGen - Cell Library Preprocessor - Version 4.0.3a (07/14/2004)
+--------------------------------------------------------------------
+          Copyright (c) 2004 Cadence Design Systems, Inc.
+
+
+Executing 32 bit version on host ilabsjf-lnx01.Cadence.COM.
+
+Starting at 2005-Jan-13 16:56:04 (2005-Jan-14 00:56:04 GMT).
+
+*** Command file: libgen.cmd ***
+### Flow Commands ###
+input_type {pr_lef}
+setvar library_name libgen_lef
+setvar tech_file qx/icecaps.tch
+
+generic_power_names 1.8 {vdd}
+generic_ground_names 0.0 {gnd}
+
+setvar generate_port_powerview TRUE
+
+
+### Input Commands ###
+gds_file_list_file {}
+lef_file_list_file {all.lef}
+
+cell_list {*}
+
+include qx/lefdef.layermap
+
+####### End of File #########
+
+***End of command file.***
+
+Parsing iit018_stdcells.lef.
+
+Beginning geometric view generation.
+
+Parsing iit018_stdcells.lef.
+
+Processing LEF cell FILL, 32 more cells to go.
+
+Processing LEF cell AND2X1, 31 more cells to go.
+
+Processing LEF cell AND2X2, 30 more cells to go.
+
+Processing LEF cell AOI21X1, 29 more cells to go.
+
+Processing LEF cell AOI22X1, 28 more cells to go.
+
+Processing LEF cell BUFX2, 27 more cells to go.
+
+Processing LEF cell BUFX4, 26 more cells to go.
+
+Processing LEF cell DFFNEGX1, 25 more cells to go.
+
+Processing LEF cell NOR3X1, 24 more cells to go.
+
+Processing LEF cell DFFPOSX1, 23 more cells to go.
+
+Processing LEF cell FAX1, 22 more cells to go.
+
+Processing LEF cell HAX1, 21 more cells to go.
+
+Processing LEF cell INVX1, 20 more cells to go.
+
+Processing LEF cell INVX2, 19 more cells to go.
+
+Processing LEF cell INVX4, 18 more cells to go.
+
+Processing LEF cell INVX8, 17 more cells to go.
+
+Processing LEF cell NAND2X1, 16 more cells to go.
+
+Processing LEF cell NAND3X1, 15 more cells to go.
+
+Processing LEF cell NOR2X1, 14 more cells to go.
+
+Processing LEF cell OAI21X1, 13 more cells to go.
+
+Processing LEF cell OAI22X1, 12 more cells to go.
+
+Processing LEF cell OR2X1, 11 more cells to go.
+
+Processing LEF cell OR2X2, 10 more cells to go.
+
+Processing LEF cell TBUFX1, 9 more cells to go.
+
+Processing LEF cell TBUFX2, 8 more cells to go.
+
+Processing LEF cell XOR2X1, 7 more cells to go.
+
+Processing LEF cell MUX2X1, 6 more cells to go.
+
+Processing LEF cell XNOR2X1, 5 more cells to go.
+
+Processing LEF cell LATCH, 4 more cells to go.
+
+Processing LEF cell DFFSR, 3 more cells to go.
+
+Processing LEF cell CLKBUF1, 2 more cells to go.
+
+Processing LEF cell CLKBUF2, 1 more cells to go.
+
+Processing LEF cell CLKBUF3, 0 more cells to go.
+
+Beginning power view generation.
+
+Beginning interface node generation.
+
+Beginning port power view generation.
+
+
+******* Libgen Summary Information *******
+Flow type was PR_LEF
+Libgen copied 0 cells from existing libraries.
+Libgen processed 33 cells.
+Graybox data was found for 0 cells.
+Obstruction data was found for 25 cells.
+Port powergrid views were created for 33 cells.
+Floorplan powergrid views were created for 0 cells.
+Detailed powergrid views were created for 0 cells.
+Detailed powergrid views were discarded for 0 cells.
+Abstract powergrid views were created for 0 cells.
+Reduced powergrid views were created for 0 cells.
+******************************************
+
+Libgen completed successfully.
+
+Ending at 2005-Jan-13 16:56:04 (2005-Jan-14 00:56:04 GMT).
+  Run duration:          00:00:00 CPU time, 00:00:00 clock time
+
+  Warning messages:      0
+  Error messages:        0
+  Fatal error messages:  0
+
+Exit code 0.
+LibGen exited successfully.

@@ -1,0 +1,18 @@
+#
+OSU_stdcells_tsmc018 udp_dff symbol
+I5
+#
+IIT_stdcells_tsmc018 buf symbol
+I4
+#
+IIT_stdcells_tsmc018 not symbol
+I9
+I8
+I7
+I6
+I2
+#
+IIT_stdcells_tsmc018 and2 symbol
+I3
+I1
+I0

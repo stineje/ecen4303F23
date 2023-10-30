@@ -1,0 +1,23 @@
+; Strem Out Map for exporting GDS layout from Synopsys (Milkyway)
+; Format is MilkywayObjType[MilkywayNetType]
+; MilkywayLayer[:MilkywayDataType] GDSIILayer[:GDSIIDataType]
+; Example:
+;DS 45:2 18 5 ; converts data associated with
+;		signal nets on Milkyway layer #45
+; 		data Type 2 to GDSII Stream layer #18
+; 		data Type 5
+;
+A 1 42  ; nwell
+A 2 103 ; nActive
+A 3 113 ; pActive
+A 4 46  ; poly
+A 5 25  ; cc
+A 6 49  ; metal1
+A 7 50  ; via
+A 8 51  ; metal2
+A 9 61  ; via2
+A 10 62 ; metal3
+A 11 63 ; text
+A 12 43 ; active
+A 13 45 ; nselect
+A 14 44 ; pselect

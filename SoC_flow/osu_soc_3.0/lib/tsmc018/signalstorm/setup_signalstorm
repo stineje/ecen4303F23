@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Clean up
+/usr/bin/rm -rf sigstormlc.log
+/usr/bin/rm -rf sigstormlc.work
+/usr/bin/rm -rf osu018_stdcells.ipdb
+
+# Netlist the layouts
+../../bin/osucells_netlist SCN6M_SUBM.10 no_pads osu018_stdcells.sp
+
+# Run signalstorm
+slc -S ss_step1
+

@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# Copies default cds.lib file
+# 
+# Jun Chen, OSU
+# 2006/11/30
+#
+
+cp $CDK_DIR/cdssetup/ncsu.lib cds.lib
+cp $CDK_DIR/cdssetup/cdsinit .cdsinit
+
+# fix for missing menu in IC5141 with ncsu-cdk-1.
+cp $CDK_DIR/cdssetup/cdsLibMgr.il .
+
+echo Copied cds.lib to your current directory...
+echo Done!

@@ -1,0 +1,76 @@
+# SUE version MMI_SUE4.2.10
+
+proc SCHEMATIC_MUX2X1 {} {
+  make global -name gnd -origin {450 570}
+  make global -orient RXY -name vdd -origin {450 220}
+  make output -name Y -origin {590 390}
+  make global -name gnd -origin {680 650}
+  make global -orient RXY -name vdd -origin {680 480}
+make nmos -W 3 -L 0.3u -origin {450 530}
+make nmos -W 3 -L 0.3u -origin {450 440}
+make pmos -W 6 -L 0.3u -origin {450 340}
+make pmos -W 6 -L 0.3u -origin {450 260}
+make nmos -W 1.5 -L 0.3u -origin {680 610}
+make pmos -W 3 -L 0.3u -origin {680 520}
+  make global -name gnd -origin {450 1000}
+  make global -orient RXY -name vdd -origin {450 650}
+make nmos -W 3 -L 0.3u -origin {450 960}
+make nmos -W 3 -L 0.3u -origin {450 870}
+make pmos -W 6 -L 0.3u -origin {450 770}
+make pmos -W 6 -L 0.3u -origin {450 690}
+  make name_net_s -name S -origin {340 870}
+  make name_net_s -name S_b -origin {340 770}
+  make input -name S -origin {610 560}
+  make name_net_s -name S_b -origin {720 570}
+  make name_net_s -name S -origin {340 340}
+  make name_net_s -name S_b -origin {340 440}
+  make input -name B -origin {240 370}
+  make input -name A -origin {240 800}
+  make_wire 450 480 450 490
+  make_wire 450 390 450 380
+  make_wire 450 390 450 400
+  make_wire 260 370 260 260
+  make_wire 260 370 260 530
+  make_wire 390 340 340 340
+  make_wire 390 440 340 440
+  make_wire 610 560 620 560
+  make_wire 620 560 620 520
+  make_wire 620 560 620 610
+  make_wire 680 570 720 570
+  make_wire 680 560 680 570
+  make_wire 240 370 260 370
+  make_wire 260 530 390 530
+  make_wire 260 260 390 260
+  make_wire 450 910 450 920
+  make_wire 450 820 450 810
+  make_wire 450 820 450 830
+  make_wire 260 800 260 690
+  make_wire 260 800 260 960
+  make_wire 390 770 340 770
+  make_wire 390 870 340 870
+  make_wire 240 800 260 800
+  make_wire 260 960 390 960
+  make_wire 260 690 390 690
+  make_wire 450 820 550 820
+  make_wire 550 820 550 390
+  make_wire 550 390 450 390
+  make_wire 550 390 590 390
+}
+
+proc ICON_MUX2X1 args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}} {M {}} {dpc {}}}
+  icon_term -type input -origin {-50 -10} -name A
+  icon_term -type output -origin {50 -10} -name Y
+  icon_term -type input -origin {-50 30} -name S
+  icon_term -type input -origin {-50 10} -name B
+  icon_property -origin {0 140} -type user -name name
+  icon_property -origin {0 160} -type user -name M
+  icon_property -origin {0 180} -type user -name dpc
+  icon_line -50 -20 -50 40 50 40 50 -20 -50 -20 -50 -20
+  icon_property -origin {-40 -10} -size small -label A
+  icon_property -origin {-40 30} -size small -label En
+  icon_property -origin {30 -10} -size small -label Yb
+  icon_property -origin {0 30} -size small -label MUX2X1
+  icon_property -origin {-40 10} -size small -label B
+}
+

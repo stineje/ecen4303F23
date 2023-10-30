@@ -1,0 +1,12 @@
+db_open osu018_stdcells
+db_install -model tsmc018.m -subckt osu018_stdcells.sp
+
+set_var SG_SPICE_SUPPLY1_NAMES "vdd vdd2"
+set_var SG_SPICE_SUPPLY0_NAMES "gnd gnd2"
+
+db_gsim
+db_setup -s setup.ss
+db_spice
+db_output -r osu018_stdcells.rep -alf osu018_stdcells.alf -p typical
+db_close
+exit

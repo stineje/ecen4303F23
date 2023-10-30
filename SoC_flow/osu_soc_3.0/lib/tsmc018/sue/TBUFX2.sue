@@ -1,0 +1,51 @@
+# SUE version MMI_SUE4.2.10
+
+proc SCHEMATIC_TBUFX2 {} {
+  make global -name gnd -origin {450 560}
+  make global -orient RXY -name vdd -origin {450 220}
+  make input -name A -origin {250 390}
+  make input -name En -origin {640 390}
+  make output -name Y -origin {480 390}
+  make global -name gnd -origin {710 480}
+  make global -orient RXY -name vdd -origin {710 310}
+  make name_net_s -name En_b -origin {750 400}
+  make name_net_s -name En_b -origin {340 340}
+  make name_net_s -name En -origin {340 440}
+make nmos -W 4 -L 0.2u -origin {450 520}
+make nmos -W 4 -L 0.2u -origin {450 440}
+make pmos -W 8 -L 0.2u -origin {450 340}
+make pmos -W 8 -L 0.2u -origin {450 260}
+make nmos -W 2 -L 0.2u -origin {710 440}
+make pmos -W 4 -L 0.2u -origin {710 350}
+  make_wire 450 390 450 380
+  make_wire 450 390 450 400
+  make_wire 390 340 340 340
+  make_wire 390 440 340 440
+  make_wire 640 390 650 390
+  make_wire 650 390 650 350
+  make_wire 650 390 650 440
+  make_wire 710 400 750 400
+  make_wire 710 390 710 400
+  make_wire 260 520 390 520
+  make_wire 260 260 390 260
+  make_wire 250 390 260 390
+  make_wire 260 390 260 520
+  make_wire 260 390 260 260
+  make_wire 450 390 480 390
+}
+
+proc ICON_TBUFX2 args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}} {M {}} {dpc {}}}
+  icon_term -type input -origin {-50 0} -name A
+  icon_term -type input -origin {-50 20} -name En
+  icon_term -type output -origin {50 0} -name Y
+  icon_property -origin {0 150} -type user -name name
+  icon_property -origin {0 170} -type user -name M
+  icon_property -origin {0 190} -type user -name dpc
+  icon_line -50 -10 -50 30 50 30 50 -10 -50 -10 -50 -10
+  icon_property -origin {-40 0} -size small -label A
+  icon_property -origin {-40 20} -size small -label EN
+  icon_property -origin {30 0} -size small -label Y
+  icon_property -origin {0 20} -size small -label TBUFX2
+}
+

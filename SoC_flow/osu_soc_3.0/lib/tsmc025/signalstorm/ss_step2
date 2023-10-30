@@ -1,0 +1,12 @@
+db_open osu025_stdcells
+
+set_var SG_SPICE_SUPPLY1_NAMES "vdd vdd2"
+set_var SG_SPICE_SUPPLY0_NAMES "gnd gnd2"
+set_var SG_HALF_WIDTH_HOLD_FLAG true
+
+db_setup -s setup.ss
+
+db_spice
+
+db_close
+exit

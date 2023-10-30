@@ -1,0 +1,63 @@
+HLD-MESSAGE: lef2hld Version:  3.4E.28, built after Thu May 22, 2003 at 12:57 - db: 2.000; allegro: 4.3; galaxy: 2.5; flexlm 6.1
+HLD-MESSAGE: Copyright (c) 1991-2004 Cadence Design Systems. All rights reserved.
+HLD-MESSAGE: 2004/07/29 18:28:47: lef2hld started.
+HLD-WARNING: 2004/07/29 18:28:54: The -minGrid option will overwrite MANUFACTURINGGRID value in the LEF.HLD-MESSAGE: Parsing lef file mosis_subm_20.lef.
+HLD-MESSAGE: 2004/07/29 18:28:54: NAMESCASESENSITIVE is ON, no case mapping will happen.
+HLD-WARNING: 2004/07/29 18:28:54: MANUFACTURINGGRID is not supported in this version, line 9 will be ignored.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer nwell start, current line 11.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer nwell finished, current line 13.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer nactive start, current line 15.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer nactive finished, current line 17.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer pactive start, current line 19.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer pactive finished, current line 21.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer poly start, current line 23.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer poly finished, current line 25.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer cc start, current line 27.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer cc finished, current line 30.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer metal1 start, current line 32.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer metal1 finished, current line 41.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer via start, current line 43.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer via finished, current line 46.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer metal2 start, current line 48.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer metal2 finished, current line 57.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer via2 start, current line 59.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer via2 finished, current line 62.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer metal3 start, current line 64.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer metal3 finished, current line 73.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer via3 start, current line 75.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer via3 finished, current line 78.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer metal4 start, current line 80.
+HLD-MESSAGE: 2004/07/29 18:28:54: Layer metal4 finished, current line 89.
+HLD-MESSAGE: 2004/07/29 18:28:54: Via M4_M3 start, current line 91.
+HLD-MESSAGE: 2004/07/29 18:28:55: Via M4_M3 finished, current line 98.
+HLD-MESSAGE: 2004/07/29 18:28:55: Via M3_M2 start, current line 100.
+HLD-MESSAGE: 2004/07/29 18:28:55: Via M3_M2 finished, current line 107.
+HLD-MESSAGE: 2004/07/29 18:28:55: Via M2_M1 start, current line 109.
+HLD-MESSAGE: 2004/07/29 18:28:55: Via M2_M1 finished, current line 116.
+HLD-MESSAGE: 2004/07/29 18:28:55: VIARULE viagen21 start, current line 119.
+HLD-MESSAGE: 2004/07/29 18:28:55: VIARULE viagen21 finished, current line 133.
+HLD-MESSAGE: 2004/07/29 18:28:55: VIARULE viagen32 start, current line 135.
+HLD-MESSAGE: 2004/07/29 18:28:55: VIARULE viagen32 finished, current line 149.
+HLD-MESSAGE: 2004/07/29 18:28:55: VIARULE viagen43 start, current line 151.
+HLD-MESSAGE: 2004/07/29 18:28:55: VIARULE viagen43 finished, current line 165.
+HLD-MESSAGE: 2004/07/29 18:28:55: VIARULE TURN1 start, current line 167.
+HLD-MESSAGE: 2004/07/29 18:28:55: VIARULE TURN1 finished, current line 172.
+HLD-MESSAGE: 2004/07/29 18:28:55: VIARULE TURN2 start, current line 174.
+HLD-MESSAGE: 2004/07/29 18:28:55: VIARULE TURN2 finished, current line 179.
+HLD-MESSAGE: 2004/07/29 18:28:55: VIARULE TURN3 start, current line 181.
+HLD-MESSAGE: 2004/07/29 18:28:55: VIARULE TURN3 finished, current line 186.
+HLD-MESSAGE: 2004/07/29 18:28:55: VIARULE TURN4 start, current line 188.
+HLD-MESSAGE: 2004/07/29 18:28:55: VIARULE TURN4 finished, current line 193.
+HLD-MESSAGE: 2004/07/29 18:28:55: Site core start, current line 195.
+HLD-MESSAGE: 2004/07/29 18:28:55: Site core finished, current line 199.
+HLD-MESSAGE: 2004/07/29 18:28:55: Site IO start, current line 201.
+HLD-MESSAGE: 2004/07/29 18:28:56: Site IO finished, current line 205.
+HLD-MESSAGE: 2004/07/29 18:28:56: Site corner start, current line 207.
+HLD-MESSAGE: 2004/07/29 18:28:56: Site corner finished, current line 211.
+HLD-MESSAGE: Completed lef file mosis_subm_20.lef.
+HLD-MESSAGE: New technology file: ./tech.dpux.
+HLD-MESSAGE: 2004/07/29 18:28:56: lef2hld terminated.
+HLD-MESSAGE: System CPU time  : 0 Hrs 0 Mins 0 Secs
+HLD-MESSAGE: Real time        : 0 Hrs 0 Mins 9 Secs
+HLD-MESSAGE: Memory used      : 31796K
+

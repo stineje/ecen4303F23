@@ -1,0 +1,9 @@
+# SUE version MMI_SUE4.2.10
+
+proc SCHEMATIC_iit06_stdcells_pads {} {
+  make PADGND -origin {190 250}
+  make PADINC -origin {340 250}
+  make PADOUT -origin {500 270}
+  make PADVDD -origin {240 490}
+}
+

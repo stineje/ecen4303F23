@@ -1,0 +1,139 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Scheme Functions For Recommended Astro Methodology
+; Copyright (C) 2000-2005 Astro CAE Group
+; RCMD Version 2006.06.sp4.11.27.2006 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ 
+ 
+;#########################
+;# Loading scheme script #
+;#########################
+scmLoadScript
+
+;######################################
+;#  Variable that needs you to key in #
+;######################################
+define library_name               "multiplyadd"
+define case_sensitive             1
+define ref_lib_list               '(osu05_stdcells)
+define verilog_file               "multiplyadd.mapped.v"
+define top_module_name            "multiplyadd"
+define bind_cell_name             "multiplyadd"
+define tech_file                  "tech.tf"
+define sdc_file                   "multiplyadd.sdc"
+define tdf_file                   "" 	; If you have predefined pad location.
+define def_file             	  "KeyIn_optional"
+define floorplan_file             "KeyIn_optional"
+define preroute_file              "KeyIn_optional"
+
+
+setFieldDefault "Open Library" "Library Name" library_name
+display (uname)
+
+;###############################
+;# Variables that are optional #
+;###############################
+
+;General
+define debug_mode		   1		        ; boolean
+define report_snapshot		   0		        ; boolean
+define snapshot_dir                "report/"            ; a string
+define save_cell_each_step         1                    ; boolean 
+define save_to_other_cell          0                    ; boolean
+define effort                      "medium"             ; a string
+define fix_hold                    1                    ; boolean
+define place_cell_under_preroute   '(M3 M4 M5 M6 M7 M8 M9 M10 M11 M12)       ; add M1 and/or M2 if pre-route file contain std rail route already
+define no_cell_under_vias   	   '()       				     ; add via list like '( V12 V23 ), where V12 and V23 are the astPlaceOption via buttons..
+
+;Initial Design
+define verilog_list_file           ""                   ; a string
+define verilog_model_directory     ""                   ; a string
+define model_file_extension        ".v, .V"             ; a string
+define bus_style                   "[%d]"               ; a string
+define tie_high_net                "vdd"                ; a string
+define tie_down_net                "gnd"                ; a string
+define power_net_list              '(vdd)               ; a matched list with same number of elements and order as power_port_list,for ex,'(VDD VDD VDD_A)
+define power_port_list             '(vdd.*)             ; a matched list with the above,for ex,'(VDD.* vdd.* VDD_A.*)
+							; In the ex, ports VDD.* and vdd.* are connected to net VDD while ports VDD_A.* to net VDD_A
+define ground_net_list             '(gnd)               ; a matched list with same number of elements and order as ground_port_list,for ex,'(VSS VSS GND)
+define ground_port_list            '(gnd.*)             ; a matched list for the above,for ex,'(VSS.* vss.* GND.*)
+							; In the ex, ports VSS.* and vss.* are connected to net VSS while ports GND.* to net GND
+define no_backslash                1                    ; boolean
+define remove_first_backslash      0                    ; boolean
+define preserve_hierarchy          1                    ; boolean
+define avoid_assign_statement	   1			; boolean
+define pad_cell_files              '()                  ; a list of file names
+
+;TLU+
+define enable_tluplus		   0			; boolean
+define nom_cap_file                ""                   ; a string
+define min_cap_file                ""                   ; a string
+define max_cap_file                ""                   ; a string
+define xt_mapping_file             ""                   ; a string
+define xt_nxtgrd_file_min          ""                   ; a string
+define xt_nxtgrd_file_nom          ""                   ; a string
+define xt_nxtgrd_file_max          ""                   ; a string
+
+;Following all variables are applicable to Astro, NOT PC 
+
+;Placement
+;define initial_clock_transition   0                    ; float 
+define autoplace             	   1                    ; boolean
+define dont_use_cell_list          '()                  ; '(CKBUFX2 CKBUFX4) ;Doesn't need to include delay cell; this variable is applicable to Astro, NOT PC
+define delay_cell_list             '()                  ; '(DLYX1 DLYX2) ; Delay cells are considered as don't use for setup fix. 
+							; Note, if clock delay cells are not specified, CTO honors cells specified in the delay_cell_list as well.
+define hfn_max_fanouts             40                   ; float
+define target_setup_slack          0.1                  ; float ; Always in ns. Automatically multiply by 1000 if the tech file unit is in ps. 
+define target_hold_slack           0                    ; float ; Always in ns. Automatically multiply by 1000 if the tech file unit is in ps.
+define target_transition           2                    ; float ; Always in ns. Automatically multiply by 1000 if the tech file unit is in ps.
+define target_capacitance          2                    ; float ; Always in pF. Automatically multiply by 1000 if the tech file unit is in fF.
+define logic_remapping             1                    ; boolean
+define io_net_weight               1                    ; integer from 0 to 100
+define macro_net_weight            1                    ; integer from 0 to 100
+define tri_net_weight              20                   ; integer from 0 to 100
+define region_rigidity             0                    ; integer from 0 to 10; Default enabling value for Astro is 10. RAM enables region regidity setting in astPlaceOption only if region_rigidity value is greater than 0.
+define search_refine_area_count    1000                 ; integer from 0 to 1000
+define search_refine_max_overflow  2                    ; integer > 0
+define timing_routability          5                    ; integer from 0 to 10
+define io_pin_placement            0                    ; boolean
+define area_recovery               1                    ; boolean
+
+;Clock
+define clock_prefer_cells          "CLKBUF2, CLKBUF3"                   ; "CKBUFX4,CKBUFX12" ; For initial build of clock tree
+define clock_cell_list             '(CLKBUF1 CLKBUF2 CLKBUF3)                  ; '(CKBUFX2 CKBUFX4 CKBUFX8 CKBUFX12 CKBUFX16) ; For optimizing clock tree
+define clock_priority_list         '()                  ; '(CLK1st CLK2nd CLK3rd) ; Specify subset of clocks you want to build in order.
+define clock_target_transition     0.25                 ; float ; Always in ns. Automatically multiply by 1000 if the tech file unit is in ps.
+define clock_target_cap            0.3                  ; float ; Always in pF. Automatically multiply by 1000 if the tech file unit is in fF.
+define clock_target_skew           0                    ; float ; Always in ns. Automatically multiply by 1000 if the tech file unit is in ps.
+define clock_max_transition        0.5			; float ; Always in ns. Automatically multiply by 1000 if the tech file unit is in ps.
+define clock_min_transition        0.0			; float ; Always in ns. Automatically multiply by 1000 if the tech file unit is in ps.
+define clock_max_capacitance       0.6			; float ; Always in pF. Automatically multiply by 1000 if the tech file unit is in fF.
+
+
+;Route
+define search_repair_loop          15                   ; integer > 0
+define add_filler_cell             0                    ; boolean
+define filler_cell                 ""                   ; "CAPNFIL32, CAPNFIL8, CAPNFIL1"
+define filler_cell_metal           ""                   ; "CAPNFIL32, CAPNFIL8, CAPNFIL1"
+define optimize_via                0                    ; boolean 
+define opt_via_list                '()                  ; '( (via1 via1 2)
+                                                        ;    (via2 via2 2) )
+define timing_driven_route         1                    ; boolean ; Control Global Route and Track Assign Timing Driven buttons in axgSetRouteOptions.
+define timing_driven_detail_route  0                    ; boolean ; Control Detail Route Timing Driven button in axgSetRouteOptions.
+
+;Post-route
+define post_rt_iteration           100                  ; integer > 0
+define use_astPostRouteOpt_flow    1			; boolean 
+
+;xtalk
+define noise_rise_threshold        0.35                 ; > 0 and < 1 ; This is for xtalk fixing
+define noise_fall_threshold        0.35                 ; > 0 and < 1 ; This is for xtalk fixing
+define noise_threshold_scaling_factor      0.80         ; > 0 and < 1 ; This is the scaling factor for xtalk prevention starting from track assign stage.
+define ta_noise_threshold          noise_rise_threshold ; This is the noise threshold for xtalk prevention in astPostPS1
+
+;Antenna
+define diode_names                 ""                   ; "DIODEX2, DIODEX1"
+
+;Misc
+define distributed_routing_machine_list '()             ; '(machine_name1 machine_name2 ...)
+define distributed_job_per_machine 1                    ; integer > 0

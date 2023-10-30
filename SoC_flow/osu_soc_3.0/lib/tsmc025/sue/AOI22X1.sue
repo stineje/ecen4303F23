@@ -1,0 +1,70 @@
+# SUE version MMI_SUE4.2.10
+
+proc SCHEMATIC_AOI22X1 {} {
+  make global -orient RXY -name vdd -origin {-250 120}
+  make global -name gnd -origin {-250 580}
+  make output -name Y -origin {-10 340}
+make nmos -W 3 -L 0.3u -origin {-320 390}
+make nmos -W 3 -L 0.3u -origin {-320 490}
+make nmos -orient RX -W 3 -L 0.3u -origin {-150 490}
+make nmos -orient RX -W 3 -L 0.3u -origin {-150 390}
+  make input -name A -origin {-400 490}
+  make input -name B -origin {-400 390}
+  make input -orient RX -name C -origin {-70 490}
+  make input -orient RX -name D -origin {-70 390}
+  make name_net_s -orient RXY -name A -origin {-410 190}
+  make name_net_s -orient RXY -name D -origin {-410 290}
+  make name_net_s -name B -origin {-60 190}
+  make name_net_s -name C -origin {-60 290}
+make pmos -W 6 -L 0.3u -origin {-320 190}
+make pmos -orient RX -W 6 -L 0.3u -origin {-150 190}
+make pmos -W 6 -L 0.3u -origin {-320 290}
+make pmos -orient RX -W 6 -L 0.3u -origin {-150 290}
+  make_wire -250 150 -320 150
+  make_wire -320 530 -250 530
+  make_wire -250 150 -150 150
+  make_wire -250 530 -150 530
+  make_wire -320 340 -150 340
+  make_wire -150 340 -10 340
+  make_wire -250 120 -250 150
+  make_wire -250 530 -250 580
+  make_wire -90 190 -60 190
+  make_wire -90 290 -60 290
+  make_wire -380 190 -410 190
+  make_wire -380 290 -410 290
+  make_wire -380 390 -400 390
+  make_wire -380 490 -400 490
+  make_wire -90 390 -70 390
+  make_wire -90 490 -70 490
+  make_wire -150 430 -150 450
+  make_wire -320 430 -320 450
+  make_wire -320 330 -320 340
+  make_wire -320 340 -320 350
+  make_wire -150 330 -150 340
+  make_wire -150 340 -150 350
+  make_wire -150 240 -320 240
+  make_wire -150 240 -150 250
+  make_wire -150 240 -150 230
+  make_wire -320 240 -320 250
+  make_wire -320 240 -320 230
+}
+
+proc ICON_AOI22X1 args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}} {M {}} {dpc {}}}
+  icon_term -type output -origin {60 10} -name Y
+  icon_term -type input -origin {-60 -20} -name A
+  icon_term -type input -origin {-60 0} -name B
+  icon_term -type input -origin {-60 20} -name C
+  icon_term -type input -origin {-60 40} -name D
+  icon_property -origin {-10 140} -type user -name name
+  icon_property -origin {-10 160} -type user -name M
+  icon_property -origin {-10 180} -type user -name dpc
+  icon_property -origin {0 30} -size small -label AOI22X1
+  icon_property -origin {40 10} -size small -label Y
+  icon_line -60 -30 -60 50 60 50 60 -30 -60 -30 -60 -30
+  icon_property -origin {-50 -20} -size small -label A
+  icon_property -origin {-50 0} -size small -label B
+  icon_property -origin {-50 20} -size small -label C
+  icon_property -origin {-50 40} -size small -label D
+}
+

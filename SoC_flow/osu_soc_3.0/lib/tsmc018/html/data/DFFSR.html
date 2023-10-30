@@ -1,0 +1,1677 @@
+<meta http-equiv="Content-Language" content="en-us"><meta http-equiv="Content-Type" content="text/html">
+<HTML><HEAD><TITLE>DFFSR</TITLE></HEAD>
+<body bgcolor="#FFFFFF">
+<div align="left"><center>
+<table border="0" width="700" height="2152" bgcolor="#FFFFFF" cellspacing="3" cellpadding="3">
+<tr><td width="100%" valign="top" align="center" height="20" bgcolor="#FFFFFF">
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr><td width="60%" nowrap valign="bottom" align="left" bgcolor="#FFFFFF"><font size="5" face="Times New Roman">DFFSR(data type: typ)</font></td>
+</tr><tr><td colspan="2" width ="50%" align = "center"><hr color="#000000"></td></tr></table></td></tr>
+<tr>
+<td width="100%"   valign="top" align="left"  bgcolor="#FFFFFF">
+<div align="left">
+<table border="0" width="100%" cellspacing="0" bordercolor="#000000" bordercolorlight="#808080" cellpadding="1">
+<td width="60%"   valign="top" align="left"  bgcolor="#FFFFFF">
+<table border="0" width="100%" cellspacing="0" bordercolor="#000000" bordercolorlight="#808080" cellpadding="1">
+<tr><th align="left" bgcolor="#FFFFFF" width="100%"><font size="4" face="Times New Roman">Function</font></th></tr>
+<tr><th align="left" bgcolor="#FFFFFF" width="100%"><font size="4" face="Times New Roman">FLIPFLOP{</font></th></tr><tr><td width="100%" valign="middle" align="left"  bgcolor="#FFFFFF">&nbsp;&nbsp;DATA=D</td></tr><tr><td width="100%" valign="middle" align="left"  bgcolor="#FFFFFF">&nbsp;&nbsp;CLOCK=CLK</td></tr><tr><td width="100%" valign="middle" align="left"  bgcolor="#FFFFFF">&nbsp;&nbsp;PRESET=!S</td></tr><tr><td width="100%" valign="middle" align="left"  bgcolor="#FFFFFF">&nbsp;&nbsp;CLEAR=!R</td></tr><tr><td width="100%" valign="middle" align="left"  bgcolor="#FFFFFF">&nbsp;&nbsp;Q=P0002</td></tr><tr><td width="100%" valign="middle" align="left"  bgcolor="#FFFFFF">&nbsp;&nbsp;QN=P0003</td></tr><tr><th align="left" bgcolor="#FFFFFF" width="100%"><font size="4" face="Times New Roman">}</font></th></tr><tr><td width="100%" valign="middle" align="left"  bgcolor="#FFFFFF">Q=P0002</td></tr></table></td>
+</table>
+</div></td></tr>
+<tr>
+<td width="80%"  valign="middle" align="center" bgcolor="#FFFFFF"><p>&nbsp;</p><p align="left"><font size="4" face="Times New Roman"><strong>Static Power:</strong></font></p>
+<div align="left"><table border="1" cellspacing="0" width="60%" cellpadding="0" bordercolor="#000000">
+<tr>
+<th height="19" align="center" valign="middle" width="30%" bgcolor="#E0E0E0">When</th>
+<th height="19" align="center" valign="middle" width="30%" bgcolor="#E0E0E0">Static Power [nW]</th>
+</tr>
+<tr>
+<td height="40" align="center" valign="middle" width="30%">-</td>
+<td height="40" align="center" valign="middle" width="30%">0.277</td>
+</tr>
+</table>
+</div></td>
+</tr>
+<tr>
+<td width="100%"  valign="top" align="left"  bgcolor="#FFFFFF"><p>&nbsp;</p><p align="left"><font size="4" face="Times New Roman"><strong>Port:</strong></font></p>
+<div align="left">
+<table border="1" width="20%" cellspacing="0" bordercolor="#000000" bordercolorlight="#808080" cellpadding="3">
+<tr>
+<th align="center" nowrap bgcolor="#E0E0E0" width="33%">Pin</th>
+<th align="center" nowrap bgcolor="#E0E0E0" width="33%">Direction</th>
+<th align="center" nowrap bgcolor="#E0E0E0" width="33%">Signaltype</th>
+<th align="center" nowrap bgcolor="#E0E0E0" width="33%">Polarity</th>
+</tr>
+<tr>
+<th align="center" nowrap bgcolor="#E0E0E0" width="33%">CLK</th>
+<td align="center" nowrap bgcolor="#FFFFFF" width="33%">INPUT</td><td align="center" nowrap bgcolor="#FFFFFF" width="33%">CLOCK</td>
+<td align="center" nowrap bgcolor="#FFFFFF" width="33%">RISING_EDGE</td></tr><tr>
+<th align="center" nowrap bgcolor="#E0E0E0" width="33%">D</th>
+<td align="center" nowrap bgcolor="#FFFFFF" width="33%">INPUT</td><td align="center" nowrap bgcolor="#FFFFFF" width="33%">DATA</td>
+<td align="center" nowrap bgcolor="#FFFFFF" width="33%">-</td>
+</tr><tr>
+<th align="center" nowrap bgcolor="#E0E0E0" width="33%">Q</th>
+<td align="center" nowrap bgcolor="#FFFFFF" width="33%">OUTPUT</td><td align="center" nowrap bgcolor="#FFFFFF" width="33%">-</td><td align="center" nowrap bgcolor="#FFFFFF" width="33%">-</td>
+</tr><tr>
+<th align="center" nowrap bgcolor="#E0E0E0" width="33%">R</th>
+<td align="center" nowrap bgcolor="#FFFFFF" width="33%">INPUT</td><td align="center" nowrap bgcolor="#FFFFFF" width="33%">SET</td>
+<td align="center" nowrap bgcolor="#FFFFFF" width="33%">LOW</td></tr><tr>
+<th align="center" nowrap bgcolor="#E0E0E0" width="33%">S</th>
+<td align="center" nowrap bgcolor="#FFFFFF" width="33%">INPUT</td><td align="center" nowrap bgcolor="#FFFFFF" width="33%">SET</td>
+<td align="center" nowrap bgcolor="#FFFFFF" width="33%">LOW</td></tr></table>
+</div></td>
+</tr>
+<tr>
+<td width="100%" colspan="4" height="193" valign="middle" align="center" bgcolor="#FFFFFF"><p>&nbsp;</p><div align="left"><table border="1" cellspacing="0" width="50%"  bordercolorlight="#808080" bordercolor="#000000">
+<tr>
+<th width="10%" rowspan="2" valign="middle" align="center" bgcolor="#E0E0E0" height="49">Name</th>
+<th width="10%" colspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" height="23">Pin Capacitance [pF]</th>
+<th width="10%" colspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" height="23">Internal Power [pJ]</th>
+</tr>
+<tr>
+<th width="10%"  valign="middle" align="center" nowrap bgcolor="#E0E0E0" height="12">Rise </th>
+<th width="10%"  valign="middle" align="center" nowrap bgcolor="#E0E0E0" height="12">Fall</th>
+<th width="10%"  valign="middle" align="center" nowrap bgcolor="#E0E0E0" height="12">Rise </th>
+<th width="10%"  valign="middle" align="center" nowrap bgcolor="#E0E0E0" height="12">Fall</th>
+</tr>
+<tr>
+<th align="center" nowrap bgcolor="#E0E0E0" width="8%" height="23" valign="middle">CLK</th>
+<td height="23" align="center" width="10%" valign="middle">0.00932</td>
+<td height="23" align="center" width="10%" valign="middle">0.00938</td>
+<td height="23" align="center" width="10%" valign="middle">0.0417</td>
+<td height="23" align="center" width="10%" valign="middle">0.123</td>
+</tr>
+<tr>
+<th align="center" nowrap bgcolor="#E0E0E0" width="8%" height="23" valign="middle">D</th>
+<td height="23" align="center" width="10%" valign="middle">0.00941</td>
+<td height="23" align="center" width="10%" valign="middle">0.00933</td>
+<td height="23" align="center" width="10%" valign="middle">0.0883</td>
+<td height="23" align="center" width="10%" valign="middle">0.117</td>
+</tr>
+<tr>
+<th align="center" nowrap bgcolor="#E0E0E0" width="8%" height="23" valign="middle">R</th>
+<td height="23" align="center" width="10%" valign="middle">0.0255</td>
+<td height="23" align="center" width="10%" valign="middle">0.022</td>
+<td height="23" align="center" width="10%" valign="middle">-</td>
+<td height="23" align="center" width="10%" valign="middle">-</td>
+</tr>
+<tr>
+<th align="center" nowrap bgcolor="#E0E0E0" width="8%" height="23" valign="middle">S</th>
+<td height="23" align="center" width="10%" valign="middle">0.0142</td>
+<td height="23" align="center" width="10%" valign="middle">0.0231</td>
+<td height="23" align="center" width="10%" valign="middle">0.0362</td>
+</tr>
+</table>
+</div></td>
+</tr>
+<tr>
+<td width="100%"   valign="middle" align="center" bgcolor="#FFFFFF"><p>&nbsp;</p><p align="left"><font size="4" face="Times New Roman"><strong>Output Driving Strength</strong></font></p>
+<div align="left"><table border="1" cellspacing="0" width="50%" cellpadding="3" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th rowspan="2" valign="middle" align="center" bgcolor="#E0E0E0" nowrap width="10%">Name</th>
+<th colspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">Rise</th>
+<th colspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">Fall</th>
+</tr>
+<tr>
+<th width="10%" valign="middle" align="center" nowrap bgcolor="#E0E0E0" height="15">Strength (sec/F)</th>
+<th width="10%" valign="middle" align="center" nowrap bgcolor="#E0E0E0" height="15">Limit (pF)</th>
+<th width="10%" valign="middle" align="center" nowrap bgcolor="#E0E0E0" height="15">Strength (sec/F)</th>
+<th width="10%" valign="middle" align="center" nowrap bgcolor="#E0E0E0" height="15">Limit (pF)</th>
+</tr>
+<tr>
+<th align="center" nowrap bgcolor="#E0E0E0" width="10%" height="23" valign="middle">Q</th>
+<td height="19" align="center" valign="middle" width="10%">1.68e+03</td>
+<td height="19" align="center" valign="middle" width="10%">0.468</td>
+<td height="19" align="center" valign="middle" width="10%">1.47e+03</td>
+<td height="19" align="center" valign="middle" width="10%">0.468</td>
+</tr>
+</table>
+</div></td>
+</tr>
+<tr>
+<td width="100%"    valign="top" align="left" nowrap bgcolor="#FFFFFF">
+<div align="left">
+<table border="0" cellpadding="0" cellspacing="0" cellpadding ="0" width="80%" bgcolor="#FFFFFF" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<td width="20%"    valign="top" align="left" nowrap bgcolor="#FFFFFF">
+<p>&nbsp;</p><A name="link"><p align="middle"><font size="4" face="Times New Roman"><strong>Link To Path</strong></font></p></a>
+<table border="1" cellpadding="0" cellspacing="0" cellpadding ="0" width="80%" bgcolor="#FFFFFF" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<td width="30%" height="25"  valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>PATH</td>
+<td width="30%" height="25"  valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>WHEN</td>
+</tr>
+<tr>
+<td width="30%" height="25"  valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>
+<a href="#(10S=>01Q)">(10S=>01Q)</a></strong></font>
+</td>
+<td width="30%" height="25"  valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>-</strong></font></td>
+</tr>
+<tr>
+<td width="30%" height="25"  valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>
+<a href="#(01R=>01Q)">(01R=>01Q)</a></strong></font>
+</td>
+<td width="30%" height="25"  valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>-</strong></font></td>
+</tr>
+<tr>
+<td width="30%" height="25"  valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>
+<a href="#(10R=>10Q)">(10R=>10Q)</a></strong></font>
+</td>
+<td width="30%" height="25"  valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>-</strong></font></td>
+</tr>
+<tr>
+<td width="30%" height="25"  valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>
+<a href="#(01CLK=>01Q)">(01CLK=>01Q)</a></strong></font>
+</td>
+<td width="30%" height="25"  valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>-</strong></font></td>
+</tr>
+<tr>
+<td width="30%" height="25"  valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>
+<a href="#(01CLK=>10Q)">(01CLK=>10Q)</a></strong></font>
+</td>
+<td width="30%" height="25"  valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>-</strong></font></td>
+</tr>
+</table>
+</td>
+<td width="10%"     valign="top" align="left" nowrap bgcolor="#FFFFFF">&nbsp;</td>
+<td width="40%"   valign="top" align="left" nowrap bgcolor="#FFFFFF">
+<p>&nbsp;</p><p align="middle"><font size="4" face="Times New Roman"><strong>Link To Constraint</strong></font></p>
+<div align="left"><table border="1" cellpadding="0" cellspacing="0" width="80%" bgcolor="#FFFFFF" bordercolor="#000000" bordercolorlight="#808080">
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>Type </strong></font></td>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>Path</strong></font></td>
+<tr>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>RECOVERY</strong></font></td>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong><a href="#(01R=>01CLK)">(01R=>01CLK)</a></strong></font></td>
+</tr>
+<tr>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>REMOVAL</strong></font></td>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong><a href="#(01CLK=>01R)">(01CLK=>01R)</a></strong></font></td>
+</tr>
+<tr>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>RECOVERY</strong></font></td>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong><a href="#(01R=>01S)">(01R=>01S)</a></strong></font></td>
+</tr>
+<tr>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>RECOVERY</strong></font></td>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong><a href="#(01S=>01CLK)">(01S=>01CLK)</a></strong></font></td>
+</tr>
+<tr>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>REMOVAL</strong></font></td>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong><a href="#(01CLK=>01S)">(01CLK=>01S)</a></strong></font></td>
+</tr>
+<tr>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>RECOVERY</strong></font></td>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong><a href="#(01S=>01R)">(01S=>01R)</a></strong></font></td>
+</tr>
+<tr>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>SETUP</strong></font></td>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong><a href="#(01D=>01CLK)">(01D=>01CLK)</a></strong></font></td>
+</tr>
+<tr>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>SETUP</strong></font></td>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong><a href="#(10D=>01CLK)">(10D=>01CLK)</a></strong></font></td>
+</tr>
+<tr>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>HOLD</strong></font></td>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong><a href="#(01CLK=>01D)">(01CLK=>01D)</a></strong></font></td>
+</tr>
+<tr>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>HOLD</strong></font></td>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong><a href="#(01CLK=>10D)">(01CLK=>10D)</a></strong></font></td>
+</tr>
+<tr>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>PULSEWIDTH</strong></font></td>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong><a href="#(10S=>01S)">(10S=>01S)</a></strong></font></td>
+</tr>
+<tr>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>PULSEWIDTH</strong></font></td>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong><a href="#(10R=>01R)">(10R=>01R)</a></strong></font></td>
+</tr>
+<tr>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>PULSEWIDTH</strong></font></td>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong><a href="#(01CLK=>10CLK)">(01CLK=>10CLK)</a></strong></font></td>
+</tr>
+<tr>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong>PULSEWIDTH</strong></font></td>
+<td width="30%" height="25" valign="middle" align="center" nowrap><font size="4" face="Times New Roman"><strong><a href="#(10CLK=>01CLK)">(10CLK=>01CLK)</a></strong></font></td>
+</tr>
+</table>
+</td>
+<tr>
+</table></div></td>
+</tr>
+<tr>
+<td width="80%"  colspan="4"  valign="middle" align="center" bgcolor="#FFFFFF"><p>&nbsp;</p>
+<a name ="(10S=>01Q)"><p align="left"><font size="4" face="Times New Roman"><strong>(10S=>01Q)</strong></font></p></a>
+<p align="left"><font size="4" face="Times New Roman">DELAY [ns]</font></p>
+<div align="left"><table border="1" cellpadding="0" cellspacing="0" width="85%" valign="middle" bgcolor="#FFFFFF" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>cl[pF]</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">0.1</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">0.5</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">1.2</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">3</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">4</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">5</th>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>ts[ns]</th>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.06</th>
+<td width="10%" valign="middle" align="center">0.345</td>
+<td width="10%" valign="middle" align="center">1.02</td>
+<td width="10%" valign="middle" align="center">2.19</td>
+<td width="10%" valign="middle" align="center">5.22</td>
+<td width="10%" valign="middle" align="center">6.89</td>
+<td width="10%" valign="middle" align="center">8.57</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.24</th>
+<td width="10%" valign="middle" align="center">0.4</td>
+<td width="10%" valign="middle" align="center">1.07</td>
+<td width="10%" valign="middle" align="center">2.25</td>
+<td width="10%" valign="middle" align="center">5.27</td>
+<td width="10%" valign="middle" align="center">6.95</td>
+<td width="10%" valign="middle" align="center">8.63</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.48</th>
+<td width="10%" valign="middle" align="center">0.446</td>
+<td width="10%" valign="middle" align="center">1.12</td>
+<td width="10%" valign="middle" align="center">2.29</td>
+<td width="10%" valign="middle" align="center">5.31</td>
+<td width="10%" valign="middle" align="center">6.99</td>
+<td width="10%" valign="middle" align="center">8.67</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.9</th>
+<td width="10%" valign="middle" align="center">0.526</td>
+<td width="10%" valign="middle" align="center">1.2</td>
+<td width="10%" valign="middle" align="center">2.37</td>
+<td width="10%" valign="middle" align="center">5.4</td>
+<td width="10%" valign="middle" align="center">7.07</td>
+<td width="10%" valign="middle" align="center">8.75</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>1.2</th>
+<td width="10%" valign="middle" align="center">0.574</td>
+<td width="10%" valign="middle" align="center">1.25</td>
+<td width="10%" valign="middle" align="center">2.42</td>
+<td width="10%" valign="middle" align="center">5.44</td>
+<td width="10%" valign="middle" align="center">7.12</td>
+<td width="10%" valign="middle" align="center">8.8</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>1.8</th>
+<td width="10%" valign="middle" align="center">0.666</td>
+<td width="10%" valign="middle" align="center">1.34</td>
+<td width="10%" valign="middle" align="center">2.51</td>
+<td width="10%" valign="middle" align="center">5.53</td>
+<td width="10%" valign="middle" align="center">7.21</td>
+<td width="10%" valign="middle" align="center">8.89</td>
+</tr>
+</table>
+</div></td>
+</tr>
+<tr>
+<td width="80%"  colspan="4"  valign="middle" align="center" bgcolor="#FFFFFF"><p>&nbsp;</p>
+<p></p><p align="left"><font size="4" face="Times New Roman">POWER [pJ]</font></p>
+<div align="left"><table border="1" cellpadding="0" cellspacing="0" width="85%" valign="middle" bgcolor="#FFFFFF" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>cl[pF]</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">0.1</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">0.5</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">1.2</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">3</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">4</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">5</th>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>ts[ns]</th>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.06</th>
+<td width="10%" valign="middle" align="center">0.156</td>
+<td width="10%" valign="middle" align="center">0.157</td>
+<td width="10%" valign="middle" align="center">0.157</td>
+<td width="10%" valign="middle" align="center">0.158</td>
+<td width="10%" valign="middle" align="center">0.159</td>
+<td width="10%" valign="middle" align="center">0.158</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.24</th>
+<td width="10%" valign="middle" align="center">0.17</td>
+<td width="10%" valign="middle" align="center">0.171</td>
+<td width="10%" valign="middle" align="center">0.172</td>
+<td width="10%" valign="middle" align="center">0.173</td>
+<td width="10%" valign="middle" align="center">0.173</td>
+<td width="10%" valign="middle" align="center">0.172</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.48</th>
+<td width="10%" valign="middle" align="center">0.193</td>
+<td width="10%" valign="middle" align="center">0.194</td>
+<td width="10%" valign="middle" align="center">0.194</td>
+<td width="10%" valign="middle" align="center">0.194</td>
+<td width="10%" valign="middle" align="center">0.194</td>
+<td width="10%" valign="middle" align="center">0.194</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.9</th>
+<td width="10%" valign="middle" align="center">0.239</td>
+<td width="10%" valign="middle" align="center">0.239</td>
+<td width="10%" valign="middle" align="center">0.239</td>
+<td width="10%" valign="middle" align="center">0.24</td>
+<td width="10%" valign="middle" align="center">0.24</td>
+<td width="10%" valign="middle" align="center">0.24</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>1.2</th>
+<td width="10%" valign="middle" align="center">0.271</td>
+<td width="10%" valign="middle" align="center">0.271</td>
+<td width="10%" valign="middle" align="center">0.272</td>
+<td width="10%" valign="middle" align="center">0.272</td>
+<td width="10%" valign="middle" align="center">0.273</td>
+<td width="10%" valign="middle" align="center">0.272</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>1.8</th>
+<td width="10%" valign="middle" align="center">0.331</td>
+<td width="10%" valign="middle" align="center">0.333</td>
+<td width="10%" valign="middle" align="center">0.333</td>
+<td width="10%" valign="middle" align="center">0.333</td>
+<td width="10%" valign="middle" align="center">0.334</td>
+<td width="10%" valign="middle" align="center">0.334</td>
+</tr>
+</table>
+<A href="#link"><p  align="middle"> <font size="2" face="Times New Roman"><strong>Back To Path Index</strong></font></p></a>
+</div></td>
+</tr>
+<tr>
+<td width="80%"  colspan="4"  valign="middle" align="center" bgcolor="#FFFFFF"><p>&nbsp;</p>
+<a name ="(01R=>01Q)"><p align="left"><font size="4" face="Times New Roman"><strong>(01R=>01Q)</strong></font></p></a>
+<p align="left"><font size="4" face="Times New Roman">DELAY [ns]</font></p>
+<div align="left"><table border="1" cellpadding="0" cellspacing="0" width="85%" valign="middle" bgcolor="#FFFFFF" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>cl[pF]</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">0.1</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">0.5</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">1.2</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">3</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">4</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">5</th>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>ts[ns]</th>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.06</th>
+<td width="10%" valign="middle" align="center">0.255</td>
+<td width="10%" valign="middle" align="center">0.927</td>
+<td width="10%" valign="middle" align="center">2.1</td>
+<td width="10%" valign="middle" align="center">5.12</td>
+<td width="10%" valign="middle" align="center">6.8</td>
+<td width="10%" valign="middle" align="center">8.48</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.24</th>
+<td width="10%" valign="middle" align="center">0.267</td>
+<td width="10%" valign="middle" align="center">0.939</td>
+<td width="10%" valign="middle" align="center">2.11</td>
+<td width="10%" valign="middle" align="center">5.14</td>
+<td width="10%" valign="middle" align="center">6.81</td>
+<td width="10%" valign="middle" align="center">8.49</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.48</th>
+<td width="10%" valign="middle" align="center">0.273</td>
+<td width="10%" valign="middle" align="center">0.945</td>
+<td width="10%" valign="middle" align="center">2.12</td>
+<td width="10%" valign="middle" align="center">5.14</td>
+<td width="10%" valign="middle" align="center">6.82</td>
+<td width="10%" valign="middle" align="center">8.5</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.9</th>
+<td width="10%" valign="middle" align="center">0.271</td>
+<td width="10%" valign="middle" align="center">0.944</td>
+<td width="10%" valign="middle" align="center">2.12</td>
+<td width="10%" valign="middle" align="center">5.14</td>
+<td width="10%" valign="middle" align="center">6.82</td>
+<td width="10%" valign="middle" align="center">8.5</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>1.2</th>
+<td width="10%" valign="middle" align="center">0.263</td>
+<td width="10%" valign="middle" align="center">0.937</td>
+<td width="10%" valign="middle" align="center">2.11</td>
+<td width="10%" valign="middle" align="center">5.13</td>
+<td width="10%" valign="middle" align="center">6.81</td>
+<td width="10%" valign="middle" align="center">8.49</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>1.8</th>
+<td width="10%" valign="middle" align="center">0.24</td>
+<td width="10%" valign="middle" align="center">0.919</td>
+<td width="10%" valign="middle" align="center">2.09</td>
+<td width="10%" valign="middle" align="center">5.12</td>
+<td width="10%" valign="middle" align="center">6.79</td>
+<td width="10%" valign="middle" align="center">8.47</td>
+</tr>
+</table>
+</div></td>
+</tr>
+<tr>
+<td width="80%"  colspan="4"  valign="middle" align="center" bgcolor="#FFFFFF"><p>&nbsp;</p>
+<p></p><p align="left"><font size="4" face="Times New Roman">POWER [pJ]</font></p>
+<div align="left"><table border="1" cellpadding="0" cellspacing="0" width="85%" valign="middle" bgcolor="#FFFFFF" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>cl[pF]</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">0.1</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">0.5</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">1.2</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">3</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">4</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">5</th>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>ts[ns]</th>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.06</th>
+<td width="10%" valign="middle" align="center">0.0455</td>
+<td width="10%" valign="middle" align="center">0.0467</td>
+<td width="10%" valign="middle" align="center">0.0472</td>
+<td width="10%" valign="middle" align="center">0.0478</td>
+<td width="10%" valign="middle" align="center">0.0485</td>
+<td width="10%" valign="middle" align="center">0.0499</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.24</th>
+<td width="10%" valign="middle" align="center">0.0623</td>
+<td width="10%" valign="middle" align="center">0.0635</td>
+<td width="10%" valign="middle" align="center">0.0639</td>
+<td width="10%" valign="middle" align="center">0.0648</td>
+<td width="10%" valign="middle" align="center">0.0647</td>
+<td width="10%" valign="middle" align="center">0.0647</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.48</th>
+<td width="10%" valign="middle" align="center">0.0883</td>
+<td width="10%" valign="middle" align="center">0.0895</td>
+<td width="10%" valign="middle" align="center">0.0899</td>
+<td width="10%" valign="middle" align="center">0.0905</td>
+<td width="10%" valign="middle" align="center">0.09</td>
+<td width="10%" valign="middle" align="center">0.0909</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.9</th>
+<td width="10%" valign="middle" align="center">0.144</td>
+<td width="10%" valign="middle" align="center">0.145</td>
+<td width="10%" valign="middle" align="center">0.146</td>
+<td width="10%" valign="middle" align="center">0.146</td>
+<td width="10%" valign="middle" align="center">0.146</td>
+<td width="10%" valign="middle" align="center">0.146</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>1.2</th>
+<td width="10%" valign="middle" align="center">0.186</td>
+<td width="10%" valign="middle" align="center">0.186</td>
+<td width="10%" valign="middle" align="center">0.187</td>
+<td width="10%" valign="middle" align="center">0.187</td>
+<td width="10%" valign="middle" align="center">0.188</td>
+<td width="10%" valign="middle" align="center">0.188</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>1.8</th>
+<td width="10%" valign="middle" align="center">0.27</td>
+<td width="10%" valign="middle" align="center">0.27</td>
+<td width="10%" valign="middle" align="center">0.27</td>
+<td width="10%" valign="middle" align="center">0.271</td>
+<td width="10%" valign="middle" align="center">0.271</td>
+<td width="10%" valign="middle" align="center">0.271</td>
+</tr>
+</table>
+<A href="#link"><p  align="middle"> <font size="2" face="Times New Roman"><strong>Back To Path Index</strong></font></p></a>
+</div></td>
+</tr>
+<tr>
+<td width="80%"  colspan="4"  valign="middle" align="center" bgcolor="#FFFFFF"><p>&nbsp;</p>
+<a name ="(10R=>10Q)"><p align="left"><font size="4" face="Times New Roman"><strong>(10R=>10Q)</strong></font></p></a>
+<p align="left"><font size="4" face="Times New Roman">DELAY [ns]</font></p>
+<div align="left"><table border="1" cellpadding="0" cellspacing="0" width="85%" valign="middle" bgcolor="#FFFFFF" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>cl[pF]</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">0.1</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">0.5</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">1.2</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">3</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">4</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">5</th>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>ts[ns]</th>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.06</th>
+<td width="10%" valign="middle" align="center">0.263</td>
+<td width="10%" valign="middle" align="center">0.851</td>
+<td width="10%" valign="middle" align="center">1.88</td>
+<td width="10%" valign="middle" align="center">4.53</td>
+<td width="10%" valign="middle" align="center">6</td>
+<td width="10%" valign="middle" align="center">7.47</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.24</th>
+<td width="10%" valign="middle" align="center">0.325</td>
+<td width="10%" valign="middle" align="center">0.913</td>
+<td width="10%" valign="middle" align="center">1.94</td>
+<td width="10%" valign="middle" align="center">4.59</td>
+<td width="10%" valign="middle" align="center">6.06</td>
+<td width="10%" valign="middle" align="center">7.53</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.48</th>
+<td width="10%" valign="middle" align="center">0.388</td>
+<td width="10%" valign="middle" align="center">0.976</td>
+<td width="10%" valign="middle" align="center">2.01</td>
+<td width="10%" valign="middle" align="center">4.65</td>
+<td width="10%" valign="middle" align="center">6.12</td>
+<td width="10%" valign="middle" align="center">7.6</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.9</th>
+<td width="10%" valign="middle" align="center">0.478</td>
+<td width="10%" valign="middle" align="center">1.07</td>
+<td width="10%" valign="middle" align="center">2.1</td>
+<td width="10%" valign="middle" align="center">4.74</td>
+<td width="10%" valign="middle" align="center">6.21</td>
+<td width="10%" valign="middle" align="center">7.69</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>1.2</th>
+<td width="10%" valign="middle" align="center">0.536</td>
+<td width="10%" valign="middle" align="center">1.12</td>
+<td width="10%" valign="middle" align="center">2.15</td>
+<td width="10%" valign="middle" align="center">4.8</td>
+<td width="10%" valign="middle" align="center">6.27</td>
+<td width="10%" valign="middle" align="center">7.74</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>1.8</th>
+<td width="10%" valign="middle" align="center">0.646</td>
+<td width="10%" valign="middle" align="center">1.23</td>
+<td width="10%" valign="middle" align="center">2.26</td>
+<td width="10%" valign="middle" align="center">4.91</td>
+<td width="10%" valign="middle" align="center">6.38</td>
+<td width="10%" valign="middle" align="center">7.85</td>
+</tr>
+</table>
+</div></td>
+</tr>
+<tr>
+<td width="80%"  colspan="4"  valign="middle" align="center" bgcolor="#FFFFFF"><p>&nbsp;</p>
+<p></p><p align="left"><font size="4" face="Times New Roman">POWER [pJ]</font></p>
+<div align="left"><table border="1" cellpadding="0" cellspacing="0" width="85%" valign="middle" bgcolor="#FFFFFF" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>cl[pF]</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">0.1</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">0.5</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">1.2</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">3</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">4</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">5</th>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>ts[ns]</th>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.06</th>
+<td width="10%" valign="middle" align="center">0.156</td>
+<td width="10%" valign="middle" align="center">0.156</td>
+<td width="10%" valign="middle" align="center">0.157</td>
+<td width="10%" valign="middle" align="center">0.157</td>
+<td width="10%" valign="middle" align="center">0.157</td>
+<td width="10%" valign="middle" align="center">0.157</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.24</th>
+<td width="10%" valign="middle" align="center">0.174</td>
+<td width="10%" valign="middle" align="center">0.174</td>
+<td width="10%" valign="middle" align="center">0.175</td>
+<td width="10%" valign="middle" align="center">0.175</td>
+<td width="10%" valign="middle" align="center">0.175</td>
+<td width="10%" valign="middle" align="center">0.175</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.48</th>
+<td width="10%" valign="middle" align="center">0.204</td>
+<td width="10%" valign="middle" align="center">0.204</td>
+<td width="10%" valign="middle" align="center">0.205</td>
+<td width="10%" valign="middle" align="center">0.205</td>
+<td width="10%" valign="middle" align="center">0.205</td>
+<td width="10%" valign="middle" align="center">0.205</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.9</th>
+<td width="10%" valign="middle" align="center">0.257</td>
+<td width="10%" valign="middle" align="center">0.256</td>
+<td width="10%" valign="middle" align="center">0.257</td>
+<td width="10%" valign="middle" align="center">0.257</td>
+<td width="10%" valign="middle" align="center">0.258</td>
+<td width="10%" valign="middle" align="center">0.258</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>1.2</th>
+<td width="10%" valign="middle" align="center">0.291</td>
+<td width="10%" valign="middle" align="center">0.29</td>
+<td width="10%" valign="middle" align="center">0.29</td>
+<td width="10%" valign="middle" align="center">0.29</td>
+<td width="10%" valign="middle" align="center">0.29</td>
+<td width="10%" valign="middle" align="center">0.29</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>1.8</th>
+<td width="10%" valign="middle" align="center">0.351</td>
+<td width="10%" valign="middle" align="center">0.349</td>
+<td width="10%" valign="middle" align="center">0.349</td>
+<td width="10%" valign="middle" align="center">0.35</td>
+<td width="10%" valign="middle" align="center">0.349</td>
+<td width="10%" valign="middle" align="center">0.35</td>
+</tr>
+</table>
+<A href="#link"><p  align="middle"> <font size="2" face="Times New Roman"><strong>Back To Path Index</strong></font></p></a>
+</div></td>
+</tr>
+<tr>
+<td width="80%"  colspan="4"  valign="middle" align="center" bgcolor="#FFFFFF"><p>&nbsp;</p>
+<a name ="(01CLK=>01Q)"><p align="left"><font size="4" face="Times New Roman"><strong>(01CLK=>01Q)</strong></font></p></a>
+<p align="left"><font size="4" face="Times New Roman">DELAY [ns]</font></p>
+<div align="left"><table border="1" cellpadding="0" cellspacing="0" width="85%" valign="middle" bgcolor="#FFFFFF" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>cl[pF]</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">0.1</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">0.5</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">1.2</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">3</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">4</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">5</th>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>ts[ns]</th>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.06</th>
+<td width="10%" valign="middle" align="center">0.388</td>
+<td width="10%" valign="middle" align="center">1.06</td>
+<td width="10%" valign="middle" align="center">2.23</td>
+<td width="10%" valign="middle" align="center">5.26</td>
+<td width="10%" valign="middle" align="center">6.93</td>
+<td width="10%" valign="middle" align="center">8.61</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.24</th>
+<td width="10%" valign="middle" align="center">0.424</td>
+<td width="10%" valign="middle" align="center">1.1</td>
+<td width="10%" valign="middle" align="center">2.27</td>
+<td width="10%" valign="middle" align="center">5.29</td>
+<td width="10%" valign="middle" align="center">6.97</td>
+<td width="10%" valign="middle" align="center">8.65</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.48</th>
+<td width="10%" valign="middle" align="center">0.449</td>
+<td width="10%" valign="middle" align="center">1.12</td>
+<td width="10%" valign="middle" align="center">2.3</td>
+<td width="10%" valign="middle" align="center">5.32</td>
+<td width="10%" valign="middle" align="center">6.99</td>
+<td width="10%" valign="middle" align="center">8.67</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.9</th>
+<td width="10%" valign="middle" align="center">0.48</td>
+<td width="10%" valign="middle" align="center">1.15</td>
+<td width="10%" valign="middle" align="center">2.33</td>
+<td width="10%" valign="middle" align="center">5.35</td>
+<td width="10%" valign="middle" align="center">7.02</td>
+<td width="10%" valign="middle" align="center">8.7</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>1.2</th>
+<td width="10%" valign="middle" align="center">0.493</td>
+<td width="10%" valign="middle" align="center">1.17</td>
+<td width="10%" valign="middle" align="center">2.34</td>
+<td width="10%" valign="middle" align="center">5.36</td>
+<td width="10%" valign="middle" align="center">7.04</td>
+<td width="10%" valign="middle" align="center">8.72</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>1.8</th>
+<td width="10%" valign="middle" align="center">0.51</td>
+<td width="10%" valign="middle" align="center">1.18</td>
+<td width="10%" valign="middle" align="center">2.36</td>
+<td width="10%" valign="middle" align="center">5.38</td>
+<td width="10%" valign="middle" align="center">7.06</td>
+<td width="10%" valign="middle" align="center">8.73</td>
+</tr>
+</table>
+</div></td>
+</tr>
+<tr>
+<td width="80%"  colspan="4"  valign="middle" align="center" bgcolor="#FFFFFF"><p>&nbsp;</p>
+<p></p><p align="left"><font size="4" face="Times New Roman">POWER [pJ]</font></p>
+<div align="left"><table border="1" cellpadding="0" cellspacing="0" width="85%" valign="middle" bgcolor="#FFFFFF" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>cl[pF]</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">0.1</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">0.5</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">1.2</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">3</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">4</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">5</th>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>ts[ns]</th>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.06</th>
+<td width="10%" valign="middle" align="center">0.151</td>
+<td width="10%" valign="middle" align="center">0.152</td>
+<td width="10%" valign="middle" align="center">0.152</td>
+<td width="10%" valign="middle" align="center">0.152</td>
+<td width="10%" valign="middle" align="center">0.152</td>
+<td width="10%" valign="middle" align="center">0.152</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.24</th>
+<td width="10%" valign="middle" align="center">0.159</td>
+<td width="10%" valign="middle" align="center">0.16</td>
+<td width="10%" valign="middle" align="center">0.16</td>
+<td width="10%" valign="middle" align="center">0.161</td>
+<td width="10%" valign="middle" align="center">0.161</td>
+<td width="10%" valign="middle" align="center">0.161</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.48</th>
+<td width="10%" valign="middle" align="center">0.172</td>
+<td width="10%" valign="middle" align="center">0.172</td>
+<td width="10%" valign="middle" align="center">0.173</td>
+<td width="10%" valign="middle" align="center">0.173</td>
+<td width="10%" valign="middle" align="center">0.174</td>
+<td width="10%" valign="middle" align="center">0.174</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.9</th>
+<td width="10%" valign="middle" align="center">0.199</td>
+<td width="10%" valign="middle" align="center">0.2</td>
+<td width="10%" valign="middle" align="center">0.201</td>
+<td width="10%" valign="middle" align="center">0.201</td>
+<td width="10%" valign="middle" align="center">0.202</td>
+<td width="10%" valign="middle" align="center">0.201</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>1.2</th>
+<td width="10%" valign="middle" align="center">0.219</td>
+<td width="10%" valign="middle" align="center">0.22</td>
+<td width="10%" valign="middle" align="center">0.22</td>
+<td width="10%" valign="middle" align="center">0.221</td>
+<td width="10%" valign="middle" align="center">0.222</td>
+<td width="10%" valign="middle" align="center">0.221</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>1.8</th>
+<td width="10%" valign="middle" align="center">0.261</td>
+<td width="10%" valign="middle" align="center">0.262</td>
+<td width="10%" valign="middle" align="center">0.262</td>
+<td width="10%" valign="middle" align="center">0.262</td>
+<td width="10%" valign="middle" align="center">0.263</td>
+<td width="10%" valign="middle" align="center">0.263</td>
+</tr>
+</table>
+<A href="#link"><p  align="middle"> <font size="2" face="Times New Roman"><strong>Back To Path Index</strong></font></p></a>
+</div></td>
+</tr>
+<tr>
+<td width="80%"  colspan="4"  valign="middle" align="center" bgcolor="#FFFFFF"><p>&nbsp;</p>
+<a name ="(01CLK=>10Q)"><p align="left"><font size="4" face="Times New Roman"><strong>(01CLK=>10Q)</strong></font></p></a>
+<p align="left"><font size="4" face="Times New Roman">DELAY [ns]</font></p>
+<div align="left"><table border="1" cellpadding="0" cellspacing="0" width="85%" valign="middle" bgcolor="#FFFFFF" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>cl[pF]</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">0.1</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">0.5</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">1.2</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">3</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">4</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">5</th>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>ts[ns]</th>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.06</th>
+<td width="10%" valign="middle" align="center">0.381</td>
+<td width="10%" valign="middle" align="center">0.97</td>
+<td width="10%" valign="middle" align="center">2</td>
+<td width="10%" valign="middle" align="center">4.65</td>
+<td width="10%" valign="middle" align="center">6.12</td>
+<td width="10%" valign="middle" align="center">7.59</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.24</th>
+<td width="10%" valign="middle" align="center">0.414</td>
+<td width="10%" valign="middle" align="center">1</td>
+<td width="10%" valign="middle" align="center">2.03</td>
+<td width="10%" valign="middle" align="center">4.68</td>
+<td width="10%" valign="middle" align="center">6.15</td>
+<td width="10%" valign="middle" align="center">7.62</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.48</th>
+<td width="10%" valign="middle" align="center">0.432</td>
+<td width="10%" valign="middle" align="center">1.02</td>
+<td width="10%" valign="middle" align="center">2.05</td>
+<td width="10%" valign="middle" align="center">4.7</td>
+<td width="10%" valign="middle" align="center">6.17</td>
+<td width="10%" valign="middle" align="center">7.64</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.9</th>
+<td width="10%" valign="middle" align="center">0.455</td>
+<td width="10%" valign="middle" align="center">1.04</td>
+<td width="10%" valign="middle" align="center">2.07</td>
+<td width="10%" valign="middle" align="center">4.72</td>
+<td width="10%" valign="middle" align="center">6.19</td>
+<td width="10%" valign="middle" align="center">7.66</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>1.2</th>
+<td width="10%" valign="middle" align="center">0.464</td>
+<td width="10%" valign="middle" align="center">1.05</td>
+<td width="10%" valign="middle" align="center">2.08</td>
+<td width="10%" valign="middle" align="center">4.73</td>
+<td width="10%" valign="middle" align="center">6.2</td>
+<td width="10%" valign="middle" align="center">7.67</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>1.8</th>
+<td width="10%" valign="middle" align="center">0.474</td>
+<td width="10%" valign="middle" align="center">1.06</td>
+<td width="10%" valign="middle" align="center">2.09</td>
+<td width="10%" valign="middle" align="center">4.74</td>
+<td width="10%" valign="middle" align="center">6.21</td>
+<td width="10%" valign="middle" align="center">7.68</td>
+</tr>
+</table>
+</div></td>
+</tr>
+<tr>
+<td width="80%"  colspan="4"  valign="middle" align="center" bgcolor="#FFFFFF"><p>&nbsp;</p>
+<p></p><p align="left"><font size="4" face="Times New Roman">POWER [pJ]</font></p>
+<div align="left"><table border="1" cellpadding="0" cellspacing="0" width="85%" valign="middle" bgcolor="#FFFFFF" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>cl[pF]</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">0.1</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">0.5</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">1.2</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">3</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">4</th>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap rowspan="2">5</th>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>ts[ns]</th>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.06</th>
+<td width="10%" valign="middle" align="center">0.141</td>
+<td width="10%" valign="middle" align="center">0.142</td>
+<td width="10%" valign="middle" align="center">0.142</td>
+<td width="10%" valign="middle" align="center">0.143</td>
+<td width="10%" valign="middle" align="center">0.142</td>
+<td width="10%" valign="middle" align="center">0.143</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.24</th>
+<td width="10%" valign="middle" align="center">0.151</td>
+<td width="10%" valign="middle" align="center">0.151</td>
+<td width="10%" valign="middle" align="center">0.151</td>
+<td width="10%" valign="middle" align="center">0.152</td>
+<td width="10%" valign="middle" align="center">0.151</td>
+<td width="10%" valign="middle" align="center">0.152</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.48</th>
+<td width="10%" valign="middle" align="center">0.161</td>
+<td width="10%" valign="middle" align="center">0.162</td>
+<td width="10%" valign="middle" align="center">0.162</td>
+<td width="10%" valign="middle" align="center">0.161</td>
+<td width="10%" valign="middle" align="center">0.162</td>
+<td width="10%" valign="middle" align="center">0.162</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>0.9</th>
+<td width="10%" valign="middle" align="center">0.189</td>
+<td width="10%" valign="middle" align="center">0.19</td>
+<td width="10%" valign="middle" align="center">0.19</td>
+<td width="10%" valign="middle" align="center">0.19</td>
+<td width="10%" valign="middle" align="center">0.19</td>
+<td width="10%" valign="middle" align="center">0.19</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>1.2</th>
+<td width="10%" valign="middle" align="center">0.208</td>
+<td width="10%" valign="middle" align="center">0.208</td>
+<td width="10%" valign="middle" align="center">0.208</td>
+<td width="10%" valign="middle" align="center">0.208</td>
+<td width="10%" valign="middle" align="center">0.208</td>
+<td width="10%" valign="middle" align="center">0.208</td>
+</tr>
+<tr>
+<th width="10%" align="center" valign="middle" bgcolor="#E0E0E0" nowrap>1.8</th>
+<td width="10%" valign="middle" align="center">0.246</td>
+<td width="10%" valign="middle" align="center">0.247</td>
+<td width="10%" valign="middle" align="center">0.247</td>
+<td width="10%" valign="middle" align="center">0.247</td>
+<td width="10%" valign="middle" align="center">0.247</td>
+<td width="10%" valign="middle" align="center">0.247</td>
+</tr>
+</table>
+<A href="#link"><p  align="middle"> <font size="2" face="Times New Roman"><strong>Back To Path Index</strong></font></p></a>
+</div></td>
+</tr>
+<tr><td>
+<p>&nbsp;</p><p align="left"><font size="4" face="Times New Roman"><strong>Timing Constraints</strong></font></p>
+</td></tr>
+<tr>
+<td width="70%" colspan="4"  valign="middle" align="center" nowrap><p>&nbsp;</p><a name="(01R=>01CLK)"><p align="left"><font size="4" face="Times New Roman"><strong>RECOVERY(01R=>01CLK)</strong></font></p>
+<div align="left">
+<table border="1" cellspacing="0" width="40%" valign="middle" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">re [ns]</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.06</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.3</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.6</th>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">co [ns]</th>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.06</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0938</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0813</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.113</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.24</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0563</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.138</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.169</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.48</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.025</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0563</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0875</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.9</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.05</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0312</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0625</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.2</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.175</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0312</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.8</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.331</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.25</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.125</td>
+</tr>
+
+</table>
+<A href="#link"><p  align="middle"> <font size="2" face="Times New Roman"><strong>Back To Check Index</strong></font></p></a>
+</div></td>
+</tr>
+<tr>
+<td width="70%" colspan="4"  valign="middle" align="center" nowrap><p>&nbsp;</p><a name="(01CLK=>01R)"><p align="left"><font size="4" face="Times New Roman"><strong>REMOVAL(01CLK=>01R)</strong></font></p>
+<div align="left">
+<table border="1" cellspacing="0" width="40%" valign="middle" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">re [ns]</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.06</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.3</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.6</th>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">co [ns]</th>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.06</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.188</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.269</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.3</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.24</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.244</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.231</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.263</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.48</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.256</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.244</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.275</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.9</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.325</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.312</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.344</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.2</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.388</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.375</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.406</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.8</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.419</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.5</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.438</td>
+</tr>
+
+</table>
+<A href="#link"><p  align="middle"> <font size="2" face="Times New Roman"><strong>Back To Check Index</strong></font></p></a>
+</div></td>
+</tr>
+<tr>
+<td width="70%" colspan="4"  valign="middle" align="center" nowrap><p>&nbsp;</p><a name="(01R=>01S)"><p align="left"><font size="4" face="Times New Roman"><strong>RECOVERY(01R=>01S)</strong></font></p>
+<div align="left">
+<table border="1" cellspacing="0" width="40%" valign="middle" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">re [ns]</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.06</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.24</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.48</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.9</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.2</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.8</th>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">co [ns]</th>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.06</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0375</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.025</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.00313</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0125</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0437</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.24</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0563</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0344</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0125</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.00313</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0344</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.48</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0688</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0125</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.025</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0375</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0688</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.9</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0437</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0813</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0688</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0469</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0312</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.2</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.106</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.05</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0844</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0625</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0469</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0312</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.8</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.138</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.128</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.116</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0938</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0781</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0469</td>
+</tr>
+
+</table>
+<A href="#link"><p  align="middle"> <font size="2" face="Times New Roman"><strong>Back To Check Index</strong></font></p></a>
+</div></td>
+</tr>
+<tr>
+<td width="70%" colspan="4"  valign="middle" align="center" nowrap><p>&nbsp;</p><a name="(01S=>01CLK)"><p align="left"><font size="4" face="Times New Roman"><strong>RECOVERY(01S=>01CLK)</strong></font></p>
+<div align="left">
+<table border="1" cellspacing="0" width="40%" valign="middle" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">re [ns]</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.06</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.3</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.6</th>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">co [ns]</th>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.06</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0125</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0187</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.24</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0375</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.05</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0187</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.48</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.025</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0375</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.00625</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.9</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.144</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0625</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0312</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.2</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0813</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0938</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0625</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.8</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.238</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.156</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.219</td>
+</tr>
+
+</table>
+<A href="#link"><p  align="middle"> <font size="2" face="Times New Roman"><strong>Back To Check Index</strong></font></p></a>
+</div></td>
+</tr>
+<tr>
+<td width="70%" colspan="4"  valign="middle" align="center" nowrap><p>&nbsp;</p><a name="(01CLK=>01S)"><p align="left"><font size="4" face="Times New Roman"><strong>REMOVAL(01CLK=>01S)</strong></font></p>
+<div align="left">
+<table border="1" cellspacing="0" width="40%" valign="middle" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">re [ns]</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.06</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.3</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.6</th>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">co [ns]</th>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.06</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0938</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.175</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.113</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.24</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0563</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.138</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.169</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.48</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0688</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0563</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0875</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.9</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0437</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.125</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0625</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.2</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.106</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0938</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.125</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.8</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0437</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.125</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.156</td>
+</tr>
+
+</table>
+<A href="#link"><p  align="middle"> <font size="2" face="Times New Roman"><strong>Back To Check Index</strong></font></p></a>
+</div></td>
+</tr>
+<tr>
+<td width="70%" colspan="4"  valign="middle" align="center" nowrap><p>&nbsp;</p><a name="(01S=>01R)"><p align="left"><font size="4" face="Times New Roman"><strong>RECOVERY(01S=>01R)</strong></font></p>
+<div align="left">
+<table border="1" cellspacing="0" width="40%" valign="middle" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">re [ns]</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.06</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.24</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.48</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.9</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.2</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.8</th>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">co [ns]</th>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.06</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0938</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0375</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.025</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.05</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0344</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.00313</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.24</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0563</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0938</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0813</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0125</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0437</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0344</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.48</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0688</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.106</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0938</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.025</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.00937</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0219</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.9</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0906</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0813</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0688</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0469</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0312</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.2</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.106</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0969</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0844</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0625</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0469</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0156</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.8</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.138</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.128</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.163</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0938</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.125</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0469</td>
+</tr>
+
+</table>
+<A href="#link"><p  align="middle"> <font size="2" face="Times New Roman"><strong>Back To Check Index</strong></font></p></a>
+</div></td>
+</tr>
+<tr>
+<td width="70%" colspan="4"  valign="middle" align="center" nowrap><p>&nbsp;</p><a name="(01D=>01CLK)"><p align="left"><font size="4" face="Times New Roman"><strong>SETUP(01D=>01CLK)</strong></font></p>
+<div align="left">
+<table border="1" cellspacing="0" width="40%" valign="middle" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">re [ns]</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.06</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.3</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.6</th>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">co [ns]</th>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.06</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0938</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.106</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.075</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.24</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.131</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.144</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.113</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.48</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.213</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.131</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.1</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.9</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.238</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.156</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.125</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.2</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.175</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.188</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.156</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.8</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.238</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.156</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.219</td>
+</tr>
+
+</table>
+<A href="#link"><p  align="middle"> <font size="2" face="Times New Roman"><strong>Back To Check Index</strong></font></p></a>
+</div></td>
+</tr>
+<tr>
+<td width="70%" colspan="4"  valign="middle" align="center" nowrap><p>&nbsp;</p><a name="(10D=>01CLK)"><p align="left"><font size="4" face="Times New Roman"><strong>SETUP(10D=>01CLK)</strong></font></p>
+<div align="left">
+<table border="1" cellspacing="0" width="40%" valign="middle" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">re [ns]</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.06</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.3</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.6</th>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">co [ns]</th>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.06</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0938</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.106</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.075</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.24</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.131</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.144</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.113</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.48</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.213</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.131</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.194</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.9</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.238</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.25</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.219</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.2</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.269</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.281</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.25</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.8</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.331</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.344</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.312</td>
+</tr>
+
+</table>
+<A href="#link"><p  align="middle"> <font size="2" face="Times New Roman"><strong>Back To Check Index</strong></font></p></a>
+</div></td>
+</tr>
+<tr>
+<td width="70%" colspan="4"  valign="middle" align="center" nowrap><p>&nbsp;</p><a name="(01CLK=>01D)"><p align="left"><font size="4" face="Times New Roman"><strong>HOLD(01CLK=>01D)</strong></font></p>
+<div align="left">
+<table border="1" cellspacing="0" width="40%" valign="middle" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">re [ns]</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.06</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.3</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.6</th>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">co [ns]</th>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.06</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0125</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0187</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.24</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0375</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.05</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0187</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.48</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.025</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0375</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.00625</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.9</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.05</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0625</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0312</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.2</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0813</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0938</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0625</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.8</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.05</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0625</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.125</td>
+</tr>
+
+</table>
+<A href="#link"><p  align="middle"> <font size="2" face="Times New Roman"><strong>Back To Check Index</strong></font></p></a>
+</div></td>
+</tr>
+<tr>
+<td width="70%" colspan="4"  valign="middle" align="center" nowrap><p>&nbsp;</p><a name="(01CLK=>10D)"><p align="left"><font size="4" face="Times New Roman"><strong>HOLD(01CLK=>10D)</strong></font></p>
+<div align="left">
+<table border="1" cellspacing="0" width="40%" valign="middle" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">re [ns]</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.06</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.3</th>
+<th rowspan="2" valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.6</th>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">co [ns]</th>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.06</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0813</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.113</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.24</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0375</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.0437</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">0.075</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.48</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.025</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0375</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.00625</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">0.9</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.144</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0625</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0312</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.2</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.175</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0938</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.0625</td>
+</tr>
+<tr>
+<th valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="10%">1.8</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.238</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.156</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="10%">-0.219</td>
+</tr>
+
+</table>
+<A href="#link"><p  align="middle"> <font size="2" face="Times New Roman"><strong>Back To Check Index</strong></font></p></a>
+</div></td>
+</tr>
+<tr>
+<td width="70%" colspan="4"  valign="middle" align="center" nowrap>
+<p>&nbsp;</p><a name="(10S=>01S)"><p align="left"><font size="4" face="Times New Roman"><strong>PULSEWIDTH(10S=>01S)</strong></font></p>
+<div align="left">
+<table border="1" cellspacing="0" width="64%" valign="middle" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">ts [ns]</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">0.06</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">0.24</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">0.48</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">0.9</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">1.2</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">1.8</th>
+</tr>
+<tr>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">width</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.199</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.252</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.297</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.373</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.419</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.508</td>
+</tr>
+</table>
+<A href="#link"><p  align="middle"> <font size="2" face="Times New Roman"><strong>Back To Check Index</strong></font></p></a>
+</div></td>
+</tr>
+<tr>
+<td width="70%" colspan="4"  valign="middle" align="center" nowrap>
+<p>&nbsp;</p><a name="(10R=>01R)"><p align="left"><font size="4" face="Times New Roman"><strong>PULSEWIDTH(10R=>01R)</strong></font></p>
+<div align="left">
+<table border="1" cellspacing="0" width="64%" valign="middle" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">ts [ns]</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">0.06</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">0.24</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">0.48</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">0.9</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">1.2</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">1.8</th>
+</tr>
+<tr>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">width</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.152</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.198</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.247</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.32</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.365</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.452</td>
+</tr>
+</table>
+<A href="#link"><p  align="middle"> <font size="2" face="Times New Roman"><strong>Back To Check Index</strong></font></p></a>
+</div></td>
+</tr>
+<tr>
+<td width="70%" colspan="4"  valign="middle" align="center" nowrap>
+<p>&nbsp;</p><a name="(01CLK=>10CLK)"><p align="left"><font size="4" face="Times New Roman"><strong>PULSEWIDTH(01CLK=>10CLK)</strong></font></p>
+<div align="left">
+<table border="1" cellspacing="0" width="64%" valign="middle" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">ts [ns]</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">0.06</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">0.24</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">0.48</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">0.9</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">1.2</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">1.8</th>
+</tr>
+<tr>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">width</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.283</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.319</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.345</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.373</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.384</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.398</td>
+</tr>
+</table>
+<A href="#link"><p  align="middle"> <font size="2" face="Times New Roman"><strong>Back To Check Index</strong></font></p></a>
+</div></td>
+</tr>
+<tr>
+<td width="70%" colspan="4"  valign="middle" align="center" nowrap>
+<p>&nbsp;</p><a name="(10CLK=>01CLK)"><p align="left"><font size="4" face="Times New Roman"><strong>PULSEWIDTH(10CLK=>01CLK)</strong></font></p>
+<div align="left">
+<table border="1" cellspacing="0" width="64%" valign="middle" bordercolor="#000000" bordercolorlight="#808080">
+<tr>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">ts [ns]</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">0.06</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">0.24</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">0.48</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">0.9</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">1.2</th>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">1.8</th>
+</tr>
+<tr>
+<th  valign="middle" align="center" nowrap bgcolor="#E0E0E0" width="8%">width</th>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.206</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.257</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.299</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.363</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.404</td>
+<td  valign="middle" align="center" nowrap bgcolor="#FFFFFF" width="8%">0.472</td>
+</tr>
+</table>
+<A href="#link"><p  align="middle"> <font size="2" face="Times New Roman"><strong>Back To Check Index</strong></font></p></a>
+</div></td>
+</tr>
+<tr><td width="100%" valign ="middle"><hr color ="#FFFFFF"></td></tr><tr><td width="100%" height="24" valign="middle" align="right">(c)Simplex Solution Inc. 2001</td></tr>
+</table>
+</center></div></td>
+</body></html>

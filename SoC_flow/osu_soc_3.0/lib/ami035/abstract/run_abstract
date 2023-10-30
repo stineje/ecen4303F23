@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+# Run Cadence Abstract (Picasso)
+#
+
+echo Cleaning up...
+/usr/bin/rm -rf abstract.run
+
+../../bin/osucells_streamout SCN4M_SUBM.20.TSMC pads_ami035
+
+echo Preparing tech files...
+mkdir abstract.run
+cp tech.dpux abstract.run
+cp abstract.scr abstract.run
+cd abstract.run
+
+echo Running Abstract...
+abstract -nogui -tech . -eval '(load "abstract.scr")'
+
+echo Copying LEF file...
+cp osu035_stdcells.lef ..
+cd ..
+
+echo "Contents of LEF file:"
+echo "---------------------"
+grep "MACRO" osu035_stdcells.lef | awk '{print $2}'
+echo ""
+
+echo Done!

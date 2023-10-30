@@ -1,0 +1,113 @@
+####################################################################
+#
+# Command-file for Cadence Silicon Ensemble
+# Optimized for GDSII output to magic
+# Johannes Grad, IIT
+#
+# One change necessary: See below to change the third "INPUT" line
+#
+# Chip density contolled by "rowu" (0..1) in line 40
+#
+# The result will be streamed out to "final.gds2" and "final.def"
+#
+#####################################################################
+
+# read in LEF file
+INPUT LEF FILENAME "/import/cad2/iit_stdcells/lib/ami05/lib/iit05_stdcells.lef" REPORTFILE "importlef.rpt" ;
+
+SET VAR INPUT.VERILOG.POWER.NET "vdd";
+SET VAR INPUT.VERILOG.GROUND.NET "gnd";
+SET VAR INPUT.VERILOG.LOGIC.1.NET "vdd";
+SET VAR INPUT.VERILOG.LOGIC.0.NET "gnd";
+SET VAR INPUT.VERILOG.SPECIAL.NETS "vdd gnd";
+INPUT VERILOG FILE "/import/cad2/iit_stdcells/lib/ami05/lib/iit05_stdcells.v.se" LIB "synth_iit05" ;
+INPUT VERILOG FILE "../macro/macro.stub.v" LIB "synth_iit05" ;
+
+#
+# Write here the result of your compile script
+# change FILE_NAME to your synthesis output file
+# and change TOP_LEVEL_NAME to the name of your toplevel module
+# (most likely both will be called the same)
+#
+
+INPUT VERILOG FILE "sramdemo.vh" 
+LIB "synth_iit05" REFLIB "synth_iit05"  
+DESIGN "synth_iit05.sramdemo:hdl" ;
+
+# initialize floorplan
+set v USERLEVEL EXPERT;
+set v PLAN.REPORT.STAT "  ";
+FINIT FLOOR;
+
+SET VAR PLAN.LOWERLEFT.ORIGIN TRUE ;
+FINIT FLOORPLAN  rowu 0.50 rowsp 0 blockhalo 0 f a 1 abut xio 80000 yio 80000 FLIPALTERNATEROWS;
+set v UPDATECOREROW.BLOCKHALO.GLOBAL 20000;
+
+# add pins
+IOPLACE AUTOMATIC STYLE ABUT TOPBOTTOMLAYER metal3 RIGHTLEFTLAYER metal3 ;
+
+# Add space for the block
+# In this case the lower left corner is 400u by 400u from the origin
+# the upper right corner is at 500u by 500u
+# Silicon Ensemble will adjust the upper right corner accordingly, make it bigger than needed
+ADD ROW TYPE MacroSite ORIENTATION N NUMROWS 1 (400000,400000) (500000,500000) ;
+
+# Place the Block at the position where the row was created in the previous step
+# In this case at 400u by 400u
+move cell i_test (400000,400000) ;
+
+# Cut the cell rows, leave 10u gap around block
+CUT ROW BLOCKHALO 10000 ;
+
+# Create Rings around the design, 9um wide, 3um distance from the core
+CREATE RING NETS "gnd vdd"   TYPE CORE_RINGS 
+LAYER_TOP metal1   	WIDTH_TOP    "9000"	SPACING_TOP    "3000 " 	OFFSET_TOP    3000 
+LAYER_BOTTOM metal1 	WIDTH_BOTTOM "9000 "  	SPACING_BOTTOM "3000 " 	OFFSET_BOTTOM 3000
+LAYER_LEFT metal2   	WIDTH_LEFT   "9000 "  	SPACING_LEFT   "3000 " 	OFFSET_LEFT   3000
+LAYER_RIGHT metal2  	WIDTH_RIGHT  "9000 "   	SPACING_RIGHT  "3000 "	OFFSET_RIGHT  3000    
+LEFT  RIGHT  TOP  BOTTOM ;
+
+# Create Rings around the macro block, 3um wide, 1.2um distance from the block
+CREATE RING NETS "gnd vdd"   TYPE BLOCK_RINGS 
+LAYER_TOP metal2   	WIDTH_TOP    "3000 "	SPACING_TOP    "1200 " 	OFFSET_TOP    1200
+LAYER_BOTTOM metal2 	WIDTH_BOTTOM "3000 "  	SPACING_BOTTOM "1200 " 	OFFSET_BOTTOM 1200
+LAYER_LEFT metal2   	WIDTH_LEFT   "3000 "  	SPACING_LEFT   "1200 " 	OFFSET_LEFT   1200
+LAYER_RIGHT metal2  	WIDTH_RIGHT  "3000 "   	SPACING_RIGHT  "1200 "	OFFSET_RIGHT  1200    
+LEFT  RIGHT  TOP  BOTTOM ;
+
+
+# Qplace
+#SET VAR QPLACE.BLOCK.KEEPOUT.X "5000" ;
+#SET VAR QPLACE.BLOCK.KEEPOUT.Y "5000" ;
+#SET VAR QPWR.RSPF "";
+#SET VAR QPLACE.PLACE.GROUTE.ANALYSIS "" ;
+SET VAR QPLACE.PLACE.PIN.PREFERRED.LAYER "(top metal3) (bottom metal3) (left metal3) (right metal3)" ;
+SET VAR QPLACE.OPT.TIMING.TYPE "" ;
+SET VAR QPLACE.PLACE.PIN "concurrent" ;
+QPLACE NOCONFIG;
+
+
+# add filler cells
+SROUTE ADDCELL MODEL FILL PREFIX fill NO FS SPIN vdd NET vdd SPIN gnd NET gnd AREA ( 0 0 ) ( 1500000 1500000 ) ;
+
+# Route power nets
+CONNECT RING NET "gnd" NET "vdd" ;
+
+
+# Route signal nets
+WROUTE NOCONFIG ;
+
+# Verify Layout
+SET VAR VERIFY.GEOMETRY.REPORT.ANTENNA "FALSE";
+VERIFY GEOMETRY ;
+
+VERIFY CONNECTIVITY ;
+
+# export to GDSII
+SET VAR GDSII.OUTPUT.PIN.DIRECTION FALSE ;
+OUTPUT GDSII MAPFILE "gds2_seultra.map" FILE "final.gds2" UNITS THOUSANDS ;
+
+# Exit Silicon Ensemble
+# Remove this command if you want to remain in GUI mode
+# Then you can do manually File -> Exit
+#FQUIT ;

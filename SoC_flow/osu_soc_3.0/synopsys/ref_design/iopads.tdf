@@ -1,0 +1,93 @@
+define _cell (geGetEditCell)
+; Create power and corner pads
+
+; Core power supply
+;insertPad "gnd" "pv0i" "vss1left" "gnd"
+;insertPad "VDD" "pvdi" "vdd1left" "VDD"
+;insertPad "VSS" "pv0i" "vss1right" "VSS"
+;insertPad "vdd" "pvdi" "vdd1right" "vdd"
+;insertPad "gnd" "pv0i" "vss1top" "gnd"
+insertPad "vdd" "PADVDD" "vdd1top" "vdd"
+insertPad "gnd" "PADGND" "vss1top" "gnd"
+insertPad "vdd" "PADVDD" "vdd2bottom" "vdd"
+insertPad "gnd" "PADGND" "vss2bottom" "gnd"
+insertPad "vdd" "PADVDD" "vdd1left" "vdd"
+insertPad "gnd" "PADGND" "vss1right" "gnd"
+
+; Corner cells
+insertPad "gnd" "PADFC" "cornerll" "gnd"
+insertPad "gnd" "PADFC" "cornerlr" "gnd"
+insertPad "gnd" "PADFC" "cornerul" "gnd"
+insertPad "gnd" "PADFC" "cornerur" "gnd"
+
+tdfPurgePadConstr
+
+; place the corner cells
+pad "cornerll" "bottom"
+pad "cornerlr" "top"
+pad "cornerul" "right"
+pad "cornerur" "left"
+
+;pad "vss1left" "left" 10
+pad "vdd1left" "left" 10
+pad "vss1right" "right" 10
+;pad "vdd1right" "right" 10
+
+pad "vdd1top" "top" 9
+pad "vss1top" "top" 10
+pad "vdd2bottom" "bottom" 9
+pad "vss2bottom" "bottom" 10
+
+
+; place io and power pads
+pad "U79" "left" 1
+pad "U78" "left" 2
+pad "U77" "left" 3
+pad "U76" "left" 4
+pad "U75" "left" 5
+pad "U74" "left" 6
+pad "U73" "left" 7
+pad "U72" "left" 8
+
+pad "U88" "left" 9
+pad "U89" "right" 9
+
+pad "U87" "top" 1
+pad "U86" "top" 2
+pad "U85" "top" 3
+pad "U84" "top" 4
+pad "U83" "top" 5
+pad "U82" "top" 6
+pad "U81" "top" 7
+pad "U80" "top" 8
+
+pad "U71" "right" 1
+pad "U70" "right" 2
+pad "U69" "right" 3
+pad "U68" "right" 4
+pad "U67" "right" 5
+pad "U66" "right" 6
+pad "U65" "right" 7
+pad "U64" "right" 8
+
+pad "U63" "bottom" 1
+pad "U62" "bottom" 2
+pad "U61" "bottom" 3
+pad "U60" "bottom" 4
+pad "U59" "bottom" 5
+pad "U58" "bottom" 6
+pad "U57" "bottom" 7
+pad "U56" "bottom" 8
+
+;pad "vss1left" "left" 10
+;pad "vdd1left" "left" 11
+;pad "vss1right" "right" 10
+;pad "vdd1right" "right" 10
+
+;pad "vdd1top" "top" 9
+;pad "vss1top" "top" 10
+;pad "vdd1bottom" "bottom" 9
+;pad "vss1bottom" "bottom" 10
+
+;pad "p36" "top" 9
+;pad "p35" "bottom" 9

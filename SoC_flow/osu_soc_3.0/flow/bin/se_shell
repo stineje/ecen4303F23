@@ -1,0 +1,18 @@
+#!/bin/sh
+# seultra.scr is assumed to be customized to design
+
+sourceFile=$2
+echo "Checking if $sourceFile exists........\c"
+if (test ! -f $sourceFile ) then
+    echo "FAILED"
+    echo $sourceFile does not exist!
+    echo Please run se_shell first or rerun if necessary
+    exit 1
+fi
+
+echo "Removing lock files..."
+/usr/bin/rm -rf *.dtp
+
+echo "Bringing up Silicon Ensemble..."
+seultra -gd=ansi "EXECUTE $sourceFile"
+

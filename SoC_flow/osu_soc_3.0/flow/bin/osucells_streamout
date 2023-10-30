@@ -1,0 +1,95 @@
+#!/bin/sh
+#
+# Script to create .strm file for abstract
+#
+# Invoke as
+# osucells_netlist magic_techfilename pad_directory
+#
+# Magic techfile: AMI06  = SCN3ME_SUBM.30
+#                 TSMC025= SCN5M_SUBM.15
+#
+# Pad Directory: use "no_pads" if there are non
+#
+# Output filename: Name of spice netlist file to be created
+#
+# Johannes Grad
+#
+
+# Clean up and copy layouts
+echo Cleaning up...
+/usr/bin/rm -rf temp
+mkdir temp
+
+echo Copying cell layouts...
+cp ../../source/magic.abstract/*.mag temp
+
+# Check for off-grid pins
+echo Checking for off-grid pins...
+grep "rlabel" temp/*.mag | grep -v "gnd" | grep -v "vdd" | awk '{if (($3-4)%8!=0 || ($4-5)%10!=0) printf("OFF GRID PIN FOUND!!: ");}'
+
+# Remove supply pins from pads if necessary
+
+if (test $2 != "no_pads") then 
+
+ echo Copying Pad Layouts...
+
+ cp ../../source/$2/*.mag temp
+ 
+ cd temp
+ for i in `ls -1 PAD*.mag`
+ do
+ mv $i $i.old
+ grep -v "Vdd" $i.old | grep -v "Gnd" > $i
+ /usr/bin/rm -f $i.old
+ done
+ cd ..
+fi
+
+cd temp
+
+echo Fixing Labels...
+
+for i in `ls -1 *.mag | awk -F. '{printf "%s\n",$1}'`
+do
+
+# Change potential pin layer m1p into metal1 layer
+mv $i.mag $i.mag.temp
+cat $i.mag.temp | awk '{if (($1=="rlabel") && ($2=="m1p")) {printf("%s metal1 %s %s %s %s %s %s\n",$1,$3,$4,$5,$6,$7,$8);} else {print $0}}' >$i.mag
+rm $i.mag.temp
+
+# Change potential pin layer m2p into metal2 layer
+mv $i.mag $i.mag.temp
+cat $i.mag.temp | awk '{if (($1=="rlabel") && ($2=="m2p")) {printf("%s metal2 %s %s %s %s %s %s\n",$1,$3,$4,$5,$6,$7,$8);} else {print $0}}' >$i.mag
+rm $i.mag.temp
+
+done
+
+echo Streaming out Cells...
+
+# Start Magic for calma out
+(
+echo :calma; 
+echo :q; 
+echo yes) | magic -T $1 -d NULL osu_stdcells> NULL
+
+rm NULL
+
+if (test $2 != "no_pads") then 
+
+echo Streaming out Pads...
+
+# Start Magic for calma out
+(
+echo :calma; 
+echo :q; 
+echo yes) | magic -T $1 -d NULL osu_stdcells_pads> NULL
+
+rm NULL
+
+fi
+
+# File is ready!
+cd ..
+
+echo Done!
+

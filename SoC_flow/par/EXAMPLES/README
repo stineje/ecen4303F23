@@ -1,0 +1,40 @@
+The example shows a way to generate the foundation flow scripts for a small design.
+
+To run FLAT flow:
+
+   cd INNOVUS/DESIGN/
+   tclsh SCRIPTS/gen_flow.tcl -m flat all
+
+   The output scripts gets generated in the FF/EDI directory.
+
+   To run the scripts: 
+
+   set the innovus path.
+   make
+
+To run HIERARCHICAL flow:
+
+   cd INNOVUS/DESIGN/
+   tclsh SCRIPTS/gen_flow.tcl -m hier all
+
+   The output scripts for partition and assembly gets generated in the FF/EDI directory.
+
+   The PARTITION directory gets created for <top> and <block> implementation flows. Each 
+   <block> directory contains scripts for flat block implementation; the <top> directory 
+   contains scripts for ILM based implementation.
+
+   To run the scripts: 
+
+   set the innovus path.
+   make
+
+The flow for make would be :
+
+   Run partition step
+   Run <block> implementation(s) in parallel
+   Run <top> implementation using block ILM
+   Run assembly and sign-off
+
+For both flat and hier flows, the inputs can be configured through setup.tcl (data) and innovus_config.tcl (tool options) 
+
+For both the flows, plugins (user customizations) can be defined in the PLUG directory. Uncommenting the plugin in the file innovus_config.tcl will enable the plugins to be used during the appropriates step.

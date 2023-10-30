@@ -1,0 +1,172 @@
+# SUE version MMI_SUE4.2.10
+
+proc SCHEMATIC_PADOUT {} {
+  make nmos -origin {550 490}
+  make pmos -origin {550 260}
+  make pmos -origin {240 240}
+  make pmos -origin {20 240}
+  make pmos -origin {20 370}
+  make nmos -origin {20 500}
+  make nmos -origin {240 510}
+  make nmos -origin {240 380}
+  make name_net_s -name OE -origin {150 380}
+  make name_net_s -name OE -origin {150 240}
+  make name_net_s -name OEB -origin {150 510}
+  make name_net_s -name OEB -origin {-70 370}
+  make name_net_s -orient R90 -name OEB -origin {150 -60}
+  make global -orient RXY -name Vdd -origin {20 170}
+  make global -name Gnd -origin {20 620}
+  make name_net_s -name OE -origin {340 0}
+  make resistor -orient R90 -resistance 100 -origin {810 360}
+  make input -name DO -origin {-190 380}
+  make global -orient RXY -name Vdd -origin {550 190}
+  make global -name Gnd -origin {550 600}
+  make inout -name YPAD -origin {820 210}
+  make nmos -origin {120 50}
+  make pmos -origin {120 -50}
+  make global -orient RXY -name Vdd -origin {120 -90}
+  make global -name Gnd -origin {120 90}
+  make nmos -origin {250 50}
+  make pmos -origin {250 -50}
+  make global -orient RXY -name Vdd -origin {250 -90}
+  make global -name Gnd -origin {250 90}
+  make nmos -origin {960 410}
+  make pmos -origin {960 310}
+  make global -orient RXY -name Vdd -origin {960 270}
+  make global -name Gnd -origin {960 450}
+  make nmos -origin {1100 410}
+  make pmos -origin {1100 310}
+  make global -orient RXY -name Vdd -origin {1100 270}
+  make global -name Gnd -origin {1100 450}
+  make global -orient RXY -name Vdd -origin {-50 -30}
+  make nmos -origin {350 330}
+  make pmos -origin {350 230}
+  make global -orient RXY -name Vdd -origin {350 190}
+  make global -name Gnd -origin {350 370}
+  make nmos -origin {450 340}
+  make pmos -origin {450 240}
+  make global -orient RXY -name Vdd -origin {450 200}
+  make global -name Gnd -origin {450 380}
+  make nmos -origin {350 600}
+  make pmos -origin {350 500}
+  make global -orient RXY -name Vdd -origin {350 460}
+  make global -name Gnd -origin {350 640}
+  make nmos -origin {450 610}
+  make pmos -origin {450 510}
+  make global -orient RXY -name Vdd -origin {450 470}
+  make global -name Gnd -origin {450 650}
+  make pmos -origin {660 260}
+  make nmos -origin {660 490}
+  make global -orient RXY -name Vdd -origin {660 190}
+  make global -name Gnd -origin {660 590}
+  make_wire 240 170 240 200
+  make_wire 20 170 20 200
+  make_wire 240 550 240 590
+  make_wire 20 300 20 280
+  make_wire 20 300 20 330
+  make_wire 240 300 240 340
+  make_wire 180 380 150 380
+  make_wire 180 510 150 510
+  make_wire 180 240 150 240
+  make_wire -40 370 -70 370
+  make_wire -190 240 -40 240
+  make_wire -40 500 -190 500
+  make_wire 150 -60 150 0
+  make_wire 240 430 240 420
+  make_wire 240 430 240 470
+  make_wire 240 430 20 430
+  make_wire 20 430 20 460
+  make_wire 20 430 20 410
+  make_wire 240 170 20 170
+  make_wire 20 590 240 590
+  make_wire 20 540 20 590
+  make_wire 20 590 20 620
+  make_wire -190 380 -190 240
+  make_wire -190 380 -190 500
+  make_wire 550 530 550 600
+  make_wire 750 210 750 360
+  make_wire 750 210 820 210
+  make_wire 120 0 150 0
+  make_wire 120 0 120 -10
+  make_wire 120 0 120 10
+  make_wire 190 0 190 -50
+  make_wire 190 0 190 50
+  make_wire 190 0 150 0
+  make_wire 250 -10 250 0
+  make_wire 250 0 250 10
+  make_wire 900 360 900 310
+  make_wire 900 360 900 410
+  make_wire 960 360 960 350
+  make_wire 960 360 960 370
+  make_wire 1040 360 1040 310
+  make_wire 1040 360 1040 410
+  make_wire 960 360 1040 360
+  make_wire 850 360 900 360
+  make_wire 250 0 340 0
+  make_wire 1100 370 1100 350
+  make_wire -50 0 60 0
+  make_wire -50 -30 -50 0
+  make_wire 60 0 60 -50
+  make_wire 60 0 60 50
+  make_wire 20 300 240 300
+  make_wire 550 360 550 450
+  make_wire 550 360 550 300
+  make_wire 750 360 770 360
+  make_wire 290 280 290 230
+  make_wire 390 290 390 340
+  make_wire 290 550 290 600
+  make_wire 390 560 390 610
+  make_wire 450 560 490 560
+  make_wire 450 560 450 570
+  make_wire 450 560 450 550
+  make_wire 490 490 490 560
+  make_wire 450 290 490 290
+  make_wire 450 280 450 290
+  make_wire 450 290 450 300
+  make_wire 490 260 490 290
+  make_wire 390 280 350 280
+  make_wire 390 280 390 290
+  make_wire 390 280 390 240
+  make_wire 350 280 350 290
+  make_wire 350 280 350 270
+  make_wire 390 550 350 550
+  make_wire 390 550 390 560
+  make_wire 390 550 390 510
+  make_wire 350 550 350 560
+  make_wire 350 550 350 540
+  make_wire 240 290 240 280
+  make_wire 240 290 240 300
+  make_wire 240 290 290 290
+  make_wire 290 290 290 280
+  make_wire 290 290 290 330
+  make_wire 240 470 290 470
+  make_wire 290 470 290 500
+  make_wire 290 500 290 550
+  make_wire 660 360 550 360
+  make_wire 660 360 750 360
+  make_wire 660 300 660 360
+  make_wire 660 360 660 450
+  make_wire 550 190 550 220
+  make_wire 600 490 600 560
+  make_wire 600 560 660 560
+  make_wire 660 560 660 530
+  make_wire 660 560 660 590
+  make_wire 600 260 600 210
+  make_wire 600 210 660 210
+  make_wire 660 210 660 190
+  make_wire 660 210 660 220
+}
+
+proc ICON_PADOUT args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}} {M {}} {dpc {}}}
+  icon_term -type inout -origin {50 -140} -name YPAD
+  icon_term -type input -origin {40 0} -orient R270 -name DO
+  icon_property -origin {-110 80} -type user -name name
+  icon_property -origin {-110 100} -type user -name M
+  icon_property -origin {-110 120} -type user -name dpc
+  icon_property -origin {10 -70} -label PADOUT
+  icon_property -origin {40 -10} -anchor e -rotate 1 -label DO
+  icon_line 0 -140 0 0 100 0 100 -140 0 -140 0 -140
+  icon_property -origin {50 -130} -rotate 1 -label PAD
+}
+

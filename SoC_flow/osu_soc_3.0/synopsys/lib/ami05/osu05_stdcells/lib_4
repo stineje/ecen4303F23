@@ -1,0 +1,217 @@
+FILL
+ vdd 20
+ gnd 36
+AND2X1
+ vdd 20
+ Y 2
+ gnd 36
+ B 1
+ A 1
+AND2X2
+ vdd 20
+ Y 2
+ gnd 36
+ B 1
+ A 1
+AOI21X1
+ vdd 20
+ Y 2
+ gnd 36
+ C 1
+ B 1
+ A 1
+AOI22X1
+ vdd 20
+ Y 2
+ gnd 36
+ D 1
+ C 1
+ B 1
+ A 1
+BUFX2
+ vdd 20
+ Y 2
+ gnd 36
+ A 1
+BUFX4
+ vdd 20
+ Y 2
+ gnd 36
+ A 1
+DFFNEGX1
+ vdd 20
+ gnd 36
+ D 2049
+ CLK 65
+ Q 4098
+NOR3X1
+ vdd 20
+ Y 2
+ gnd 36
+ C 1
+ B 1
+ A 1
+DFFPOSX1
+ vdd 20
+ gnd 36
+ D 2049
+ CLK 65
+ Q 4098
+FAX1
+ vdd 20
+ gnd 36
+ C 1
+ B 1
+ A 1
+ YS 2
+ YC 2
+HAX1
+ vdd 20
+ gnd 36
+ B 1
+ A 1
+ YS 2
+ YC 2
+INVX1
+ vdd 20
+ Y 2
+ gnd 36
+ A 1
+INVX2
+ vdd 20
+ Y 2
+ gnd 36
+ A 1
+INVX4
+ vdd 20
+ Y 2
+ gnd 36
+ A 1
+INVX8
+ vdd 20
+ Y 2
+ gnd 36
+ A 1
+NAND2X1
+ vdd 20
+ Y 2
+ gnd 36
+ B 1
+ A 1
+NAND3X1
+ vdd 20
+ Y 2
+ gnd 36
+ C 1
+ B 1
+ A 1
+NOR2X1
+ vdd 20
+ Y 2
+ gnd 36
+ B 1
+ A 1
+OAI21X1
+ vdd 20
+ Y 2
+ gnd 36
+ C 1
+ B 1
+ A 1
+OAI22X1
+ vdd 20
+ Y 2
+ gnd 36
+ D 1
+ C 1
+ B 1
+ A 1
+OR2X1
+ vdd 20
+ Y 2
+ gnd 36
+ B 1
+ A 1
+OR2X2
+ vdd 20
+ Y 2
+ gnd 36
+ B 1
+ A 1
+TBUFX1
+ vdd 20
+ Y 10
+ gnd 36
+ EN 262145
+ A 1
+TBUFX2
+ vdd 20
+ Y 10
+ gnd 36
+ EN 262145
+ A 1
+XOR2X1
+ vdd 20
+ Y 2
+ gnd 36
+ B 1
+ A 1
+MUX2X1
+ vdd 20
+ Y 2
+ gnd 36
+ S 1
+ B 1
+ A 1
+XNOR2X1
+ vdd 20
+ Y 2
+ gnd 36
+ B 1
+ A 1
+LATCH
+ vdd 20
+ gnd 36
+ D 2049
+ CLK 65
+ Q 4098
+DFFSR
+ vdd 20
+ gnd 36
+ D 2049
+ S 1025
+ R 1025
+ CLK 65
+ Q 4098
+CLKBUF1
+ vdd 20
+ Y 2
+ gnd 36
+ A 1
+CLKBUF2
+ vdd 20
+ Y 2
+ gnd 36
+ A 1
+CLKBUF3
+ vdd 20
+ Y 2
+ gnd 36
+ A 1
+PADGND
+ gnd 36
+ YPAD 2
+PADINC
+ DI 2
+ YPAD 1
+PADOUT
+ DO 1
+ YPAD 2
+PADVDD
+ vdd 20
+ YPAD 2
+PADINOUT
+ OEN 262145
+ DI 2
+ DO 1
+ YPAD 12

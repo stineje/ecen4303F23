@@ -1,0 +1,52 @@
+#
+OSU_stdcells_ami05 PADFC layout
+I64
+I33
+I13
+I7
+#
+OSU_stdcells_ami05 PADINOUT layout
+I63
+I54
+I55
+I56
+I57
+I58
+I59
+I60
+I61
+I62
+I43
+I42
+I41
+I40
+I39
+I37
+I36
+I35
+I34
+I32
+I24
+I25
+I26
+I27
+I28
+I29
+I30
+I31
+I14
+I12
+I11
+I10
+I9
+I8
+I5
+I0
+I2
+I4
+#
+OSU_stdcells_ami05 PADGND layout
+I3
+#
+OSU_stdcells_ami05 PADVDD layout
+I1

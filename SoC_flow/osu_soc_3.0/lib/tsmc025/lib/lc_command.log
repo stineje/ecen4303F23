@@ -1,0 +1,118 @@
+/* skew -- Sun Jun 19 00:04:17 2005
+   Initial lc_shell Variable Values */
+
+
+_bs_arch = "sparcOS5"
+_bs_suppress_errors = {}
+_bs_valid_program = "false"
+auto_link_disable = "false"
+auto_link_options = "-all"
+bin_path = "/import/synopsys/sparcOS5/syn/bin"
+bus_dimension_separator_style = "]["
+bus_extraction_style = "%s[%d:%d]"
+bus_inference_descending_sort = "true"
+bus_inference_style = ""
+bus_naming_style = "%s[%d]"
+bus_range_separator_style = ":"
+change_names_dont_change_bus_members = "false"
+change_names_update_inst_tree = "true"
+command_log_file = "./lc_command.log"
+company = ""
+compatibility_version = "2002.05"
+context_check_status = "false"
+dc_shell_mode = "default"
+default_name_rules = ""
+designer = ""
+echo_include_commands = "true"
+edifin_autoconnect_offpageconnectors = "false"
+edifin_autoconnect_ports = "false"
+edifin_dc_script_flag = ""
+edifin_delete_empty_cells = "true"
+edifin_delete_ripper_cells = "true"
+edifin_ground_net_name = ""
+edifin_ground_net_property_name = ""
+edifin_ground_net_property_value = ""
+edifin_ground_port_name = ""
+edifin_instance_property_name = ""
+edifin_lib_in_osc_symbol = ""
+edifin_lib_in_port_symbol = ""
+edifin_lib_inout_osc_symbol = ""
+edifin_lib_inout_port_symbol = ""
+edifin_lib_logic_0_symbol = ""
+edifin_lib_logic_1_symbol = ""
+edifin_lib_mentor_netcon_symbol = ""
+edifin_lib_out_osc_symbol = ""
+edifin_lib_out_port_symbol = ""
+edifin_lib_ripper_bits_property = ""
+edifin_lib_ripper_bus_end = ""
+edifin_lib_ripper_cell_name = ""
+edifin_lib_ripper_view_name = ""
+edifin_lib_route_grid = "1024"
+edifin_lib_templates = {}
+edifin_portinstance_disabled_property_name = ""
+edifin_portinstance_disabled_property_value = ""
+edifin_portinstance_property_name = ""
+edifin_power_net_name = ""
+edifin_power_net_property_name = ""
+edifin_power_net_property_value = ""
+edifin_power_port_name = ""
+edifin_use_identifier_in_rename = "false"
+edifin_view_identifier_property_name = ""
+exit_delete_filename_log_file = "true"
+filename_log_file = "lc_filenames.log"
+find_converts_name_lists = "false"
+font_library = "1_25.font"
+found_arch_apollo = "0"
+found_x11_vendor_string_apollo = "0"
+init_path = "/import/synopsys/auxx/syn"
+lc_shell_status = 1
+libgen_max_differences = "-1"
+link_library = {"*", "your_library.db"}
+plot_command = "lpr -Plw"
+read_db_lib_warnings = "FALSE"
+read_name_mapping_nowarn_libraries = {}
+read_translate_msff = "TRUE"
+search_path = {".", "/import/synopsys/libraries/syn"}
+sh_command_abbrev_mode = "Command-Line-Only"
+sh_continue_on_error = "true"
+sh_source_uses_search_path = "true"
+suppress_errors = {}
+symbol_library = {"your_library.sdb"}
+syntax_check_status = "false"
+synthetic_library = {}
+target_library = {"your_library.db"}
+tested_technology = ""
+text_print_command = "lpr -Plw"
+uniquify_naming_style = "%s_%d"
+verbose_messages = "true"
+vhdllib_architecture = {"VITAL"}
+vhdllib_glitch_handle = "true"
+vhdllib_logic_system = "ieee-1164"
+vhdllib_logical_name = ""
+vhdllib_negative_constraint = "false"
+vhdllib_pulse_handle = "use_vhdllib_glitch_handle"
+vhdllib_sdf_edge = "false"
+vhdllib_tb_compare = 0
+vhdllib_tb_x_eq_dontcare = "FALSE"
+vhdllib_timing_checks = "true"
+vhdllib_timing_mesg = "true"
+vhdllib_timing_xgen = "false"
+vhdllib_vital_99 = "false"
+view_command_log_file = "./view_command.log"
+view_on_line_doc_cmd = "/import/synopsys/sold"
+write_name_nets_same_as_ports = "false"
+
+
+/* Initial lc_shell Aliases */
+
+
+alias free         	"remove_lib"
+alias groupvar     	"group_variable"
+alias ls           	"sh ls -aC "
+alias man          	"help"
+
+
+/* lc_shell Command Log */ 
+
+
+exit 

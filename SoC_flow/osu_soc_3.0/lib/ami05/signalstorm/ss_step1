@@ -1,0 +1,34 @@
+db_open osu05_stdcells
+db_install -model ami05.m -subckt osu05_stdcells.sp
+
+set_var SG_SPICE_SUPPLY1_NAMES "vdd vdd2"
+set_var SG_SPICE_SUPPLY0_NAMES "gnd gnd2"
+set_var SG_HALF_WIDTH_HOLD_FLAG true
+
+db_dire V padinc Vdd
+db_dire V padinc Vdd2
+db_dire G padinc Gnd
+db_dire G padinc Gnd2
+db_dire I padinc YPAD
+db_dire O padinc DI
+
+db_dire V padout Vdd
+db_dire V padout Vdd2
+db_dire G padout Gnd
+db_dire G padout Gnd2
+db_dire O padout YPAD
+db_dire I padout DO
+
+db_dire V padinout Vdd
+db_dire V padinout Vdd2
+db_dire G padinout Gnd
+db_dire G padinout Gnd2
+db_dire B padinout YPAD
+db_dire O padinout DI
+db_dire I padinout DO
+
+db_gsim
+db_setup -s setup.ss
+
+db_close
+exit

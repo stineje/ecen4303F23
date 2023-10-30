@@ -1,0 +1,16 @@
+# lefdef.layermap 
+#
+  metal       METAL_1         lefdef   metal1
+  metal       METAL_2         lefdef   metal2
+  metal       METAL_3         lefdef   metal3
+  metal       METAL_4         lefdef   metal4
+  metal       METAL_5         lefdef   metal5
+  metal       METAL_6         lefdef   metal6
+  poly        POLYCIDE        lefdef   poly
+#  via         CONT            lefdef   cont
+  via         VIA_1           lefdef   via
+  via         VIA_2           lefdef   via2
+  via         VIA_3           lefdef   via3
+  via         VIA_4           lefdef   via4
+  via         VIA_5           lefdef   via5
+

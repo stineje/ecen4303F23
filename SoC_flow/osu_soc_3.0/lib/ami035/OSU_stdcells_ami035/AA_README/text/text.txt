@@ -1,0 +1,13 @@
+These are the IIT standard cells for 0.35um.
+They have to be used with the NCSU_TechLib_tsmc04_4M2P technology file.
+
+The IO pads are imported as supplied by Mosis. DIVA reports DRC violations,
+however Magic reports no errors. Provided as is, use at own risk.
+
+The TSMC techfile has the same dimensions as AMI and is used until AMI
+becomes available
+
+Voltage: 3.3V
+1 Lambda=0.2u
+
+Johannes Grad, IIT

@@ -1,0 +1,84 @@
+;Copyright (C) 1993-1998, Cadence Design Systems Inc.
+;   Using Design Planner hierarchy in: /import/cadence2/dsmse54/tools/dsm
+; Copyright (c) 1991-2004 Cadence Design Systems. All rights reserved.
+; Initializing HLD database...
+;   Using design tech file: /import/cad2/iit_stdcells/ami05/abstract.stacks/tech.dpux
+INFO    -*- Loading technology file `/import/cad2/iit_stdcells/ami05/abstract.stacks/tech.dpux'.
+
+; Loading /import/cadence2/dsmse54/tools/dsm/etc/hldInit.cl
+
+"**************************************************************************" 
+"**************************************************************************" 
+"** WARNING:  3.4A and 3.4B DP data bases are NOT COMPATIBLE!            **" 
+"**           DP3.4A Databases must be translated to DP3.4B format using **" 
+"**           the dbnamemap utility.  If you do not run this translation **" 
+"**           you may experience name mapping difficulties later in your **" 
+"**           flow.  For help run:                                       **" 
+"**                  dbnamemap -h                                        **" 
+"**************************************************************************" 
+"**************************************************************************" 
+"" ; Starting Pillar...
+#rp# (hldUiSetEnvVar "hldGeSelByPointObjectType" "inst" "b")
+inst
+#rp# (hldUiSetEnvVar "hldGeMoveCopySnapMode" "90" "b")
+90
+#rp# (hldUiSetEnvVar "hldGeMoveCopyOrientMode" "R0" "b")
+R0
+**********************************************************************
+*** abstract Version: 5.5.10 built after 05/22/03 15:23
+**********************************************************************
+LOG       (ABS-1420): Starting abstract version 5.5.10 built on 05/22/03 15:23, lv420a, SunOS 5.7 Using Pillar 5.5.10 built after 05/22/03 15:23
+INFO      (ABS-200): Technology loading from /import/cad2/iit_stdcells/ami05/abstract.stacks/tech.dpux
+INFO      (ABS-240): Setting layer poly to class POLY.
+INFO      (ABS-236): Layer class Routing has not been defined in the Layers category of the Technology File Editor.
+INFO      (ABS-240): Setting layer metal1 to class METAL1.
+INFO      (ABS-240): Setting layer metal2 to class METAL2.
+INFO      (ABS-240): Setting layer metal3 to class METAL3.
+INFO      (ABS-203): Technology saving original file to /import/cad2/iit_stdcells/ami05/abstract.stacks/tech.dpux.org
+INFO      (ABS-205): Technology saved to /import/cad2/iit_stdcells/ami05/abstract.stacks/tech.dpux
+INFO      (ABS-236): Layer class Via has not been defined in the Layers category of the Technology File Editor.
+WARNING   (ABS-238): Layer class cannot be set for cut layer cc, as there is no associated via defined. Use the Vias category in the Technology File Editor to define a via for this cut layer.
+WARNING   (ABS-238): Layer class cannot be set for cut layer cc, as there is no associated via defined. Use the Vias category in the Technology File Editor to define a via for this cut layer.
+INFO      (ABS-240): Setting layer via to class VIA1.
+INFO      (ABS-240): Setting layer via2 to class VIA2.
+INFO      (ABS-205): Technology saved to /import/cad2/iit_stdcells/ami05/abstract.stacks/tech.dpux
+LOG       (ABS-212): Verifying Technology Data
+WARNING   (ABS-214): Layer overlap has not been defined in the technology file.
+WARNING   (ABS-230): Layer poly does not have a via defined, which is preventing extraction through this layer. A via can be defined in the Vias category of the Technology File Editor.
+INFO      (ABS-232): Layer summary: 3 metal layer(s), 2 via layer(s), 1 poly layer(s), and 0 diff layer(s) found
+INFO      (ABS-234): Via summary: 2 default via(s) and 0 non-default via(s) found
+                                                        
+* Tcl/Tk is copyrighted by the Regents of the University of       *
+* California, Sun Microsystems, Inc., and other parties.          *
+* Copyright (c) 1993 The Regents of the University of California. *
+* Copyright (c) 1994-1995 Sun Microsystems, Inc.                  *
+* Copyright (C) 1993-1997, Cadence Design Systems Inc.            *
+
+INFO      (ABS-1402): Record appending to file abstract.record
+5.5.10
+#rp# (abs:version)
+INFO      (ABSTECH): Reading map file /import/cad2/iit_stdcells/ami05/abstract.stacks/ami05_layers.map containing 23 mappings.
+INFO      (ABS-200): Technology loading from /import/cad2/iit_stdcells/ami05/abstract.stacks/tech.dpux
+INFO      (ABS-236): Layer class Via has not been defined in the Layers category of the Technology File Editor.
+WARNING   (ABS-238): Layer class cannot be set for cut layer cc, as there is no associated via defined. Use the Vias category in the Technology File Editor to define a via for this cut layer.
+WARNING   (ABS-238): Layer class cannot be set for cut layer cc, as there is no associated via defined. Use the Vias category in the Technology File Editor to define a via for this cut layer.
+INFO      (ABS-205): Technology saved to /import/cad2/iit_stdcells/ami05/abstract.stacks/tech.dpux
+LOG       (ABS-212): Verifying Technology Data
+WARNING   (ABS-214): Layer overlap has not been defined in the technology file.
+WARNING   (ABS-230): Layer poly does not have a via defined, which is preventing extraction through this layer. A via can be defined in the Vias category of the Technology File Editor.
+INFO      (ABS-232): Layer summary: 3 metal layer(s), 2 via layer(s), 1 poly layer(s), and 0 diff layer(s) found
+INFO      (ABS-234): Via summary: 2 default via(s) and 0 non-default via(s) found
+INFO      (ABS-200): Technology loading from /import/cad2/iit_stdcells/ami05/abstract.stacks/tech.dpux
+INFO      (ABS-236): Layer class Via has not been defined in the Layers category of the Technology File Editor.
+WARNING   (ABS-238): Layer class cannot be set for cut layer cc, as there is no associated via defined. Use the Vias category in the Technology File Editor to define a via for this cut layer.
+WARNING   (ABS-238): Layer class cannot be set for cut layer cc, as there is no associated via defined. Use the Vias category in the Technology File Editor to define a via for this cut layer.
+INFO      (ABS-205): Technology saved to /import/cad2/iit_stdcells/ami05/abstract.stacks/tech.dpux
+LOG       (ABS-212): Verifying Technology Data
+WARNING   (ABS-214): Layer overlap has not been defined in the technology file.
+WARNING   (ABS-230): Layer poly does not have a via defined, which is preventing extraction through this layer. A via can be defined in the Vias category of the Technology File Editor.
+INFO      (ABS-232): Layer summary: 3 metal layer(s), 2 via layer(s), 1 poly layer(s), and 0 diff layer(s) found
+INFO      (ABS-234): Via summary: 2 default via(s) and 0 non-default via(s) found
+LOG       (ABS-1421): Finished abstract version 5.5.10
+HLD-WARNING: No memory left to  free
+; Closing HLD database...
+; Exiting Lisp

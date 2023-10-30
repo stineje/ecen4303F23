@@ -1,0 +1,65 @@
+# SUE version MMI_SUE4.2.10
+
+proc SCHEMATIC_CLKBUF1 {} {
+  make input -name A -origin {100 450}
+  make output -name Y -origin {750 450}
+  make global -orient RXY -name vdd -origin {650 320}
+  make global -name gnd -origin {650 590}
+  make global -orient RXY -name vdd -origin {510 320}
+  make global -orient RXY -name vdd -origin {360 320}
+  make global -orient RXY -name vdd -origin {220 320}
+  make global -name gnd -origin {510 590}
+  make global -name gnd -origin {360 590}
+  make global -name gnd -origin {220 590}
+make nmos -W 4 -L 0.2u -origin {220 510}
+make nmos -W 4 -L 0.2u -origin {360 510}
+make nmos -W 4 -L 0.2u -origin {510 510}
+make nmos -W 4 -L 0.2u -origin {650 510}
+make pmos -W 8 -L 0.2u -origin {650 390}
+make pmos -W 8 -L 0.2u -origin {510 390}
+make pmos -W 8 -L 0.2u -origin {360 390}
+make pmos -W 8 -L 0.2u -origin {220 390}
+  make_wire 360 450 450 450
+  make_wire 360 450 360 430
+  make_wire 360 450 360 470
+  make_wire 450 450 450 390
+  make_wire 450 450 450 510
+  make_wire 510 450 590 450
+  make_wire 510 450 510 430
+  make_wire 510 450 510 470
+  make_wire 590 450 590 390
+  make_wire 590 450 590 510
+  make_wire 300 450 220 450
+  make_wire 300 450 300 390
+  make_wire 300 450 300 510
+  make_wire 220 450 220 430
+  make_wire 220 450 220 470
+  make_wire 160 450 100 450
+  make_wire 160 450 160 390
+  make_wire 160 450 160 510
+  make_wire 650 450 650 430
+  make_wire 650 450 650 470
+  make_wire 650 450 750 450
+  make_wire 650 320 650 350
+  make_wire 650 550 650 590
+  make_wire 510 320 510 350
+  make_wire 360 350 360 320
+  make_wire 220 350 220 320
+  make_wire 510 550 510 590
+  make_wire 360 550 360 590
+  make_wire 220 550 220 590
+}
+
+proc ICON_CLKBUF1 args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}} {M {}} {dpc {}}}
+  icon_term -type input -origin {-40 0} -name A
+  icon_term -type output -origin {70 0} -name Y
+  icon_property -origin {-40 120} -type user -name name
+  icon_property -origin {-40 140} -type user -name M
+  icon_property -origin {-40 160} -type user -name dpc
+  icon_line -40 -50 -40 60 70 0 -40 -50 -40 -50
+  icon_property -origin {-30 0} -label A
+  icon_property -origin {30 0} -label Y
+  icon_property -origin {-30 30} -label 1
+}
+

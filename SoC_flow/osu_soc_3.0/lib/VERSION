@@ -1,0 +1,57 @@
+OSU ASIC Library
+
+-------------------------------------------------
+
+2.3     6/19/05
+
+- Migration from OSU to IIT Library
+- Added Fire&Ice techfile for TSMC 180nm
+- Added new DF-II views: abstract, functional
+- Added pins to DF-II Layout views
+
+-------------------------------------------------
+
+2.2     12/7/04
+No changes
+
+-------------------------------------------------
+
+2.1	9/13/04
+
+-Template script for Primetime added (primetime.scr)
+-Many bug fixes in the schematics
+-Implemented all designs with the newest flow scripts
+-All designs now include a schematic
+-LVS pass for all reference designs
+-New directory structure, separates Encounter
+ and Silicon Ensemble reference designs
+-Used Design Compiler for all reference designs, which
+ is probably the most popular Synthesis tool
+
+---------------------------------------------------------
+
+2.0 	7/31/04
+
+-First release of Version 2
+-Added 0.35
+-Added async flops
+-Added stacked vias
+-Added Encounter flow scripts
+-Changed to DBUU 1000
+-Fixed grid to lambda/2
+-Switched to Signalstorm 3.2
+-Switched to Abstract 3.5
+-Switched to Silicon Ensemble 3.4
+
+---------------------------------------------------------
+
+1.0 	First Release
+-Included 0.5, 0.25, 0.18
+-No stacked vias
+-No async flops
+-DBUU was 100
+-No manufacturing grid
+
+---------------------------------------------------------
+Johannes Grad
+jgrad@ece.iit.edu

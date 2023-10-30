@@ -1,0 +1,35 @@
+#!/bin/csh -f
+
+# This csh file is for two purposes:
+# 1.Exit if perl path is not found
+# 2.Exit if perl version is wrong and causing errors
+############################################################################
+
+set perl_path = /usr/bin/perl
+
+   set found_Perl = 0
+   if ( -e $perl_path ) then
+	echo  ""
+	echo  "*RCMD-INFO: $perl_path version found"
+	set found_Perl = 1
+   endif
+   if ($found_Perl == 0) then
+	echo ""
+	echo "*RCMD-ERROR: $perl_path not found!"
+        echo "exiting without running gen_explore_table.pl"
+	exit
+   endif
+
+#############################################################################
+
+echo "*RCMD-INFO: Starting gen_explore_table ..."
+
+if ($#argv == 2) then
+./cmd/rcmd_toolbox/gen_explore_table.pl $argv[1] $argv[2]
+else
+./cmd/rcmd_toolbox/gen_explore_table.pl
+endif
+
+echo "*RCMD-INFO: gen_explore_table.pl program has completed."
+echo ""
+

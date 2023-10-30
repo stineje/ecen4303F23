@@ -1,0 +1,27 @@
+# SUE version MMI_SUE4.2.10
+
+proc SCHEMATIC_PADOUT {} {
+  make global -orient RXY -name VDD -origin {180 310}
+  make PadBiDir -origin {230 390}
+  make input -orient R270 -name DO -origin {270 420}
+  make inout -name YPAD -origin {280 220}
+  make_wire 250 390 250 420
+  make_wire 270 390 270 420
+  make_wire 180 310 180 420
+  make_wire 180 420 250 420
+  make_wire 280 220 280 250
+}
+
+proc ICON_PADOUT args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}} {M {}} {dpc {}}}
+  icon_term -type input -origin {20 0} -orient R270 -name DO
+  icon_term -type inout -origin {50 -140} -name YPAD
+  icon_property -origin {50 90} -type user -name name
+  icon_property -origin {50 110} -type user -name M
+  icon_property -origin {50 130} -type user -name dpc
+  icon_line 0 -140 0 0 100 0 100 -140 0 -140 0 -140
+  icon_property -origin {10 -70} -label PadOut
+  icon_property -origin {20 -10} -anchor e -rotate 1 -label DO
+  icon_property -origin {50 -130} -rotate 1 -label PAD
+}
+

@@ -1,0 +1,8 @@
+set init_layout_view ""
+set init_abstract_name ""
+set init_verilog "/home/jstine/Desktop/ecen4303F23/SoC_flow/synth/mapped/mult_pad.vh"
+set init_mmmc_file "/home/jstine/Desktop/ecen4303F23/SoC_flow/par/FF/view_definition.tcl"
+set init_lef_file "/home/jstine/Desktop/ecen4303F23/SoC_flow/osu_soc_3.0/lib/ami05/lib/osu05_stdcells.lef"
+set init_top_cell "mult_pad"
+set init_gnd_net "VSS"
+set init_pwr_net "VDD"

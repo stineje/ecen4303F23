@@ -1,0 +1,52 @@
+#
+OSU_stdcells_ami05 PADFC symbol
+I6
+I7
+I9
+I8
+#
+OSU_stdcells_ami05 PADINOUT symbol
+I48
+I47
+I46
+I45
+I44
+I43
+I42
+I41
+I40
+I38
+I37
+I36
+I35
+I34
+I33
+I32
+I31
+I30
+I29
+I28
+I27
+I26
+I25
+I24
+I23
+I22
+I21
+I20
+I19
+I18
+I17
+I16
+I15
+I14
+I12
+I11
+I10
+I2
+#
+OSU_stdcells_ami05 PADGND symbol
+I1
+#
+OSU_stdcells_ami05 PADVDD symbol
+I0

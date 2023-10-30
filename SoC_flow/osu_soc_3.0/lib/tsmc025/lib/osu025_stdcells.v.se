@@ -1,0 +1,197 @@
+module AND2X1 (A, B, Y);
+input  A ;
+input  B ;
+output Y ;
+endmodule
+
+module AND2X2 (A, B, Y);
+input  A ;
+input  B ;
+output Y ;
+endmodule
+
+module AOI21X1 (A, B, C, Y);
+input  A ;
+input  B ;
+input  C ;
+output Y ;
+endmodule
+
+module AOI22X1 (A, B, C, D, Y);
+input  A ;
+input  B ;
+input  C ;
+input  D ;
+output Y ;
+endmodule
+
+module BUFX2 (A, Y);
+input  A ;
+output Y ;
+endmodule
+
+module BUFX4 (A, Y);
+input  A ;
+output Y ;
+endmodule
+
+module CLKBUF1 (A, Y);
+input  A ;
+output Y ;
+endmodule
+
+module CLKBUF2 (A, Y);
+input  A ;
+output Y ;
+endmodule
+
+module CLKBUF3 (A, Y);
+input  A ;
+output Y ;
+endmodule
+
+module DFFNEGX1 (CLK, D, Q);
+input  CLK ;
+input  D ;
+output Q ;
+endmodule
+
+module DFFPOSX1 (CLK, D, Q);
+input  CLK ;
+input  D ;
+output Q ;
+endmodule
+
+module DFFSR (CLK, D, R, S, Q);
+input  CLK ;
+input  D ;
+input  R ;
+input  S ;
+output Q ;
+endmodule
+
+module FAX1 (A, B, C, YC, YS);
+input  A ;
+input  B ;
+input  C ;
+output YC ;
+output YS ;
+endmodule
+
+module HAX1 (A, B, YC, YS);
+input  A ;
+input  B ;
+output YC ;
+output YS ;
+endmodule
+
+module INVX1 (A, Y);
+input  A ;
+output Y ;
+endmodule
+
+module INVX2 (A, Y);
+input  A ;
+output Y ;
+endmodule
+
+module INVX4 (A, Y);
+input  A ;
+output Y ;
+endmodule
+
+module INVX8 (A, Y);
+input  A ;
+output Y ;
+endmodule
+
+module LATCH (CLK, D, Q);
+input  CLK ;
+input  D ;
+output Q ;
+endmodule
+
+module MUX2X1 (A, B, S, Y);
+input  A ;
+input  B ;
+input  S ;
+output Y ;
+endmodule
+
+module NAND2X1 (A, B, Y);
+input  A ;
+input  B ;
+output Y ;
+endmodule
+
+module NAND3X1 (A, B, C, Y);
+input  A ;
+input  B ;
+input  C ;
+output Y ;
+endmodule
+
+module NOR2X1 (A, B, Y);
+input  A ;
+input  B ;
+output Y ;
+endmodule
+
+module NOR3X1 (A, B, C, Y);
+input  A ;
+input  B ;
+input  C ;
+output Y ;
+endmodule
+
+module OAI21X1 (A, B, C, Y);
+input  A ;
+input  B ;
+input  C ;
+output Y ;
+endmodule
+
+module OAI22X1 (A, B, C, D, Y);
+input  A ;
+input  B ;
+input  C ;
+input  D ;
+output Y ;
+endmodule
+
+module OR2X1 (A, B, Y);
+input  A ;
+input  B ;
+output Y ;
+endmodule
+
+module OR2X2 (A, B, Y);
+input  A ;
+input  B ;
+output Y ;
+endmodule
+
+module TBUFX1 (A, EN, Y);
+input  A ;
+input  EN ;
+output Y ;
+endmodule
+
+module TBUFX2 (A, EN, Y);
+input  A ;
+input  EN ;
+output Y ;
+endmodule
+
+module XNOR2X1 (A, B, Y);
+input  A ;
+input  B ;
+output Y ;
+endmodule
+
+module XOR2X1 (A, B, Y);
+input  A ;
+input  B ;
+output Y ;
+endmodule
+

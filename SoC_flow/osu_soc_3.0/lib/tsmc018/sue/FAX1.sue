@@ -1,0 +1,128 @@
+# SUE version MMI_SUE4.2.10
+
+proc SCHEMATIC_FAX1 {} {
+  make input -name a -origin {190 210}
+  make input -name a -origin {190 450}
+  make input -name a -origin {750 130}
+  make input -orient RY -name a -origin {750 530}
+  make input -name a -origin {-380 210}
+  make input -name a -origin {-380 450}
+  make input -name a -origin {-20 210}
+  make input -orient RY -name a -origin {-20 450}
+  make input -name b -origin {370 210}
+  make input -name b -origin {370 450}
+  make input -name b -origin {750 210}
+  make input -orient RY -name b -origin {750 450}
+  make input -name b -origin {-200 210}
+  make input -name b -origin {-200 450}
+  make input -name b -origin {-20 290}
+  make input -orient RY -name b -origin {-20 370}
+  make input -name c -origin {550 210}
+  make input -name c -origin {550 450}
+  make input -name c -origin {750 290}
+  make input -orient RY -name c -origin {750 370}
+  make input -name c -origin {-380 330}
+  make global -orient RXY -name vdd -origin {-250 170}
+  make global -name gnd -origin {-250 490}
+  make global -orient RXY -name vdd -origin {40 170}
+  make global -name gnd -origin {40 490}
+  make global -orient RXY -name vdd -origin {430 170}
+  make global -name gnd -origin {430 490}
+  make global -orient RXY -name vdd -origin {810 90}
+  make global -name gnd -origin {810 570}
+  make global -orient RXY -name vdd -origin {970 210}
+  make global -name gnd -origin {970 430}
+make nmos -W 2 -L 0.2u -origin {-150 450}
+make nmos -W 2 -L 0.2u -origin {-250 370}
+make pmos -W 4 -L 0.2u -origin {-250 290}
+make pmos -W 4 -L 0.2u -origin {-320 210}
+make pmos -W 4 -L 0.2u -origin {-150 210}
+make pmos -W 4 -L 0.2u -origin {40 210}
+make pmos -W 4 -L 0.2u -origin {40 290}
+make nmos -W 2 -L 0.2u -origin {40 370}
+make nmos -W 2 -L 0.2u -origin {40 450}
+make nmos -W 2 -L 0.2u -origin {250 450}
+make nmos -W 2 -L 0.2u -origin {430 450}
+make nmos -W 2 -L 0.2u -origin {610 450}
+make nmos -W 2 -L 0.2u -origin {430 370}
+make pmos -W 4 -L 0.2u -origin {250 210}
+  make global -orient RXY -name vdd -origin {290 580}
+  make global -name gnd -origin {290 800}
+make nmos -W 2 -L 0.2u -origin {810 530}
+make nmos -W 2 -L 0.2u -origin {810 450}
+make nmos -W 2 -L 0.2u -origin {810 370}
+make pmos -W 3.6 -L 0.2u -origin {430 210}
+make pmos -W 3.6 -L 0.2u -origin {610 210}
+make pmos -W 3.6 -L 0.2u -origin {430 290}
+make pmos -W 4.8 -L 0.2u -origin {810 130}
+make pmos -W 4.8 -L 0.2u -origin {810 210}
+make pmos -W 4.8 -L 0.2u -origin {810 290}
+make nmos -W 1 -L 0.2u -origin {290 760}
+make pmos -W 2 -L 0.2u -origin {290 620}
+make nmos -W 1 -L 0.2u -origin {970 390}
+make nmos -W 2 -L 0.2u -origin {-320 450}
+make pmos -W 2 -L 0.2u -origin {970 250}
+  make output -name YS -origin {1040 330}
+  make output -name YC -origin {310 690}
+  make_wire 250 250 430 250
+  make_wire 430 250 610 250
+  make_wire 430 170 250 170
+  make_wire 430 170 610 170
+  make_wire 250 490 430 490
+  make_wire 430 490 610 490
+  make_wire 430 410 250 410
+  make_wire 430 410 610 410
+  make_wire -320 250 -250 250
+  make_wire -250 170 -320 170
+  make_wire -320 490 -250 490
+  make_wire -250 410 -320 410
+  make_wire -310 330 -380 330
+  make_wire -250 170 -150 170
+  make_wire -250 250 -150 250
+  make_wire -250 490 -150 490
+  make_wire -250 410 -150 410
+  make_wire 370 290 370 330
+  make_wire 370 330 370 370
+  make_wire -250 330 40 330
+  make_wire -310 290 -310 330
+  make_wire -310 330 -310 370
+  make_wire -210 450 -200 450
+  make_wire -210 210 -200 210
+  make_wire 430 330 810 330
+  make_wire 970 330 1040 330
+  make_wire 970 330 970 290
+  make_wire 970 330 970 350
+  make_wire 910 250 910 330
+  make_wire 910 330 910 390
+  make_wire 810 330 910 330
+  make_wire 290 690 310 690
+  make_wire 290 660 290 690
+  make_wire 290 690 290 720
+  make_wire 230 620 230 680
+  make_wire 230 680 230 760
+  make_wire 120 330 120 680
+  make_wire 120 680 230 680
+  make_wire 120 330 40 330
+  make_wire 120 330 370 330
+}
+
+proc ICON_FAX1 args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}}}
+  icon_term -type input -origin {-70 -20} -name a
+  icon_term -type input -origin {-70 0} -name b
+  icon_term -type input -origin {-70 20} -name c
+  icon_term -type output -origin {70 -10} -name YS
+  icon_term -type output -origin {70 20} -name YC
+  icon_property -origin {-130 110} -type user -name name
+  icon_line -70 -30 -70 30 70 30 70 -30 -70 -30
+  icon_property -origin {-10 20} -size small -label FA
+  icon_property -origin {-60 -20} -size small -label a
+  icon_property -origin {-60 0} -size small -label b
+  icon_property -origin {-60 20} -size small -label c
+  icon_property -origin {60 -10} -size small -anchor e -label S
+  icon_property -origin {60 20} -size small -anchor e -label C
+  icon_property -origin {-130 170} -type auto -name verilog -text {FAX1 [unique_name "" $name FAX1]
+(.a($a), .b($b), .c($c), .YS($YS), 
+.YC($YC))\;}
+}
+

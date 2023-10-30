@@ -1,0 +1,6 @@
+db_open osu018_stdcells
+
+db_output -r osu018_stdcells.rep -alf osu018_stdcells.alf -p typical
+
+db_close
+exit

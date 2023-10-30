@@ -1,0 +1,9 @@
+#
+NCSU_Analog_Parts nmos symbol
+M0
+#ISCELL
+NCSU_Analog_Parts vdd symbol
+I0
+#ISCELL
+NCSU_Analog_Parts gnd symbol
+I1

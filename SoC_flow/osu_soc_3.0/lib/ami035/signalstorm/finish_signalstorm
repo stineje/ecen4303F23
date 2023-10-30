@@ -1,0 +1,94 @@
+#!/bin/sh
+
+# Create Synopsys .lib file (has no area information yet)
+alf2lib  -alf osu035_stdcells.alf -lib     osu035_stdcells_noarea.lib -def footprint.def
+
+# Insert area information from .area file and mark pad cells and pad pins for library compiler
+../../bin/osucells_mergearea -v "areafile=../../source/osu_stdcells.area" -v "l=0.2" osu035_stdcells_noarea.lib | awk '\
+{if(substr($2,2,3)=="PAD") {printf("%s\n pad_cell : true;\n",$0)} else print $0}' | awk '\
+{if($1=="pin(YPAD)") {printf("%s\n is_pad : true;\n",$0)} else print $0}' | awk '\
+{if(substr($1,1,4)=="pin("){ \
+  if($1=="pin(YPAD)") {padpin=1;}\
+  else {padpin=0;}\
+ }\
+ if($1=="direction"&&($3=="output;"||$3=="inout;")&&padpin==1) {printf("%s\n drive_current : 2.0;\n",$0)}\
+ else {print $0;}}' > osu035_stdcells.lib
+
+rm osu035_stdcells_noarea.lib
+
+# Create a Verilog Simulation Library
+alf2veri -alf osu035_stdcells.alf -verilog osu035_stdcells.v
+
+# Create a VHDL Simulation Library
+alf2vhdl -alf osu035_stdcells.alf -vhdl    osu035_stdcells.vhdl
+
+# Add non-signal pads to Verilog library
+echo ''>> osu035_stdcells.v
+
+echo 'module PADNC();'>> osu035_stdcells.v
+echo 'endmodule'>> osu035_stdcells.v
+echo ''>> osu035_stdcells.v
+
+echo 'module PADFC();'>> osu035_stdcells.v
+echo 'endmodule'>> osu035_stdcells.v
+echo ''>> osu035_stdcells.v
+
+echo 'module PADGND();'>> osu035_stdcells.v
+echo 'endmodule'>> osu035_stdcells.v
+echo ''>> osu035_stdcells.v
+
+echo 'module PADVDD();'>> osu035_stdcells.v
+echo 'endmodule'>> osu035_stdcells.v
+echo ''>> osu035_stdcells.v
+
+# Create a Verilog cell definition library for Silicon Ensemble and add corner/vdd/gnd/nc cell definitions
+rm osu035_stdcells.v.se
+cat osu035_stdcells.v | awk '\
+{if($1=="module"||(($1=="input"||$1=="output"||$1=="inout")&&$3==";")||$0=="endmodule") {\
+    print $0;\
+    if($0=="endmodule") {print ""}
+}}' > osu035_stdcells.v.se
+
+# Create TLF file
+syn2tlf osu035_stdcells.lib -format 4.3 -ir 50 -if 50 -dr 50 -df 50 -sr 10 -sf 10 -tr 90 -tf 90 -slew_measure_lower_rise 20 -slew_measure_lower_fall 20 -slew_measure_upper_rise 80 -slew_measure_upper_fall 80 -o osu035_stdcells.tlf
+
+# Add non-signal pads to .tlf file 
+
+echo 'CELL(PADFC' >> osu035_stdcells.tlf
+echo '   Area(27000.000000)' >> osu035_stdcells.tlf
+echo '   PAD_CELL' >> osu035_stdcells.tlf
+echo ')' >> osu035_stdcells.tlf
+echo ''>> osu035_stdcells.tlf
+echo 'CELL(PADNC' >> osu035_stdcells.tlf
+echo '   Area(27000.000000)' >> osu035_stdcells.tlf
+echo '   PAD_CELL' >> osu035_stdcells.tlf
+echo ')' >> osu035_stdcells.tlf
+echo ''>> osu035_stdcells.tlf
+echo 'CELL(PADVDD' >> osu035_stdcells.tlf
+echo '   Area(27000.000000)' >> osu035_stdcells.tlf
+echo '   PAD_CELL' >> osu035_stdcells.tlf
+echo ')' >> osu035_stdcells.tlf
+echo ''>> osu035_stdcells.tlf
+echo 'CELL(PADGND' >> osu035_stdcells.tlf
+echo '   Area(27000.000000)' >> osu035_stdcells.tlf
+echo '   PAD_CELL' >> osu035_stdcells.tlf
+echo ')' >> osu035_stdcells.tlf
+echo ''>> osu035_stdcells.tlf
+
+# Create HTML data
+/usr/bin/rm -rf ../html
+alf2html -alf osu035_stdcells.alf -dir ../html
+
+# Add non-signal pads to .lib file 
+echo 'cell (PADFC) { area : 27000;  dont_touch : true; }' >> osu035_stdcells.lib
+echo 'cell (PADNC) { area : 27000;  dont_touch : true; }' >> osu035_stdcells.lib
+echo 'cell (PADVDD) { area : 27000; dont_touch : true; }'  >> osu035_stdcells.lib
+echo 'cell (PADGND) { area : 27000; dont_touch : true; }'  >> osu035_stdcells.lib
+echo '}'  >> osu035_stdcells.lib
+
+echo ''
+echo 'The .lib file is now created'
+echo 'open osu035_stdcells.lib in text editor and remove } before PADFC'
+echo 'Then create DB file with Synopsys Library Compiler'
+echo 'command line: lc_shell -f lc_script'
+

@@ -1,0 +1,89 @@
+#!/usr/bin/bash
+
+MATLAB="/usr/local/bin/octave -q"
+
+if [ -z "${2}" -o -z "${1}" ]; then
+	echo
+	echo "Usage:"
+	echo
+	echo " `basename ${0}` m n"
+	echo
+	echo " m  is the total number of bits for the vector"
+	echo " n  is the number of vectors to generate"
+	echo
+	echo " Vectors will be stored in powrmill.vec"
+	echo
+	echo " `basename ${0}` 5 200  will generate 200 vectors of 5 bits."
+	exit 127
+fi
+
+# save current terminal width
+saveterm="$(stty size | awk '{ print $2 }')"
+
+# temporarily set terminal width, so vectors display properly
+# 1000 columns handles vectors at most 333 bits wide.
+stty cols 1000
+
+# generate the top portions of the vector file
+cat << EOF > powrmill.vec
+; PowerMill stimulus file
+
+; input vector configuration
+; the cycle time for each vector (in ns):
+period 20
+
+; rise and fall times (in ns):
+rise .1
+fall .1
+
+;;;;;; vectors start here ;;;;;;
+EOF
+
+echo "Generating vectors.  Be patient, this could take a few minutes."
+
+# generate the vectors
+
+${MATLAB} << EOF >> powrmill.vec
+
+% from randint.m
+function b = randint (n, m, range, seed)
+
+  switch (nargin)
+    case 1,
+      m = n;
+      range = [0,1];
+      seed = Inf;
+    case 2,
+      range = [0,1];
+      seed = Inf;
+    case 3,
+      seed = Inf;      
+  end
+
+  if (length (range) == 1)
+    range = [0, range-1];
+  elseif ( prod (size (range)) != 2)
+    error ("randint: range must be a 2 element vector");
+  endif
+  range = sort (range);
+
+  if (!isinf (seed))
+    old_seed = rand ("seed");
+    rand ("seed", seed);
+  endif
+
+  b = range (1) - 1 + ceil (rand (n, m) * (range (2) - range (1) + 1));
+  
+  if (!isinf (seed))
+    rand ("seed", old_seed);
+  endif
+
+endfunction
+
+for i=1:${2}
+  disp(randint(1,${1}));
+end
+EOF
+
+# restore terminal settings
+stty cols $saveterm

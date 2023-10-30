@@ -1,0 +1,32 @@
+# SUE version MMI_SUE4.2.10
+
+proc SCHEMATIC_PadInverter {} {
+  make pmos -origin {450 300}
+  make nmos -origin {450 430}
+  make input -name in -origin {390 370}
+  make output -name out -origin {450 370}
+  make global -orient RXY -name Vdd -origin {450 200}
+  make global -name Gnd -origin {450 520}
+  make_wire 450 200 450 260
+  make_wire 450 470 450 520
+  make_wire 390 370 390 300
+  make_wire 390 370 390 430
+  make_wire 450 340 450 370
+  make_wire 450 370 450 390
+}
+
+proc ICON_PadInverter args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}} {M {}} {dpc {}}}
+  icon_term -type input -origin {-10 -20} -name in
+  icon_term -type output -origin {80 -20} -name out
+  icon_property -origin {40 170} -type user -name name
+  icon_property -origin {40 190} -type user -name M
+  icon_property -origin {40 210} -type user -name dpc
+  icon_line 0 0 50 -20
+  icon_line 50 -20 0 -40
+  icon_line 0 -40 0 0
+  icon_arc 50 -30 70 -10 -start 0 -extent 359
+  icon_line 0 -20 -10 -20 -10 -20
+  icon_line 80 -20 70 -20 70 -20
+}
+

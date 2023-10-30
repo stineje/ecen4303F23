@@ -1,0 +1,39 @@
+# Silicon Ensemble GDSII Mapfile for MOSIS
+# Johannes Grad, IIT
+#
+# gds layer	se layer	object type
+# ------------------------------------------
+
+# Wiring
+49 metal1 net ;
+49 metal1 spnet ;
+49 metal1 via ;
+
+51 metal2 net ;
+51 metal2 spnet ;
+51 metal2 via ;
+
+62 metal3 net ;
+62 metal3 spnet ;
+62 metal3 via ;
+
+# Via structures
+25 cc via ;
+50 via via ;
+61 via2 via ;
+
+# Text for wiring
+49 name pin metal1 ;
+51 name pin metal2 ;
+62 name pin metal3 ;
+
+# Pins
+49 metal1 pin ;
+51 metal2 pin ;
+62 metal3 pin ;
+
+
+
+
+
+

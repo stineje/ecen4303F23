@@ -1,0 +1,11 @@
+Setting up the Deamon:
+
+1) ipsd (on as many stations as you want)
+2) ipsc -w 4
+3) ipsc -w4 -n hspice
+4) ipsstat
+5) ipsmon -s servername
+
+Also note:
+Must use "syn2tlf" from IC5 for full TLF compatibility
+with SoC Encounter

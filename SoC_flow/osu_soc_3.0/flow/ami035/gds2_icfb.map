@@ -1,0 +1,36 @@
+# jsulisty 2002/01/02 19:00
+# VTVT Layer Map for converting dfII <--> GDSII format
+# Used for creating the LEF files
+# Some nonexistent layer numbers are added for labeling purposes
+#
+# Real (MOSIS-Defined) Layers
+# Cadence layer     Cadence layer purpose       GDSII layer
+# -------------     ---------------------       -----------
+nwell               drawing                     42  0
+active              drawing                     43  0
+nactive             drawing                     103 0
+pactive             drawing                     113 0
+tactive             drawing                     60  0
+poly                drawing                     46  0
+sblock              drawing                     29  0
+nselect             drawing                     45  0
+pselect             drawing                     44  0
+cc                  drawing                     25  0
+cc                  drawing                     47  0
+cc                  drawing                     48  0
+metal1              drawing                     49  0
+via                 drawing                     50  0
+metal2              drawing                     51  0
+via2                drawing                     61  0
+metal3              drawing                     62  0
+via3                drawing                     30  0
+metal4              drawing                     31  0
+via4                drawing                     32  0
+metal5              drawing                     33  0
+metalcap            drawing                     35  0
+glass               drawing                     52  0
+pad                 drawing                     26  0
+text                drawing                     63  0
+res_id              drawing                     125 0
+cap_id              drawing                     124 0
+nodrc               drawing                     123 0

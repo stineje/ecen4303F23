@@ -1,0 +1,12 @@
+#
+OSU_stdcells_ami05 PADINOUT symbol
+I0
+#ISCELL
+basic iopin symbolr
+PIN1
+#ISCELL
+NCSU_Analog_Parts gnd symbol
+I1
+#ISCELL
+basic opin symbol
+PIN0

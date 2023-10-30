@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Clean up
+/usr/bin/rm -rf sigstormlc.log
+/usr/bin/rm -rf sigstormlc.work
+/usr/bin/rm -rf osu035_stdcells.ipdb
+
+# Netlist the layouts
+../../bin/osucells_netlist SCN4M_SUBM.20.TSMC pads_ami035 osu035_stdcells.sp
+
+# Run signalstorm
+slc -S ss_step1

@@ -1,0 +1,4 @@
+TDMCHECKPOINT="1.0"
+OSU_stdcells_ami05/IO type="cell"
+OSU_stdcells_ami05/core type="cell"
+OSU_stdcells_ami05/corner type="cell"

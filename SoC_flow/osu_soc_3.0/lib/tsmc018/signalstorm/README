@@ -1,0 +1,31 @@
+Setting up the Deamon:
+
+1) ipsd (on as many stations as you want)
+2) ipsc -w 4
+3) ipsc -w4 -n hspice
+4) ipsstat
+5) ipsmon -s servername
+
+Running Signalstorm
+0) Setup demon as shown above
+1) setup_signalstorm
+2) slc -s ss_step2
+3) slc -s ss_step3
+4) finish_signalstorm
+
+Notes
+setup_signalstorm runs ss_step1
+ - netlist layout
+ - import netlist into signalstorm
+ - run dbgsim to create test vectors
+ - run db_setup to prepare Spice
+
+ss_step2
+ - the main step that runs spice (takes a while)
+
+ss_step3
+ - a quick one
+ - only outputs the final .alf file
+
+finish_signalstorm
+ - create all the output files

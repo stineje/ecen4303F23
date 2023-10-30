@@ -1,0 +1,93 @@
+# SUE version MMI_SUE4.2.10
+
+proc SCHEMATIC_LATCH {} {
+  make input -name D -origin {50 400}
+  make global -orient RXY -name vdd -origin {160 -110}
+  make global -name gnd -origin {160 90}
+  make global -name gnd -origin {510 480}
+  make global -orient RXY -name vdd -origin {510 320}
+  make global -orient RX -name gnd -origin {420 200}
+  make global -orient RY -name vdd -origin {420 -140}
+  make output -name Q -origin {730 400}
+  make global -name gnd -origin {250 570}
+  make global -orient RXY -name vdd -origin {250 230}
+  make input -name clk -origin {50 -10}
+make pmos -W 6 -L 0.3u -origin {160 -60}
+make nmos -W 3 -L 0.3u -origin {160 40}
+make pmos -orient RX -W 1.5 -L 0.3u -origin {420 -100}
+make pmos -orient RX -W 1.5 -L 0.3u -origin {420 -20}
+make nmos -orient RX -W 1.5 -L 0.3u -origin {420 80}
+make pmos -W 3 -L 0.3u -origin {250 270}
+make pmos -W 3 -L 0.3u -origin {250 350}
+make nmos -W 1.5 -L 0.3u -origin {250 450}
+make nmos -W 1.5 -L 0.3u -origin {250 530}
+make nmos -W 3 -L 0.3u -origin {510 440}
+make pmos -W 6 -L 0.3u -origin {510 360}
+make nmos -orient RX -W 1.5 -L 0.3u -origin {420 160}
+  make_wire 240 -10 160 -10
+  make_wire 440 440 450 440
+  make_wire 440 360 450 360
+  make_wire 440 400 440 360
+  make_wire 440 400 440 440
+  make_wire 480 -100 580 -100
+  make_wire 480 160 580 160
+  make_wire 420 30 420 40
+  make_wire 420 30 420 20
+  make_wire 160 -110 160 -100
+  make_wire 160 -20 160 -10
+  make_wire 90 -60 100 -60
+  make_wire 90 40 100 40
+  make_wire 90 -60 90 -10
+  make_wire 90 -10 90 40
+  make_wire 160 -10 160 0
+  make_wire 160 80 160 90
+  make_wire 580 40 630 40
+  make_wire 580 40 580 160
+  make_wire 580 40 580 -100
+  make_wire 630 40 630 400
+  make_wire 90 -10 50 -10
+  make_wire 520 -20 480 -20
+  make_wire 190 270 90 270
+  make_wire 190 530 90 530
+  make_wire 90 400 90 270
+  make_wire 90 400 90 530
+  make_wire 50 400 90 400
+  make_wire 340 30 340 400
+  make_wire 340 30 420 30
+  make_wire 510 400 630 400
+  make_wire 630 400 730 400
+  make_wire 250 400 340 400
+  make_wire 340 400 440 400
+  make_wire 250 390 250 400
+  make_wire 250 400 250 410
+  make_wire 100 40 100 450
+  make_wire 100 450 190 450
+  make_wire 520 -20 520 -180
+  make_wire 520 -180 100 -180
+  make_wire 100 -180 100 -60
+  make_wire 240 180 140 180
+  make_wire 140 180 140 350
+  make_wire 140 350 190 350
+  make_wire 480 80 240 80
+  make_wire 240 80 240 -10
+  make_wire 240 80 240 180
+}
+
+proc ICON_LATCH args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}} {M {}} {dpc {}}}
+  icon_term -type input -origin {-50 -20} -name D
+  icon_term -type output -origin {60 10} -name Q
+  icon_term -type input -origin {-50 30} -name clk
+  icon_property -origin {20 130} -type user -name name
+  icon_property -origin {20 150} -type user -name M
+  icon_property -origin {20 170} -type user -name dpc
+  icon_line -30 -50 -30 60 40 60 40 -50 -30 -50 -30 -50
+  icon_line 40 10 60 10
+  icon_line -50 30 -30 30
+  icon_line -50 -20 -30 -20
+  icon_line -30 20 -20 30 -30 40 -30 40
+  icon_property -origin {-30 -20} -label D
+  icon_property -origin {20 10} -label Q
+  icon_property -origin {-10 50} -size small -label LATCH
+}
+

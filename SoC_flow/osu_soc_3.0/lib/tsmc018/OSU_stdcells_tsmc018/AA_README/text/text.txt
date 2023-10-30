@@ -1,0 +1,7 @@
+These are the IIT standard cells for 0.18um.
+They have to be used with the NCSU_TechLib_tsmc02 technology file.
+
+Voltage: 1.8V
+1 Lambda=0.10u
+
+Johannes Grad, IIT

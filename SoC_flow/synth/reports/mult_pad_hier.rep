@@ -1,0 +1,29 @@
+ 
+****************************************
+Report : hierarchy
+Design : mult_pad
+Version: R-2020.09-SP5
+Date   : Mon Oct 30 16:23:14 2023
+****************************************
+
+Attributes:
+    r - licensed design
+
+mult_pad           r
+    AND2X2          osu05_stdcells
+    AOI21X1         osu05_stdcells
+    AOI22X1         osu05_stdcells
+    DFFSR           osu05_stdcells
+    FAX1            osu05_stdcells
+    INVX1           osu05_stdcells
+    NAND2X1         osu05_stdcells
+    NOR2X1          osu05_stdcells
+    OAI21X1         osu05_stdcells
+    PADFC           osu05_stdcells
+    PADGND          osu05_stdcells
+    PADINC          osu05_stdcells
+    PADNC           osu05_stdcells
+    PADOUT          osu05_stdcells
+    PADVDD          osu05_stdcells
+    XOR2X1          osu05_stdcells
+1

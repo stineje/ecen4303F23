@@ -1,0 +1,96 @@
+# SUE version MMI_SUE4.2.10
+
+proc SCHEMATIC_HAX1 {} {
+  make input -name b -origin {380 450}
+  make input -name b -origin {-20 480}
+  make global -orient RXY -name vdd -origin {-50 220}
+  make global -name gnd -origin {50 520}
+  make global -orient RXY -name vdd -origin {130 210}
+  make global -name gnd -origin {510 600}
+  make global -orient RXY -name vdd -origin {610 150}
+  make global -orient RXY -name vdd -origin {800 210}
+  make global -name gnd -origin {800 430}
+make nmos -W 3 -L 0.3u -origin {50 480}
+make nmos -W 3 -L 0.3u -origin {50 400}
+make nmos -W 3 -L 0.3u -origin {440 450}
+make nmos -W 3 -L 0.3u -origin {620 450}
+  make global -orient RXY -name vdd -origin {800 560}
+  make global -name gnd -origin {800 760}
+make nmos -W 1.5 -L 0.3u -origin {800 720}
+make pmos -W 3 -L 0.3u -origin {800 600}
+make nmos -W 1.5 -L 0.3u -origin {800 390}
+make pmos -W 3 -L 0.3u -origin {800 250}
+  make global -orient RXY -name vdd -origin {430 170}
+  make input -name a -origin {-40 400}
+  make input -name a -origin {560 450}
+  make name_net_s -name a -origin {-150 290}
+  make name_net_s -name b -origin {50 290}
+make pmos -W 3 -L 0.3u -origin {-50 290}
+make pmos -W 3 -L 0.3u -origin {130 290}
+  make output -name YC -origin {820 660}
+  make output -name YS -origin {870 330}
+make pmos -W 3 -L 0.3u -origin {430 260}
+make pmos -W 6 -L 0.3u -origin {610 210}
+make pmos -W 6 -L 0.3u -origin {610 290}
+  make input -name a -origin {550 210}
+  make input -name b -origin {550 290}
+make nmos -W 3 -L 0.3u -origin {510 540}
+  make_wire 800 330 870 330
+  make_wire 800 330 800 290
+  make_wire 800 330 800 350
+  make_wire 740 250 740 330
+  make_wire 740 330 740 390
+  make_wire 800 660 820 660
+  make_wire 740 600 740 650
+  make_wire 740 650 740 720
+  make_wire 800 640 800 660
+  make_wire 800 660 800 680
+  make_wire 610 150 610 170
+  make_wire 130 210 130 250
+  make_wire -20 480 -10 480
+  make_wire -50 220 -50 250
+  make_wire -40 400 -10 400
+  make_wire -110 290 -150 290
+  make_wire 70 290 50 290
+  make_wire -50 330 50 330
+  make_wire 50 330 50 360
+  make_wire 430 300 430 330
+  make_wire 370 260 300 260
+  make_wire 300 540 450 540
+  make_wire 610 330 740 330
+  make_wire 50 330 130 330
+  make_wire 220 330 300 330
+  make_wire 220 650 740 650
+  make_wire 220 330 220 650
+  make_wire 130 330 220 330
+  make_wire 430 170 430 220
+  make_wire 300 260 300 330
+  make_wire 300 330 300 540
+  make_wire 510 580 510 600
+  make_wire 510 490 510 500
+  make_wire 510 490 620 490
+  make_wire 510 490 440 490
+  make_wire 520 330 520 410
+  make_wire 520 330 610 330
+  make_wire 520 330 430 330
+  make_wire 520 410 620 410
+  make_wire 520 410 440 410
+}
+
+proc ICON_HAX1 args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}}}
+  icon_term -type input -origin {-50 -10} -name a
+  icon_term -type input -origin {-50 10} -name b
+  icon_term -type output -origin {60 10} -name YC
+  icon_term -type output -origin {60 -10} -name YS
+  icon_property -origin {-110 120} -type user -name name
+  icon_line -50 -20 -50 20 60 20 60 -20 -50 -20
+  icon_property -origin {-10 10} -size small -label HA
+  icon_property -origin {-40 -10} -size small -label a
+  icon_property -origin {-40 10} -size small -label b
+  icon_property -origin {50 -10} -size small -anchor e -label S
+  icon_property -origin {50 10} -size small -anchor e -label C
+  icon_property -origin {-110 180} -type auto -name verilog -text {HAX1 [unique_name "" $name HAX1]
+(.a($a), .b($b), .YC($YC), .YS($YS))\;}
+}
+

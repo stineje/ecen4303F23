@@ -1,0 +1,10 @@
+These are the IIT standard cells for 0.6um.
+They have to be used with the NCSU_TechLib_ami06 technology file.
+
+The IO pads are imported as supplied by Mosis. DIVA reports DRC violations,
+however Magic reports no errors. Provided as is, use at own risk.
+
+Voltage: 5V
+1 Lambda=0.3u
+
+Johannes Grad, IIT

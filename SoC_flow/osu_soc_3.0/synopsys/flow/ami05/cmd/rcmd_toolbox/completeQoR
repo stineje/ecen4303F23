@@ -1,0 +1,426 @@
+#!/bin/csh -f
+
+#### completeQoR version 1.3.2 
+
+#### Syntax:  completeQoR <stepName>
+
+#### Purpose: Wrapper RCMD_QoR.prl so that it can run repeatedly inside the 
+####   Makefile and have it check for Perl version so Makefile doesn't hang.
+####   Also allows quickQoR and RCMD_QoR.prl to run in same working area
+####     for "chip" step
+####   Also prevents parsing rcmd_toolbox calibration logs - if run
+
+
+############################################################################
+
+
+#############################################################################
+
+set QoR_Perl_Loc = /usr/bin/perl
+set rem_su_file = 1
+set ready_for_PC = 0
+set skip_corr_logs = 1
+set rename_JXT_INV = 1
+set append_html_files = 1
+
+set RCMD_QoR = RCMD_QoR.prl
+set rcmd_toolbox = ./rcmd_toolbox
+set rcmd_toolbox_reports = ./rcmd_toolbox_reports
+
+###Test Setup
+if ( $argv[1] == "test" ) then
+   echo "checking for perl location used by RCMD_QoR.prl"
+   set found_Perl = 0
+   if ( -e $QoR_Perl_Loc ) then
+	echo  "$QoR_Perl_Loc version found"
+	set found_Perl = 1
+   endif
+   if ($found_Perl == 0) then
+	echo "$QoR_Perl_Loc not found!"
+   endif
+   echo "test completed"
+   exit
+endif
+
+###Exit if proper Perl not found
+set found_Perl = 0
+if ( -e $QoR_Perl_Loc ) then
+   #echo  "$QoR_Perl_Loc version found"
+   set found_Perl = 1
+endif
+if ($found_Perl == 0) then
+   echo "$QoR_Perl_Loc not found!"
+   echo "exiting completeQoR without running RCMD_QoR.prl"
+   exit
+endif
+
+
+
+#############################################################################
+
+###print start
+echo ""
+echo "Starting completeQoR on step: $argv[1]"
+
+###remove existing RCMD_QoR.setup file
+if ($rem_su_file == 1) then
+   if ( -e ./RCMD_QoR.setup ) then
+	rm -f ./RCMD_QoR.setup
+	#echo "Removed existing ./RCMD_QoR.setup file"
+   endif
+endif
+
+
+### Do not re-parse chip.log --> created by "quickQoR chip"
+###   - just remove it
+if ( -e ./log/chip.log ) then
+   rm -f ./log/chip.log
+   #echo "Removed ./log/chip.log file"
+endif
+
+### Since PC may not be supported in the version, don't parse PC log files
+###   - but don't remove them, just temporarily rename them to not have "log" in them
+###      -- create_design.log.pc
+###      -- physopt.log
+###	 -- post_physopt.log
+
+if ($ready_for_PC == 0) then
+   if ( -e ./log/create_design.log.pc ) then
+	mv -f ./log/create_design.log.pc ./log/create_design.pc.tmp
+	#echo "Temporarily renaming ./log/create_design.log.pc"
+   endif
+   if ( -e ./log/physopt.log ) then
+	mv -f ./log/physopt.log ./log/physopt.tmp
+	#echo "Temporarily renaming ./log/physopt.log"
+   endif
+   if ( -e ./log/post_physopt.log ) then
+	mv -f ./log/post_physopt.log ./log/post_physopt.tmp
+	#echo "Temporarily renaming ./log/post_physopt.log"
+   endif
+endif
+
+
+
+### Skip logs created by correlation scripts in rcmd_toolbox
+###       -- astro_wire_models.log
+###	  -- astro_caps.log
+###	  -- star_wire_models.log
+###	  -- star_caps.log
+###	  -- pt_calibration_check logs
+
+if ($skip_corr_logs == 1) then
+   if ( -e ./log/astro_wire_models.log ) then
+	mv -f ./log/astro_wire_models.log ./log/astro_wire_models.tmp
+	echo "Temporarily renaming ./log/astro_wire_models.log"
+   endif
+   if ( -e ./log/astro_caps.log ) then
+	mv -f ./log/astro_caps.log ./log/astro_caps.tmp
+	echo "Temporarily renaming ./log/astro_caps.log"
+   endif
+   if ( -e ./log/star_wire_models.log ) then
+	mv -f ./log/star_wire_models.log ./log/star_wire_models.tmp
+	echo "Temporarily renaming ./log/star_wire_models.log"
+   endif
+   if ( -e ./log/star_caps.log ) then
+	mv -f ./log/star_caps.log ./log/star_caps.tmp
+	echo "Temporarily renaming ./log/star_caps.log"
+   endif
+   if ( -e ./log/pt_zero.astro.log ) then
+	mv -f ./log/pt_zero.astro.log ./log/pt_zero.astro.tmp
+	echo "Temporarily renaming ./log/pt_zero.astro.log"
+   endif
+   if ( -e ./log/pt_zero.pt.log ) then
+	mv -f ./log/pt_zero.pt.log ./log/pt_zero.pt.tmp
+	echo "Temporarily renaming ./log/pt_zero.pt.log"
+   endif
+   if ( -e ./log/setup.log ) then
+	mv -f ./log/setup.log ./log/setup.tmp
+	echo "Temporarily renaming ./log/setup.log"
+   endif
+   if ( -e ./log/dump_netlist.log ) then
+	mv -f ./log/dump_netlist.log ./log/dump_netlist.tmp
+	echo "Temporarily renaming ./log/dump_netlist.log"
+   endif
+   if ( -e ./log/pt_zero_anytime.astro.log ) then
+	mv -f ./log/pt_zero_anytime.astro.log ./log/pt_zero_anytime.astro.tmp
+	echo "Temporarily renaming ./log/pt_zero_anytime.astro.log"
+   endif
+   if ( -e ./log/pt_zero_anytime.pt.log ) then
+	mv -f ./log/pt_zero_anytime.pt.log ./log/pt_zero_anytime.pt.tmp
+	echo "Temporarily renaming ./log/pt_zero_anytime.pt.log"
+   endif
+   if ( -e ./log/prepare_cell.log ) then
+	mv -f ./log/prepare_cell.log ./log/prepare_cell.tmp
+	echo "Temporarily renaming ./log/prepare_cell.log"
+   endif
+   if ( -e ./log/pt_ideal.astro.log ) then
+	mv -f ./log/pt_ideal.astro.log ./log/pt_ideal.astro.tmp
+	echo "Temporarily renaming ./log/pt_ideal.astro.log"
+   endif
+   if ( -e ./log/pt_ideal.pt.log ) then
+	mv -f ./log/pt_ideal.pt.log ./log/pt_ideal.pt.tmp
+	echo "Temporarily renaming ./log/pt_ideal.pt.log"
+   endif
+   if ( -e ./log/pt_prop.astro.log ) then
+	mv -f ./log/pt_prop.astro.log ./log/pt_prop.astro.tmp
+	echo "Temporarily renaming ./log/pt_prop.astro.log"
+   endif
+   if ( -e ./log/pt_prop.pt.log ) then
+	mv -f ./log/pt_prop.pt.log ./log/pt_prop.pt.tmp
+	echo "Temporarily renaming ./log/pt_prop.pt.log"
+   endif
+endif
+
+
+
+### Rename certain files in 2004.12 release that prevent completeQoR
+### These are in JXT and Investigation flows
+### from running - note should be ok in future versions
+
+if ($rename_JXT_INV == 1) then
+   if ( -e ./report/initial_place.rpt.ignore_interconnect ) then
+	mv -f ./report/initial_place.rpt.ignore_interconnect ./report/initial_place.ignore_interconnect.rpt
+	echo "Renaming ./report/initial_place.rpt.ignore_interconnect to ./report/initial_place.ignore_interconnect.rpt"
+   endif
+   if ( -e ./report/pre_check.rpt.ignore_interconnect ) then
+	mv -f ./report/pre_check.rpt.ignore_interconnect ./report/pre_check.ignore_interconnect.rpt
+	echo "Renaming ./report/pre_check.rpt.ignore_interconnect to ./report/pre_check.ignore_interconnect.rpt"
+   endif
+   if ( -e ./report/pre_check.skew.best ) then
+	mv -f ./report/pre_check.skew.best ./report/pre_check.best.skew
+	echo "Renaming ./report/pre_check.skew.best to ./report/pre_check.best.skew"
+   endif
+   if ( -e ./report/pre_check.skew.worst ) then
+	mv -f ./report/pre_check.skew.worst ./report/pre_check.worst.skew
+	echo "Renaming ./report/pre_check.skew.worst to ./report/pre_check.worst.skew"
+   endif
+   if ( -e ./report/trialclock_propagated.skew.best ) then
+	mv -f ./report/trialclock_propagated.skew.best ./report/trialclock_propagated.best.skew
+	echo "Renaming ./report/trialclock_propagated.skew.best to ./report/trialclock_propagated.best.skew"
+   endif
+   if ( -e ./report/trialclock_propagated.skew.worst ) then
+	mv -f ./report/trialclock_propagated.skew.worst ./report/trialclock_propagated.worst.skew
+	echo "Renaming ./report/trialclock_propagated.skew.worst to ./report/trialclock_propagated.worst.skew"
+   endif
+   if ( -e ./report/trialclock.skew.best ) then
+	mv -f ./report/trialclock.skew.best ./report/trialclock.best.skew
+	echo "Renaming ./report/trialclock.skew.best to ./report/trialclock.best.skew"
+   endif
+   if ( -e ./report/trialclock.skew.worst ) then
+	mv -f ./report/trialclock.skew.worst ./report/trialclock.worst.skew
+	echo "Renaming ./report/trialclock.skew.worst to ./report/trialclock.worst.skew"
+   endif
+endif
+
+
+
+#############################################################
+
+###Run RCMD_QoR.prl
+
+echo ""
+echo "*************************************"
+echo "Starting $RCMD_QoR ......"
+
+##eliminate no html dir warning
+set html_dir_exists = 0
+if ( -e ./html ) then
+   set html_dir_exists = 1
+endif
+if ($html_dir_exists == 0) then
+   mkdir html
+endif
+
+if ( -e RCMD_QoR.log ) then
+   rm -f RCMD_QoR.log
+endif
+
+##RCMD_QOR.prl could be at ./rcmd_toolbox or ./cmd/rcmd_toolbox
+##use ./rcmd_toolbox first, then ./cmd/rcmd_toolbox, then try ./ lastly skip
+set rcmd_qor_prl_found = 0
+if ( -e $rcmd_toolbox/$RCMD_QoR ) then
+   $rcmd_toolbox/$RCMD_QoR > RCMD_QoR.log
+   set rcmd_qor_prl_found = 1
+endif
+if ($rcmd_qor_prl_found == 0) then
+   if ( -e ./cmd/rcmd_toolbox/$RCMD_QoR ) then
+      ./cmd/rcmd_toolbox/$RCMD_QoR > RCMD_QoR.log
+      set rcmd_qor_prl_found = 1
+   endif
+endif
+if ($rcmd_qor_prl_found == 0) then
+   if ( -e ./$RCMD_QoR ) then
+      ./$RCMD_QoR > RCMD_QoR.log
+      set rcmd_qor_prl_found = 1
+   endif
+endif
+if ($rcmd_qor_prl_found == 0) then
+   echo "$RCMD_QoR not found at ./rcmd_toolbox or ./cmd/rcmd_toolbox or ./"
+   goto no_rcmd_qor_prog_found
+endif
+
+
+############################################################
+
+echo ""
+echo "*************************************"
+
+###Process outputs for step name
+
+### QoR_summary.txt rename to <stepName>.QoR_summary.txt
+if ( -e $rcmd_toolbox_reports/QoR_summary.txt ) then
+   mv -f $rcmd_toolbox_reports/QoR_summary.txt $rcmd_toolbox_reports/$argv[1].QoR_summary.txt
+   echo "Summary QoR text file:  $rcmd_toolbox_reports/$argv[1].QoR_summary.txt"
+endif
+
+### Append HTML files --> try to keep previous ones; therefore old summary.html files will work
+
+set html_dir_exists = 0
+if ($append_html_files == 1) then
+   if ( -e $rcmd_toolbox_reports/html/index.html ) then
+      set html_dir_exists = 1
+   endif
+   if ($html_dir_exists == 0) then
+      mv -f ./html $rcmd_toolbox_reports/
+      echo "HTML files are in: $rcmd_toolbox_reports/html"
+   endif
+   if ($html_dir_exists == 1) then
+	##try to determine differences and only copy the differences
+   	if ( -e htmlFileDiff.list1 ) then
+	   rm -f htmlFileDiff.list1
+	endif
+   	if ( -e htmlFileDiff.list2 ) then
+	   rm -f htmlFileDiff.list2
+	endif
+   	if ( -e htmlFileDiff.scr ) then
+	   rm -f htmlFileDiff.scr
+	endif
+ 	ls -tr html | sort > htmlFileDiff.list1
+	ls -tr $rcmd_toolbox_reports/html | egrep -v '(.*.index)' | sort > htmlFileDiff.list2
+	touch htmlFileDiff.scr
+	echo "#\!/bin/csh -f" >> htmlFileDiff.scr
+	diff htmlFileDiff.list1 htmlFileDiff.list2 | egrep '(<)' | awk '{print "cp -f ./html/" $2 " ./rcmd_toolbox_reports/html/"}' >> htmlFileDiff.scr
+	chmod 777 htmlFileDiff.scr
+	./htmlFileDiff.scr
+	rm -f htmlFileDiff.list1
+	rm -f htmlFileDiff.list2
+	rm -f htmlFileDiff.scr
+	cp html/index.html $rcmd_toolbox_reports/html
+	rm -rf html
+        echo "HTML files are added to: $rcmd_toolbox_reports/html"
+   endif
+endif
+
+### Else assume simple overwrite of html directory by RCMD_QoR.txt
+
+set html_dir_exists = 0
+if ($append_html_files == 0) then
+   if ( -e $rcmd_toolbox_reports/html/index.html ) then
+      set html_dir_exists = 1
+      cp -f  $rcmd_toolbox_reports/html/*.index.html ./html
+      rm -rf $rcmd_toolbox_reports/html
+      mv -f ./html $rcmd_toolbox_reports/
+      echo "HTML files are in: $rcmd_toolbox_reports/html"
+   endif
+   if ($html_dir_exists == 0) then
+      mv -f ./html $rcmd_toolbox_reports/
+      echo "HTML files are in: $rcmd_toolbox_reports/html"
+   endif
+endif
+
+
+### Copy index.html
+if ( -e $rcmd_toolbox_reports/html/index.html ) then
+   cp -f $rcmd_toolbox_reports/html/index.html $rcmd_toolbox_reports/html/$argv[1].index.html
+   echo "Summary QoR html index file:  $rcmd_toolbox_reports/html/$argv[1].index.html"
+endif
+
+##if RCMD_QoR wasn't found, just clean up
+no_rcmd_qor_prog_found:
+
+echo "*************************************"
+echo ""
+
+
+### Restore PC log files
+if ($ready_for_PC == 0) then
+   if ( -e ./log/create_design.pc.tmp ) then
+	mv -f ./log/create_design.pc.tmp ./log/create_design.log.pc
+	#echo "restoring ./log/create_design.log.pc"
+   endif
+   if ( -e ./log/physopt.tmp ) then
+	mv -f ./log/physopt.tmp ./log/physopt.log
+	#echo "restoring ./log/physopt.log"
+   endif
+   if ( -e ./log/post_physopt.tmp ) then
+	mv -f ./log/post_physopt.tmp ./log/post_physopt.log
+	#echo "restoring ./log/post_physopt.log"
+   endif
+endif
+
+### Restore rcmd_toolbox calibration logs
+if ($skip_corr_logs == 1) then
+   if ( -e ./log/astro_wire_models.tmp ) then
+	mv -f ./log/astro_wire_models.tmp ./log/astro_wire_models.log
+	echo "restoring  ./log/astro_wire_models.log"
+   endif
+   if ( -e ./log/astro_caps.tmp ) then
+	mv -f ./log/astro_caps.tmp ./log/astro_caps.log
+	echo "restoring  ./log/astro_caps.log"
+   endif
+   if ( -e ./log/star_wire_models.tmp ) then
+	mv -f ./log/star_wire_models.tmp ./log/star_wire_models.log
+	echo "restoring  ./log/star_wire_models.log"
+   endif
+   if ( -e ./log/star_caps.tmp ) then
+	mv -f ./log/star_caps.tmp ./log/star_caps.log
+	echo "restoring  ./log/star_caps.log"
+   endif
+   if ( -e ./log/pt_zero.astro.log ) then
+	mv -f ./log/pt_zero.astro.tmp ./log/pt_zero.astro.log
+	echo "Temporarily renaming ./log/pt_zero.astro.log"
+   endif
+   if ( -e ./log/pt_zero.pt.log ) then
+	mv -f ./log/pt_zero.pt.tmp ./log/pt_zero.pt.log
+	echo "Temporarily renaming ./log/pt_zero.pt.log"
+   endif
+   if ( -e ./log/setup.log ) then
+	mv -f ./log/setup.tmp ./log/setup.log
+	echo "Temporarily renaming ./log/setup.log"
+   endif
+   if ( -e ./log/dump_netlist.log ) then
+	mv -f ./log/dump_netlist.tmp ./log/dump_netlist.log
+	echo "Temporarily renaming ./log/dump_netlist.log"
+   endif
+   if ( -e ./log/pt_zero_anytime.astro.log ) then
+	mv -f ./log/pt_zero_anytime.astro.tmp ./log/pt_zero_anytime.astro.log
+	echo "Temporarily renaming ./log/pt_zero_anytime.astro.log"
+   endif
+   if ( -e ./log/pt_zero_anytime.pt.log ) then
+	mv -f ./log/pt_zero_anytime.pt.tmp ./log/pt_zero_anytime.pt.log
+	echo "Temporarily renaming ./log/pt_zero_anytime.pt.log"
+   endif
+   if ( -e ./log/prepare_cell.log ) then
+	mv -f ./log/prepare_cell.tmp ./log/prepare_cell.log
+	echo "Temporarily renaming ./log/prepare_cell.log"
+   endif
+   if ( -e ./log/pt_ideal.astro.log ) then
+	mv -f ./log/pt_ideal.astro.tmp ./log/pt_ideal.astro.log
+	echo "Temporarily renaming ./log/pt_ideal.astro.log"
+   endif
+   if ( -e ./log/pt_ideal.pt.log ) then
+	mv -f ./log/pt_ideal.pt.tmp ./log/pt_ideal.pt.log
+	echo "Temporarily renaming ./log/pt_ideal.pt.log"
+   endif
+   if ( -e ./log/pt_prop.astro.log ) then
+	mv -f ./log/pt_prop.astro.tmp ./log/pt_prop.astro.log
+	echo "Temporarily renaming ./log/pt_prop.astro.log"
+   endif
+   if ( -e ./log/pt_prop.pt.log ) then
+	mv -f ./log/pt_prop.pt.tmp ./log/pt_prop.pt.log
+	echo "Temporarily renaming ./log/pt_prop.pt.log"
+   endif
+endif
+
+echo "completeQoR Program has completed."
+

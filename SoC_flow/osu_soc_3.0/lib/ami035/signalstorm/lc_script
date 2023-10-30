@@ -1,0 +1,10 @@
+/* Compile Script for Synopsys            */
+/* Johannes Grad, OSU                     */
+/******************************************/
+
+read_lib osu035_stdcells.lib
+write_lib osu035_stdcells
+quit
+
+
+

@@ -1,0 +1,10 @@
+#
+IIT_stdcells_tsmc018 not symbol
+I3
+I2
+#
+OSU_stdcells_tsmc018 udp_dff symbol
+I1
+#
+IIT_stdcells_tsmc018 buf symbol
+I0

@@ -1,0 +1,100 @@
+#!/bin/sh
+#
+# Script to copy magic cell layouts and pad layouts
+# Also creates spice netlist file for Signalstorm
+#
+# Invoke as
+# osucells_netlist magic_techfilename pad_directory output_filename
+#
+# Magic techfile: AMI06  = SCN3ME_SUBM.30
+#                 AMI035 = SCN4M_SUBM.20.TSMC (for the HV devices)
+#                 TSMC025= SCN5M_SUBM.15
+#                 TSMC018= SCN6M_SUBM.10
+#
+# Pad Directory: use "no_pads" if there are non
+#
+# Output filename: Name of spice netlist file to be created
+#
+# Johannes Grad
+#
+
+# Clean up and copy layouts
+/usr/bin/rm -rf temp
+mkdir temp
+cp ../../source/magic.abstract/*.mag temp
+
+
+if (test $2 != "no_pads") then 
+ cp ../../source/$2/PADOUT.mag temp
+ cp ../../source/$2/PADINC.mag temp
+ cp ../../source/$2/PADINOUT.mag temp
+fi
+
+cd temp
+/usr/bin/rm -f osu_stdcells.mag
+/usr/bin/rm -f FILL.mag
+
+# Create the future netlist file
+echo ""> $3
+
+# Loop for every magic file
+for i in `ls -1 *.mag | awk -F. '{printf "%s\n",$1}'`
+do
+echo Netlisting cell $i ...
+
+# Change potential pin layer m1p into metal1 layer
+mv $i.mag $i.mag.temp
+cat $i.mag.temp | awk '{if (($1=="rlabel") && ($2=="m1p")) {printf("%s metal1 %s %s %s %s %s %s\n",$1,$3,$4,$5,$6,$7,$8);} else {print $0}}' >$i.mag
+rm $i.mag.temp
+
+# Change potential pin layer m2p into metal2 layer
+mv $i.mag $i.mag.temp
+cat $i.mag.temp | awk '{if (($1=="rlabel") && ($2=="m2p")) {printf("%s metal2 %s %s %s %s %s %s\n",$1,$3,$4,$5,$6,$7,$8);} else {print $0}}' >$i.mag
+rm $i.mag.temp
+
+# Change potential pin layer m3p into metal3 layer
+mv $i.mag $i.mag.temp
+cat $i.mag.temp | awk '{if (($1=="rlabel") && ($2=="m3p")) {printf("%s metal3 %s %s %s %s %s %s\n",$1,$3,$4,$5,$6,$7,$8);} else {print $0}}' >$i.mag
+rm $i.mag.temp
+
+# Change potential pin layer m4p into metal4 layer
+mv $i.mag $i.mag.temp
+cat $i.mag.temp | awk '{if (($1=="rlabel") && ($2=="m4p")) {printf("%s metal4 %s %s %s %s %s %s\n",$1,$3,$4,$5,$6,$7,$8);} else {print $0}}' >$i.mag
+rm $i.mag.temp
+
+# Start Magic for extraction
+(
+echo :load $i;
+echo :ext; 
+echo :q; 
+echo yes) | magic -T $1 -d NULL > NULL
+
+# Remove potential Polysilicon Resistor (only in Pads)
+mv $i.ext $i.temp
+awk ' {if ($2=="polyResistor") {print "resist " $13 " " $16 " 100";} else {print;}}' $i.temp > $i.ext
+/usr/bin/rm -f $i.temp
+
+# Create a spice netlist
+ext2spice -R -C -f spice3 $i >>NULL
+rm NULL
+
+# Get all ports of the cell
+ports=`awk '$1 == "rlabel" {printf("%s ",$8)}' $i.mag`
+
+# Echo subckt header line into netlist file
+echo .subckt $i $ports>> $3
+
+# Write cell body into netlist file
+grep -v "*" $i.spice | /usr/bin/grep -v "^$" >> $3
+
+# End subckt definition in netlist file
+echo ".ends $i" >> $3
+echo "">> $3
+
+# Do all that for every Magic file
+done
+
+# File is ready!
+cp $3 ..
+cd ..
+

@@ -1,0 +1,28 @@
+#!/bin/sh
+
+
+# Create Synopsys .lib file (has no area information yet)
+alf2lib  -alf osu025_stdcells.alf -lib     osu025_stdcells_noarea.lib -def footprint.def
+
+# Insert area information from .area file for library compiler
+../../bin/osucells_mergearea -v "areafile=../../source/osu_stdcells.area" -v "l=0.15" osu025_stdcells_noarea.lib > osu025_stdcells.lib
+
+rm osu025_stdcells_noarea.lib
+
+# Create a Verilog Simulation Library
+alf2veri -alf osu025_stdcells.alf -verilog osu025_stdcells.v
+
+# Create a VHDL Simulation Library
+alf2vhdl -alf osu025_stdcells.alf -vhdl osu025_stdcells.vhdl
+
+# Create a Verilog cell definition library for Silicon Ensemble and add corner/vdd/gnd/nc cell definitions
+rm osu025_stdcells.v.se
+cat osu025_stdcells.v | awk '{if($1=="module"||(($1=="input"||$1=="output")&&$3==";")||$0=="endmodule") {print $0; if($0=="endmodule") {print ""}}}' > osu025_stdcells.v.se
+
+lc_shell -f lc_script
+
+syn2tlf osu025_stdcells.lib -format 4.3 -ir 50 -if 50 -dr 50 -df 50 -sr 20 -sf 20 -tr 80 -tf 80 -slew_measure_lower_rise 20 -slew_measure_lower_fall 20 -slew_measure_upper_rise 80 -slew_measure_upper_fall 80 -o osu025_stdcells.tlf
+
+/usr/bin/rm -rf ../html
+alf2html -alf osu025_stdcells.alf -dir ../html
+

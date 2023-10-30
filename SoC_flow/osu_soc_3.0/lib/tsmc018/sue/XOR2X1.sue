@@ -1,0 +1,75 @@
+# SUE version MMI_SUE4.2.10
+
+proc SCHEMATIC_XOR2X1 {} {
+  make global -orient RXY -name vdd -origin {-250 150}
+  make global -name gnd -origin {-250 520}
+  make input -orient RX -name a -origin {-90 370}
+  make input -orient RX -name b -origin {-90 450}
+  make input -orient RX -name b -origin {-90 210}
+  make input -name a -origin {-380 290}
+  make global -name gnd -origin {-580 470}
+  make global -orient RXY -name vdd -origin {-580 170}
+  make global -orient RX -name gnd -origin {80 470}
+  make global -orient RY -name vdd -origin {80 170}
+  make input -name a -origin {-650 320}
+  make input -orient RX -name b -origin {140 320}
+  make output -name Y -origin {-50 330}
+make nmos -W 2 -L 0.2u -origin {-320 450}
+make nmos -W 2 -L 0.2u -origin {-320 370}
+make pmos -W 4 -L 0.2u -origin {-320 290}
+make pmos -W 4 -L 0.2u -origin {-320 210}
+make pmos -orient RX -W 4 -L 0.2u -origin {-150 210}
+make pmos -orient RX -W 4 -L 0.2u -origin {-150 290}
+make nmos -orient RX -W 2 -L 0.2u -origin {-150 370}
+make nmos -orient RX -W 2 -L 0.2u -origin {-150 450}
+make pmos -orient RX -W 4 -L 0.2u -origin {80 210}
+make nmos -orient RX -W 2 -L 0.2u -origin {80 430}
+make pmos -W 4 -L 0.2u -origin {-580 210}
+make nmos -W 2 -L 0.2u -origin {-580 430}
+  make_wire -250 170 -320 170
+  make_wire -320 490 -250 490
+  make_wire -250 170 -150 170
+  make_wire -250 490 -150 490
+  make_wire -320 330 -150 330
+  make_wire -150 330 -50 330
+  make_wire -640 320 -640 210
+  make_wire -640 320 -640 430
+  make_wire 140 210 140 320
+  make_wire 140 320 140 430
+  make_wire -380 370 -380 330
+  make_wire -380 330 -580 330
+  make_wire -580 330 -580 250
+  make_wire -580 330 -580 390
+  make_wire 80 280 10 280
+  make_wire 10 280 10 100
+  make_wire 10 100 -380 100
+  make_wire 80 280 80 250
+  make_wire 80 280 80 390
+  make_wire -380 200 -450 200
+  make_wire -450 200 -450 450
+  make_wire -450 450 -380 450
+  make_wire -380 200 -380 100
+  make_wire -380 200 -380 210
+  make_wire -90 290 -270 290
+  make_wire -270 290 -270 370
+  make_wire -270 370 -380 370
+  make_wire -650 320 -640 320
+  make_wire -250 490 -250 520
+  make_wire -250 150 -250 170
+}
+
+proc ICON_XOR2X1 args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}} {M {}} {dpc {}}}
+  icon_term -type input -origin {-60 -20} -name a
+  icon_term -type input -origin {-60 10} -name b
+  icon_term -type output -origin {60 -20} -name Y
+  icon_property -origin {-10 140} -type user -name name
+  icon_property -origin {-10 160} -type user -name M
+  icon_property -origin {-10 180} -type user -name dpc
+  icon_property -origin {10 10} -size small -label XOR2X1
+  icon_property -origin {-50 -20} -size small -label A
+  icon_property -origin {-50 10} -size small -label B
+  icon_property -origin {40 -20} -size small -label Y
+  icon_line -60 -30 -60 20 60 20 60 -30 -60 -30 -60 -30
+}
+

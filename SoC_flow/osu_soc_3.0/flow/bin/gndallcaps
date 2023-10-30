@@ -1,0 +1,70 @@
+#!/bin/perl 
+#
+# Copyright 2003, Purdue University.
+# Permission is hereby granted to reproduce and distribute copies of this work
+# for nonprofit educational purposes, provided that copies are distributed at
+# or below cost, and that the author, source, and copyright notice are
+# included on each copy. This permission is in addition to rights of
+# reproduction granted under Sections 107, 108, and other provisions of the
+# U.S. Copyright Act.
+#
+# Author information
+# 
+# Dr. Mark C. Johnson
+# School of Electrical and Computer Engineering
+# Purdue University, Campus Box EE38
+# 465 Northwestern Avenue
+# West Lafayette, IN 47907-2035
+# 
+# E-mail: mcjohnso@purdue.edu
+#
+# a script which grounds all caps in a spice netlist
+# (only those which are not already grounded)
+#
+# as a result, two caps are created, one for each 
+# node of the original cap.
+# It is assumed that the original cap names are of the form C#
+# The new caps will have names of the form C#a and C#b
+
+while (<>) {
+  chomp;
+  if (index($_,"C")==0 or index($_,"c")==0) {
+    @chunks = split(/\s+/);
+
+    $gnd1st = (@chunks[1] eq "0") or (index(@chunks[1],"gnd") > -1) or 
+      (index(@chunks[1],"GND") > -1);
+    $gnd2nd = (@chunks[2] eq "0") or (index(@chunks[2],"gnd") > -1) or 
+      (index(@chunks[2],"GND") > -1);
+
+    if (not $gnd1st and not $gnd2nd) {
+      @capa = @chunks;
+      @capb = @chunks;
+
+      @capa[0] = @capa[0] . "a";
+      @capa[2] = "0";
+
+      @capb[0] = @capb[0] . "b";
+      @capb[1] = @capb[2];
+      @capb[2] = "0";
+
+      foreach $field (@capa) {
+        print $field . " ";
+      }
+      print "\n";
+
+      foreach $field (@capb) {
+        print $field . " ";
+      }
+      print "\n";
+    } else {
+      foreach $field (@chunks) {
+        print $field . " ";
+      }
+      print "\n";
+    }
+
+  } else {
+    print $_ . "\n";
+  }
+}
+

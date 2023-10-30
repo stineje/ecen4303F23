@@ -1,0 +1,65 @@
+Standard Cell / Custom Layout test design
+
+Author: Ivan Castellanos
+e-mail: ivan.castellanos@okstate.edu
+
+The purpose of this design is to showcase OSU's standard cell library design
+flow with the implementation of one of the modules in custom layout. It also
+includes I/O Pads around the core.
+
+Three main steps are necessary, Synthesis, Abstraction and Place & Route.
+All steps are script based and therefore mostly automatic.
+___________________________________________
+
+The HDL of the design is found inside the Synthesis folder. The script file
+used by Build Gates for synthesis is compile_bgx.scr. The output files we need
+from Synthesis are .sdc and .vh
+
+To run Synthesis type:
+
+> bgx_shell -f compile_bgx.scr
+
+It is important to notice that if Errors are present for the custom cell module
+instantiation this is normal since the synthesis tool does not have
+any description of the custom module and it is just assuming it as a black box.
+Hence "The number of pins of cell xxx and instance my_core_xxx_module do not
+match." message appears.
+
+___________________________________________
+
+Abstract Generation is necessary for the custom layout module so that the
+Place & Route tool (Encounter) knows the geometric information necessary like
+where the pins are, where it is allowed to route wires or not, symmetry,
+orientation of the cell, etc. The output file we need from Abstraction is
+the .lef file. The custom cell is multi.mag, a magic layout of the  a
+multiplier. A GDS file is required, it can be created from Magic, multi.gds in
+this case. The bus pins are distinguished in the GDS layout with a '_'. For
+example: A_0_ , A_12_, etc.
+
+The script file is abstract.il.
+
+To run Abstract Generation type:
+
+> abstract -nogui -replay abstract.il
+___________________________________________
+
+The last step is Place & Route. Copy the .vh and .sdc files from the synthesis
+folder into the Encounter folder and the .lef file from the Abstract folder. 
+The script files for Encounter are encounter.conf, encounter.tcl and
+encounter.io. Encounter will output a .gds file with the resulting layout,
+visible with the win command at the end of the run.
+
+To run Place & Route type:
+
+> encounter -init encounter.tcl
+___________________________________________
+
+
+In order to run your own design the scripts should be modified very slightly
+to tell the tools the name of your design, main module, etc.
+
+Edit the following files as shown in each one:
+
+compile_bgx.scr, abstract.il, encounter.conf, encounter.tcl
+
+Replace the hdl files in the Synthesis folder with your own.

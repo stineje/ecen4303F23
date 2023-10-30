@@ -1,0 +1,4 @@
+TDMCHECKPOINT="1.0"
+IIT_stdcells_ami05/IO type="cell"
+IIT_stdcells_ami05/core type="cell"
+IIT_stdcells_ami05/corner type="cell"

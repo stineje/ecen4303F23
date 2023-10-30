@@ -1,0 +1,10 @@
+#
+IIT_stdcells_ami05 not symbol
+I3
+I2
+#
+OSU_stdcells_ami05 udp_dff symbol
+I1
+#
+IIT_stdcells_ami05 buf symbol
+I0

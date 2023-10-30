@@ -1,0 +1,101 @@
+####################################################################
+#
+# Command-file for Cadence Silicon Ensemble
+# Optimized for GDSII output to magic
+# Johannes Grad, OSU
+#
+# One change necessary: See below to change the third "INPUT" line
+#
+# Chip density contolled by "rowu" (0..1) in line 40
+#
+# The result will be streamed out to "final.gds2" and "final.def"
+#
+#####################################################################
+
+# read in LEF file
+INPUT LEF FILENAME "/import/cad2/osu_stdcells/lib/ami05/lib/osu05_stdcells.stacks.lef" REPORTFILE "importlef.rpt" ;
+
+SET VAR INPUT.VERILOG.POWER.NET "vdd";
+SET VAR INPUT.VERILOG.GROUND.NET "gnd";
+SET VAR INPUT.VERILOG.LOGIC.1.NET "vdd";
+SET VAR INPUT.VERILOG.LOGIC.0.NET "gnd";
+SET VAR INPUT.VERILOG.SPECIAL.NETS "vdd gnd";
+INPUT VERILOG FILE "/import/cad2/osu_stdcells/lib/ami05/lib/osu05_stdcells.v.se" LIB "synth_osu05" ;
+
+#
+# Write here the result of your compile script
+# change FILE_NAME to your synthesis output file
+# and change TOP_LEVEL_NAME to the name of your toplevel module
+# (most likely both will be called the same)
+#
+INPUT VERILOG FILE "FILE_NAME.vh" 
+LIB "synth_osu05" REFLIB "synth_osu05" 
+DESIGN "synth_osu05.TOP_LEVEL_NAME:hdl" ;
+
+# initialize floorplan
+set v USERLEVEL EXPERT;
+set v PLAN.REPORT.STAT "  ";
+FINIT FLOOR;
+
+SET VAR PLAN.LOWERLEFT.ORIGIN TRUE ;
+FINIT FLOORPLAN  rowu 0.70 rowsp 0 blockhalo 0 f a 1 abut xio 80000 yio 80000 FLIPALTERNATEROWS;
+set v UPDATECOREROW.BLOCKHALO.GLOBAL 20000;
+
+# add supply rings
+SET VAR DRAW.SWIRE.AT ON ;
+SET VAR DRAW.CHANNEL.AT ON ;
+BUILD CHANNEL ;
+CONSTRUCT RING NET "gnd" NET "vdd"
+LAYER metal1 CORERINGWIDTH 10000 SPACING CENTER BLOCKRINGWIDTH 0 
+LAYER metal2 CORERINGWIDTH 10000 SPACING CENTER BLOCKRINGWIDTH 0 
+ ;
+DISPOSE CHANNEL ;
+SET VAR DRAW.CHANNEL.AT OFF ;
+SET VAR DRAW.SWIRE.AT SMALL ;
+
+# add pins
+IOPLACE AUTOMATIC STYLE ABUT TOPBOTTOMLAYER metal3 RIGHTLEFTLAYER metal3 ;
+
+# Qplace
+SET VAR TIMING.REPORTTIMING.LOGFILENAME "" ;
+SET VAR QPLACE.OPT.REPORT.NAME "LBRARY.qpopt.rpt" ;
+SET VAR QPWR.RSPF "";
+SET VAR QPLACE.PLACE.GROUTE.ANALYSIS "" ;
+SET VAR QPLACE.PLACE.PIN.PREFERRED.LAYER "(top metal3) (bottom metal3) (left metal3) (right metal3)" ;
+SET VAR QPLACE.OPT.TIMING.TYPE "" ;
+SET VAR QPLACE.PLACE.PIN "concurrent" ;
+QPLACE NOCONFIG;
+
+# add filler cells
+SROUTE ADDCELL MODEL FILL PREFIX fill NO FS SPIN vdd NET vdd SPIN gnd NET gnd AREA ( 0 0 ) ( 1500000 1500000 ) ;
+
+# route power nets
+CONNECT RING NET "gnd" NET "vdd" ;
+
+# Wroute
+SET VAR WROUTE.FINAL TRUE ;
+SET VAR WROUTE.GLOBAL TRUE ;
+SET VAR WROUTE.INCREMENTAL.FINAL FALSE ;
+WROUTE NOCONFIG ;
+
+# Remove comment to export to DEF
+#OUTPUT DEF  FILENAME  "final.def" ;
+
+# export to GDSII
+SET VAR GDSII.OUTPUT.PIN.DIRECTION FALSE ;
+OUTPUT GDSII MAPFILE "gds2_seultra.map" FILE "final.gds2" UNITS THOUSANDS ;
+ 
+# Export RC parasitcs
+SET VAR TIMING.REPORTRC.FORMAT "DSPF";
+REPORT RC FILENAME final.dspf ;
+
+# Remove comment to save the final result
+#SAVE DESIGN "final";
+
+VERIFY GEOMETRY ;
+
+VERIFY CONNECTIVITY ;
+
+FQUIT ;
+
+

@@ -1,0 +1,29 @@
+How to setup the tech.dpux
+--------------------------
+
+* Create mosis_subm_30.lef with all the process details
+
+* invoke "hld2lef"
+
+* Set "mosis_subm_30.lef", "osu05_stdcells", "./tech"
+
+* For min grid set lambda/2, which is 0.15
+
+* This will create the initial tech.dpux
+
+* It is complete, except for the GDS II layers
+
+* run "abstract -tech ."
+
+* In the technology editor, read in the map file
+
+* Save techfile and exit
+
+* Now will be the final tech.dpux created
+
+* Now do "run_abstract"
+
+* In abstract.scr and mosis_subm_30.lef, the dbu is always "1000"
+
+---
+Johannes Grad

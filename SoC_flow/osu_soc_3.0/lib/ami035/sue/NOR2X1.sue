@@ -1,0 +1,39 @@
+# SUE version MMI_SUE4.2.10
+
+proc SCHEMATIC_NOR2X1 {} {
+  make global -orient RXY -name vdd -origin {590 240}
+  make global -name gnd -origin {440 540}
+  make output -name Y -origin {720 430}
+  make input -name B -origin {380 500}
+  make input -name A -origin {530 500}
+  make input -name A -origin {530 380}
+  make input -name B -origin {530 290}
+  make global -name gnd -origin {590 540}
+make nmos -W 2 -L 0.4u -origin {590 500}
+make nmos -W 2 -L 0.4u -origin {440 500}
+make pmos -W 8 -L 0.4u -origin {590 380}
+make pmos -W 8 -L 0.4u -origin {590 290}
+  make_wire 590 330 590 340
+  make_wire 440 430 440 460
+  make_wire 590 420 590 430
+  make_wire 590 430 590 460
+  make_wire 440 430 590 430
+  make_wire 590 240 590 250
+  make_wire 590 430 720 430
+}
+
+proc ICON_NOR2X1 args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}} {M {}} {dpc {}}}
+  icon_term -type input -origin {-50 -10} -name A
+  icon_term -type input -origin {-50 10} -name B
+  icon_term -type output -origin {60 -10} -name Y
+  icon_property -origin {0 140} -type user -name name
+  icon_property -origin {0 160} -type user -name M
+  icon_property -origin {0 180} -type user -name dpc
+  icon_line -50 -30 -50 30 60 30 60 -30 -50 -30
+  icon_property -origin {10 20} -size small -label NOR2X1
+  icon_property -origin {-40 -10} -size small -label A
+  icon_property -origin {-40 10} -size small -label B
+  icon_property -origin {40 -10} -size small -label Y
+}
+

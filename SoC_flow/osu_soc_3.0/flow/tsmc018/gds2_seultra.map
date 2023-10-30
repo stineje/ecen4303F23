@@ -1,0 +1,65 @@
+# Wiring
+#gds layer      se layer        layer object type
+
+46		poly		net ;
+46		poly		spnet ;
+25		cc		net ;
+25		cc		spnet ;
+47		cc		net ;
+47		cc		spnet ;
+48		cc		net ;
+48		cc		spnet ;
+49		metal1		net ;
+49		metal1		spnet ;
+50		via		net ;
+50		via		spnet ;
+51		metal2		net ;
+51		metal2		spnet ;
+61		via2		net ;
+61		via2		spnet ;
+62		metal3		net ;
+62		metal3		spnet ;
+30		via3		net ;
+30		via3		spnet ;
+31		metal4		net ;
+31		metal4		spnet ;
+32		via4		net ;
+32		via4		spnet ;
+33		metal5		net ;
+33		metal5		spnet ;
+
+#Via 
+
+46		poly		via ;
+25		cc		via ;
+47		cc		via ;
+48		cc		via ;
+49		metal1		via ;
+50		via		via ;
+51		metal2		via ;
+61		via2		via ;
+62		metal3		via ;
+30		via3		via ;
+31		metal4		via ;
+32		via4		via ;
+33		metal5		via ;
+
+#Pins
+49		metal1		pin ;
+51		metal2		pin ;
+62		metal3		pin ;
+
+#components     
+
+#Label for Wiring
+#If one does not intend to export net names back to dfII, use some meaningless
+#numbers (for instance, 122). If one intends to export those labels, though,
+#some meaningful numbers should have been used instead. Here, "126" is some
+#number temporarily used for text.
+49		name 		pin metal1 ;
+51		name 		pin metal2 ;
+62		name 		pin metal3 ;
+31		name 		pin metal4 ;
+33		name 		pin metal5 ;
+
+

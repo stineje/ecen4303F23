@@ -1,0 +1,28 @@
+# SUE version MMI_SUE4.2.10
+
+proc SCHEMATIC_PADINC {} {
+  make global -name Gnd -origin {250 370}
+  make output -orient R90 -name DI -origin {310 350}
+  make PadBiDir -origin {230 310}
+  make inout -name YPAD -origin {280 130}
+  make_wire 310 350 310 310
+  make_wire 270 310 270 340
+  make_wire 270 340 250 340
+  make_wire 250 340 250 310
+  make_wire 250 340 250 370
+  make_wire 280 130 280 170
+}
+
+proc ICON_PADINC args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}} {M {}} {dpc {}}}
+  icon_term -type output -origin {80 0} -orient R90 -name DI
+  icon_term -type inout -origin {50 -140} -name YPAD
+  icon_property -origin {10 80} -type user -name name
+  icon_property -origin {10 100} -type user -name M
+  icon_property -origin {10 120} -type user -name dpc
+  icon_property -origin {10 -60} -label PadInC
+  icon_property -origin {80 -30} -rotate 1 -label DI
+  icon_line 0 -140 0 0 100 0 100 -140 0 -140 0 -140
+  icon_property -origin {50 -130} -rotate 1 -label PAD
+}
+
