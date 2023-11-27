@@ -1,0 +1,15 @@
+( @@user : jstine );
+( @@machine : rivendell.ecen.okstate.edu );
+( @@source : nand2 );
+( @@tool : Magic 8.3.427 );
+( @@compiled : Wed Sep  6 08:16:59 CDT 2023 );
+( @@technology : sky130A );
+( @@version : 1.0.440-0-g43e733e );
+( @@techdesc : SkyWater SKY130: Open Source rules and DRC );
+( @@style : gdsii );
+( @@date : Mon Nov 27 10:50:42 2023 );
+DS 1 1 20;
+9 nand2;
+DF;
+C 1;
+End
