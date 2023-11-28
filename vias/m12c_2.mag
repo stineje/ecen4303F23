@@ -1,0 +1,13 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1605719766
+use m2c_3  m2c_3_0
+timestamp 1605718463
+transform 1 0 -9 0 1 -9
+box 0 -6 52 58
+use m1c_2  m1c_2_0
+timestamp 1605718351
+transform 1 0 0 0 1 0
+box -6 -12 40 46
+<< end >>

@@ -1,0 +1,12 @@
+magic
+tech sky130A
+timestamp 1605719918
+use m1c_1  m1c_1_0
+timestamp 1605718819
+transform 1 0 0 0 1 0
+box -6 -3 23 20
+use pc_1  pc_1_0
+timestamp 1605717574
+transform 1 0 0 0 1 0
+box -8 -5 25 22
+<< end >>

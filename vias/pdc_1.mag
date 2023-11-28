@@ -1,0 +1,14 @@
+magic
+tech sky130A
+timestamp 1605719020
+<< pdiff >>
+rect -4 17 21 23
+rect -4 0 0 17
+rect 17 0 21 17
+rect -4 -6 21 0
+<< pdiffc >>
+rect 0 0 17 17
+<< locali >>
+rect 0 17 17 25
+rect 0 -8 17 0
+<< end >>

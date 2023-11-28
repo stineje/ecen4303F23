@@ -1,0 +1,12 @@
+magic
+tech sky130A
+timestamp 1605719113
+<< nsubdiff >>
+rect -12 0 0 17
+rect 17 0 29 17
+<< nsubdiffcont >>
+rect 0 0 17 17
+<< locali >>
+rect 0 17 17 25
+rect 0 -8 17 0
+<< end >>
