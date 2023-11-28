@@ -1,0 +1,43 @@
+# //  Questa Sim-64
+# //  Version 2021.2 linux_x86_64 Apr 14 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do proj.do
+# QuestaSim-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 16:11:39 on Nov 28,2023
+# vlog -reportprogress 300 adder.sv flopen.sv proj.sv tb_proj.sv 
+# -- Compiling module adder
+# -- Compiling module flopen
+# -- Compiling module proj
+# -- Compiling module stimulus
+# 
+# Top level modules:
+# 	stimulus
+# End time: 16:11:39 on Nov 28,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" work.stimulus 
+# Start time: 16:11:39 on Nov 28,2023
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading sv_std.std
+# Loading work.stimulus(fast)
+# Loading work.proj(fast)
+# Loading work.adder(fast)
+# Loading work.flopen(fast)
+# .main_pane.wave.interior.cs.body.pw.wf
+#         64 tests completed with          0 errors
+# ** Note: $finish    : tb_proj.sv(66)
+#    Time: 3205 ns  Iteration: 2  Instance: /stimulus
+# 1
+# Break in Module stimulus at tb_proj.sv line 66
+# End time: 16:35:33 on Nov 28,2023, Elapsed time: 0:23:54
+# Errors: 0, Warnings: 0
