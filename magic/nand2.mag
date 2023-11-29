@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1606864426
+timestamp 1701106512
 << checkpaint >>
 rect -1269 2461 1546 2601
 rect -1760 -1129 6260 2461
@@ -153,5 +153,7 @@ port 2 n
 rlabel viali 212 496 212 496 1 B
 port 3 n
 rlabel viali 68 48 68 48 1 gnd
+port 5 n
 rlabel viali 68 840 68 840 1 vdd
+port 4 n
 << end >>

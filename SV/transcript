@@ -12,32 +12,155 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
-# do proj.do
+# do top.do
 # QuestaSim-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 16:11:39 on Nov 28,2023
-# vlog -reportprogress 300 adder.sv flopen.sv proj.sv tb_proj.sv 
+# Start time: 08:47:45 on Nov 29,2023
+# vlog -reportprogress 300 adder.sv flopen.sv proj.sv counter.sv top.sv tb_top.sv 
 # -- Compiling module adder
 # -- Compiling module flopen
 # -- Compiling module proj
+# -- Compiling module counter
+# -- Compiling module top
 # -- Compiling module stimulus
 # 
 # Top level modules:
 # 	stimulus
-# End time: 16:11:39 on Nov 28,2023, Elapsed time: 0:00:00
+# End time: 08:47:45 on Nov 29,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -voptargs="+acc" work.stimulus 
-# Start time: 16:11:39 on Nov 28,2023
+# Start time: 08:47:45 on Nov 29,2023
 # ** Note: (vsim-3812) Design is being optimized...
 # Loading sv_std.std
 # Loading work.stimulus(fast)
+# Loading work.top(fast)
 # Loading work.proj(fast)
 # Loading work.adder(fast)
 # Loading work.flopen(fast)
+# Loading work.counter(fast)
 # .main_pane.wave.interior.cs.body.pw.wf
-#         64 tests completed with          0 errors
-# ** Note: $finish    : tb_proj.sv(66)
-#    Time: 3205 ns  Iteration: 2  Instance: /stimulus
-# 1
-# Break in Module stimulus at tb_proj.sv line 66
-# End time: 16:35:33 on Nov 28,2023, Elapsed time: 0:23:54
+do top.do
+# ** Warning: (vdel-134) Unable to remove locked optimized design "_opt".  Locker is jstine@rivendell.ecen.okstate.edu.
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 08:49:16 on Nov 29,2023
+# vlog -reportprogress 300 adder.sv flopen.sv proj.sv counter.sv top.sv tb_top.sv 
+# -- Compiling module adder
+# -- Compiling module flopen
+# -- Compiling module proj
+# -- Compiling module counter
+# -- Compiling module top
+# -- Compiling module stimulus
+# 
+# Top level modules:
+# 	stimulus
+# End time: 08:49:16 on Nov 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 08:49:17 on Nov 29,2023, Elapsed time: 0:01:32
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" work.stimulus 
+# Start time: 08:49:17 on Nov 29,2023
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.stimulus(fast)
+# Loading work.top(fast)
+# Loading work.proj(fast)
+# Loading work.adder(fast)
+# Loading work.flopen(fast)
+# Loading work.counter(fast)
+# .main_pane.wave.interior.cs.body.pw.wf
+do top.do
+# ** Warning: (vdel-134) Unable to remove locked optimized design "_opt".  Locker is jstine@rivendell.ecen.okstate.edu.
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 08:51:36 on Nov 29,2023
+# vlog -reportprogress 300 adder.sv flopen.sv proj.sv counter.sv top.sv tb_top.sv 
+# -- Compiling module adder
+# -- Compiling module flopen
+# -- Compiling module proj
+# -- Compiling module counter
+# -- Compiling module top
+# -- Compiling module stimulus
+# 
+# Top level modules:
+# 	stimulus
+# End time: 08:51:36 on Nov 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 08:51:37 on Nov 29,2023, Elapsed time: 0:02:20
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" work.stimulus 
+# Start time: 08:51:37 on Nov 29,2023
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.stimulus(fast)
+# Loading work.top(fast)
+# Loading work.proj(fast)
+# Loading work.adder(fast)
+# Loading work.flopen(fast)
+# Loading work.counter(fast)
+# .main_pane.wave.interior.cs.body.pw.wf
+do top.do
+# ** Warning: (vdel-134) Unable to remove locked optimized design "_opt".  Locker is jstine@rivendell.ecen.okstate.edu.
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 08:52:59 on Nov 29,2023
+# vlog -reportprogress 300 adder.sv flopen.sv proj.sv counter.sv top.sv tb_top.sv 
+# -- Compiling module adder
+# -- Compiling module flopen
+# -- Compiling module proj
+# -- Compiling module counter
+# -- Compiling module top
+# -- Compiling module stimulus
+# 
+# Top level modules:
+# 	stimulus
+# End time: 08:52:59 on Nov 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 08:52:59 on Nov 29,2023, Elapsed time: 0:01:22
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" work.stimulus 
+# Start time: 08:52:59 on Nov 29,2023
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.stimulus(fast)
+# Loading work.top(fast)
+# Loading work.proj(fast)
+# Loading work.adder(fast)
+# Loading work.flopen(fast)
+# Loading work.counter(fast)
+# .main_pane.wave.interior.cs.body.pw.wf
+do top.do
+# ** Warning: (vdel-134) Unable to remove locked optimized design "_opt".  Locker is jstine@rivendell.ecen.okstate.edu.
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 08:53:17 on Nov 29,2023
+# vlog -reportprogress 300 adder.sv flopen.sv proj.sv counter.sv top.sv tb_top.sv 
+# -- Compiling module adder
+# -- Compiling module flopen
+# -- Compiling module proj
+# -- Compiling module counter
+# -- Compiling module top
+# -- Compiling module stimulus
+# 
+# Top level modules:
+# 	stimulus
+# End time: 08:53:17 on Nov 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 08:53:18 on Nov 29,2023, Elapsed time: 0:00:19
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" work.stimulus 
+# Start time: 08:53:18 on Nov 29,2023
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.stimulus(fast)
+# Loading work.top(fast)
+# Loading work.proj(fast)
+# Loading work.adder(fast)
+# Loading work.flopen(fast)
+# Loading work.counter(fast)
+# .main_pane.wave.interior.cs.body.pw.wf
+# End time: 08:53:29 on Nov 29,2023, Elapsed time: 0:00:11
 # Errors: 0, Warnings: 0

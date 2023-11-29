@@ -1,7 +1,11 @@
 m255
 K4
 z2
-!s99 nomlopt
+Z0 !s99 nomlopt
+R0
+R0
+R0
+R0
 !s11f vlog 2021.2 2021.04, Apr 14 2021
 13
 !s112 1.1
@@ -9,12 +13,12 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 d/home/jstine/ecen4303/ecen4303F23/SV
+Z1 d/home/jstine/ecen4303/ecen4303F23/SV
 T_opt
-Z1 !s110 1701209499
-VYO?gICdCYU@6a8=M96dz03
+!s110 1701269598
+V?oz4TT0gTFfeUISzbY?bj1
 04 8 4 work stimulus fast 0
-=1-2c44fd862b1b-6566659b-5d304-10755
+=1-2c44fd862b1b-6567505e-93eb6-f708
 !s124 OEM100
 o-quiet -auto_acc_if_foreign -work work +acc
 Z2 tCvgOpt 0
@@ -22,97 +26,145 @@ n@_opt
 OL;O;2021.2;73
 vadder
 Z3 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-R1
+Z4 !s110 1701269597
 !i10b 1
 !s100 ]AJ]GeFc5cD_Rj;[0iR:n2
 IcD@JeVbzffGU;o[l8Q@Q02
 S1
-R0
+R1
 w1701194523
 8adder.sv
 Fadder.sv
 !i122 0
 L0 27 7
-Z4 VDg1SIo80bB@j0V0VzS_@n1
-Z5 OL;L;2021.2;73
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+Z6 OL;L;2021.2;73
 r1
 !s85 0
 31
-Z6 !s108 1701209499.000000
-Z7 !s107 tb_proj.sv|proj.sv|flopen.sv|adder.sv|
-Z8 !s90 -reportprogress|300|adder.sv|flopen.sv|proj.sv|tb_proj.sv|
+Z7 !s108 1701269597.000000
+Z8 !s107 tb_top.sv|top.sv|counter.sv|proj.sv|flopen.sv|adder.sv|
+Z9 !s90 -reportprogress|300|adder.sv|flopen.sv|proj.sv|counter.sv|top.sv|tb_top.sv|
 !i113 0
-Z9 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z10 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+vcounter
+R3
+R4
+!i10b 1
+!s100 ckV?<4l2j^:Z6H=e`FiGS1
+Ikk0@hAn52Z4]QBCn^f6Sb2
+S1
+R1
+w1701269563
+8counter.sv
+Fcounter.sv
+!i122 0
+L0 1 16
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
 R2
 vflopen
 R3
-R1
+R4
 !i10b 1
 !s100 ZkBcNIX3kB^eK<`AL0Vz`3
 IZOOURe4]<7EggBU:2UXI?2
 S1
-R0
+R1
 w1701209121
 8flopen.sv
 Fflopen.sv
 !i122 0
 L0 28 8
-R4
 R5
+R6
 r1
 !s85 0
 31
-R6
 R7
 R8
-!i113 0
 R9
+!i113 0
+R10
 R2
 vproj
 R3
-R1
+R4
 !i10b 1
 !s100 me>@TQG<ILbegzjQXcUlg3
 IeP2HSnBI1k?ZA=dza:o0R0
 S1
-R0
+R1
 w1701208661
 8proj.sv
 Fproj.sv
 !i122 0
 L0 1 10
-R4
 R5
+R6
 r1
 !s85 0
 31
-R6
 R7
 R8
-!i113 0
 R9
+!i113 0
+R10
 R2
 vstimulus
 R3
-R1
-!i10b 1
-!s100 h:`J`[d1bCH:ZELM[KMfF0
-I:Tl_5V=22ajF28On6H?9<2
-S1
-R0
-w1701209488
-8tb_proj.sv
-Ftb_proj.sv
-!i122 0
-L0 2 68
 R4
+!i10b 1
+!s100 Gk7RiiQi`_91mWffAW=0Z0
+Ih8HNS;2cS^>h>@aaA8ma@3
+S1
+R1
+w1701269256
+8tb_top.sv
+Ftb_top.sv
+!i122 0
+L0 2 45
 R5
+R6
 r1
 !s85 0
 31
-R6
 R7
 R8
-!i113 0
 R9
+!i113 0
+R10
+R2
+vtop
+R3
+R4
+!i10b 1
+!s100 S0oUH_^Be:HdV6e<FlDgR3
+I@>YcQ=Mf3k7DRXihK9cAg2
+S1
+R1
+w1701269594
+8top.sv
+Ftop.sv
+!i122 0
+L0 1 23
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
 R2
