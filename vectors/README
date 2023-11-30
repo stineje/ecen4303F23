@@ -1,0 +1,19 @@
+Ad hoc Testing Routines to create Golden File
+
+J. Stine
+Oklahoma State University
+10/12/15
+
+C program can be manipulated to increase size of 
+test.  Please make sure project.cmd passes.  If you
+run create_test.sh it will create a new project.
+cmd - just FYI.
+
+Enjoy!
+
+Note:  you may need to change project_template.cmd and/or
+the C file to make sure your input/output signals match.  
+
+Note:  Compile Usage on Program bit_test.c is, as follows:
+
+gcc -o bit_test bit_test.c -lm
