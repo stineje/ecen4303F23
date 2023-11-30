@@ -14,35 +14,131 @@ c
 
 
 | loops
+h cin
+setvector A 11010110
+setvector B 11001111
+c
+c
+c
+c
+assert Out 110100110
 l cin
-setvector A 01100001
-setvector B 01001110
+setvector A 00100110
+setvector B 01011000
 c
 c
 c
 c
-assert Out 010101111
+assert Out 001111110
+h cin
+setvector A 01000001
+setvector B 10000101
+c
+c
+c
+c
+assert Out 011000111
 l cin
-setvector A 11101111
-setvector B 10110011
+setvector A 01101111
+setvector B 10010101
 c
 c
 c
 c
-assert Out 110100010
+assert Out 100000100
 l cin
-setvector A 00110011
-setvector B 11010100
+setvector A 01101000
+setvector B 01111000
 c
 c
 c
 c
-assert Out 100000111
+assert Out 011100000
+h cin
+setvector A 11111100
+setvector B 11101010
+c
+c
+c
+c
+assert Out 111100111
 l cin
-setvector A 00101011
-setvector B 10111110
+setvector A 10101101
+setvector B 01100000
 c
 c
 c
 c
-assert Out 011101001
+assert Out 100001101
+l cin
+setvector A 01000111
+setvector B 10001111
+c
+c
+c
+c
+assert Out 011010110
+h cin
+setvector A 01111111
+setvector B 11111110
+c
+c
+c
+c
+assert Out 101111110
+l cin
+setvector A 10100001
+setvector B 01101000
+c
+c
+c
+c
+assert Out 100001001
+l cin
+setvector A 00010000
+setvector B 00111110
+c
+c
+c
+c
+assert Out 001001110
+l cin
+setvector A 01010111
+setvector B 01100100
+c
+c
+c
+c
+assert Out 010111011
+l cin
+setvector A 01101011
+setvector B 10100110
+c
+c
+c
+c
+assert Out 100010001
+h cin
+setvector A 00001110
+setvector B 00010101
+c
+c
+c
+c
+assert Out 000100100
+l cin
+setvector A 10000011
+setvector B 01111101
+c
+c
+c
+c
+assert Out 100000000
+l cin
+setvector A 10001011
+setvector B 01111001
+c
+c
+c
+c
+assert Out 100000100
