@@ -10,6 +10,3 @@ l gnd
 h vdd
 c
 c
-
-
-
