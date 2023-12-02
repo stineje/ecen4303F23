@@ -53,7 +53,7 @@ int main() {
   /* Number of Bits */
   int bits = 8;
   /* Number of Loops (set 0 for no loops) */
-  int loops = 16;
+  int loops = 256;
   /* Random Initialize for Q */
   srand(time(NULL)); 
 
