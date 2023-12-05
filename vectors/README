@@ -2,7 +2,7 @@ Ad hoc Testing Routines to create Golden File
 
 J. Stine
 Oklahoma State University
-10/12/15
+12/12/23
 
 C program can be manipulated to increase size of 
 test.  Please make sure project.cmd passes.  If you
@@ -14,6 +14,9 @@ Enjoy!
 Note:  you may need to change project_template.cmd and/or
 the C file to make sure your input/output signals match.  
 
-Note:  Compile Usage on Program bit_test.c is, as follows:
+Procedure:
 
-gcc -o bit_test bit_test.c -lm
+1.) Change bit_test.c to modify loops
+2.) Run ./create_test.sh to compile and generate new project.cmd
+3.) irsim sky130A_tt_nom_27.prm project.sim -project.cmd
+4.) Any errors will be displayed in IRSIM output
