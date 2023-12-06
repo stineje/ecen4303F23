@@ -1,0 +1,9 @@
+set NETLIST_CACHE(inv,cells) {{icon nmos /programs/micromagic/mmi/sue/schematics/mspice/nmos.sue {}} {icon pmos /programs/micromagic/mmi/sue/schematics/mspice/pmos.sue {}}}
+set netlist_props spice
+set netlist_level 1000
+set NETLIST_CACHE(inv,globals) {vdd gnd}
+set NETLIST_EXPLICIT_GLOBALS {}
+set NETLIST_CACHE(inv,version) MMI_SUE5.6.41
+set NETLIST_CACHE(inv) {{.SUBCKT inv IN OUT } {Mp0 OUT IN Vdd vdd sky130_fd_pr__pfet_01v8 W='6*1u' L=lp_min } {+ ad='areap(6,sdd)' as='areap(6,sdd)' pd='perip(6,sdd)' ps='perip(6,sdd)' } {Mn0 OUT IN Gnd gnd sky130_fd_pr__nfet_01v8 W='3*1u' L=ln_min } {+ ad='arean(3,sdd)' as='arean(3,sdd)' pd='perin(3,sdd)' ps='perin(3,sdd)' } {.ENDS	$ inv} {}}
+set NETLIST_CACHE(inv,names) {{340 380 {0 IN}} {400 220 {0 Mp0}} {400 140 {1 Vdd}} {400 420 {0 Gnd}} {260 300 {1 IN}} {440 300 {1 OUT}} {340 220 {0 IN}} {400 340 {0 OUT}} {400 260 {0 OUT}} {400 180 {0 Vdd}} {400 460 {1 Gnd}} {400 380 {0 Mn0}}}
+set NETLIST_CACHE(inv,wires) {{400 300 440 300 OUT} {400 300 400 340 OUT} {400 260 400 300 OUT} {300 380 340 380 IN} {300 220 340 220 IN} {260 300 300 300 IN} {300 300 300 380 IN} {300 220 300 300 IN} {400 140 400 180 Vdd} {400 420 400 460 Gnd}}

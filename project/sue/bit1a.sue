@@ -1,0 +1,65 @@
+# SUE version MMI_SUE5.6.41
+
+proc SCHEMATIC_bit1a {} {
+  make dffpos -origin {300 760}
+  make output -name Cout -origin {480 400}
+  make output -name Out -origin {490 680}
+  make input -name Cin -origin {160 400}
+  make input -name clk -origin {-50 680}
+  make inv -origin {50 610}
+  make mux21 -origin {300 630}
+  make input -name EN -origin {-50 590}
+  make input -name A -origin {170 440}
+  make input -name B -origin {170 360}
+  make FA -origin {300 400}
+  make_wire 150 710 200 710
+  make_wire 400 550 430 550
+  make_wire 430 550 430 640
+  make_wire 430 640 150 640
+  make_wire 200 610 150 610
+  make_wire -20 610 30 610
+  make_wire -20 590 200 590
+  make_wire -20 590 -20 610
+  make_wire 140 570 200 570
+  make_wire 140 520 140 570
+  make_wire 150 710 150 640
+  make_wire 200 680 -50 680
+  make_wire 440 680 440 740
+  make_wire 440 740 10 740
+  make_wire 10 740 10 550
+  make_wire 10 550 200 550
+  make_wire 440 680 400 680
+  make_wire 440 680 490 680
+  make_wire -50 590 -20 590
+  make_wire 370 360 440 360
+  make_wire 440 360 440 520
+  make_wire 140 520 440 520
+  make_wire 370 400 480 400
+  make_wire 170 360 230 360
+  make_wire 230 400 160 400
+  make_wire 170 440 230 440
+}
+
+proc ICON_bit1a args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}} {M {}} {dpc {}}}
+  icon_term -type input -origin {-130 -40} -name Cin
+  icon_term -type input -origin {-130 80} -name clk
+  icon_term -type output -origin {130 -40} -name Cout
+  icon_term -type output -origin {130 40} -name Out
+  icon_term -type input -origin {-130 -160} -name A
+  icon_term -type input -origin {-130 -80} -name B
+  icon_term -type input -origin {-130 -120} -name EN
+  icon_property -origin {0 20} -size large -anchor center -label bit1
+  icon_line -130 -180 130 -180 130 180 -130 180 -130 -180
+  icon_property -origin {-120 -160} -label A
+  icon_property -origin {-120 -80} -label B
+  icon_property -origin {-120 -40} -label Cin
+  icon_property -origin {-120 80} -label clk
+  icon_property -origin {120 -40} -anchor e -label Cout
+  icon_property -origin {120 40} -anchor e -label Out
+  icon_property -origin {-130 400} -type user -name name
+  icon_property -origin {-130 420} -type user -name M
+  icon_property -origin {-130 440} -type user -name dpc
+  icon_property -origin {-120 -120} -label EN
+}
+

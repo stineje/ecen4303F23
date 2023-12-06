@@ -1,0 +1,20 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: * file: top.sp
+
+
+
+Total elapsed time (seconds) = 0.025 
+
+Total DRAM available = 128721.121 MB.
+DRAM currently available = 50576.176 MB.
+Maximum ngspice program size =   78.168 MB.
+Current ngspice program size =    5.117 MB.
+
+Shared ngspice pages =    3.688 MB.
+Text (code) pages =    7.574 MB.
+Stack = 0 bytes.
+Library pages =    1.426 MB.
+

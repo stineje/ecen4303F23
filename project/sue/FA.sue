@@ -1,0 +1,131 @@
+# SUE version MMI_SUE5.6.41
+
+proc SCHEMATIC_FA {} {
+  make global -orient RXY -name vdd -origin {-250 170}
+  make global -name gnd -origin {-250 490}
+  make global -orient RXY -name vdd -origin {40 170}
+  make global -name gnd -origin {40 490}
+  make global -orient RXY -name vdd -origin {430 170}
+  make global -name gnd -origin {430 490}
+  make global -orient RXY -name vdd -origin {810 90}
+  make global -name gnd -origin {810 570}
+  make global -orient RXY -name vdd -origin {970 210}
+  make global -name gnd -origin {970 430}
+  make pmos -W 3 -L 0.15u -origin {-250 290}
+  make pmos -W 3 -L 0.15u -origin {-150 210}
+  make pmos -W 3 -L 0.15u -origin {40 210}
+  make pmos -W 3 -L 0.15u -origin {40 290}
+  make global -orient RXY -name vdd -origin {290 580}
+  make global -name gnd -origin {290 800}
+  make pmos -W 3.0 -L 0.15u -origin {250 210}
+  make pmos -W 3.0 -L 0.15u -origin {430 210}
+  make pmos -W 3.0 -L 0.15u -origin {610 210}
+  make pmos -W 3.0 -L 0.15u -origin {810 290}
+  make pmos -W 3.0 -L 0.15u -origin {810 210}
+  make pmos -W 3.0 -L 0.15u -origin {810 130}
+  make pmos -W 3.0 -L 0.15u -origin {430 290}
+  make pmos -W 3.0 -L 0.15u -origin {-320 210}
+  make input -name A -origin {-380 210}
+  make input -name A -origin {-380 450}
+  make input -name A -origin {-20 210}
+  make input -name B -origin {-20 290}
+  make input -orient RY -name B -origin {-20 370}
+  make input -orient RY -name A -origin {-20 450}
+  make input -name A -origin {190 210}
+  make input -name B -origin {370 210}
+  make input -name A -origin {190 450}
+  make input -name B -origin {370 450}
+  make input -name A -origin {750 130}
+  make input -name B -origin {750 210}
+  make input -orient RY -name B -origin {750 450}
+  make input -orient RY -name A -origin {750 530}
+  make output -name S -origin {1040 330}
+  make output -name CO -origin {310 690}
+  make input -name B -origin {-200 210}
+  make input -name B -origin {-200 450}
+  make nmos -L 0.15u -origin {-250 370}
+  make nmos -L 0.15u -origin {-320 450}
+  make nmos -L 0.15u -origin {-150 450}
+  make nmos -L 0.15u -origin {40 450}
+  make nmos -L 0.15u -origin {40 370}
+  make nmos -L 0.15u -origin {250 450}
+  make nmos -L 0.15u -origin {430 450}
+  make nmos -L 0.15u -origin {610 450}
+  make nmos -L 0.15u -origin {430 370}
+  make nmos -L 0.15u -origin {810 370}
+  make nmos -L 0.15u -origin {810 450}
+  make nmos -L 0.15u -origin {810 530}
+  make pmos -W 3 -L 0.15u -origin {290 620}
+  make nmos -L 0.15u -origin {290 760}
+  make pmos -W 3 -L 0.15u -origin {970 250}
+  make nmos -L 0.15u -origin {970 390}
+  make input -name Cin -origin {-380 330}
+  make input -name Cin -origin {750 290}
+  make input -orient RY -name Cin -origin {750 370}
+  make input -name Cin -origin {550 210}
+  make input -name Cin -origin {550 450}
+  make_wire 250 250 430 250
+  make_wire 430 250 610 250
+  make_wire 430 170 250 170
+  make_wire 430 170 610 170
+  make_wire 250 490 430 490
+  make_wire 430 490 610 490
+  make_wire 430 410 250 410
+  make_wire 430 410 610 410
+  make_wire -320 250 -250 250
+  make_wire -250 170 -320 170
+  make_wire -320 490 -250 490
+  make_wire -250 410 -320 410
+  make_wire -310 330 -380 330
+  make_wire -250 170 -150 170
+  make_wire -250 250 -150 250
+  make_wire -250 490 -150 490
+  make_wire -250 410 -150 410
+  make_wire -250 330 40 330
+  make_wire -310 290 -310 330
+  make_wire -310 330 -310 370
+  make_wire -210 450 -200 450
+  make_wire -210 210 -200 210
+  make_wire 430 330 810 330
+  make_wire 970 330 970 290
+  make_wire 970 330 970 350
+  make_wire 910 250 910 330
+  make_wire 910 330 910 390
+  make_wire 810 330 910 330
+  make_wire 230 620 230 680
+  make_wire 230 680 230 760
+  make_wire 120 680 230 680
+  make_wire 120 330 40 330
+  make_wire 120 340 370 340
+  make_wire 120 330 120 340
+  make_wire 120 340 120 680
+  make_wire 370 290 370 340
+  make_wire 370 340 370 370
+  make_wire 290 660 290 690
+  make_wire 290 690 290 720
+  make_wire 290 690 310 690
+  make_wire 970 330 1040 330
+}
+
+proc ICON_FA args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}} {M {}} {dpc {}}}
+  icon_term -type input -origin {-70 -40} -name B
+  icon_term -type input -origin {-70 0} -name Cin
+  icon_term -type input -origin {-70 40} -name A
+  icon_term -type output -origin {70 -40} -name S
+  icon_term -type output -origin {70 0} -name CO
+  icon_property -origin {0 70} -size large -anchor center -label FA
+  icon_line -70 -100 70 -100 70 100 -70 100 -70 -100
+  icon_property -origin {-60 -40} -label B
+  icon_property -origin {-60 0} -label Cin
+  icon_property -origin {-60 40} -label A
+  icon_property -origin {60 -40} -anchor e -label S
+  icon_property -origin {60 0} -anchor e -label CO
+  icon_property -origin {-70 320} -type user -name name
+  icon_property -origin {-70 340} -type user -name M
+  icon_property -origin {-70 360} -type user -name dpc
+  icon_property -origin {-70 400} -type auto -name verilog -text {FA [unique_name "" $name FA]
+(.B($B), .Cin($Cin), .A($A), .S($S), 
+.CO($CO))\;}
+}
+

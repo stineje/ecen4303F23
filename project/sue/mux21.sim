@@ -1,0 +1,14 @@
+| units: 30.0  tech: scmos  format: MIT
+A In_0 input
+A In_1 input
+A Sel input
+A Sel_bar input
+A Out output
+| device nmos 210 150
+n Sel In_1 Out 2 10
+| device pmos 210 150
+p Sel_bar In_1 Out 2 10
+| device nmos_1 210 340
+n Sel_bar In_0 Out 2 10
+| device pmos_1 210 340
+p Sel In_0 Out 2 10

@@ -1,0 +1,9 @@
+set NETLIST_CACHE(bit1a,cells) {{schematic mux21 /home/jstine/ecen4303/project_F23/sue/mux21.sue} {schematic inv /home/jstine/ecen4303/project_F23/sue/inv.sue} {schematic dffpos /home/jstine/ecen4303/project_F23/sue/dffpos.sue} {schematic FA /home/jstine/ecen4303/project_F23/sue/FA.sue}}
+set netlist_props spice
+set netlist_level 1000
+set NETLIST_CACHE(bit1a,globals) {vdd gnd}
+set NETLIST_EXPLICIT_GLOBALS {}
+set NETLIST_CACHE(bit1a,version) MMI_SUE5.6.41
+set NETLIST_CACHE(bit1a) {{.SUBCKT bit1a A B Cin Cout EN Out clk } {Xdffpos clk net_3 Out dffpos } {Xinv EN net_2 inv } {Xmux21 Out net_1 net_3 EN net_2 mux21 } {XFA A B Cout Cin net_1 FA } {.ENDS	$ bit1a} {}}
+set NETLIST_CACHE(bit1a,names) {{300 760 {0 Xdffpos}} {-50 590 {1 EN}} {200 680 {0 clk}} {480 400 {1 Cout}} {230 400 {0 Cin}} {200 610 {0 net_2}} {200 710 {0 net_3}} {400 680 {0 Out}} {490 680 {1 Out}} {300 630 {0 Xmux21}} {200 550 {0 Out}} {230 440 {0 A}} {370 400 {0 Cout}} {230 360 {0 B}} {400 550 {0 net_3}} {200 570 {0 net_1}} {300 400 {0 XFA}} {170 440 {1 A}} {-50 680 {1 clk}} {200 590 {0 EN}} {170 360 {1 B}} {30 610 {0 EN}} {370 360 {0 net_1}} {160 400 {1 Cin}} {50 610 {0 Xinv}} {150 610 {0 net_2}}}
+set NETLIST_CACHE(bit1a,wires) {{150 710 200 710 net_3} {400 550 430 550 net_3} {430 550 430 640 net_3} {150 640 430 640 net_3} {150 610 200 610 net_2} {-20 610 30 610 EN} {-20 590 200 590 EN} {-20 590 -20 610 EN} {140 570 200 570 net_1} {140 520 140 570 net_1} {150 640 150 710 net_3} {-50 680 200 680 clk} {440 680 440 740 Out} {10 740 440 740 Out} {10 550 10 740 Out} {10 550 200 550 Out} {400 680 440 680 Out} {440 680 490 680 Out} {-50 590 -20 590 EN} {370 360 440 360 net_1} {440 360 440 520 net_1} {140 520 440 520 net_1} {370 400 480 400 Cout} {170 360 230 360 B} {160 400 230 400 Cin} {170 440 230 440 A}}

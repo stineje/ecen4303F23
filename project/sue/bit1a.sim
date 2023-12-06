@@ -1,0 +1,128 @@
+| units: 0.5  tech: sky130A  format: MIT
+A A input
+A B input
+A Cin input
+A EN input
+A clk input
+A Cout output
+A Out output
+| begin dffpos 300 760
+| device dffpos.pmos 160 -60
+p clk vdd dffpos.Clk_b 30.0 252.0
+| device dffpos.pmos_1 420 -100
+p dffpos.net_1 vdd dffpos.net_6 30.0 84.0
+| device dffpos.pmos_2 420 -20
+p dffpos.Clk_b dffpos.net_6 dffpos.net_4 30.0 84.0
+| device dffpos.nmos 420 80
+n clk dffpos.net_10 dffpos.net_4 30.0 84.0
+| device dffpos.nmos_1 160 40
+n clk gnd dffpos.Clk_b 30.0 168.0
+| device dffpos.nmos_2 420 160
+n dffpos.net_1 gnd dffpos.net_10 30.0 84.0
+| device dffpos.pmos_3 510 360
+p dffpos.net_4 vdd dffpos.net_1 30.0 84.0
+| device dffpos.nmos_3 510 440
+n dffpos.net_4 gnd dffpos.net_1 30.0 84.0
+| device dffpos.nmos_4 250 450
+n dffpos.Clk_b dffpos.net_2 dffpos.net_4 30.0 84.0
+| device dffpos.nmos_5 250 530
+n net_3 gnd dffpos.net_2 30.0 84.0
+| device dffpos.pmos_4 250 350
+p clk dffpos.net_8 dffpos.net_4 30.0 84.0
+| device dffpos.pmos_5 250 270
+p net_3 vdd dffpos.net_8 30.0 84.0
+| device dffpos.pmos_6 890 350
+p dffpos.Clk_b dffpos.net_9 dffpos.net_3 30.0 84.0
+| device dffpos.nmos_6 890 450
+n clk dffpos.net_5 dffpos.net_3 30.0 84.0
+| device dffpos.nmos_7 890 530
+n dffpos.net_1 gnd dffpos.net_5 30.0 84.0
+| device dffpos.pmos_7 890 270
+p dffpos.net_1 vdd dffpos.net_9 30.0 84.0
+| device dffpos.pmos_8 1190 360
+p dffpos.net_3 vdd Out 30.0 168.0
+| device dffpos.nmos_8 1190 440
+n dffpos.net_3 gnd Out 30.0 84.0
+| device dffpos.pmos_9 1100 -100
+p Out vdd dffpos.net_7 30.0 84.0
+| device dffpos.pmos_10 1100 -20
+p clk dffpos.net_7 dffpos.net_3 30.0 84.0
+| device dffpos.nmos_9 1100 80
+n dffpos.Clk_b dffpos.net_11 dffpos.net_3 30.0 84.0
+| device dffpos.nmos_10 1100 160
+n Out gnd dffpos.net_11 30.0 84.0
+| end dffpos
+| begin inv 50 610
+| device inv.p0 400 220
+p EN Vdd net_2 30.0 1200
+| device inv.n0 400 380
+n EN Gnd net_2 30.0 600
+| end inv
+| begin mux21 300 630
+| device mux21.nmos 210 150
+n EN net_1 net_3 30.0 104.0
+| device mux21.pmos 210 150
+p net_2 net_1 net_3 30.0 252.0
+| device mux21.nmos_1 210 340
+n net_2 Out net_3 30.0 104.0
+| device mux21.pmos_1 210 340
+p EN Out net_3 30.0 252.0
+| end mux21
+| begin FA 300 400
+| device FA.pmos -250 290
+p Cin FA.net_7 FA.net_2 30.0 600
+| device FA.pmos_1 -150 210
+p B vdd FA.net_7 30.0 600
+| device FA.pmos_2 40 210
+p A vdd FA.net_10 30.0 600
+| device FA.pmos_3 40 290
+p B FA.net_10 FA.net_2 30.0 600
+| device FA.pmos_4 250 210
+p A vdd FA.net_6 30.0 600.0
+| device FA.pmos_5 430 210
+p B vdd FA.net_6 30.0 600.0
+| device FA.pmos_6 610 210
+p Cin vdd FA.net_6 30.0 600.0
+| device FA.pmos_7 810 290
+p Cin FA.net_1 FA.net_4 30.0 600.0
+| device FA.pmos_8 810 210
+p B FA.net_12 FA.net_1 30.0 600.0
+| device FA.pmos_9 810 130
+p A vdd FA.net_12 30.0 600.0
+| device FA.pmos_10 430 290
+p FA.net_2 FA.net_6 FA.net_4 30.0 600.0
+| device FA.pmos_11 -320 210
+p A vdd FA.net_7 30.0 600.0
+| device FA.nmos -250 370
+n Cin FA.net_3 FA.net_2 30.0 104.0
+| device FA.nmos_1 -320 450
+n A gnd FA.net_3 30.0 104.0
+| device FA.nmos_2 -150 450
+n B gnd FA.net_3 30.0 104.0
+| device FA.nmos_3 40 450
+n A gnd FA.net_11 30.0 104.0
+| device FA.nmos_4 40 370
+n B FA.net_11 FA.net_2 30.0 104.0
+| device FA.nmos_5 250 450
+n A gnd FA.net_9 30.0 104.0
+| device FA.nmos_6 430 450
+n B gnd FA.net_9 30.0 104.0
+| device FA.nmos_7 610 450
+n Cin gnd FA.net_9 30.0 104.0
+| device FA.nmos_8 430 370
+n FA.net_2 FA.net_9 FA.net_4 30.0 104.0
+| device FA.nmos_9 810 370
+n Cin FA.net_5 FA.net_4 30.0 104.0
+| device FA.nmos_10 810 450
+n B FA.net_8 FA.net_5 30.0 104.0
+| device FA.nmos_11 810 530
+n A gnd FA.net_8 30.0 104.0
+| device FA.pmos_12 290 620
+p FA.net_2 vdd Cout 30.0 600
+| device FA.nmos_12 290 760
+n FA.net_2 gnd Cout 30.0 104.0
+| device FA.pmos_13 970 250
+p FA.net_4 vdd net_1 30.0 600
+| device FA.nmos_13 970 390
+n FA.net_4 gnd net_1 30.0 104.0
+| end FA

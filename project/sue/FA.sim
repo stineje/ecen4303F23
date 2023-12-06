@@ -1,0 +1,63 @@
+| units: 0.5  tech: sky130A  format: MIT
+A A input
+A B input
+A CI input
+A Cin input
+A CO output
+A S output
+| device pmos -250 290
+p Cin net_7 net_2 30.0 600
+| device pmos_1 -150 210
+p B vdd net_7 30.0 600
+| device pmos_2 40 210
+p A vdd net_10 30.0 600
+| device pmos_3 40 290
+p B net_10 net_2 30.0 600
+| device pmos_4 250 210
+p A vdd net_6 30.0 600.0
+| device pmos_5 430 210
+p B vdd net_6 30.0 600.0
+| device pmos_6 610 210
+p Cin vdd net_6 30.0 600.0
+| device pmos_7 810 290
+p Cin net_1 net_4 30.0 600.0
+| device pmos_8 810 210
+p B net_12 net_1 30.0 600.0
+| device pmos_9 810 130
+p A vdd net_12 30.0 600.0
+| device pmos_10 430 290
+p net_2 net_6 net_4 30.0 600.0
+| device pmos_11 -320 210
+p A vdd net_7 30.0 600.0
+| device nmos -250 370
+n Cin net_3 net_2 30.0 104.0
+| device nmos_1 -320 450
+n A gnd net_3 30.0 104.0
+| device nmos_2 -150 450
+n B gnd net_3 30.0 104.0
+| device nmos_3 40 450
+n A gnd net_11 30.0 104.0
+| device nmos_4 40 370
+n B net_11 net_2 30.0 104.0
+| device nmos_5 250 450
+n A gnd net_9 30.0 104.0
+| device nmos_6 430 450
+n B gnd net_9 30.0 104.0
+| device nmos_7 610 450
+n CI gnd net_9 30.0 104.0
+| device nmos_8 430 370
+n net_2 net_9 net_4 30.0 104.0
+| device nmos_9 810 370
+n Cin net_5 net_4 30.0 104.0
+| device nmos_10 810 450
+n B net_8 net_5 30.0 104.0
+| device nmos_11 810 530
+n A gnd net_8 30.0 104.0
+| device pmos_12 290 620
+p net_2 vdd CO 30.0 600
+| device nmos_12 290 760
+n net_2 gnd CO 30.0 104.0
+| device pmos_13 970 250
+p net_4 vdd S 30.0 600
+| device nmos_13 970 390
+n net_4 gnd S 30.0 104.0
