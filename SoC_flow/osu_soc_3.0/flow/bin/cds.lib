@@ -1,6 +1,0 @@
--- Default cds.lib Library file
--- Add you libraries manually or within the Library Manager
---
--- Modify to specify the location of the NCSU CDK ncsu.lib file
-INCLUDE /import/cadence1/IC50.33_ISR20051013/local/cdssetup/ncsu.lib
-

@@ -1,6 +1,0 @@
-db_open osu05_stdcells
-
-db_output -r osu05_stdcells.rep -alf osu05_stdcells.alf -p typical
-
-db_close
-exit

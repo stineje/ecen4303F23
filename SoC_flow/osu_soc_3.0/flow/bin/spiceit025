@@ -1,5 +1,0 @@
-base=26
-end=110
-head -$base $OSUcells/flow/bin/template025.sp > $1.sp
-cat $1.spice >> $1.sp
-tail -$end  $OSUcells/flow/bin/template025.sp >> $1.sp
