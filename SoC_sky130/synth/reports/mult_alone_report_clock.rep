@@ -1,0 +1,20 @@
+ 
+****************************************
+Report : clocks
+Design : mult_alone
+Version: R-2020.09-SP5
+Date   : Fri Dec  1 16:06:30 2023
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+clk           10.000000 {0 5}               f         {clk}
+--------------------------------------------------------------------------------
+1

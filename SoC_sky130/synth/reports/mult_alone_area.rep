@@ -1,0 +1,52 @@
+ 
+****************************************
+Report : area
+Design : mult_alone
+Version: R-2020.09-SP5
+Date   : Fri Dec  1 16:06:30 2023
+****************************************
+
+Library(s) Used:
+
+    sky130_osu_sc_12T_ms_tt_1P80_25C.ccs (File: /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.db)
+
+Number of ports:                           34
+Number of nets:                           474
+Number of cells:                          444
+Number of combinational cells:            428
+Number of sequential cells:                16
+Number of macros/black boxes:               0
+Number of buf/inv:                         39
+Number of references:                      12
+
+Combinational area:               3614.159950
+Buf/Inv area:                      171.428394
+Noncombinational area:             679.852783
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                  4294.012733
+Total area:                 undefined
+
+The above information was reported from the logical library. The following are from the physical library:
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area          Local cell area
+                                  ------------------  ---------------------------- 
+Hierarchical cell                 Absolute   Percent  Combi-     Noncombi-  Black-
+                                  Total      Total    national   national   boxes   Design
+--------------------------------  ---------  -------  ---------  ---------  ------  ---------
+mult_alone                        4294.0127    100.0  3614.1599   679.8528  0.0000  mult_alone
+--------------------------------  ---------  -------  ---------  ---------  ------  ---------
+Total                                                 3614.1599   679.8528  0.0000
+
+
+Area of detected synthetic parts
+--------------------------------
+  No DW parts to report!
+
+Total synthetic cell area:              0.0000  0.0%  
+
+1

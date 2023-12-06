@@ -1,0 +1,860 @@
+[12/02 11:54:03      0s] 
+[12/02 11:54:03      0s] Cadence Innovus(TM) Implementation System.
+[12/02 11:54:03      0s] Copyright 2019 Cadence Design Systems, Inc. All rights reserved worldwide.
+[12/02 11:54:03      0s] 
+[12/02 11:54:03      0s] Version:	v19.18-s072_1, built Thu Apr 8 10:55:52 PDT 2021
+[12/02 11:54:03      0s] Options:	-init FF/INNOVUS/run_cts.tcl -log LOG/cts.log -overwrite -nowin 
+[12/02 11:54:03      0s] Date:		Sat Dec  2 11:54:03 2023
+[12/02 11:54:03      0s] Host:		rivendell.ecen.okstate.edu (x86_64 w/Linux 3.10.0-1160.95.1.el7.x86_64) (6cores*12cpus*Intel(R) Xeon(R) CPU E5-4617 0 @ 2.90GHz 15360KB)
+[12/02 11:54:03      0s] OS:		Red Hat Enterprise Linux Server release 7.9 (Maipo)
+[12/02 11:54:03      0s] 
+[12/02 11:54:03      0s] License:
+[12/02 11:54:03      0s] 		invs	Innovus Implementation System	19.1	checkout succeeded
+[12/02 11:54:03      0s] 		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+[12/02 11:54:16     12s] @(#)CDS: Innovus v19.18-s072_1 (64bit) 04/08/2021 10:55 (Linux 2.6.32-431.11.2.el6.x86_64)
+[12/02 11:54:16     12s] @(#)CDS: NanoRoute 19.18-s072_1 NR210301-2308/19_18-UB (database version 18.20, 511.7.1) {superthreading v1.53}
+[12/02 11:54:16     12s] @(#)CDS: AAE 19.18-s017 (64bit) 04/08/2021 (Linux 2.6.32-431.11.2.el6.x86_64)
+[12/02 11:54:16     12s] @(#)CDS: CTE 19.18-s016_1 () Mar 23 2021 22:00:45 ( )
+[12/02 11:54:16     12s] @(#)CDS: SYNTECH 19.18-s008_1 () Mar 17 2021 22:55:16 ( )
+[12/02 11:54:16     12s] @(#)CDS: CPE v19.18-s025
+[12/02 11:54:16     12s] @(#)CDS: IQuantus/TQuantus 19.1.3-s268 (64bit) Mon Aug 10 22:57:12 PDT 2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+[12/02 11:54:16     12s] @(#)CDS: OA 22.60-p050 Thu Dec 17 03:05:13 2020
+[12/02 11:54:16     12s] @(#)CDS: SGN 20.10-d001 (01-Jun-2020) (64 bit executable, Qt5.9.0)
+[12/02 11:54:16     12s] @(#)CDS: RCDB 11.14.18
+[12/02 11:54:16     12s] @(#)CDS: STYLUS 19.10-s021_1 (10/28/2020 08:51 PDT)
+[12/02 11:54:16     12s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_103463_rivendell.ecen.okstate.edu_jstine_T3b7a2.
+
+[12/02 11:54:16     12s] Change the soft stacksize limit to 0.2%RAM (257 mbytes). Set global soft_stack_size_limit to change the value.
+[12/02 11:54:16     12s] 
+[12/02 11:54:16     12s] **INFO:  MMMC transition support version v31-84 
+[12/02 11:54:16     12s] 
+[12/02 11:54:16     12s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[12/02 11:54:16     12s] <CMD> suppressMessage ENCEXT-2799
+[12/02 11:54:16     12s] <CMD> getVersion
+[12/02 11:54:16     12s] [INFO] Loading Pegasus 20.40 fill procedures
+[12/02 11:54:16     12s] **WARN: Tk package not loaded. The Pegasus fill DRC monitor is disabled.
+[12/02 11:54:17     12s] Sourcing file "FF/INNOVUS/run_cts.tcl" ...
+[12/02 11:54:17     12s] <FF> Finished loading setup.tcl
+[12/02 11:54:17     12s] <CMD> setDistributeHost -local
+[12/02 11:54:17     12s] The timeout for a remote job to respond is 3600 seconds.
+[12/02 11:54:17     12s] Submit command for task runs will be: local
+[12/02 11:54:17     12s] <CMD> setMultiCpuUsage -localCpu 1
+[12/02 11:54:17     12s] <CMD> restoreDesign DBS/place.enc.dat mult_alone
+[12/02 11:54:17     13s] #% Begin load design ... (date=12/02 11:54:17, mem=474.6M)
+[12/02 11:54:17     13s] Set Default Input Pin Transition as 0.1 ps.
+[12/02 11:54:17     13s] Loading design 'mult_alone' saved by 'Innovus' '19.18-s072_1' on 'Fri Dec 1 16:57:20 2023'.
+[12/02 11:54:17     13s] % Begin Load MMMC data ... (date=12/02 11:54:17, mem=476.5M)
+[12/02 11:54:17     13s] % End Load MMMC data ... (date=12/02 11:54:17, total cpu=0:00:00.0, real=0:00:00.0, peak res=476.6M, current mem=476.6M)
+[12/02 11:54:17     13s] 
+[12/02 11:54:17     13s] Loading LEF file /home/jstine/ecen4303/ecen4303F23/SoC_sky130/par/DBS/place.enc.dat/libs/lef/sky130_osu_sc_12T.tlef ...
+[12/02 11:54:17     13s] **WARN: (IMPLF-155):	ViaRule only supports routing/cut layer, but poly layer found for viaRule 'L1M1_PR', 
+[12/02 11:54:17     13s] **WARN: (IMPLF-155):	ViaRule only supports routing/cut layer, but poly layer found for viaRule 'L1M1_PR_R', 
+[12/02 11:54:17     13s] **WARN: (IMPLF-155):	ViaRule only supports routing/cut layer, but poly layer found for viaRule 'L1M1_PR_M', 
+[12/02 11:54:17     13s] **WARN: (IMPLF-155):	ViaRule only supports routing/cut layer, but poly layer found for viaRule 'L1M1_PR_MR', 
+[12/02 11:54:17     13s] **WARN: (IMPLF-155):	ViaRule only supports routing/cut layer, but poly layer found for viaRule 'L1M1_PR_C', 
+[12/02 11:54:17     13s] 
+[12/02 11:54:17     13s] Loading LEF file /home/jstine/ecen4303/ecen4303F23/SoC_sky130/par/DBS/place.enc.dat/libs/lef/sky130_osu_sc_12T_ms.lef ...
+[12/02 11:54:17     13s] **WARN: (IMPLF-108):	There is no overlap layer defined in any LEF file
+[12/02 11:54:17     13s] so you are unable to create rectilinear partition in a hierarchical flow.
+[12/02 11:54:17     13s] Set DBUPerIGU to M2 pitch 480.
+[12/02 11:54:17     13s] **WARN: (IMPLF-200):	Pin 'A' in macro 'sky130_osu_sc_12T_ms__xor2_l' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-200' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-200):	Pin 'B' in macro 'sky130_osu_sc_12T_ms__xor2_l' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-200' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__xor2_l' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-201' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-200):	Pin 'A' in macro 'sky130_osu_sc_12T_ms__xnor2_l' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-200' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-200):	Pin 'B' in macro 'sky130_osu_sc_12T_ms__xnor2_l' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-200' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__xnor2_l' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-201' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-200):	Pin 'A' in macro 'sky130_osu_sc_12T_ms__tnbufi_l' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-200' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-200):	Pin 'OE' in macro 'sky130_osu_sc_12T_ms__tnbufi_l' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-200' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__tnbufi_l' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-201' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-200):	Pin 'A' in macro 'sky130_osu_sc_12T_ms__tnbufi_1' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-200' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-200):	Pin 'OE' in macro 'sky130_osu_sc_12T_ms__tnbufi_1' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-200' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__tnbufi_1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-201' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__tielo' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-201' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__tiehi' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-201' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-200):	Pin 'A' in macro 'sky130_osu_sc_12T_ms__tbufi_l' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-200' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-200):	Pin 'OE' in macro 'sky130_osu_sc_12T_ms__tbufi_l' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-200' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__tbufi_l' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-201' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-200):	Pin 'A' in macro 'sky130_osu_sc_12T_ms__tbufi_1' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-200' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-200):	Pin 'OE' in macro 'sky130_osu_sc_12T_ms__tbufi_1' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-200' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__tbufi_1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-201' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-200):	Pin 'A' in macro 'sky130_osu_sc_12T_ms__or2_l' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-200' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-200):	Pin 'B' in macro 'sky130_osu_sc_12T_ms__or2_l' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-200' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__or2_l' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-201' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-200):	Pin 'A' in macro 'sky130_osu_sc_12T_ms__or2_8' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-200' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-200):	Pin 'B' in macro 'sky130_osu_sc_12T_ms__or2_8' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-200' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__or2_8' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-201' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-200):	Pin 'A' in macro 'sky130_osu_sc_12T_ms__or2_4' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-200' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-200):	Pin 'B' in macro 'sky130_osu_sc_12T_ms__or2_4' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-200' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__or2_4' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-201' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-200):	Pin 'A' in macro 'sky130_osu_sc_12T_ms__or2_2' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-200' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-200):	Pin 'B' in macro 'sky130_osu_sc_12T_ms__or2_2' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-200' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__or2_2' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-201' for more detail.
+[12/02 11:54:17     13s] **WARN: (EMS-27):	Message (IMPLF-200) has exceeded the current message display limit of 20.
+[12/02 11:54:17     13s] To increase the message display limit, refer to the product command reference manual.
+[12/02 11:54:17     13s] **WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__or2_1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-201' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__oai22_l' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-201' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__oai21_l' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-201' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__nor2_l' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-201' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__nor2_1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-201' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__nand2_l' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-201' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__nand2_1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-201' for more detail.
+[12/02 11:54:17     13s] **WARN: (IMPLF-201):	Pin 'S0' in macro 'sky130_osu_sc_12T_ms__mux2_1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[12/02 11:54:17     13s] Type 'man IMPLF-201' for more detail.
+[12/02 11:54:17     13s] **WARN: (EMS-27):	Message (IMPLF-201) has exceeded the current message display limit of 20.
+[12/02 11:54:17     13s] To increase the message display limit, refer to the product command reference manual.
+[12/02 11:54:17     13s] 
+[12/02 11:54:17     13s] viaInitial starts at Sat Dec  2 11:54:17 2023
+viaInitial ends at Sat Dec  2 11:54:17 2023
+
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+[12/02 11:54:17     13s] Loading view definition file from DBS/place.enc.dat/viewDefinition.tcl
+[12/02 11:54:17     13s] Reading libs_tt timing library '/programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib' ...
+[12/02 11:54:17     13s] **WARN: (TECHLIB-1398):	The 'output_current_rise' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '48.040298'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 116867)
+[12/02 11:54:17     13s] **WARN: (TECHLIB-1398):	The 'output_current_rise' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '56.279999'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117029)
+[12/02 11:54:17     13s] **WARN: (TECHLIB-1398):	The 'output_current_rise' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '62.071899'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117083)
+[12/02 11:54:17     13s] **WARN: (TECHLIB-1398):	The 'output_current_rise' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '39.416901'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 116984)
+[12/02 11:54:17     13s] **WARN: (TECHLIB-1398):	The 'output_current_rise' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '62.567299'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117038)
+[12/02 11:54:17     13s] **WARN: (TECHLIB-1398):	The 'output_current_rise' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '65.067703'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 116993)
+[12/02 11:54:17     13s] **WARN: (TECHLIB-1398):	The 'output_current_fall' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '35.406399'. The last '2' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117193)
+[12/02 11:54:17     13s] **WARN: (TECHLIB-1398):	The 'output_current_fall' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '44.683899'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117301)
+[12/02 11:54:17     13s] **WARN: (TECHLIB-1398):	The 'output_current_fall' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '47.228699'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117202)
+[12/02 11:54:17     13s] **WARN: (TECHLIB-1398):	The 'output_current_fall' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '47.228600'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117256)
+[12/02 11:54:17     13s] **WARN: (TECHLIB-1398):	The 'output_current_fall' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '47.228199'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117310)
+[12/02 11:54:17     13s] **WARN: (TECHLIB-1398):	The 'output_current_fall' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '41.217300'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117364)
+[12/02 11:54:17     13s] **WARN: (TECHLIB-1398):	The 'output_current_fall' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '47.228600'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117211)
+[12/02 11:54:17     13s] **WARN: (TECHLIB-1398):	The 'output_current_fall' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '47.228600'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117265)
+[12/02 11:54:17     13s] **WARN: (TECHLIB-1398):	The 'output_current_fall' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '43.119801'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117373)
+[12/02 11:54:17     13s] **WARN: (TECHLIB-1398):	The 'output_current_rise' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_l' has very long tail with time value reaching '58.996201'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 123936)
+[12/02 11:54:17     13s] **WARN: (TECHLIB-1398):	The 'output_current_rise' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_l' has very long tail with time value reaching '37.974800'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 123837)
+[12/02 11:54:17     13s] **WARN: (TECHLIB-1398):	The 'output_current_rise' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_l' has very long tail with time value reaching '58.234402'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 123891)
+[12/02 11:54:17     13s] **WARN: (TECHLIB-1398):	The 'output_current_rise' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_l' has very long tail with time value reaching '58.834599'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 123945)
+[12/02 11:54:17     13s] **WARN: (TECHLIB-1398):	The 'output_current_fall' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_l' has very long tail with time value reaching '16.971100'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 124154)
+[12/02 11:54:17     13s] Message <TECHLIB-1398> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+[12/02 11:54:17     13s] **WARN: (TECHLIB-1279):	For cell 'sky130_osu_sc_12T_ms__dffs_1', in group 'output_current_fall', voltage swing on pin/bus/bundle 'Q' with load '0.001246' and slew '0.039000' is '86.5%', should be within five percent of 'vss'. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 144878)
+[12/02 11:54:17     13s] **WARN: (TECHLIB-302):	No function defined for cell 'sky130_osu_sc_12T_ms__ant'. The cell will only be used for analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib)
+[12/02 11:54:17     13s] Read 57 cells in library 'sky130_osu_sc_12T_ms_tt_1P80_25C.ccs' 
+[12/02 11:54:17     13s] Ending "PreSetAnalysisView" (total cpu=0:00:00.5, real=0:00:00.0, peak res=549.2M, current mem=489.1M)
+[12/02 11:54:17     13s] *** End library_loading (cpu=0.01min, real=0.00min, mem=10.0M, fe_cpu=0.23min, fe_real=0.23min, fe_mem=1121.5M) ***
+[12/02 11:54:18     13s] % Begin Load netlist data ... (date=12/02 11:54:17, mem=489.1M)
+[12/02 11:54:18     13s] *** Begin netlist parsing (mem=1121.5M) ***
+[12/02 11:54:18     13s] **WARN: (IMPVL-159):	Pin 'gnd' of cell 'sky130_osu_sc_12T_ms__xor2_l' is defined in LEF but not in the timing library.
+[12/02 11:54:18     13s] Type 'man IMPVL-159' for more detail.
+[12/02 11:54:18     13s] **WARN: (IMPVL-159):	Pin 'vdd' of cell 'sky130_osu_sc_12T_ms__xor2_l' is defined in LEF but not in the timing library.
+[12/02 11:54:18     13s] Type 'man IMPVL-159' for more detail.
+[12/02 11:54:18     13s] **WARN: (IMPVL-159):	Pin 'gnd' of cell 'sky130_osu_sc_12T_ms__xnor2_l' is defined in LEF but not in the timing library.
+[12/02 11:54:18     13s] Type 'man IMPVL-159' for more detail.
+[12/02 11:54:18     13s] **WARN: (IMPVL-159):	Pin 'vdd' of cell 'sky130_osu_sc_12T_ms__xnor2_l' is defined in LEF but not in the timing library.
+[12/02 11:54:18     13s] Type 'man IMPVL-159' for more detail.
+[12/02 11:54:18     13s] **WARN: (IMPVL-159):	Pin 'gnd' of cell 'sky130_osu_sc_12T_ms__tnbufi_l' is defined in LEF but not in the timing library.
+[12/02 11:54:18     13s] Type 'man IMPVL-159' for more detail.
+[12/02 11:54:18     13s] **WARN: (IMPVL-159):	Pin 'vdd' of cell 'sky130_osu_sc_12T_ms__tnbufi_l' is defined in LEF but not in the timing library.
+[12/02 11:54:18     13s] Type 'man IMPVL-159' for more detail.
+[12/02 11:54:18     13s] **WARN: (IMPVL-159):	Pin 'gnd' of cell 'sky130_osu_sc_12T_ms__tnbufi_1' is defined in LEF but not in the timing library.
+[12/02 11:54:18     13s] Type 'man IMPVL-159' for more detail.
+[12/02 11:54:18     13s] **WARN: (IMPVL-159):	Pin 'vdd' of cell 'sky130_osu_sc_12T_ms__tnbufi_1' is defined in LEF but not in the timing library.
+[12/02 11:54:18     13s] Type 'man IMPVL-159' for more detail.
+[12/02 11:54:18     13s] **WARN: (IMPVL-159):	Pin 'gnd' of cell 'sky130_osu_sc_12T_ms__tielo' is defined in LEF but not in the timing library.
+[12/02 11:54:18     13s] Type 'man IMPVL-159' for more detail.
+[12/02 11:54:18     13s] **WARN: (IMPVL-159):	Pin 'vdd' of cell 'sky130_osu_sc_12T_ms__tielo' is defined in LEF but not in the timing library.
+[12/02 11:54:18     13s] Type 'man IMPVL-159' for more detail.
+[12/02 11:54:18     13s] **WARN: (IMPVL-159):	Pin 'gnd' of cell 'sky130_osu_sc_12T_ms__tiehi' is defined in LEF but not in the timing library.
+[12/02 11:54:18     13s] Type 'man IMPVL-159' for more detail.
+[12/02 11:54:18     13s] **WARN: (IMPVL-159):	Pin 'vdd' of cell 'sky130_osu_sc_12T_ms__tiehi' is defined in LEF but not in the timing library.
+[12/02 11:54:18     13s] Type 'man IMPVL-159' for more detail.
+[12/02 11:54:18     13s] **WARN: (IMPVL-159):	Pin 'gnd' of cell 'sky130_osu_sc_12T_ms__tbufi_l' is defined in LEF but not in the timing library.
+[12/02 11:54:18     13s] Type 'man IMPVL-159' for more detail.
+[12/02 11:54:18     13s] **WARN: (IMPVL-159):	Pin 'vdd' of cell 'sky130_osu_sc_12T_ms__tbufi_l' is defined in LEF but not in the timing library.
+[12/02 11:54:18     13s] Type 'man IMPVL-159' for more detail.
+[12/02 11:54:18     13s] **WARN: (IMPVL-159):	Pin 'gnd' of cell 'sky130_osu_sc_12T_ms__tbufi_1' is defined in LEF but not in the timing library.
+[12/02 11:54:18     13s] Type 'man IMPVL-159' for more detail.
+[12/02 11:54:18     13s] **WARN: (IMPVL-159):	Pin 'vdd' of cell 'sky130_osu_sc_12T_ms__tbufi_1' is defined in LEF but not in the timing library.
+[12/02 11:54:18     13s] Type 'man IMPVL-159' for more detail.
+[12/02 11:54:18     13s] **WARN: (IMPVL-159):	Pin 'gnd' of cell 'sky130_osu_sc_12T_ms__or2_l' is defined in LEF but not in the timing library.
+[12/02 11:54:18     13s] Type 'man IMPVL-159' for more detail.
+[12/02 11:54:18     13s] **WARN: (IMPVL-159):	Pin 'vdd' of cell 'sky130_osu_sc_12T_ms__or2_l' is defined in LEF but not in the timing library.
+[12/02 11:54:18     13s] Type 'man IMPVL-159' for more detail.
+[12/02 11:54:18     13s] **WARN: (IMPVL-159):	Pin 'gnd' of cell 'sky130_osu_sc_12T_ms__or2_8' is defined in LEF but not in the timing library.
+[12/02 11:54:18     13s] Type 'man IMPVL-159' for more detail.
+[12/02 11:54:18     13s] **WARN: (IMPVL-159):	Pin 'vdd' of cell 'sky130_osu_sc_12T_ms__or2_8' is defined in LEF but not in the timing library.
+[12/02 11:54:18     13s] Type 'man IMPVL-159' for more detail.
+[12/02 11:54:18     13s] **WARN: (EMS-27):	Message (IMPVL-159) has exceeded the current message display limit of 20.
+[12/02 11:54:18     13s] To increase the message display limit, refer to the product command reference manual.
+[12/02 11:54:18     13s] Created 57 new cells from 1 timing libraries.
+[12/02 11:54:18     13s] Reading netlist ...
+[12/02 11:54:18     13s] Backslashed names will retain backslash and a trailing blank character.
+[12/02 11:54:18     13s] Reading verilogBinary netlist '/home/jstine/ecen4303/ecen4303F23/SoC_sky130/par/DBS/place.enc.dat/mult_alone.v.bin'
+[12/02 11:54:18     13s] Reading binary database version 2 in 1-threaded mode
+[12/02 11:54:18     13s] 
+[12/02 11:54:18     13s] *** Memory Usage v#1 (Current mem = 1129.516M, initial mem = 497.086M) ***
+[12/02 11:54:18     13s] *** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1129.5M) ***
+[12/02 11:54:18     13s] % End Load netlist data ... (date=12/02 11:54:18, total cpu=0:00:00.0, real=0:00:00.0, peak res=492.7M, current mem=492.7M)
+[12/02 11:54:18     13s] Set top cell to mult_alone.
+[12/02 11:54:18     13s] **WARN: (IMPTS-124):	Timing library description of pin 'ON' is missing from cell 'sky130_osu_sc_12T_ms__dff_l' in timing library 'sky130_osu_sc_12T_ms_tt_1P80_25C.ccs'.
+[12/02 11:54:18     13s] **WARN: (IMPTS-124):	Timing library description of pin 'ON' is missing from cell 'sky130_osu_sc_12T_ms__dff_1' in timing library 'sky130_osu_sc_12T_ms_tt_1P80_25C.ccs'.
+[12/02 11:54:18     13s] Hooked 57 DB cells to tlib cells.
+[12/02 11:54:18     13s] ** Removed 2 unused lib cells.
+[12/02 11:54:18     13s] Ending "BindLib:" (total cpu=0:00:00.0, real=0:00:00.0, peak res=494.2M, current mem=494.2M)
+[12/02 11:54:18     13s] Starting recursive module instantiation check.
+[12/02 11:54:18     13s] No recursion found.
+[12/02 11:54:18     13s] Building hierarchical netlist for Cell mult_alone ...
+[12/02 11:54:18     13s] *** Netlist is unique.
+[12/02 11:54:18     13s] Set DBUPerIGU to techSite 12T width 110.
+[12/02 11:54:18     13s] Setting Std. cell height to 4440 DBU (smallest netlist inst).
+[12/02 11:54:18     13s] ** info: there are 67 modules.
+[12/02 11:54:18     13s] ** info: there are 410 stdCell insts.
+[12/02 11:54:18     13s] 
+[12/02 11:54:18     13s] *** Memory Usage v#1 (Current mem = 1136.930M, initial mem = 497.086M) ***
+[12/02 11:54:18     13s] *info: set bottom ioPad orient R0
+[12/02 11:54:18     13s] Horizontal Layer M1 offset = 185 (guessed)
+[12/02 11:54:18     13s] Vertical Layer M2 offset = 240 (guessed)
+[12/02 11:54:18     13s] Suggestion: specify LAYER OFFSET in LEF file
+[12/02 11:54:18     13s] Reason: hard to extract LAYER OFFSET from standard cells
+[12/02 11:54:18     13s] Generated pitch 3.66 in met5 is different from 3.33 defined in technology file in preferred direction.
+[12/02 11:54:18     13s] Generated pitch 0.615 in met4 is different from 0.96 defined in technology file in preferred direction.
+[12/02 11:54:18     13s] Generated pitch 0.61 in met3 is different from 0.74 defined in technology file in preferred direction.
+[12/02 11:54:18     13s] Set Default Net Delay as 1000 ps.
+[12/02 11:54:18     13s] Set Default Net Load as 0.5 pF. 
+[12/02 11:54:18     13s] Set Default Input Pin Transition as 0.1 ps.
+[12/02 11:54:18     14s] Loading preference file DBS/place.enc.dat/gui.pref.tcl ...
+[12/02 11:54:18     14s] ##  Process: 130           (User Set)               
+[12/02 11:54:18     14s] ##     Node: (not set)                           
+[12/02 11:54:18     14s] 
+##  Check design process and node:  
+##  Design tech node is not set.
+
+[12/02 11:54:18     14s] Applying the recommended capacitance filtering threshold values for 130nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.4.
+[12/02 11:54:18     14s] 	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+[12/02 11:54:18     14s] 	Capacitance filtering mode(-capFilterMode option of the setExtractRCMode) is 'relAndCoup' for all engines.
+[12/02 11:54:18     14s] 	The accuracy mode for postRoute effortLevel low extraction will be set to 'standard'.
+[12/02 11:54:18     14s] 	Default value for EffortLevel(-effortLevel option of the setExtractRCMode) in postRoute extraction mode is 'low'.
+[12/02 11:54:18     14s] **WARN: (IMPCK-8086):	The command setCTSMode is obsolete and will be removed in the next release. This command still works in this release, but by the next release you must transition to the CCOpt-based CTS flow.
+[12/02 11:54:18     14s] **WARN: (IMPCK-8086):	The command setCTSMode is obsolete and will be removed in the next release. This command still works in this release, but by the next release you must transition to the CCOpt-based CTS flow.
+[12/02 11:54:18     14s] addRing command will ignore shorts while creating rings.
+[12/02 11:54:18     14s] addRing command will disallow rings to go over rows.
+[12/02 11:54:18     14s] addRing command will consider rows while creating rings.
+[12/02 11:54:18     14s] The ring targets are set to core/block ring wires.
+[12/02 11:54:18     14s] Extraction setup Delayed 
+[12/02 11:54:18     14s] *Info: initialize multi-corner CTS.
+[12/02 11:54:18     14s] Ending "SetAnalysisView" (total cpu=0:00:00.0, real=0:00:00.0, peak res=670.2M, current mem=508.3M)
+[12/02 11:54:18     14s] Reading timing constraints file '/home/jstine/ecen4303/ecen4303F23/SoC_sky130/par/DBS/place.enc.dat/mmmc/modes/setup_func_mode/setup_func_mode.sdc' ...
+[12/02 11:54:18     14s] Current (total cpu=0:00:14.4, real=0:00:15.0, peak res=681.1M, current mem=681.1M)
+[12/02 11:54:18     14s] INFO (CTE): Constraints read successfully.
+[12/02 11:54:18     14s] Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=700.3M, current mem=700.3M)
+[12/02 11:54:18     14s] Current (total cpu=0:00:14.4, real=0:00:15.0, peak res=700.3M, current mem=700.3M)
+[12/02 11:54:18     14s] Reading latency file '/home/jstine/ecen4303/ecen4303F23/SoC_sky130/par/DBS/place.enc.dat/mmmc/views/setup_func/latency.sdc' ...
+[12/02 11:54:18     14s] Reading latency file '/home/jstine/ecen4303/ecen4303F23/SoC_sky130/par/DBS/place.enc.dat/mmmc/views/hold_func/latency.sdc' ...
+[12/02 11:54:18     14s] Tech dependent Parameter, Build TLibAnalyzer for: cellAreaConsiderPadding
+[12/02 11:54:18     14s] Creating Cell Server ...(0, 1, 1, 1)
+[12/02 11:54:18     14s] Summary for sequential cells identification: 
+[12/02 11:54:18     14s]   Identified SBFF number: 6
+[12/02 11:54:18     14s]   Identified MBFF number: 0
+[12/02 11:54:18     14s]   Identified SB Latch number: 0
+[12/02 11:54:18     14s]   Identified MB Latch number: 0
+[12/02 11:54:18     14s]   Not identified SBFF number: 2
+[12/02 11:54:18     14s]   Not identified MBFF number: 0
+[12/02 11:54:18     14s]   Not identified SB Latch number: 0
+[12/02 11:54:18     14s]   Not identified MB Latch number: 0
+[12/02 11:54:18     14s]   Number of sequential cells which are not FFs: 0
+[12/02 11:54:18     14s] Total number of combinational cells: 43
+[12/02 11:54:18     14s] Total number of sequential cells: 8
+[12/02 11:54:18     14s] Total number of tristate cells: 4
+[12/02 11:54:18     14s] Total number of level shifter cells: 0
+[12/02 11:54:18     14s] Total number of power gating cells: 0
+[12/02 11:54:18     14s] Total number of isolation cells: 0
+[12/02 11:54:18     14s] Total number of power switch cells: 0
+[12/02 11:54:18     14s] Total number of pulse generator cells: 0
+[12/02 11:54:18     14s] Total number of always on buffers: 0
+[12/02 11:54:18     14s] Total number of retention cells: 0
+[12/02 11:54:18     14s] List of usable buffers: sky130_osu_sc_12T_ms__buf_l sky130_osu_sc_12T_ms__buf_1 sky130_osu_sc_12T_ms__buf_2 sky130_osu_sc_12T_ms__buf_4 sky130_osu_sc_12T_ms__buf_8
+[12/02 11:54:18     14s] Total number of usable buffers: 5
+[12/02 11:54:18     14s] List of unusable buffers:
+[12/02 11:54:18     14s] Total number of unusable buffers: 0
+[12/02 11:54:18     14s] List of usable inverters: sky130_osu_sc_12T_ms__inv_1 sky130_osu_sc_12T_ms__inv_10 sky130_osu_sc_12T_ms__inv_l sky130_osu_sc_12T_ms__inv_2 sky130_osu_sc_12T_ms__inv_3 sky130_osu_sc_12T_ms__inv_4 sky130_osu_sc_12T_ms__inv_6 sky130_osu_sc_12T_ms__inv_8
+[12/02 11:54:18     14s] Total number of usable inverters: 8
+[12/02 11:54:18     14s] List of unusable inverters:
+[12/02 11:54:18     14s] Total number of unusable inverters: 0
+[12/02 11:54:18     14s] List of identified usable delay cells:
+[12/02 11:54:18     14s] Total number of identified usable delay cells: 0
+[12/02 11:54:18     14s] List of identified unusable delay cells:
+[12/02 11:54:18     14s] Total number of identified unusable delay cells: 0
+[12/02 11:54:18     14s] Creating Cell Server, finished. 
+[12/02 11:54:18     14s] 
+[12/02 11:54:18     14s] No delay cells were detected in the set of buffers. Buffers will be used to fix hold violations.
+[12/02 11:54:18     14s] Deleting Cell Server ...
+[12/02 11:54:18     14s] Reading floorplan file - DBS/place.enc.dat/mult_alone.fp.gz (mem = 1371.1M).
+[12/02 11:54:18     14s] % Begin Load floorplan data ... (date=12/02 11:54:18, mem=721.6M)
+[12/02 11:54:18     14s] *info: reset 444 existing net BottomPreferredLayer and AvoidDetour
+[12/02 11:54:18     14s] net ignore based on current view = 0
+[12/02 11:54:18     14s] Deleting old partition specification.
+[12/02 11:54:18     14s] Set FPlanBox to (0 0 165600 167610)
+[12/02 11:54:18     14s] Horizontal Layer M1 offset = 185 (guessed)
+[12/02 11:54:18     14s] Vertical Layer M2 offset = 240 (guessed)
+[12/02 11:54:18     14s] Suggestion: specify LAYER OFFSET in LEF file
+[12/02 11:54:18     14s] Reason: hard to extract LAYER OFFSET from standard cells
+[12/02 11:54:18     14s] Generated pitch 3.66 in met5 is different from 3.33 defined in technology file in preferred direction.
+[12/02 11:54:18     14s] Generated pitch 0.615 in met4 is different from 0.96 defined in technology file in preferred direction.
+[12/02 11:54:18     14s] Generated pitch 0.61 in met3 is different from 0.74 defined in technology file in preferred direction.
+[12/02 11:54:18     14s]  ... processed partition successfully.
+[12/02 11:54:18     14s] Reading binary special route file DBS/place.enc.dat/mult_alone.fp.spr.gz (Created by Innovus v19.18-s072_1 on Fri Dec  1 16:57:18 2023, version: 1)
+[12/02 11:54:18     14s] Ending "Read special route file" (total cpu=0:00:00.0, real=0:00:00.0, peak res=724.3M, current mem=724.3M)
+[12/02 11:54:18     14s] Extracting standard cell pins and blockage ...... 
+[12/02 11:54:18     14s] Pin and blockage extraction finished
+[12/02 11:54:18     14s] % End Load floorplan data ... (date=12/02 11:54:18, total cpu=0:00:00.0, real=0:00:00.0, peak res=724.8M, current mem=722.8M)
+[12/02 11:54:18     14s] Reading congestion map file DBS/place.enc.dat/mult_alone.route.congmap.gz ...
+[12/02 11:54:18     14s] % Begin Load SymbolTable ... (date=12/02 11:54:18, mem=725.3M)
+[12/02 11:54:19     14s] Suppress "**WARN ..." messages.
+[12/02 11:54:19     14s] routingBox: (0 0) (165600 167610)
+[12/02 11:54:19     14s] coreBox:    (40320 41070) (125280 125430)
+[12/02 11:54:19     14s] Un-suppress "**WARN ..." messages.
+[12/02 11:54:19     14s] % End Load SymbolTable ... (date=12/02 11:54:19, total cpu=0:00:00.0, real=0:00:01.0, peak res=725.4M, current mem=723.8M)
+[12/02 11:54:19     14s] Loading place ...
+[12/02 11:54:19     14s] % Begin Load placement data ... (date=12/02 11:54:19, mem=723.8M)
+[12/02 11:54:19     14s] Reading placement file - DBS/place.enc.dat/mult_alone.place.gz.
+[12/02 11:54:19     14s] ** Reading stdCellPlacement_binary (Created by Innovus v19.18-s072_1 on Fri Dec  1 16:57:18 2023, version# 2) ...
+[12/02 11:54:19     14s] Read Views for adaptive view pruning ...
+[12/02 11:54:19     14s] Read 0 views from Binary DB for adaptive view pruning
+[12/02 11:54:19     14s] *** Completed restorePlace (cpu=0:00:00.0 real=0:00:00.0 mem=1446.3M) ***
+[12/02 11:54:19     14s] Total net length = 5.467e+03 (2.147e+03 3.320e+03) (ext = 1.526e+03)
+[12/02 11:54:19     14s] % End Load placement data ... (date=12/02 11:54:19, total cpu=0:00:00.0, real=0:00:00.0, peak res=724.6M, current mem=724.6M)
+[12/02 11:54:19     14s] Reading PG file DBS/place.enc.dat/mult_alone.pg.gz
+[12/02 11:54:19     14s] *** Completed restorePGFile (cpu=0:00:00.0 real=0:00:00.0 mem=1442.3M) ***
+[12/02 11:54:19     14s] % Begin Load routing data ... (date=12/02 11:54:19, mem=724.7M)
+[12/02 11:54:19     14s] Reading routing file - DBS/place.enc.dat/mult_alone.route.gz.
+[12/02 11:54:19     14s] Reading Innovus routing data (Created by Innovus v19.18-s072_1 on Fri Dec  1 16:57:18 2023 Format: 19.1) ...
+[12/02 11:54:19     14s] *** Total 442 nets are successfully restored.
+[12/02 11:54:19     14s] *** Completed restoreRoute (cpu=0:00:00.0 real=0:00:00.0 mem=1447.3M) ***
+[12/02 11:54:19     14s] % End Load routing data ... (date=12/02 11:54:19, total cpu=0:00:00.0, real=0:00:00.0, peak res=730.6M, current mem=729.6M)
+[12/02 11:54:19     14s] TAT_INFO: restoreCongMap REAL = 1 : CPU = 0 : MEM = 0.
+[12/02 11:54:19     14s] Reading property file DBS/place.enc.dat/mult_alone.prop
+[12/02 11:54:19     14s] Extracting macro/IO cell pins and blockage ...... 
+[12/02 11:54:19     14s] Pin and blockage extraction finished
+[12/02 11:54:19     14s] *** Completed restoreProperty (cpu=0:00:00.0 real=0:00:00.0 mem=1373.2M) ***
+[12/02 11:54:19     14s] Set Default Input Pin Transition as 0.1 ps.
+[12/02 11:54:19     14s] pesRestorePreRouteExtractionData::readRCCornerMetaData, could not read file: øÍsÞ¬
+[12/02 11:54:19     14s] Extraction setup Started 
+[12/02 11:54:19     14s] Initializing multi-corner RC extraction with 1 active RC Corners ...
+[12/02 11:54:19     14s] **WARN: (IMPEXT-2773):	The via resistance between layers M0 and M1 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[12/02 11:54:19     14s] Type 'man IMPEXT-2773' for more detail.
+[12/02 11:54:19     14s] **WARN: (IMPEXT-2773):	The via resistance between layers M1 and M2 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[12/02 11:54:19     14s] Type 'man IMPEXT-2773' for more detail.
+[12/02 11:54:19     14s] **WARN: (IMPEXT-2773):	The via resistance between layers M2 and M3 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[12/02 11:54:19     14s] Type 'man IMPEXT-2773' for more detail.
+[12/02 11:54:19     14s] **WARN: (IMPEXT-2773):	The via resistance between layers M3 and M4 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[12/02 11:54:19     14s] Type 'man IMPEXT-2773' for more detail.
+[12/02 11:54:19     14s] **WARN: (IMPEXT-2773):	The via resistance between layers M4 and M5 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[12/02 11:54:19     14s] Type 'man IMPEXT-2773' for more detail.
+[12/02 11:54:19     14s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M1 is not defined in the cap table. Therefore, the LEF value 0.125 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[12/02 11:54:19     14s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M2 is not defined in the cap table. Therefore, the LEF value 0.125 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[12/02 11:54:19     14s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M3 is not defined in the cap table. Therefore, the LEF value 0.047 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[12/02 11:54:19     14s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M4 is not defined in the cap table. Therefore, the LEF value 0.047 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[12/02 11:54:19     14s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M5 is not defined in the cap table. Therefore, the LEF value 0.0285 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[12/02 11:54:19     14s] Summary of Active RC-Corners : 
+[12/02 11:54:19     14s]  
+[12/02 11:54:19     14s]  Analysis View: setup_func
+[12/02 11:54:19     14s]     RC-Corner Name        : rc_typ
+[12/02 11:54:19     14s]     RC-Corner Index       : 0
+[12/02 11:54:19     14s]     RC-Corner Temperature : 25 Celsius
+[12/02 11:54:19     14s]     RC-Corner Cap Table   : ''
+[12/02 11:54:19     14s]     RC-Corner PreRoute Res Factor         : 1
+[12/02 11:54:19     14s]     RC-Corner PreRoute Cap Factor         : 1
+[12/02 11:54:19     14s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[12/02 11:54:19     14s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[12/02 11:54:19     14s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[12/02 11:54:19     14s]     RC-Corner PreRoute Clock Res Factor   : 1
+[12/02 11:54:19     14s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from Cap Table]
+[12/02 11:54:19     14s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+[12/02 11:54:19     14s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+[12/02 11:54:19     14s]  
+[12/02 11:54:19     14s]  Analysis View: hold_func
+[12/02 11:54:19     14s]     RC-Corner Name        : rc_typ
+[12/02 11:54:19     14s]     RC-Corner Index       : 0
+[12/02 11:54:19     14s]     RC-Corner Temperature : 25 Celsius
+[12/02 11:54:19     14s]     RC-Corner Cap Table   : ''
+[12/02 11:54:19     14s]     RC-Corner PreRoute Res Factor         : 1
+[12/02 11:54:19     14s]     RC-Corner PreRoute Cap Factor         : 1
+[12/02 11:54:19     14s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[12/02 11:54:19     14s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[12/02 11:54:19     14s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[12/02 11:54:19     14s]     RC-Corner PreRoute Clock Res Factor   : 1
+[12/02 11:54:19     14s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from Cap Table]
+[12/02 11:54:19     14s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+[12/02 11:54:19     14s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+[12/02 11:54:19     14s] LayerId::1 widthSet size::1
+[12/02 11:54:19     14s] LayerId::2 widthSet size::1
+[12/02 11:54:19     14s] LayerId::3 widthSet size::1
+[12/02 11:54:19     14s] LayerId::4 widthSet size::1
+[12/02 11:54:19     14s] LayerId::5 widthSet size::1
+[12/02 11:54:19     14s] pesRestorePreRouteExtractionData::readRCGridDensityData Could not read file:H›Ïß¬
+[12/02 11:54:19     14s] Restore PreRoute RC Grid data failed.LayerId::1 widthSet size::1
+[12/02 11:54:19     14s] LayerId::2 widthSet size::1
+[12/02 11:54:19     14s] LayerId::3 widthSet size::1
+[12/02 11:54:19     14s] LayerId::4 widthSet size::1
+[12/02 11:54:19     14s] LayerId::5 widthSet size::1
+[12/02 11:54:19     14s] Updating RC grid for preRoute extraction ...
+[12/02 11:54:19     14s] Initializing multi-corner resistance tables ...
+[12/02 11:54:19     14s] Loading rc congestion map DBS/place.enc.dat/mult_alone.congmap.gz ...
+[12/02 11:54:19     14s] Preroute length aware model : LLS: 2-3 ; HLS: 3-5 ; rDens: 0.278599 ; uaWl: 0.000000 ; uaWlH: 0.000000 ; aWlH: 0.000000 ; Pmax: 0.860700 ; wcR: 0.337800 ; newSi: 0.082400 ; pMod: 80 ; 
+[12/02 11:54:19     14s] Preroute length aware model : LLS: 2-3 ; HLS: 3-5 ; rDens: 0.278599 ; uaWl: 0.000000 ; uaWlH: 0.000000 ; aWlH: 0.000000 ; Pmax: 0.860700 ; wcR: 0.337800 ; newSi: 0.082400 ; pMod: 80 ; 
+[12/02 11:54:19     14s] Start generating vias ...
+[12/02 11:54:19     14s] #Skip building auto via since it is not turned on.
+[12/02 11:54:19     14s] Extracting standard cell pins and blockage ...... 
+[12/02 11:54:19     14s] Pin and blockage extraction finished
+[12/02 11:54:19     14s] Via generation completed.
+[12/02 11:54:19     14s] % Begin Load power constraints ... (date=12/02 11:54:19, mem=734.8M)
+[12/02 11:54:19     14s] % End Load power constraints ... (date=12/02 11:54:19, total cpu=0:00:00.0, real=0:00:00.0, peak res=735.0M, current mem=735.0M)
+[12/02 11:54:19     14s] % Begin load AAE data ... (date=12/02 11:54:19, mem=735.0M)
+[12/02 11:54:20     15s] AAE DB initialization (MEM=1471.17 CPU=0:00:00.4 REAL=0:00:00.0) 
+[12/02 11:54:20     15s] % End load AAE data ... (date=12/02 11:54:20, total cpu=0:00:00.8, real=0:00:01.0, peak res=741.7M, current mem=741.7M)
+[12/02 11:54:20     15s] Creating Cell Server ...(0, 1, 1, 1)
+[12/02 11:54:20     15s] Summary for sequential cells identification: 
+[12/02 11:54:20     15s]   Identified SBFF number: 6
+[12/02 11:54:20     15s]   Identified MBFF number: 0
+[12/02 11:54:20     15s]   Identified SB Latch number: 0
+[12/02 11:54:20     15s]   Identified MB Latch number: 0
+[12/02 11:54:20     15s]   Not identified SBFF number: 2
+[12/02 11:54:20     15s]   Not identified MBFF number: 0
+[12/02 11:54:20     15s]   Not identified SB Latch number: 0
+[12/02 11:54:20     15s]   Not identified MB Latch number: 0
+[12/02 11:54:20     15s]   Number of sequential cells which are not FFs: 0
+[12/02 11:54:20     15s] Total number of combinational cells: 43
+[12/02 11:54:20     15s] Total number of sequential cells: 8
+[12/02 11:54:20     15s] Total number of tristate cells: 4
+[12/02 11:54:20     15s] Total number of level shifter cells: 0
+[12/02 11:54:20     15s] Total number of power gating cells: 0
+[12/02 11:54:20     15s] Total number of isolation cells: 0
+[12/02 11:54:20     15s] Total number of power switch cells: 0
+[12/02 11:54:20     15s] Total number of pulse generator cells: 0
+[12/02 11:54:20     15s] Total number of always on buffers: 0
+[12/02 11:54:20     15s] Total number of retention cells: 0
+[12/02 11:54:20     15s] List of usable buffers: sky130_osu_sc_12T_ms__buf_l sky130_osu_sc_12T_ms__buf_1 sky130_osu_sc_12T_ms__buf_2 sky130_osu_sc_12T_ms__buf_4 sky130_osu_sc_12T_ms__buf_8
+[12/02 11:54:20     15s] Total number of usable buffers: 5
+[12/02 11:54:20     15s] List of unusable buffers:
+[12/02 11:54:20     15s] Total number of unusable buffers: 0
+[12/02 11:54:20     15s] List of usable inverters: sky130_osu_sc_12T_ms__inv_1 sky130_osu_sc_12T_ms__inv_10 sky130_osu_sc_12T_ms__inv_l sky130_osu_sc_12T_ms__inv_2 sky130_osu_sc_12T_ms__inv_3 sky130_osu_sc_12T_ms__inv_4 sky130_osu_sc_12T_ms__inv_6 sky130_osu_sc_12T_ms__inv_8
+[12/02 11:54:20     15s] Total number of usable inverters: 8
+[12/02 11:54:20     15s] List of unusable inverters:
+[12/02 11:54:20     15s] Total number of unusable inverters: 0
+[12/02 11:54:20     15s] List of identified usable delay cells:
+[12/02 11:54:20     15s] Total number of identified usable delay cells: 0
+[12/02 11:54:20     15s] List of identified unusable delay cells:
+[12/02 11:54:20     15s] Total number of identified unusable delay cells: 0
+[12/02 11:54:20     15s] Creating Cell Server, finished. 
+[12/02 11:54:20     15s] 
+[12/02 11:54:20     15s] No delay cells were detected in the set of buffers. Buffers will be used to fix hold violations.
+[12/02 11:54:20     15s] Deleting Cell Server ...
+[12/02 11:54:20     15s] **WARN: (IMPCTE-107):	The following globals have been obsoleted since version 19.18-s072_1. They will be removed in the next release. 
+[12/02 11:54:20     15s] timing_enable_default_delay_arc
+[12/02 11:54:20     15s] #% End load design ... (date=12/02 11:54:20, total cpu=0:00:02.8, real=0:00:03.0, peak res=741.8M, current mem=741.8M)
+[12/02 11:54:20     15s] 
+[12/02 11:54:20     15s] *** Summary of all messages that are not suppressed in this session:
+[12/02 11:54:20     15s] Severity  ID               Count  Summary                                  
+[12/02 11:54:20     15s] WARNING   IMPLF-155            5  ViaRule only supports routing/cut layer,...
+[12/02 11:54:20     15s] WARNING   IMPLF-200          112  Pin '%s' in macro '%s' has no ANTENNAGAT...
+[12/02 11:54:20     15s] WARNING   IMPLF-201           75  Pin '%s' in macro '%s' has no ANTENNADIF...
+[12/02 11:54:20     15s] WARNING   IMPLF-108            1  There is no overlap layer defined in any...
+[12/02 11:54:20     15s] WARNING   IMPTS-124            2  Timing library description of pin '%s' i...
+[12/02 11:54:20     15s] WARNING   IMPEXT-2766          5  The sheet resistance for layer %s is not...
+[12/02 11:54:20     15s] WARNING   IMPEXT-2773          5  The via resistance between layers %s and...
+[12/02 11:54:20     15s] WARNING   IMPCK-8086           2  The command %s is obsolete and will be r...
+[12/02 11:54:20     15s] WARNING   IMPVL-159          112  Pin '%s' of cell '%s' is defined in LEF ...
+[12/02 11:54:20     15s] WARNING   IMPCTE-107           1  The following globals have been obsolete...
+[12/02 11:54:20     15s] WARNING   TECHLIB-302          1  No function defined for cell '%s'. The c...
+[12/02 11:54:20     15s] WARNING   TECHLIB-1279         1  For cell '%s', in group '%s', voltage sw...
+[12/02 11:54:20     15s] WARNING   TECHLIB-1398       102  The '%s' waveform specified in cell '%s'...
+[12/02 11:54:20     15s] *** Message Summary: 424 warning(s), 0 error(s)
+[12/02 11:54:20     15s] 
+[12/02 11:54:20     15s] <CMD> um::push_snapshot_stack
+[12/02 11:54:20     15s] <CMD> setDesignMode -process 130
+[12/02 11:54:20     15s] ##  Process: 130           (User Set)               
+[12/02 11:54:20     15s] ##     Node: (not set)                           
+[12/02 11:54:20     15s] 
+##  Check design process and node:  
+##  Design tech node is not set.
+
+[12/02 11:54:20     15s] Applying the recommended capacitance filtering threshold values for 130nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.4.
+[12/02 11:54:20     15s] 	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+[12/02 11:54:20     15s] 	Capacitance filtering mode(-capFilterMode option of the setExtractRCMode) is 'relAndCoup' for all engines.
+[12/02 11:54:20     15s] 	The accuracy mode for postRoute effortLevel low extraction will be set to 'standard'.
+[12/02 11:54:20     15s] 	Default value for EffortLevel(-effortLevel option of the setExtractRCMode) in postRoute extraction mode is 'low'.
+[12/02 11:54:20     15s] <CMD> setAnalysisMode -cppr none
+[12/02 11:54:20     15s] **WARN: The setCCOptMode/set_ccopt_mode command is obsolete and will be removed in a future release. This command still works in this release, but to avoid this warning and to ensure compatibility with future releases, transition to set_ccopt_property.
+[12/02 11:54:20     15s] <CMD> setNanoRouteMode -routeWithLithoDriven false
+[12/02 11:54:20     15s] <FF> RUNNING CLOCK TREE SYNTHESIS ...
+[12/02 11:54:20     15s] <FF> DERATING DELAY CORNERS ...
+[12/02 11:54:20     15s] <FF> LOADING 'pre_cts_tcl' PLUG-IN FILE(s) 
+[12/02 11:54:20     15s] <FF> -> PLUG/INNOVUS/pre_cts.tcl
+[12/02 11:54:20     15s] <CMD> create_route_type -bottom_preferred_layer 1 -name met1
+[12/02 11:54:20     15s] <CMD> create_route_type -top_preferred_layer 5 -name met5
+[12/02 11:54:20     15s] <CMD> set_ccopt_property route_type met1
+[12/02 11:54:20     15s] <CMD> set_ccopt_property route_type met5
+[12/02 11:54:20     15s] **WARN: (IMPCK-8086):	The command setCTSMode is obsolete and will be removed in the next release. This command still works in this release, but by the next release you must transition to the CCOpt-based CTS flow.
+[12/02 11:54:20     15s] <CMD> create_ccopt_clock_tree_spec
+[12/02 11:54:20     15s] Creating clock tree spec for modes (timing configs): setup_func_mode
+[12/02 11:54:20     15s] extract_clock_generator_skew_groups=true: create_ccopt_clock_tree_spec will generate skew groups with a name prefix of "_clock_gen" to balance clock generator connected flops with the clock generator they drive.
+[12/02 11:54:20     15s] Creating Cell Server ...(0, 0, 0, 0)
+[12/02 11:54:20     15s] Summary for sequential cells identification: 
+[12/02 11:54:20     15s]   Identified SBFF number: 6
+[12/02 11:54:20     15s]   Identified MBFF number: 0
+[12/02 11:54:20     15s]   Identified SB Latch number: 0
+[12/02 11:54:20     15s]   Identified MB Latch number: 0
+[12/02 11:54:20     15s]   Not identified SBFF number: 2
+[12/02 11:54:20     15s]   Not identified MBFF number: 0
+[12/02 11:54:20     15s]   Not identified SB Latch number: 0
+[12/02 11:54:20     15s]   Not identified MB Latch number: 0
+[12/02 11:54:20     15s]   Number of sequential cells which are not FFs: 0
+[12/02 11:54:20     15s]  Visiting view : setup_func
+[12/02 11:54:20     15s]    : PowerDomain = none : Weighted F : unweighted  = 45.70 (1.000) with rcCorner = 0
+[12/02 11:54:20     15s]    : PowerDomain = none : Weighted F : unweighted  = 34.10 (1.000) with rcCorner = -1
+[12/02 11:54:20     15s]  Visiting view : hold_func
+[12/02 11:54:20     15s]    : PowerDomain = none : Weighted F : unweighted  = 45.70 (1.000) with rcCorner = 0
+[12/02 11:54:20     15s]    : PowerDomain = none : Weighted F : unweighted  = 34.10 (1.000) with rcCorner = -1
+[12/02 11:54:20     15s]  Setting StdDelay to 45.70
+[12/02 11:54:20     15s] Creating Cell Server, finished. 
+[12/02 11:54:20     15s] 
+[12/02 11:54:20     15s] Reset timing graph...
+[12/02 11:54:20     15s] Ignoring AAE DB Resetting ...
+[12/02 11:54:20     15s] Reset timing graph done.
+[12/02 11:54:20     15s] Ignoring AAE DB Resetting ...
+[12/02 11:54:20     15s] Analyzing clock structure...
+[12/02 11:54:20     15s] Analyzing clock structure done.
+[12/02 11:54:20     15s] Reset timing graph...
+[12/02 11:54:20     15s] Ignoring AAE DB Resetting ...
+[12/02 11:54:20     15s] Reset timing graph done.
+[12/02 11:54:20     15s] Extracting original clock gating for clk...
+[12/02 11:54:20     15s]   clock_tree clk contains 16 sinks and 0 clock gates.
+[12/02 11:54:20     15s]   Extraction for clk complete.
+[12/02 11:54:20     15s] Extracting original clock gating for clk done.
+[12/02 11:54:20     15s] The skew group clk/setup_func_mode was created. It contains 16 sinks and 1 sources.
+[12/02 11:54:20     15s] Checking clock tree convergence...
+[12/02 11:54:20     15s] Checking clock tree convergence done.
+[12/02 11:54:20     15s] <CMD> ccopt_design -outDir RPT -prefix cts
+[12/02 11:54:20     15s] #% Begin ccopt_design (date=12/02 11:54:20, mem=754.3M)
+[12/02 11:54:20     15s] Setting ::DelayCal::PrerouteDcFastMode 0
+[12/02 11:54:20     15s] Runtime...
+[12/02 11:54:20     15s] (ccopt_design): CTS Engine: auto. Used Spec: pre-existing CCOPT spec.
+[12/02 11:54:20     15s] Placement constraints of type 'region' or 'fence' will not be downgraded to 'guide' because the property change_fences_to_guides has been set to false.
+[12/02 11:54:20     15s] Set place::cacheFPlanSiteMark to 1
+[12/02 11:54:20     16s] 'setDesignMode -flowEffort standard' => 'setOptMode -usefulSkewCCOpt standard' 
+[12/02 11:54:20     16s] Using CCOpt effort standard.
+[12/02 11:54:20     16s] CCOpt::Phase::Initialization...
+[12/02 11:54:20     16s] Check Prerequisites...
+[12/02 11:54:20     16s] Leaving CCOpt scope - CheckPlace...
+[12/02 11:54:20     16s] OPERPROF: Starting checkPlace at level 1, MEM:1481.3M
+[12/02 11:54:20     16s] z: 2, totalTracks: 1
+[12/02 11:54:20     16s] z: 4, totalTracks: 1
+[12/02 11:54:20     16s] #spOpts: N=130 
+[12/02 11:54:20     16s] # Building mult_alone llgBox search-tree.
+[12/02 11:54:20     16s] OPERPROF:   Starting spInitSiteArr at level 2, MEM:1481.3M
+[12/02 11:54:20     16s] OPERPROF:     Starting spiInitFpSiteArr at level 3, MEM:1481.3M
+[12/02 11:54:20     16s] **WARN: (IMPSP-362):	Site '12T' has one std.Cell height, so ignoring its X-symmetry.
+[12/02 11:54:20     16s] Type 'man IMPSP-362' for more detail.
+[12/02 11:54:20     16s] Core basic site is 12T
+[12/02 11:54:20     16s] Use non-trimmed site array because memory saving is not enough.
+[12/02 11:54:20     16s] SiteArray: non-trimmed site array dimensions = 19 x 772
+[12/02 11:54:20     16s] SiteArray: use 77,824 bytes
+[12/02 11:54:20     16s] SiteArray: current memory after site array memory allocation 1481.4M
+[12/02 11:54:20     16s] SiteArray: FP blocked sites are writable
+[12/02 11:54:20     16s] OPERPROF:     Finished spiInitFpSiteArr at level 3, CPU:0.000, REAL:0.001, MEM:1481.4M
+[12/02 11:54:20     16s] OPERPROF:   Finished spInitSiteArr at level 2, CPU:0.000, REAL:0.001, MEM:1481.4M
+[12/02 11:54:20     16s] Begin checking placement ... (start mem=1481.3M, init mem=1481.4M)
+[12/02 11:54:20     16s] OPERPROF:   Starting checkPlace/Loop-Through-Inst-Misc-Oper at level 2, MEM:1481.4M
+[12/02 11:54:20     16s] OPERPROF:   Finished checkPlace/Loop-Through-Inst-Misc-Oper at level 2, CPU:0.000, REAL:0.000, MEM:1481.4M
+[12/02 11:54:20     16s] OPERPROF:   Starting checkPlace/Loop-Through-Inst-Misc-Oper at level 2, MEM:1481.4M
+[12/02 11:54:20     16s] OPERPROF:   Finished checkPlace/Loop-Through-Inst-Misc-Oper at level 2, CPU:0.000, REAL:0.000, MEM:1481.4M
+[12/02 11:54:20     16s] OPERPROF:   Starting checkPlace/Loop-Through-Inst-Misc-Oper at level 2, MEM:1481.4M
+[12/02 11:54:20     16s] OPERPROF:   Finished checkPlace/Loop-Through-Inst-Misc-Oper at level 2, CPU:0.000, REAL:0.002, MEM:1481.4M
+[12/02 11:54:20     16s] OPERPROF:   Starting checkPlace/Vio-Check at level 2, MEM:1481.4M
+[12/02 11:54:20     16s] OPERPROF:   Finished checkPlace/Vio-Check at level 2, CPU:0.000, REAL:0.000, MEM:1481.4M
+[12/02 11:54:20     16s] *info: Placed = 410           
+[12/02 11:54:20     16s] *info: Unplaced = 0           
+[12/02 11:54:20     16s] Placement Density:57.85%(4145/7164)
+[12/02 11:54:20     16s] Placement Density (including fixed std cells):57.85%(4145/7164)
+[12/02 11:54:20     16s] OPERPROF:   Starting spSiteCleanup(true) at level 2, MEM:1481.4M
+[12/02 11:54:20     16s] OPERPROF:   Finished spSiteCleanup(true) at level 2, CPU:0.000, REAL:0.000, MEM:1481.3M
+[12/02 11:54:20     16s] Finished checkPlace (total: cpu=0:00:00.0, real=0:00:00.0; vio checks: cpu=0:00:00.0, real=0:00:00.0; mem=1481.3M)
+[12/02 11:54:20     16s] OPERPROF: Finished checkPlace at level 1, CPU:0.000, REAL:0.010, MEM:1481.3M
+[12/02 11:54:20     16s] Leaving CCOpt scope - CheckPlace done. (took cpu=0:00:00.0 real=0:00:00.0)
+[12/02 11:54:20     16s] Validating CTS configuration...
+[12/02 11:54:20     16s] Checking module port directions...
+[12/02 11:54:20     16s] Checking module port directions done. (took cpu=0:00:00.0 real=0:00:00.0)
+[12/02 11:54:20     16s] Non-default CCOpt properties:
+[12/02 11:54:20     16s] route_type is set for at least one key
+[12/02 11:54:20     16s] Using cell based legalization.
+[12/02 11:54:20     16s] OPERPROF: Starting DPlace-Init at level 1, MEM:1481.3M
+[12/02 11:54:20     16s] z: 2, totalTracks: 1
+[12/02 11:54:20     16s] z: 4, totalTracks: 1
+[12/02 11:54:20     16s] #spOpts: N=130 
+[12/02 11:54:20     16s] All LLGs are deleted
+[12/02 11:54:20     16s] OPERPROF:   Starting spSiteCleanup(true) at level 2, MEM:1481.3M
+[12/02 11:54:20     16s] OPERPROF:   Finished spSiteCleanup(true) at level 2, CPU:0.000, REAL:0.000, MEM:1481.3M
+[12/02 11:54:20     16s] OPERPROF:   Starting spInitSiteArr at level 2, MEM:1481.3M
+[12/02 11:54:20     16s] OPERPROF:     Starting spiInitFpSiteArr at level 3, MEM:1481.3M
+[12/02 11:54:20     16s] Core basic site is 12T
+[12/02 11:54:20     16s] SiteArray: non-trimmed site array dimensions = 19 x 772
+[12/02 11:54:20     16s] SiteArray: use 77,824 bytes
+[12/02 11:54:20     16s] SiteArray: current memory after site array memory allocation 1481.4M
+[12/02 11:54:20     16s] SiteArray: FP blocked sites are writable
+[12/02 11:54:20     16s] Estimated cell power/ground rail width = 0.555 um
+[12/02 11:54:20     16s] Layer info - lib-1st H=1, V=2.  Cell-FPin=1. Top-pin=2
+[12/02 11:54:20     16s] OPERPROF:       Starting RoutingBlockageFromWireViaStBox at level 4, MEM:1481.4M
+[12/02 11:54:20     16s] Process 0 wires and vias for routing blockage and capacity analysis
+[12/02 11:54:20     16s] OPERPROF:       Finished RoutingBlockageFromWireViaStBox at level 4, CPU:0.000, REAL:0.000, MEM:1481.4M
+[12/02 11:54:20     16s] OPERPROF:     Finished spiInitFpSiteArr at level 3, CPU:0.010, REAL:0.006, MEM:1481.4M
+[12/02 11:54:20     16s] OPERPROF:     Starting CMU at level 3, MEM:1481.4M
+[12/02 11:54:20     16s] OPERPROF:     Finished CMU at level 3, CPU:0.000, REAL:0.000, MEM:1481.4M
+[12/02 11:54:20     16s] OPERPROF:   Finished spInitSiteArr at level 2, CPU:0.010, REAL:0.007, MEM:1481.4M
+[12/02 11:54:20     16s] [CPU] DPlace-Init (cpu=0:00:00.0, real=0:00:00.0, mem=1481.4MB).
+[12/02 11:54:20     16s] OPERPROF: Finished DPlace-Init at level 1, CPU:0.020, REAL:0.009, MEM:1481.4M
+[12/02 11:54:20     16s] (I)       Load db... (mem=1481.4M)
+[12/02 11:54:20     16s] (I)       Read data from FE... (mem=1481.4M)
+[12/02 11:54:20     16s] (I)       Read nodes and places... (mem=1481.4M)
+[12/02 11:54:20     16s] (I)       Number of ignored instance 0
+[12/02 11:54:20     16s] (I)       Number of inbound cells 0
+[12/02 11:54:20     16s] (I)       numMoveCells=410, numMacros=0  numPads=0  numMultiRowHeightInsts=0
+[12/02 11:54:20     16s] (I)       cell height: 4440, count: 410
+[12/02 11:54:20     16s] (I)       Done Read nodes and places (cpu=0.000s, mem=1481.4M)
+[12/02 11:54:20     16s] (I)       Read rows... (mem=1481.4M)
+[12/02 11:54:20     16s] (I)       Done Read rows (cpu=0.000s, mem=1481.4M)
+[12/02 11:54:20     16s] (I)       Done Read data from FE (cpu=0.000s, mem=1481.4M)
+[12/02 11:54:20     16s] (I)       Done Load db (cpu=0.000s, mem=1481.4M)
+[12/02 11:54:20     16s] (I)       Constructing placeable region... (mem=1481.4M)
+[12/02 11:54:20     16s] (I)       Constructing bin map
+[12/02 11:54:20     16s] (I)       Initialize bin information with width=44400 height=44400
+[12/02 11:54:20     16s] (I)       Done constructing bin map
+[12/02 11:54:20     16s] (I)       Removing 0 blocked bin with high fixed inst density
+[12/02 11:54:20     16s] (I)       Compute region effective width... (mem=1481.4M)
+[12/02 11:54:20     16s] (I)       Done Compute region effective width (cpu=0.000s, mem=1481.4M)
+[12/02 11:54:20     16s] (I)       Done Constructing placeable region (cpu=0.000s, mem=1481.4M)
+[12/02 11:54:20     16s] Route type trimming info:
+[12/02 11:54:20     16s]   No route type modifications were made.
+[12/02 11:54:20     16s] **WARN: (IMPCCOPT-1183):	The library has no usable balanced buffers for power domain auto-default, while balancing clock_tree clk. If this is not intended behavior, you can specify a list of lib_cells to use with the buffer_cells property.
+[12/02 11:54:20     16s] **WARN: (IMPCCOPT-1184):	The library has no usable balanced inverters for power domain auto-default, while balancing clock_tree clk. If this is not intended behavior, you can specify a list of lib_cells to use with the inverter_cells property.
+[12/02 11:54:20     16s] **WARN: (IMPCCOPT-1182):	The clock_gating_cells property has no usable full-cycle clock gates for power domain auto-default. Gating limited for clock tree clk. You may be able to solve this problem by specifying a list of lib_cells to use with the clock_gating_cells property.
+[12/02 11:54:20     16s] **ERROR: (IMPCCOPT-1135):	CTS found neither inverters nor buffers while balancing clock_tree clk. CTS cannot continue.
+Clock tree balancer configuration for clock_tree clk:
+[12/02 11:54:20     16s] Non-default CCOpt properties:
+[12/02 11:54:20     16s]   route_type (leaf): met5 (default: default)
+[12/02 11:54:20     16s]   route_type (trunk): met5 (default: default)
+[12/02 11:54:20     16s]   route_type (top): met5 (default: default)
+[12/02 11:54:20     16s] 
+[12/02 11:54:20     16s] 
+[12/02 11:54:20     16s] Logic Sizing Table:
+[12/02 11:54:20     16s] 
+[12/02 11:54:20     16s] ----------------------------------------------------------
+[12/02 11:54:20     16s] Cell    Instance count    Source    Eligible library cells
+[12/02 11:54:20     16s] ----------------------------------------------------------
+[12/02 11:54:20     16s]   (empty table)
+[12/02 11:54:20     16s] ----------------------------------------------------------
+[12/02 11:54:20     16s] 
+[12/02 11:54:20     16s] 
+[12/02 11:54:20     16s] Clock tree balancer configuration for skew_group clk/setup_func_mode:
+[12/02 11:54:20     16s]   Sources:                     pin clk
+[12/02 11:54:20     16s]   Total number of sinks:       16
+[12/02 11:54:20     16s]   Delay constrained sinks:     16
+[12/02 11:54:20     16s]   Non-leaf sinks:              0
+[12/02 11:54:20     16s]   Ignore pins:                 0
+[12/02 11:54:20     16s]  Timing corner corner_tt:setup.late:
+[12/02 11:54:20     16s]   Skew target:                 0.000ns
+[12/02 11:54:20     16s] **WARN: (IMPEXT-2882):	Unable to find the resistance for via 'M1M2_PR_MR' in Cap table or LEF or OA files. The default value of 4.0 ohms is being assigned. To avoid this, check the Cap table and LEF and OA files, provide the resistance and read the files again.
+[12/02 11:54:20     16s] **WARN: (IMPEXT-2882):	Unable to find the resistance for via 'M2M3_PR_MR' in Cap table or LEF or OA files. The default value of 4.0 ohms is being assigned. To avoid this, check the Cap table and LEF and OA files, provide the resistance and read the files again.
+[12/02 11:54:20     16s] **WARN: (IMPEXT-2882):	Unable to find the resistance for via 'M3M4_PR_MR' in Cap table or LEF or OA files. The default value of 4.0 ohms is being assigned. To avoid this, check the Cap table and LEF and OA files, provide the resistance and read the files again.
+[12/02 11:54:20     16s] **WARN: (IMPEXT-2882):	Unable to find the resistance for via 'M4M5_PR_MR' in Cap table or LEF or OA files. The default value of 4.0 ohms is being assigned. To avoid this, check the Cap table and LEF and OA files, provide the resistance and read the files again.
+[12/02 11:54:20     16s] Primary reporting skew groups are:
+[12/02 11:54:20     16s] skew_group clk/setup_func_mode with 16 clock sinks
+[12/02 11:54:20     16s] 
+[12/02 11:54:20     16s] Via Selection for Estimated Routes (rule default):
+[12/02 11:54:20     16s] 
+[12/02 11:54:20     16s] ------------------------------------------------------------------
+[12/02 11:54:20     16s] Layer        Via Cell      Res.     Cap.     RC       Top of Stack
+[12/02 11:54:20     16s] Range                      (Ohm)    (fF)     (fs)     Only
+[12/02 11:54:20     16s] ------------------------------------------------------------------
+[12/02 11:54:20     16s] met1-met2    M1M2_PR_MR    4.000    0.000    0.000    false
+[12/02 11:54:20     16s] met2-met3    M2M3_PR_MR    4.000    0.000    0.000    false
+[12/02 11:54:20     16s] met3-met4    M3M4_PR_MR    4.000    0.000    0.000    false
+[12/02 11:54:20     16s] met4-met5    M4M5_PR_MR    4.000    0.000    0.000    false
+[12/02 11:54:20     16s] ------------------------------------------------------------------
+[12/02 11:54:20     16s] 
+[12/02 11:54:20     16s] No ideal or dont_touch nets found in the clock tree
+[12/02 11:54:20     16s] No dont_touch hnets found in the clock tree
+[12/02 11:54:20     16s] No dont_touch hpins found in the clock network.
+[12/02 11:54:20     16s] 
+[12/02 11:54:20     16s] Filtering reasons for cell type: buffer
+[12/02 11:54:20     16s] =======================================
+[12/02 11:54:20     16s] 
+[12/02 11:54:20     16s] ---------------------------------------------------------------------------------------------------------------------------------------------------
+[12/02 11:54:20     16s] Clock trees    Power domain    Reason                         Library cells
+[12/02 11:54:20     16s] ---------------------------------------------------------------------------------------------------------------------------------------------------
+[12/02 11:54:20     16s] all            auto-default    Unbalanced rise/fall delays    { sky130_osu_sc_12T_ms__buf_1 sky130_osu_sc_12T_ms__buf_2 sky130_osu_sc_12T_ms__buf_4
+[12/02 11:54:20     16s]                                                                 sky130_osu_sc_12T_ms__buf_8 sky130_osu_sc_12T_ms__buf_l }
+[12/02 11:54:20     16s] ---------------------------------------------------------------------------------------------------------------------------------------------------
+[12/02 11:54:20     16s] 
+[12/02 11:54:20     16s] Filtering reasons for cell type: inverter
+[12/02 11:54:20     16s] =========================================
+[12/02 11:54:20     16s] 
+[12/02 11:54:20     16s] ----------------------------------------------------------------------------------------------------------------------------------------------------
+[12/02 11:54:20     16s] Clock trees    Power domain    Reason                         Library cells
+[12/02 11:54:20     16s] ----------------------------------------------------------------------------------------------------------------------------------------------------
+[12/02 11:54:20     16s] all            auto-default    Unbalanced rise/fall delays    { sky130_osu_sc_12T_ms__inv_1 sky130_osu_sc_12T_ms__inv_10 sky130_osu_sc_12T_ms__inv_2
+[12/02 11:54:20     16s]                                                                 sky130_osu_sc_12T_ms__inv_3 sky130_osu_sc_12T_ms__inv_4 sky130_osu_sc_12T_ms__inv_6
+[12/02 11:54:20     16s]                                                                 sky130_osu_sc_12T_ms__inv_8 sky130_osu_sc_12T_ms__inv_l }
+[12/02 11:54:20     16s] ----------------------------------------------------------------------------------------------------------------------------------------------------
+[12/02 11:54:20     16s] 
+[12/02 11:54:20     16s] 
+[12/02 11:54:20     16s] Validating CTS configuration done. (took cpu=0:00:00.0 real=0:00:00.0)
+[12/02 11:54:20     16s] UM:   timing.setup.tns  timing.setup.wns  snapshot
+[12/02 11:54:20     16s] UM:*                                      Validating CTS configuration
+[12/02 11:54:20     16s] 
+[12/02 11:54:20     16s] CCOpt configuration status: cannot run ccopt_design.
+[12/02 11:54:20     16s] Check the log for details of problem(s) found:
+[12/02 11:54:20     16s] 
+[12/02 11:54:20     16s] ---------------------------------------------------
+[12/02 11:54:20     16s] Design configuration problems
+[12/02 11:54:20     16s] ---------------------------------------------------
+[12/02 11:54:20     16s] One or more clock trees have configuration problems
+[12/02 11:54:20     16s] ---------------------------------------------------
+[12/02 11:54:20     16s] 
+[12/02 11:54:20     16s] Clock tree configuration problems:
+[12/02 11:54:20     16s] 
+[12/02 11:54:20     16s] ------------------------------------------------
+[12/02 11:54:20     16s] Clock tree    Problem
+[12/02 11:54:20     16s] ------------------------------------------------
+[12/02 11:54:20     16s] clk           Could not determine drivers to use
+[12/02 11:54:20     16s] ------------------------------------------------
+[12/02 11:54:20     16s] 
+[12/02 11:54:20     16s] 
+[12/02 11:54:20     16s] Check Prerequisites done. (took cpu=0:00:00.1 real=0:00:00.1)
+[12/02 11:54:21     16s]       timing.setup.tns  timing.setup.wns  snapshot
+[12/02 11:54:21     16s] UM:*                                      Check Prerequisites
+[12/02 11:54:21     16s] CCOpt::Phase::Initialization done. (took cpu=0:00:00.1 real=0:00:00.1)
+[12/02 11:54:21     16s]       timing.setup.tns  timing.setup.wns  snapshot
+[12/02 11:54:21     16s] UM:*                                      CCOpt::Phase::Initialization
+[12/02 11:54:21     16s] OPERPROF: Starting spDPlaceCleanup(auto) at level 1, MEM:1481.4M
+[12/02 11:54:21     16s] OPERPROF: Finished spDPlaceCleanup(auto) at level 1, CPU:0.000, REAL:0.001, MEM:1481.4M
+[12/02 11:54:21     16s] **ERROR: (IMPCCOPT-2196):	Cannot run ccopt_design because the command prerequisites were not met. Review the previous error messages for more details about the failure.
+[12/02 11:54:21     16s] Set place::cacheFPlanSiteMark to 0
+[12/02 11:54:21     16s] All LLGs are deleted
+[12/02 11:54:21     16s] OPERPROF: Starting spSiteCleanup(true) at level 1, MEM:1481.4M
+[12/02 11:54:21     16s] OPERPROF: Finished spSiteCleanup(true) at level 1, CPU:0.000, REAL:0.000, MEM:1481.3M
+[12/02 11:54:21     16s] 
+[12/02 11:54:21     16s] *** Summary of all messages that are not suppressed in this session:
+[12/02 11:54:21     16s] Severity  ID               Count  Summary                                  
+[12/02 11:54:21     16s] WARNING   IMPEXT-2882          4  Unable to find the resistance for via '%...
+[12/02 11:54:21     16s] WARNING   IMPSP-362            1  Site '%s' has %s std.Cell height, so ign...
+[12/02 11:54:21     16s] ERROR     IMPCCOPT-1135        1  CTS found neither inverters nor buffers ...
+[12/02 11:54:21     16s] ERROR     IMPCCOPT-2196        1  Cannot run ccopt_design because the comm...
+[12/02 11:54:21     16s] WARNING   IMPCCOPT-1183        1  The library has no usable balanced %ss f...
+[12/02 11:54:21     16s] WARNING   IMPCCOPT-1182        1  The clock_gating_cells property has no u...
+[12/02 11:54:21     16s] WARNING   IMPCCOPT-1184        1  The library has no usable balanced %ss f...
+[12/02 11:54:21     16s] *** Message Summary: 8 warning(s), 2 error(s)
+[12/02 11:54:21     16s] 
+[12/02 11:54:21     16s] 
+[12/02 11:54:21     16s] =============================================================================================
+[12/02 11:54:21     16s]  Final TAT Report for ccopt_design
+[12/02 11:54:21     16s] =============================================================================================
+[12/02 11:54:21     16s]  Step Name                  Count        Real  (       % )      Step Total Real / CPU  Scale
+[12/02 11:54:21     16s] ---------------------------------------------------------------------------------------------
+[12/02 11:54:21     16s] [ MISC                   ]          0:00:00.2  ( 100.0 % )     0:00:00.2 /  0:00:00.2    1.0
+[12/02 11:54:21     16s] ---------------------------------------------------------------------------------------------
+[12/02 11:54:21     16s]  ccopt_design TOTAL                 0:00:00.2  ( 100.0 % )     0:00:00.2 /  0:00:00.2    1.0
+[12/02 11:54:21     16s] ---------------------------------------------------------------------------------------------
+[12/02 11:54:21     16s] 
+[12/02 11:54:21     16s] #% End ccopt_design (date=12/02 11:54:21, total cpu=0:00:00.2, real=0:00:01.0, peak res=761.7M, current mem=761.3M)
+[12/02 11:54:21     16s] **ERROR: (IMPSYT-6692):	Invalid return code while executing 'FF/INNOVUS/run_cts.tcl' was returned and script processing was stopped. Review the following error in 'FF/INNOVUS/run_cts.tcl' then restart.
+[12/02 11:54:21     16s] Error info: FF/INNOVUS/run_cts.tcl: 
+[12/02 11:54:21     16s]     while executing
+[12/02 11:54:21     16s] "ccopt_design -monolithicflow_only -outDir RPT -prefix cts"
+[12/02 11:54:21     16s]     ("eval" body line 1)
+[12/02 11:54:21     16s]     invoked from within
+[12/02 11:54:21     16s] "eval ccopt_design $step $args"
+[12/02 11:54:21     16s]     (procedure "ccopt_design" line 40)
+[12/02 11:54:21     16s]     invoked from within
+[12/02 11:54:21     16s] "ccopt_design -outDir RPT -prefix cts"
+[12/02 11:54:21     16s]     (file "FF/INNOVUS/run_cts.tcl" line 83)
+[12/02 11:54:21     16s]     invoked from within
+[12/02 11:54:21     16s] "::se_source_orig FF/INNOVUS/run_cts.tcl"
+[12/02 11:54:21     16s]     ("uplevel" body line 1)
+[12/02 11:54:21     16s]     invoked from within
+[12/02 11:54:21     16s] "uplevel [concat ::se_source_orig $args]"
+[12/02 11:54:21     16s]     (procedure "source" line 176)
+[12/02 11:54:21     16s]     invoked from within
+[12/02 11:54:21     16s] "source FF/INNOVUS/run_cts.tcl"
+[12/02 11:54:21     16s]     ("uplevel" body line 1)
+[12/02 11:54:21     16s]     invoked from within
+[12/02 11:54:21     16s] "uplevel #0 source FF/INNOVUS/run_cts.tcl"
+[12/02 11:54:21     16s]     ("eval" body line 1)
+[12/02 11:54:21     16s]     invoked from within
+[12/02 11:54:21     16s] "eval {uplevel #0 source FF/INNOVUS/run_cts.tcl}"
+[12/02 11:54:21     16s]     (in namespace inscope "::" script line 1)
+[12/02 11:54:21     16s]     invoked from within
+[12/02 11:54:21     16s] "namespace inscope :: eval "uplevel #0 source $fileName"".
+[12/05 08:32:26     99s] invalid command name "quit"
+[12/05 08:32:28     99s] 
+[12/05 08:32:28     99s] *** Memory Usage v#1 (Current mem = 1481.328M, initial mem = 497.086M) ***
+[12/05 08:32:28     99s] 
+[12/05 08:32:28     99s] *** Summary of all messages that are not suppressed in this session:
+[12/05 08:32:28     99s] Severity  ID               Count  Summary                                  
+[12/05 08:32:28     99s] WARNING   IMPLF-155            5  ViaRule only supports routing/cut layer,...
+[12/05 08:32:28     99s] WARNING   IMPLF-200          112  Pin '%s' in macro '%s' has no ANTENNAGAT...
+[12/05 08:32:28     99s] WARNING   IMPLF-201           75  Pin '%s' in macro '%s' has no ANTENNADIF...
+[12/05 08:32:28     99s] WARNING   IMPLF-108            1  There is no overlap layer defined in any...
+[12/05 08:32:28     99s] WARNING   IMPTS-124            2  Timing library description of pin '%s' i...
+[12/05 08:32:28     99s] WARNING   IMPEXT-2766          5  The sheet resistance for layer %s is not...
+[12/05 08:32:28     99s] WARNING   IMPEXT-2773          5  The via resistance between layers %s and...
+[12/05 08:32:28     99s] WARNING   IMPEXT-2882          4  Unable to find the resistance for via '%...
+[12/05 08:32:28     99s] ERROR     IMPSYT-6692          1  Invalid return code while executing '%s'...
+[12/05 08:32:28     99s] WARNING   IMPCK-8086           3  The command %s is obsolete and will be r...
+[12/05 08:32:28     99s] WARNING   IMPVL-159          112  Pin '%s' of cell '%s' is defined in LEF ...
+[12/05 08:32:28     99s] WARNING   IMPSP-362            1  Site '%s' has %s std.Cell height, so ign...
+[12/05 08:32:28     99s] ERROR     IMPCCOPT-1135        1  CTS found neither inverters nor buffers ...
+[12/05 08:32:28     99s] ERROR     IMPCCOPT-2196        1  Cannot run ccopt_design because the comm...
+[12/05 08:32:28     99s] WARNING   IMPCCOPT-1183        1  The library has no usable balanced %ss f...
+[12/05 08:32:28     99s] WARNING   IMPCCOPT-1182        1  The clock_gating_cells property has no u...
+[12/05 08:32:28     99s] WARNING   IMPCCOPT-1184        1  The library has no usable balanced %ss f...
+[12/05 08:32:28     99s] WARNING   IMPCTE-107           1  The following globals have been obsolete...
+[12/05 08:32:28     99s] WARNING   TECHLIB-302          1  No function defined for cell '%s'. The c...
+[12/05 08:32:28     99s] WARNING   TECHLIB-1279         1  For cell '%s', in group '%s', voltage sw...
+[12/05 08:32:28     99s] WARNING   TECHLIB-1398       102  The '%s' waveform specified in cell '%s'...
+[12/05 08:32:28     99s] *** Message Summary: 433 warning(s), 3 error(s)
+[12/05 08:32:28     99s] 
+[12/05 08:32:28     99s] --- Ending "Innovus" (totcpu=0:01:40, real=68:38:25, mem=1481.3M) ---

@@ -1,0 +1,8 @@
+set init_layout_view ""
+set init_abstract_name ""
+set init_verilog "/home/jstine/ecen4303/ecen4303F23/SoC_sky130/synth/mapped/mult_alone.vh"
+set init_mmmc_file "/home/jstine/ecen4303/ecen4303F23/SoC_sky130/par/FF/view_definition.tcl"
+set init_lef_file "/programs/pdk/sky130_osu_sc_t12/sky130_osu_sc_12T.tlef /programs/pdk/sky130_osu_sc_t12/12T_ms/lef/sky130_osu_sc_12T_ms.lef"
+set init_top_cell "mult_alone"
+set init_gnd_net "VSS"
+set init_pwr_net "VDD"

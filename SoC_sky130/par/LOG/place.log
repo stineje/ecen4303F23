@@ -1,0 +1,1621 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2019 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v19.18-s072_1, built Thu Apr 8 10:55:52 PDT 2021
+Options:	-init FF/INNOVUS/run_place.tcl -log LOG/place.log -overwrite -nowin 
+Date:		Fri Dec  1 16:56:41 2023
+Host:		rivendell.ecen.okstate.edu (x86_64 w/Linux 3.10.0-1160.95.1.el7.x86_64) (6cores*12cpus*Intel(R) Xeon(R) CPU E5-4617 0 @ 2.90GHz 15360KB)
+OS:		Red Hat Enterprise Linux Server release 7.9 (Maipo)
+
+License:
+		invs	Innovus Implementation System	19.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+Change the soft stacksize limit to 0.2%RAM (257 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> getVersion
+[INFO] Loading Pegasus 20.40 fill procedures
+**WARN: Tk package not loaded. The Pegasus fill DRC monitor is disabled.
+Sourcing file "FF/INNOVUS/run_place.tcl" ...
+<FF> Finished loading setup.tcl
+<CMD> setDistributeHost -local
+The timeout for a remote job to respond is 3600 seconds.
+Submit command for task runs will be: local
+<CMD> setMultiCpuUsage -localCpu 1
+<CMD> restoreDesign DBS/init.enc.dat mult_alone
+#% Begin load design ... (date=12/01 16:56:54, mem=477.4M)
+Set Default Input Pin Transition as 0.1 ps.
+Loading design 'mult_alone' saved by 'Innovus' '19.18-s072_1' on 'Fri Dec 1 16:56:40 2023'.
+% Begin Load MMMC data ... (date=12/01 16:56:54, mem=479.2M)
+% End Load MMMC data ... (date=12/01 16:56:54, total cpu=0:00:00.0, real=0:00:00.0, peak res=479.4M, current mem=479.4M)
+rc_typ
+
+Loading LEF file /home/jstine/ecen4303/ecen4303F23/SoC_sky130/par/DBS/init.enc.dat/libs/lef/sky130_osu_sc_12T.tlef ...
+**WARN: (IMPLF-155):	ViaRule only supports routing/cut layer, but poly layer found for viaRule 'L1M1_PR', 
+**WARN: (IMPLF-155):	ViaRule only supports routing/cut layer, but poly layer found for viaRule 'L1M1_PR_R', 
+**WARN: (IMPLF-155):	ViaRule only supports routing/cut layer, but poly layer found for viaRule 'L1M1_PR_M', 
+**WARN: (IMPLF-155):	ViaRule only supports routing/cut layer, but poly layer found for viaRule 'L1M1_PR_MR', 
+**WARN: (IMPLF-155):	ViaRule only supports routing/cut layer, but poly layer found for viaRule 'L1M1_PR_C', 
+
+Loading LEF file /home/jstine/ecen4303/ecen4303F23/SoC_sky130/par/DBS/init.enc.dat/libs/lef/sky130_osu_sc_12T_ms.lef ...
+**WARN: (IMPLF-108):	There is no overlap layer defined in any LEF file
+so you are unable to create rectilinear partition in a hierarchical flow.
+Set DBUPerIGU to M2 pitch 480.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'sky130_osu_sc_12T_ms__xor2_l' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'B' in macro 'sky130_osu_sc_12T_ms__xor2_l' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__xor2_l' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'sky130_osu_sc_12T_ms__xnor2_l' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'B' in macro 'sky130_osu_sc_12T_ms__xnor2_l' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__xnor2_l' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'sky130_osu_sc_12T_ms__tnbufi_l' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'OE' in macro 'sky130_osu_sc_12T_ms__tnbufi_l' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__tnbufi_l' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'sky130_osu_sc_12T_ms__tnbufi_1' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'OE' in macro 'sky130_osu_sc_12T_ms__tnbufi_1' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__tnbufi_1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__tielo' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__tiehi' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'sky130_osu_sc_12T_ms__tbufi_l' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'OE' in macro 'sky130_osu_sc_12T_ms__tbufi_l' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__tbufi_l' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'sky130_osu_sc_12T_ms__tbufi_1' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'OE' in macro 'sky130_osu_sc_12T_ms__tbufi_1' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__tbufi_1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'sky130_osu_sc_12T_ms__or2_l' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'B' in macro 'sky130_osu_sc_12T_ms__or2_l' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__or2_l' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'sky130_osu_sc_12T_ms__or2_8' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'B' in macro 'sky130_osu_sc_12T_ms__or2_8' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__or2_8' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'sky130_osu_sc_12T_ms__or2_4' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'B' in macro 'sky130_osu_sc_12T_ms__or2_4' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__or2_4' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'sky130_osu_sc_12T_ms__or2_2' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'B' in macro 'sky130_osu_sc_12T_ms__or2_2' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__or2_2' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (EMS-27):	Message (IMPLF-200) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+**WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__or2_1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__oai22_l' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__oai21_l' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__nor2_l' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__nor2_1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__nand2_l' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Y' in macro 'sky130_osu_sc_12T_ms__nand2_1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'S0' in macro 'sky130_osu_sc_12T_ms__mux2_1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (EMS-27):	Message (IMPLF-201) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+
+viaInitial starts at Fri Dec  1 16:56:54 2023
+viaInitial ends at Fri Dec  1 16:56:54 2023
+
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+Loading view definition file from DBS/init.enc.dat/viewDefinition.tcl
+Reading libs_tt timing library '/programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib' ...
+**WARN: (TECHLIB-1398):	The 'output_current_rise' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '48.040298'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 116867)
+**WARN: (TECHLIB-1398):	The 'output_current_rise' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '56.279999'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117029)
+**WARN: (TECHLIB-1398):	The 'output_current_rise' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '62.071899'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117083)
+**WARN: (TECHLIB-1398):	The 'output_current_rise' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '39.416901'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 116984)
+**WARN: (TECHLIB-1398):	The 'output_current_rise' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '62.567299'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117038)
+**WARN: (TECHLIB-1398):	The 'output_current_rise' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '65.067703'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 116993)
+**WARN: (TECHLIB-1398):	The 'output_current_fall' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '35.406399'. The last '2' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117193)
+**WARN: (TECHLIB-1398):	The 'output_current_fall' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '44.683899'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117301)
+**WARN: (TECHLIB-1398):	The 'output_current_fall' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '47.228699'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117202)
+**WARN: (TECHLIB-1398):	The 'output_current_fall' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '47.228600'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117256)
+**WARN: (TECHLIB-1398):	The 'output_current_fall' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '47.228199'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117310)
+**WARN: (TECHLIB-1398):	The 'output_current_fall' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '41.217300'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117364)
+**WARN: (TECHLIB-1398):	The 'output_current_fall' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '47.228600'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117211)
+**WARN: (TECHLIB-1398):	The 'output_current_fall' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '47.228600'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117265)
+**WARN: (TECHLIB-1398):	The 'output_current_fall' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_1' has very long tail with time value reaching '43.119801'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 117373)
+**WARN: (TECHLIB-1398):	The 'output_current_rise' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_l' has very long tail with time value reaching '58.996201'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 123936)
+**WARN: (TECHLIB-1398):	The 'output_current_rise' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_l' has very long tail with time value reaching '37.974800'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 123837)
+**WARN: (TECHLIB-1398):	The 'output_current_rise' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_l' has very long tail with time value reaching '58.234402'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 123891)
+**WARN: (TECHLIB-1398):	The 'output_current_rise' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_l' has very long tail with time value reaching '58.834599'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 123945)
+**WARN: (TECHLIB-1398):	The 'output_current_fall' waveform specified in cell 'sky130_osu_sc_12T_ms__dffnr_l' has very long tail with time value reaching '16.971100'. The last '1' points in waveform will be ignored and tool will complete the waveform using extrapolation for timing analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 124154)
+Message <TECHLIB-1398> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+**WARN: (TECHLIB-1279):	For cell 'sky130_osu_sc_12T_ms__dffs_1', in group 'output_current_fall', voltage swing on pin/bus/bundle 'Q' with load '0.001246' and slew '0.039000' is '86.5%', should be within five percent of 'vss'. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib, Line 144878)
+**WARN: (TECHLIB-302):	No function defined for cell 'sky130_osu_sc_12T_ms__ant'. The cell will only be used for analysis. (File /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.lib)
+Read 57 cells in library 'sky130_osu_sc_12T_ms_tt_1P80_25C.ccs' 
+*** End library_loading (cpu=0.01min, real=0.02min, mem=10.0M, fe_cpu=0.23min, fe_real=0.23min, fe_mem=1121.5M) ***
+% Begin Load netlist data ... (date=12/01 16:56:55, mem=491.8M)
+*** Begin netlist parsing (mem=1121.5M) ***
+**WARN: (IMPVL-159):	Pin 'gnd' of cell 'sky130_osu_sc_12T_ms__xor2_l' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'vdd' of cell 'sky130_osu_sc_12T_ms__xor2_l' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'gnd' of cell 'sky130_osu_sc_12T_ms__xnor2_l' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'vdd' of cell 'sky130_osu_sc_12T_ms__xnor2_l' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'gnd' of cell 'sky130_osu_sc_12T_ms__tnbufi_l' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'vdd' of cell 'sky130_osu_sc_12T_ms__tnbufi_l' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'gnd' of cell 'sky130_osu_sc_12T_ms__tnbufi_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'vdd' of cell 'sky130_osu_sc_12T_ms__tnbufi_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'gnd' of cell 'sky130_osu_sc_12T_ms__tielo' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'vdd' of cell 'sky130_osu_sc_12T_ms__tielo' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'gnd' of cell 'sky130_osu_sc_12T_ms__tiehi' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'vdd' of cell 'sky130_osu_sc_12T_ms__tiehi' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'gnd' of cell 'sky130_osu_sc_12T_ms__tbufi_l' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'vdd' of cell 'sky130_osu_sc_12T_ms__tbufi_l' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'gnd' of cell 'sky130_osu_sc_12T_ms__tbufi_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'vdd' of cell 'sky130_osu_sc_12T_ms__tbufi_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'gnd' of cell 'sky130_osu_sc_12T_ms__or2_l' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'vdd' of cell 'sky130_osu_sc_12T_ms__or2_l' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'gnd' of cell 'sky130_osu_sc_12T_ms__or2_8' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'vdd' of cell 'sky130_osu_sc_12T_ms__or2_8' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (EMS-27):	Message (IMPVL-159) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+Created 57 new cells from 1 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilogBinary netlist '/home/jstine/ecen4303/ecen4303F23/SoC_sky130/par/DBS/init.enc.dat/mult_alone.v.bin'
+Reading binary database version 2 in 1-threaded mode
+
+*** Memory Usage v#1 (Current mem = 1129.516M, initial mem = 497.086M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1129.5M) ***
+% End Load netlist data ... (date=12/01 16:56:55, total cpu=0:00:00.0, real=0:00:00.0, peak res=495.5M, current mem=495.5M)
+Set top cell to mult_alone.
+**WARN: (IMPTS-124):	Timing library description of pin 'ON' is missing from cell 'sky130_osu_sc_12T_ms__dff_l' in timing library 'sky130_osu_sc_12T_ms_tt_1P80_25C.ccs'.
+**WARN: (IMPTS-124):	Timing library description of pin 'ON' is missing from cell 'sky130_osu_sc_12T_ms__dff_1' in timing library 'sky130_osu_sc_12T_ms_tt_1P80_25C.ccs'.
+Hooked 57 DB cells to tlib cells.
+** Removed 2 unused lib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell mult_alone ...
+*** Netlist is unique.
+Set DBUPerIGU to techSite 12T width 110.
+** info: there are 67 modules.
+** info: there are 444 stdCell insts.
+
+*** Memory Usage v#1 (Current mem = 1136.930M, initial mem = 497.086M) ***
+*info: set bottom ioPad orient R0
+Horizontal Layer M1 offset = 185 (guessed)
+Vertical Layer M2 offset = 240 (guessed)
+Suggestion: specify LAYER OFFSET in LEF file
+Reason: hard to extract LAYER OFFSET from standard cells
+Generated pitch 3.66 in met5 is different from 3.33 defined in technology file in preferred direction.
+Generated pitch 0.615 in met4 is different from 0.96 defined in technology file in preferred direction.
+Generated pitch 0.61 in met3 is different from 0.74 defined in technology file in preferred direction.
+Set Default Net Delay as 1000 ps.
+Set Default Net Load as 0.5 pF. 
+Set Default Input Pin Transition as 0.1 ps.
+Loading preference file DBS/init.enc.dat/gui.pref.tcl ...
+##  Process: 130           (User Set)               
+##     Node: (not set)                           
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+Applying the recommended capacitance filtering threshold values for 130nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.4.
+	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+	Capacitance filtering mode(-capFilterMode option of the setExtractRCMode) is 'relAndCoup' for all engines.
+	The accuracy mode for postRoute effortLevel low extraction will be set to 'standard'.
+	Default value for EffortLevel(-effortLevel option of the setExtractRCMode) in postRoute extraction mode is 'low'.
+addRing command will ignore shorts while creating rings.
+addRing command will disallow rings to go over rows.
+addRing command will consider rows while creating rings.
+The ring targets are set to core/block ring wires.
+*Info: initialize multi-corner CTS.
+Reading timing constraints file '/home/jstine/ecen4303/ecen4303F23/SoC_sky130/par/DBS/init.enc.dat/libs/mmmc/mult_alone.sdc' ...
+Current (total cpu=0:00:14.3, real=0:00:14.0, peak res=682.9M, current mem=682.9M)
+**WARN: (TCLCMD-1461):	Skipped unsupported command: set_units (File /home/jstine/ecen4303/ecen4303F23/SoC_sky130/par/DBS/init.enc.dat/libs/mmmc/mult_alone.sdc, Line 8).
+
+INFO (CTE): Reading of timing constraints file /home/jstine/ecen4303/ecen4303F23/SoC_sky130/par/DBS/init.enc.dat/libs/mmmc/mult_alone.sdc completed, with 1 WARNING
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=702.0M, current mem=702.0M)
+Current (total cpu=0:00:14.4, real=0:00:14.0, peak res=702.0M, current mem=702.0M)
+Total number of combinational cells: 43
+Total number of sequential cells: 8
+Total number of tristate cells: 4
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+List of usable buffers: sky130_osu_sc_12T_ms__buf_l sky130_osu_sc_12T_ms__buf_1 sky130_osu_sc_12T_ms__buf_2 sky130_osu_sc_12T_ms__buf_4 sky130_osu_sc_12T_ms__buf_8
+Total number of usable buffers: 5
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: sky130_osu_sc_12T_ms__inv_1 sky130_osu_sc_12T_ms__inv_10 sky130_osu_sc_12T_ms__inv_l sky130_osu_sc_12T_ms__inv_2 sky130_osu_sc_12T_ms__inv_3 sky130_osu_sc_12T_ms__inv_4 sky130_osu_sc_12T_ms__inv_6 sky130_osu_sc_12T_ms__inv_8
+Total number of usable inverters: 8
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells:
+Total number of identified usable delay cells: 0
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+No delay cells were detected in the set of buffers. Buffers will be used to fix hold violations.
+Reading floorplan file - DBS/init.enc.dat/mult_alone.fp.gz (mem = 1370.1M).
+% Begin Load floorplan data ... (date=12/01 16:56:55, mem=723.5M)
+*info: reset 478 existing net BottomPreferredLayer and AvoidDetour
+net ignore based on current view = 0
+Deleting old partition specification.
+Set FPlanBox to (0 0 165600 167610)
+Horizontal Layer M1 offset = 185 (guessed)
+Vertical Layer M2 offset = 240 (guessed)
+Suggestion: specify LAYER OFFSET in LEF file
+Reason: hard to extract LAYER OFFSET from standard cells
+Generated pitch 3.66 in met5 is different from 3.33 defined in technology file in preferred direction.
+Generated pitch 0.615 in met4 is different from 0.96 defined in technology file in preferred direction.
+Generated pitch 0.61 in met3 is different from 0.74 defined in technology file in preferred direction.
+ ... processed partition successfully.
+Reading binary special route file DBS/init.enc.dat/mult_alone.fp.spr.gz (Created by Innovus v19.18-s072_1 on Fri Dec  1 16:56:37 2023, version: 1)
+Ending "Read special route file" (total cpu=0:00:00.0, real=0:00:00.0, peak res=724.2M, current mem=724.2M)
+Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+% End Load floorplan data ... (date=12/01 16:56:56, total cpu=0:00:00.0, real=0:00:01.0, peak res=724.7M, current mem=724.7M)
+Reading congestion map file DBS/init.enc.dat/mult_alone.route.congmap.gz ...
+% Begin Load SymbolTable ... (date=12/01 16:56:56, mem=725.5M)
+% End Load SymbolTable ... (date=12/01 16:56:56, total cpu=0:00:00.0, real=0:00:00.0, peak res=725.6M, current mem=725.6M)
+Loading place ...
+% Begin Load placement data ... (date=12/01 16:56:56, mem=725.6M)
+Reading placement file - DBS/init.enc.dat/mult_alone.place.gz.
+** Reading stdCellPlacement_binary (Created by Innovus v19.18-s072_1 on Fri Dec  1 16:56:37 2023, version# 2) ...
+Read Views for adaptive view pruning ...
+Read 0 views from Binary DB for adaptive view pruning
+*** Completed restorePlace (cpu=0:00:00.0 real=0:00:00.0 mem=1445.3M) ***
+Total net length = 9.480e-01 (4.740e-01 4.740e-01) (ext = 6.800e-02)
+% End Load placement data ... (date=12/01 16:56:56, total cpu=0:00:00.0, real=0:00:00.0, peak res=727.6M, current mem=725.7M)
+Reading PG file DBS/init.enc.dat/mult_alone.pg.gz
+*** Completed restorePGFile (cpu=0:00:00.0 real=0:00:00.0 mem=1441.3M) ***
+% Begin Load routing data ... (date=12/01 16:56:56, mem=725.7M)
+Reading routing file - DBS/init.enc.dat/mult_alone.route.gz.
+Reading Innovus routing data (Created by Innovus v19.18-s072_1 on Fri Dec  1 16:56:37 2023 Format: 19.1) ...
+*** Total 476 nets are successfully restored.
+*** Completed restoreRoute (cpu=0:00:00.0 real=0:00:00.0 mem=1446.3M) ***
+% End Load routing data ... (date=12/01 16:56:56, total cpu=0:00:00.0, real=0:00:00.0, peak res=730.8M, current mem=729.8M)
+TAT_INFO: restoreCongMap REAL = 0 : CPU = 0 : MEM = 0.
+Reading property file DBS/init.enc.dat/mult_alone.prop
+*** Completed restoreProperty (cpu=0:00:00.0 real=0:00:00.0 mem=1372.2M) ***
+Set Default Input Pin Transition as 0.1 ps.
+Extraction setup Started 
+Initializing multi-corner RC extraction with 1 active RC Corners ...
+**WARN: (IMPEXT-2773):	The via resistance between layers M0 and M1 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M1 and M2 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M2 and M3 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M3 and M4 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M4 and M5 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M1 is not defined in the cap table. Therefore, the LEF value 0.125 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M2 is not defined in the cap table. Therefore, the LEF value 0.125 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M3 is not defined in the cap table. Therefore, the LEF value 0.047 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M4 is not defined in the cap table. Therefore, the LEF value 0.047 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M5 is not defined in the cap table. Therefore, the LEF value 0.0285 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+Summary of Active RC-Corners : 
+ 
+ Analysis View: setup_func
+    RC-Corner Name        : rc_typ
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from Cap Table]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+ 
+ Analysis View: hold_func
+    RC-Corner Name        : rc_typ
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from Cap Table]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+Updating RC grid for preRoute extraction ...
+Initializing multi-corner resistance tables ...
+Start generating vias ...
+#Skip building auto via since it is not turned on.
+Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+Via generation completed.
+% Begin Load power constraints ... (date=12/01 16:56:57, mem=734.5M)
+% End Load power constraints ... (date=12/01 16:56:57, total cpu=0:00:00.0, real=0:00:00.0, peak res=734.5M, current mem=734.5M)
+% Begin load AAE data ... (date=12/01 16:56:57, mem=734.5M)
+AAE DB initialization (MEM=1470.17 CPU=0:00:00.4 REAL=0:00:00.0) 
+% End load AAE data ... (date=12/01 16:56:57, total cpu=0:00:00.8, real=0:00:00.0, peak res=739.5M, current mem=739.5M)
+Total number of combinational cells: 43
+Total number of sequential cells: 8
+Total number of tristate cells: 4
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+List of usable buffers: sky130_osu_sc_12T_ms__buf_l sky130_osu_sc_12T_ms__buf_1 sky130_osu_sc_12T_ms__buf_2 sky130_osu_sc_12T_ms__buf_4 sky130_osu_sc_12T_ms__buf_8
+Total number of usable buffers: 5
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: sky130_osu_sc_12T_ms__inv_1 sky130_osu_sc_12T_ms__inv_10 sky130_osu_sc_12T_ms__inv_l sky130_osu_sc_12T_ms__inv_2 sky130_osu_sc_12T_ms__inv_3 sky130_osu_sc_12T_ms__inv_4 sky130_osu_sc_12T_ms__inv_6 sky130_osu_sc_12T_ms__inv_8
+Total number of usable inverters: 8
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells:
+Total number of identified usable delay cells: 0
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+No delay cells were detected in the set of buffers. Buffers will be used to fix hold violations.
+**WARN: (IMPCTE-107):	The following globals have been obsoleted since version 19.18-s072_1. They will be removed in the next release. 
+timing_enable_default_delay_arc
+#% End load design ... (date=12/01 16:56:57, total cpu=0:00:02.7, real=0:00:03.0, peak res=739.6M, current mem=739.6M)
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPLF-155            5  ViaRule only supports routing/cut layer,...
+WARNING   IMPLF-200          112  Pin '%s' in macro '%s' has no ANTENNAGAT...
+WARNING   IMPLF-201           75  Pin '%s' in macro '%s' has no ANTENNADIF...
+WARNING   IMPLF-108            1  There is no overlap layer defined in any...
+WARNING   IMPTS-124            2  Timing library description of pin '%s' i...
+WARNING   IMPEXT-2766          5  The sheet resistance for layer %s is not...
+WARNING   IMPEXT-2773          5  The via resistance between layers %s and...
+WARNING   IMPVL-159          112  Pin '%s' of cell '%s' is defined in LEF ...
+WARNING   IMPCTE-107           1  The following globals have been obsolete...
+WARNING   TCLCMD-1461          1  Skipped unsupported command: %s          
+WARNING   TECHLIB-302          1  No function defined for cell '%s'. The c...
+WARNING   TECHLIB-1279         1  For cell '%s', in group '%s', voltage sw...
+WARNING   TECHLIB-1398       102  The '%s' waveform specified in cell '%s'...
+*** Message Summary: 423 warning(s), 0 error(s)
+
+<CMD> um::push_snapshot_stack
+<CMD> setDesignMode -process 130
+##  Process: 130           (User Set)               
+##     Node: (not set)                           
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+Applying the recommended capacitance filtering threshold values for 130nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.4.
+	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+	Capacitance filtering mode(-capFilterMode option of the setExtractRCMode) is 'relAndCoup' for all engines.
+	The accuracy mode for postRoute effortLevel low extraction will be set to 'standard'.
+	Default value for EffortLevel(-effortLevel option of the setExtractRCMode) in postRoute extraction mode is 'low'.
+<CMD> setAnalysisMode -analysisType onChipVariation
+Deleting AAE DB due to SOCV option changes -------------------------------
+<CMD> setPlaceMode -place_global_place_io_pins false
+<FF> RUNNING PLACEMENT ...
+<FF> LOADING 'pre_place_tcl' PLUG-IN FILE(s) 
+<FF> -> PLUG/INNOVUS/pre_place.tcl
+**WARN: (IMPCK-8086):	The command setCTSMode is obsolete and will be removed in the next release. This command still works in this release, but by the next release you must transition to the CCOpt-based CTS flow.
+<CMD> place_opt_design -out_dir RPT -prefix place
+No user sequential activity specified, applying default sequential activity of "0.2" for Dynamic Power reporting.
+'set_default_switching_activity' finished successfully.
+*** Starting GigaPlace ***
+**INFO: user set placement options
+setPlaceMode -place_global_place_io_pins false
+**INFO: user set opt options
+**WARN: (IMPSP-362):	Site '12T' has one std.Cell height, so ignoring its X-symmetry.
+Type 'man IMPSP-362' for more detail.
+Estimated cell power/ground rail width = 0.555 um
+-place_design_floorplan_mode false         # bool, default=false
+*** Start deleteBufferTree ***
+Info: Detect buffers to remove automatically.
+Analyzing netlist ...
+Updating netlist
+AAE DB initialization (MEM=1572.43 CPU=0:00:00.2 REAL=0:00:00.0) 
+
+*summary: 34 instances (buffers/inverters) removed
+*** Finish deleteBufferTree (0:00:00.5) ***
+Effort level <high> specified for tdgp_reg2reg_default path_group
+Deleted 0 physical inst  (cell - / prefix -).
+INFO: #ExclusiveGroups=0
+INFO: There are no Exclusive Groups.
+No user-set net weight.
+Net fanout histogram:
+2		: 155 (35.2%) nets
+3		: 225 (51.1%) nets
+4     -	14	: 58 (13.2%) nets
+15    -	39	: 2 (0.5%) nets
+40    -	79	: 0 (0.0%) nets
+80    -	159	: 0 (0.0%) nets
+160   -	319	: 0 (0.0%) nets
+320   -	639	: 0 (0.0%) nets
+640   -	1279	: 0 (0.0%) nets
+1280  -	2559	: 0 (0.0%) nets
+2560  -	5119	: 0 (0.0%) nets
+5120+		: 0 (0.0%) nets
+Options: timingDriven clkGateAware ignoreScan pinGuide congEffort=auto gpeffort=medium 
+Scan chains were not defined.
+#std cell=410 (0 fixed + 410 movable) #buf cell=0 #inv cell=5 #block=0 (0 floating + 0 preplaced)
+#ioInst=0 #net=440 #term=1338 #term/net=3.04, #fixedIo=0, #floatIo=0, #fixedPin=0, #floatPin=34
+stdCell: 410 single + 0 double + 0 multi
+Total standard cell length = 0.9335 (mm), area = 0.0041 (mm^2)
+Average module density = 0.589.
+Density for the design = 0.589.
+       = stdcell_area 8486 sites (4145 um^2) / alloc_area 14409 sites (7037 um^2).
+Pin Density = 0.09122.
+            = total # of pins 1338 / total area 14668.
+=== lastAutoLevel = 5 
+Init WL Bound For Global Placement... 
+Clock gating cells determined by native netlist tracing.
+Iteration  1: Total net bbox = 5.355e-12 (4.07e-12 1.28e-12)
+              Est.  stn bbox = 5.403e-12 (4.12e-12 1.28e-12)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1660.7M
+Iteration  2: Total net bbox = 5.355e-12 (4.07e-12 1.28e-12)
+              Est.  stn bbox = 5.403e-12 (4.12e-12 1.28e-12)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1660.7M
+*** Finished SKP initialization (cpu=0:00:00.2, real=0:00:00.0)***
+Iteration  3: Total net bbox = 2.442e+01 (1.18e+01 1.26e+01)
+              Est.  stn bbox = 2.582e+01 (1.25e+01 1.33e+01)
+              cpu = 0:00:00.2 real = 0:00:01.0 mem = 1755.4M
+Iteration  4: Total net bbox = 3.149e+03 (1.37e+03 1.78e+03)
+              Est.  stn bbox = 3.424e+03 (1.54e+03 1.88e+03)
+              cpu = 0:00:00.2 real = 0:00:00.0 mem = 1755.4M
+Iteration  5: Total net bbox = 3.149e+03 (1.37e+03 1.78e+03)
+              Est.  stn bbox = 3.424e+03 (1.54e+03 1.88e+03)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1755.4M
+Iteration  6: Total net bbox = 3.218e+03 (1.51e+03 1.71e+03)
+              Est.  stn bbox = 3.569e+03 (1.73e+03 1.84e+03)
+              cpu = 0:00:00.2 real = 0:00:00.0 mem = 1755.4M
+Iteration  7: Total net bbox = 3.759e+03 (1.59e+03 2.17e+03)
+              Est.  stn bbox = 4.101e+03 (1.80e+03 2.30e+03)
+              cpu = 0:00:00.2 real = 0:00:00.0 mem = 1755.4M
+Iteration  8: Total net bbox = 9.831e+03 (4.35e+03 5.49e+03)
+              Est.  stn bbox = 1.116e+04 (5.04e+03 6.12e+03)
+              cpu = 0:00:00.4 real = 0:00:01.0 mem = 1755.4M
+Iteration  9: Total net bbox = 9.831e+03 (4.35e+03 5.49e+03)
+              Est.  stn bbox = 1.116e+04 (5.04e+03 6.12e+03)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1755.4M
+Finished Global Placement (cpu=0:00:01.2, real=0:00:03.0, mem=1755.4M)
+0 delay mode for cte disabled.
+Info: 0 clock gating cells identified, 0 (on average) moved 0/2
+**WARN: (IMPSP-9025):	No scan chain specified/traced.
+Type 'man IMPSP-9025' for more detail.
+*** Starting refinePlace (0:00:17.8 mem=1676.3M) ***
+Total net bbox length = 9.831e+03 (4.345e+03 5.486e+03) (ext = 5.318e+03)
+Move report: Detail placement moves 410 insts, mean move: 1.99 um, max move: 9.83 um
+	Max move on inst (U468): (51.62, 90.10) --> (56.82, 85.47)
+	Runtime: CPU: 0:00:00.1 REAL: 0:00:00.0 MEM: 1676.3MB
+Summary Report:
+Instances move: 410 (out of 410 movable)
+Instances flipped: 0
+Mean displacement: 1.99 um
+Max displacement: 9.83 um (Instance: U468) (51.62, 90.103) -> (56.82, 85.47)
+	Length: 17 sites, height: 1 rows, site name: 12T, cell type: sky130_osu_sc_12T_ms__oai21_l
+Total net bbox length = 9.677e+03 (4.294e+03 5.383e+03) (ext = 5.237e+03)
+Runtime: CPU: 0:00:00.1 REAL: 0:00:00.0 MEM: 1676.3MB
+*** Finished refinePlace (0:00:17.8 mem=1676.3M) ***
+*** Finished Initial Placement (cpu=0:00:01.3, real=0:00:03.0, mem=1676.2M) ***
+UM:   timing.setup.tns  timing.setup.wns  snapshot
+UM:*                                      final
+      timing.setup.tns  timing.setup.wns  snapshot
+UM:*                                      global_place
+Effort level <high> specified for tdgp_reg2reg_default path_group
+
+*** Start incrementalPlace ***
+Init WL Bound for IncrIp in placeDesign ... 
+No Views given, use default active views for adaptive view pruning
+SKP will enable view:
+  setup_func
+[NR-eGR] Track table information for default rule: 
+[NR-eGR] met1 has no routable track
+[NR-eGR] met2 has single uniform track structure
+[NR-eGR] met3 has single uniform track structure
+[NR-eGR] met4 has single uniform track structure
+[NR-eGR] met5 has single uniform track structure
+[NR-eGR] Started Read PG Shapes ( Curr Mem: 1678.20 MB )
+[NR-eGR] Read 0 PG shapes
+[NR-eGR] Finished Read PG Shapes ( CPU: 0.00 sec, Real: 0.00 sec, Curr Mem: 1678.20 MB )
+[NR-eGR] #Routing Blockages  : 0
+[NR-eGR] #Instance Blockages : 0
+[NR-eGR] #PG Blockages       : 0
+[NR-eGR] #Bump Blockages     : 0
+[NR-eGR] #Boundary Blockages : 0
+[NR-eGR] Num Prerouted Nets = 0  Num Prerouted Wires = 0
+[NR-eGR] Read numTotalNets=436  numIgnoredNets=0
+[NR-eGR] There are 1 clock nets ( 0 with NDR ).
+[NR-eGR] ============ Routing rule table ============
+[NR-eGR] Rule id: 0  Nets: 436 
+[NR-eGR] ========================================
+[NR-eGR] 
+[NR-eGR] Layer group 1: route 436 net(s) in layer range [2, 5]
+[NR-eGR] earlyGlobalRoute overflow of layer group 1: 5.42% H + 0.00% V. EstWL: 4.373400e+03um
+[NR-eGR] 
+[NR-eGR] Congestion Analysis By layer: (blocked Gcells are excluded) 
+[NR-eGR]                        OverCon           OverCon           OverCon           OverCon            
+[NR-eGR]                         #Gcell            #Gcell            #Gcell            #Gcell     %Gcell
+[NR-eGR]       Layer              (1-4)             (5-8)            (9-12)           (13-13)    OverCon 
+[NR-eGR] -------------------------------------------------------------------------------------------------
+[NR-eGR]    met1  (1)         0( 0.00%)         0( 0.00%)         0( 0.00%)         0( 0.00%)   ( 0.00%) 
+[NR-eGR]    met2  (2)         0( 0.00%)         0( 0.00%)         0( 0.00%)         0( 0.00%)   ( 0.00%) 
+[NR-eGR]    met3  (3)        72( 5.12%)        15( 1.07%)         1( 0.07%)         1( 0.07%)   ( 6.33%) 
+[NR-eGR]    met4  (4)         1( 0.07%)         0( 0.00%)         0( 0.00%)         0( 0.00%)   ( 0.07%) 
+[NR-eGR]    met5  (5)         6( 0.44%)         0( 0.00%)         0( 0.00%)         0( 0.00%)   ( 0.44%) 
+[NR-eGR] -------------------------------------------------------------------------------------------------
+[NR-eGR] Total               79( 1.41%)        15( 0.27%)         1( 0.02%)         1( 0.02%)   ( 1.72%) 
+[NR-eGR] 
+[NR-eGR] Overflow after earlyGlobalRoute (GR compatible) 4.71% H + 0.00% V
+[NR-eGR] Overflow after earlyGlobalRoute 7.59% H + 0.00% V
+Early Global Route congestion estimation runtime: 0.01 seconds, mem = 1678.2M
+Local HotSpot Analysis: normalized max congestion hotspot area = 7.00, normalized total congestion hotspot area = 8.00 (area is in unit of 4 std-cell row bins)
+Skipped repairing congestion.
+[NR-eGR] --------------------------------------------------------------------------
+[NR-eGR]   met1  (1F) length: 0.000000e+00um, number of vias: 1300
+[NR-eGR]   met2  (2V) length: 2.469365e+03um, number of vias: 1518
+[NR-eGR]   met3  (3H) length: 1.648155e+03um, number of vias: 228
+[NR-eGR]   met4  (4V) length: 5.983650e+02um, number of vias: 181
+[NR-eGR]   met5  (5H) length: 4.983150e+02um, number of vias: 0
+[NR-eGR] Total length: 5.214200e+03um, number of vias: 3227
+[NR-eGR] --------------------------------------------------------------------------
+[NR-eGR] Total eGR-routed clock nets wire length: 1.643500e+02um 
+[NR-eGR] --------------------------------------------------------------------------
+Early Global Route wiring runtime: 0.01 seconds, mem = 1678.2M
+Tdgp not successfully inited but do clear!
+0 delay mode for cte disabled.
+
+*** Finished incrementalPlace (cpu=0:00:00.0, real=0:00:00.0)***
+Tdgp not successfully inited but do clear!
+0 delay mode for cte disabled.
+**placeDesign ... cpu = 0: 0: 2, real = 0: 0: 3, mem = 1678.2M **
+      timing.setup.tns  timing.setup.wns  snapshot
+UM:*                                      final
+      timing.setup.tns  timing.setup.wns  snapshot
+UM:                                       place_design
+**optDesign ... cpu = 0:00:00, real = 0:00:00, mem = 790.0M, totSessionCpu=0:00:18 **
+**WARN: (IMPOPT-576):	34 nets have unplaced terms. 
+Type 'man IMPOPT-576' for more detail.
+**INFO: setDesignMode -flowEffort standard -> setting 'setOptMode -allEndPoints true' for the duration of this command.
+GigaOpt running with 1 threads.
+Updating RC grid for preRoute extraction ...
+Initializing multi-corner resistance tables ...
+**WARN: (IMPOPT-665):	result[15] : Net has unplaced terms or is connected to uplaced instances in design. 
+Type 'man IMPOPT-665' for more detail.
+**WARN: (IMPOPT-665):	result[14] : Net has unplaced terms or is connected to uplaced instances in design. 
+Type 'man IMPOPT-665' for more detail.
+**WARN: (IMPOPT-665):	result[13] : Net has unplaced terms or is connected to uplaced instances in design. 
+Type 'man IMPOPT-665' for more detail.
+**WARN: (IMPOPT-665):	result[12] : Net has unplaced terms or is connected to uplaced instances in design. 
+Type 'man IMPOPT-665' for more detail.
+**WARN: (IMPOPT-665):	result[11] : Net has unplaced terms or is connected to uplaced instances in design. 
+Type 'man IMPOPT-665' for more detail.
+**WARN: (IMPOPT-665):	result[10] : Net has unplaced terms or is connected to uplaced instances in design. 
+Type 'man IMPOPT-665' for more detail.
+**WARN: (IMPOPT-665):	result[9] : Net has unplaced terms or is connected to uplaced instances in design. 
+Type 'man IMPOPT-665' for more detail.
+**WARN: (IMPOPT-665):	result[8] : Net has unplaced terms or is connected to uplaced instances in design. 
+Type 'man IMPOPT-665' for more detail.
+**WARN: (IMPOPT-665):	result[7] : Net has unplaced terms or is connected to uplaced instances in design. 
+Type 'man IMPOPT-665' for more detail.
+**WARN: (IMPOPT-665):	result[6] : Net has unplaced terms or is connected to uplaced instances in design. 
+Type 'man IMPOPT-665' for more detail.
+**WARN: (IMPOPT-665):	result[5] : Net has unplaced terms or is connected to uplaced instances in design. 
+Type 'man IMPOPT-665' for more detail.
+**WARN: (IMPOPT-665):	result[4] : Net has unplaced terms or is connected to uplaced instances in design. 
+Type 'man IMPOPT-665' for more detail.
+**WARN: (IMPOPT-665):	result[3] : Net has unplaced terms or is connected to uplaced instances in design. 
+Type 'man IMPOPT-665' for more detail.
+**WARN: (IMPOPT-665):	result[2] : Net has unplaced terms or is connected to uplaced instances in design. 
+Type 'man IMPOPT-665' for more detail.
+**WARN: (IMPOPT-665):	result[1] : Net has unplaced terms or is connected to uplaced instances in design. 
+Type 'man IMPOPT-665' for more detail.
+**WARN: (IMPOPT-665):	result[0] : Net has unplaced terms or is connected to uplaced instances in design. 
+Type 'man IMPOPT-665' for more detail.
+**WARN: (IMPOPT-665):	a[7] : Net has unplaced terms or is connected to uplaced instances in design. 
+Type 'man IMPOPT-665' for more detail.
+**WARN: (IMPOPT-665):	a[6] : Net has unplaced terms or is connected to uplaced instances in design. 
+Type 'man IMPOPT-665' for more detail.
+**WARN: (IMPOPT-665):	a[5] : Net has unplaced terms or is connected to uplaced instances in design. 
+Type 'man IMPOPT-665' for more detail.
+**WARN: (IMPOPT-665):	a[4] : Net has unplaced terms or is connected to uplaced instances in design. 
+Type 'man IMPOPT-665' for more detail.
+**WARN: (EMS-27):	Message (IMPOPT-665) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+**optDesign ... cpu = 0:00:02, real = 0:00:02, mem = 795.2M, totSessionCpu=0:00:20 **
+*** optDesign -preCTS ***
+DRC Margin: user margin 0.0; extra margin 0.2
+Setup Target Slack: user slack 0; extra slack 0.0
+Hold Target Slack: user slack 0
+Multi-VT timing optimization disabled based on library information.
+[NR-eGR] Started Early Global Route kernel ( Curr Mem: 1684.21 MB )
+[NR-eGR] Track table information for default rule: 
+[NR-eGR] met1 has no routable track
+[NR-eGR] met2 has single uniform track structure
+[NR-eGR] met3 has single uniform track structure
+[NR-eGR] met4 has single uniform track structure
+[NR-eGR] met5 has single uniform track structure
+[NR-eGR] Started Read PG Shapes ( Curr Mem: 1684.21 MB )
+[NR-eGR] Read 0 PG shapes
+[NR-eGR] Finished Read PG Shapes ( CPU: 0.00 sec, Real: 0.00 sec, Curr Mem: 1684.21 MB )
+[NR-eGR] #Routing Blockages  : 0
+[NR-eGR] #Instance Blockages : 0
+[NR-eGR] #PG Blockages       : 0
+[NR-eGR] #Bump Blockages     : 0
+[NR-eGR] #Boundary Blockages : 0
+[NR-eGR] Num Prerouted Nets = 0  Num Prerouted Wires = 0
+[NR-eGR] Read numTotalNets=436  numIgnoredNets=0
+[NR-eGR] There are 1 clock nets ( 0 with NDR ).
+[NR-eGR] ============ Routing rule table ============
+[NR-eGR] Rule id: 0  Nets: 436 
+[NR-eGR] ========================================
+[NR-eGR] 
+[NR-eGR] Layer group 1: route 436 net(s) in layer range [2, 5]
+[NR-eGR] earlyGlobalRoute overflow of layer group 1: 5.69% H + 0.00% V. EstWL: 4.386720e+03um
+[NR-eGR] 
+[NR-eGR] Congestion Analysis By layer: (blocked Gcells are excluded) 
+[NR-eGR]                        OverCon           OverCon           OverCon           OverCon            
+[NR-eGR]                         #Gcell            #Gcell            #Gcell            #Gcell     %Gcell
+[NR-eGR]       Layer              (1-4)             (5-8)            (9-12)           (13-13)    OverCon 
+[NR-eGR] -------------------------------------------------------------------------------------------------
+[NR-eGR]    met1  (1)         0( 0.00%)         0( 0.00%)         0( 0.00%)         0( 0.00%)   ( 0.00%) 
+[NR-eGR]    met2  (2)         0( 0.00%)         0( 0.00%)         0( 0.00%)         0( 0.00%)   ( 0.00%) 
+[NR-eGR]    met3  (3)        80( 5.69%)        15( 1.07%)         1( 0.07%)         1( 0.07%)   ( 6.89%) 
+[NR-eGR]    met4  (4)         2( 0.14%)         0( 0.00%)         0( 0.00%)         0( 0.00%)   ( 0.14%) 
+[NR-eGR]    met5  (5)         6( 0.44%)         0( 0.00%)         0( 0.00%)         0( 0.00%)   ( 0.44%) 
+[NR-eGR] -------------------------------------------------------------------------------------------------
+[NR-eGR] Total               88( 1.57%)        15( 0.27%)         1( 0.02%)         1( 0.02%)   ( 1.88%) 
+[NR-eGR] 
+[NR-eGR] Overflow after earlyGlobalRoute (GR compatible) 4.91% H + 0.00% V
+[NR-eGR] Overflow after earlyGlobalRoute 7.78% H + 0.00% V
+[NR-eGR] --------------------------------------------------------------------------
+[NR-eGR]   met1  (1F) length: 0.000000e+00um, number of vias: 1300
+[NR-eGR]   met2  (2V) length: 2.456395e+03um, number of vias: 1524
+[NR-eGR]   met3  (3H) length: 1.728885e+03um, number of vias: 225
+[NR-eGR]   met4  (4V) length: 6.058900e+02um, number of vias: 179
+[NR-eGR]   met5  (5H) length: 4.587900e+02um, number of vias: 0
+[NR-eGR] Total length: 5.249960e+03um, number of vias: 3228
+[NR-eGR] --------------------------------------------------------------------------
+[NR-eGR] Total eGR-routed clock nets wire length: 1.707800e+02um 
+[NR-eGR] --------------------------------------------------------------------------
+[NR-eGR] Finished Early Global Route kernel ( CPU: 0.03 sec, Real: 0.02 sec, Curr Mem: 1684.21 MB )
+Extraction called for design 'mult_alone' of instances=410 and nets=444 using extraction engine 'preRoute' .
+PreRoute RC Extraction called for design mult_alone.
+RC Extraction called in multi-corner(1) mode.
+**WARN: (IMPEXT-6197):	The Cap table file is not specified. This will result in lower parasitic accuracy when using preRoute extraction or postRoute extraction with effort level 'low'. It is recommended to generate the Cap table file using the 'generateCapTbl' command and specify it before extraction using 'create_rc_corner/update_rc_corner -cap_table'.
+Type 'man IMPEXT-6197' for more detail.
+RCMode: PreRoute
+      RC Corner Indexes            0   
+Capacitance Scaling Factor   : 1.00000 
+Resistance Scaling Factor    : 1.00000 
+Clock Cap. Scaling Factor    : 1.00000 
+Clock Res. Scaling Factor    : 1.00000 
+Shrink Factor                : 1.00000
+PreRoute extraction is honoring NDR/Shielding/ExtraSpace for clock nets.
+Updating RC grid for preRoute extraction ...
+Initializing multi-corner resistance tables ...
+PreRoute RC Extraction DONE (CPU Time: 0:00:00.0  Real Time: 0:00:00.0  MEM: 1684.215M)
+Starting delay calculation for Setup views
+#################################################################################
+# Design Stage: PreRoute
+# Design Name: mult_alone
+# Design Mode: 130nm
+# Analysis Mode: MMMC OCV 
+# Parasitics Mode: No SPEF/RCDB
+# Signoff Settings: SI Off 
+#################################################################################
+Calculate early delays in OCV mode...
+Calculate late delays in OCV mode...
+Start delay calculation (fullDC) (1 T). (MEM=1695.58)
+**WARN: (IMPEXT-2882):	Unable to find the resistance for via 'M1M2_PR_R' in Cap table or LEF or OA files. The default value of 4.0 ohms is being assigned. To avoid this, check the Cap table and LEF and OA files, provide the resistance and read the files again.
+**WARN: (IMPEXT-2882):	Unable to find the resistance for via 'M2M3_PR_R' in Cap table or LEF or OA files. The default value of 4.0 ohms is being assigned. To avoid this, check the Cap table and LEF and OA files, provide the resistance and read the files again.
+**WARN: (IMPEXT-2882):	Unable to find the resistance for via 'M3M4_PR' in Cap table or LEF or OA files. The default value of 4.0 ohms is being assigned. To avoid this, check the Cap table and LEF and OA files, provide the resistance and read the files again.
+**WARN: (IMPEXT-2882):	Unable to find the resistance for via 'M4M5_PR' in Cap table or LEF or OA files. The default value of 4.0 ohms is being assigned. To avoid this, check the Cap table and LEF and OA files, provide the resistance and read the files again.
+Total number of fetched objects 444
+End delay calculation. (MEM=1798.11 CPU=0:00:00.2 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=1780.57 CPU=0:00:00.5 REAL=0:00:01.0)
+*** Done Building Timing Graph (cpu=0:00:00.5 real=0:00:01.0 totSessionCpu=0:00:21.8 mem=1780.6M)
+
+------------------------------------------------------------
+             Initial Summary                             
+------------------------------------------------------------
+
+Setup views included:
+ setup_func 
+
++--------------------+---------+
+|     Setup mode     |   all   |
++--------------------+---------+
+|           WNS (ns):|  2.641  |
+|           TNS (ns):|  0.000  |
+|    Violating Paths:|    0    |
+|          All Paths:|   48    |
++--------------------+---------+
+
++----------------+-------------------------------+------------------+
+|                |              Real             |       Total      |
+|    DRVs        +------------------+------------+------------------|
+|                |  Nr nets(terms)  | Worst Vio  |  Nr nets(terms)  |
++----------------+------------------+------------+------------------+
+|   max_cap      |      0 (0)       |   0.000    |      0 (0)       |
+|   max_tran     |      0 (0)       |   0.000    |      0 (0)       |
+|   max_fanout   |     17 (17)      |    -10     |     17 (17)      |
+|   max_length   |      0 (0)       |     0      |      0 (0)       |
++----------------+------------------+------------+------------------+
+
+Density: 57.854%
+------------------------------------------------------------
+**optDesign ... cpu = 0:00:04, real = 0:00:04, mem = 861.7M, totSessionCpu=0:00:22 **
+** INFO : this run is activating medium effort placeOptDesign flow
+*** Starting optimizing excluded clock nets MEM= 1757.8M) ***
+*info: No excluded clock nets to be optimized.
+*** Finished optimizing excluded clock nets (CPU Time= 0:00:00.0  MEM= 1757.8M) ***
+The useful skew maximum allowed delay is: 0.3
+Info: 1 clock net  excluded from IPO operation.
+*** AreaOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:00:21.9/0:00:23.7 (0.9), mem = 1757.8M
+
+Footprint cell information for calculating maxBufDist
+*info: There are 4 candidate Buffer cells
+*info: There are 8 candidate Inverter cells
+
+
+Netlist preparation processing... 
+Removed 0 instance
+*info: Marking 0 isolation instances dont touch
+*info: Marking 0 level shifter instances dont touch
+*** AreaOpt [finish] : cpu/real = 0:00:01.6/0:00:01.6 (1.0), totSession cpu/real = 0:00:23.5/0:00:25.3 (0.9), mem = 1856.1M
+
+Active setup views:
+ setup_func
+  Dominating endpoints: 0
+  Dominating TNS: -0.000
+
+Begin: GigaOpt Global Optimization
+*info: use new DP (enabled)
+Info: 1 clock net  excluded from IPO operation.
+*** SetupOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:00:23.6/0:00:25.3 (0.9), mem = 1798.8M
+*info: 1 clock net excluded
+*info: 2 special nets excluded.
+*info: 4 no-driver nets excluded.
+** GigaOpt Global Opt WNS Slack 0.000  TNS Slack 0.000 
++--------+--------+----------+------------+--------+----------+---------+--------------+
+|  WNS   |  TNS   | Density  |    Real    |  Mem   |Worst View|Pathgroup|  End Point   |
++--------+--------+----------+------------+--------+----------+---------+--------------+
+|   0.000|   0.000|    57.85%|   0:00:00.0| 1826.9M|setup_func|       NA| NA           |
++--------+--------+----------+------------+--------+----------+---------+--------------+
+
+*** Finish pre-CTS Global Setup Fixing (cpu=0:00:00.0 real=0:00:00.0 mem=1826.9M) ***
+
+*** Finish pre-CTS Setup Fixing (cpu=0:00:00.0 real=0:00:00.0 mem=1826.9M) ***
+**** Begin NDR-Layer Usage Statistics ****
+0 Ndr or Layer constraints added by optimization 
+**** End NDR-Layer Usage Statistics ****
+** GigaOpt Global Opt End WNS Slack 0.000  TNS Slack 0.000 
+*** SetupOpt [finish] : cpu/real = 0:00:03.9/0:00:03.9 (1.0), totSession cpu/real = 0:00:27.5/0:00:29.3 (0.9), mem = 1807.8M
+End: GigaOpt Global Optimization
+*** Timing Is met
+*** Check timing (0:00:00.0)
+Info: 1 clock net  excluded from IPO operation.
+
+*** Start incrementalPlace ***
+Collecting buffer chain nets ...
+No Views given, use default active views for adaptive view pruning
+SKP will enable view:
+  setup_func
+[NR-eGR] Track table information for default rule: 
+[NR-eGR] met1 has no routable track
+[NR-eGR] met2 has single uniform track structure
+[NR-eGR] met3 has single uniform track structure
+[NR-eGR] met4 has single uniform track structure
+[NR-eGR] met5 has single uniform track structure
+[NR-eGR] Started Read PG Shapes ( Curr Mem: 1803.84 MB )
+[NR-eGR] Read 0 PG shapes
+[NR-eGR] Finished Read PG Shapes ( CPU: 0.00 sec, Real: 0.00 sec, Curr Mem: 1803.84 MB )
+[NR-eGR] #Routing Blockages  : 0
+[NR-eGR] #Instance Blockages : 0
+[NR-eGR] #PG Blockages       : 0
+[NR-eGR] #Bump Blockages     : 0
+[NR-eGR] #Boundary Blockages : 0
+[NR-eGR] Num Prerouted Nets = 0  Num Prerouted Wires = 0
+[NR-eGR] Read numTotalNets=436  numIgnoredNets=0
+[NR-eGR] There are 1 clock nets ( 0 with NDR ).
+[NR-eGR] ============ Routing rule table ============
+[NR-eGR] Rule id: 0  Nets: 436 
+[NR-eGR] ========================================
+[NR-eGR] 
+[NR-eGR] Layer group 1: route 436 net(s) in layer range [2, 5]
+[NR-eGR] earlyGlobalRoute overflow of layer group 1: 5.42% H + 0.00% V. EstWL: 4.373400e+03um
+[NR-eGR] 
+[NR-eGR] Congestion Analysis By layer: (blocked Gcells are excluded) 
+[NR-eGR]                        OverCon           OverCon           OverCon           OverCon            
+[NR-eGR]                         #Gcell            #Gcell            #Gcell            #Gcell     %Gcell
+[NR-eGR]       Layer              (1-4)             (5-8)            (9-12)           (13-13)    OverCon 
+[NR-eGR] -------------------------------------------------------------------------------------------------
+[NR-eGR]    met1  (1)         0( 0.00%)         0( 0.00%)         0( 0.00%)         0( 0.00%)   ( 0.00%) 
+[NR-eGR]    met2  (2)         0( 0.00%)         0( 0.00%)         0( 0.00%)         0( 0.00%)   ( 0.00%) 
+[NR-eGR]    met3  (3)        72( 5.12%)        15( 1.07%)         1( 0.07%)         1( 0.07%)   ( 6.33%) 
+[NR-eGR]    met4  (4)         1( 0.07%)         0( 0.00%)         0( 0.00%)         0( 0.00%)   ( 0.07%) 
+[NR-eGR]    met5  (5)         6( 0.44%)         0( 0.00%)         0( 0.00%)         0( 0.00%)   ( 0.44%) 
+[NR-eGR] -------------------------------------------------------------------------------------------------
+[NR-eGR] Total               79( 1.41%)        15( 0.27%)         1( 0.02%)         1( 0.02%)   ( 1.72%) 
+[NR-eGR] 
+[NR-eGR] Overflow after earlyGlobalRoute (GR compatible) 4.71% H + 0.00% V
+[NR-eGR] Overflow after earlyGlobalRoute 7.59% H + 0.00% V
+Early Global Route congestion estimation runtime: 0.01 seconds, mem = 1788.6M
+Local HotSpot Analysis: normalized max congestion hotspot area = 7.00, normalized total congestion hotspot area = 8.00 (area is in unit of 4 std-cell row bins)
+
+=== incrementalPlace Internal Loop 1 ===
+*** Finished SKP initialization (cpu=0:00:00.1, real=0:00:01.0)***
+Iteration  4: Total net bbox = 3.216e+03 (1.36e+03 1.85e+03)
+              Est.  stn bbox = 3.508e+03 (1.54e+03 1.97e+03)
+              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1752.3M
+Iteration  5: Total net bbox = 3.338e+03 (1.58e+03 1.76e+03)
+              Est.  stn bbox = 3.746e+03 (1.83e+03 1.91e+03)
+              cpu = 0:00:00.2 real = 0:00:00.0 mem = 1752.3M
+Iteration  6: Total net bbox = 3.751e+03 (1.74e+03 2.01e+03)
+              Est.  stn bbox = 4.204e+03 (2.02e+03 2.18e+03)
+              cpu = 0:00:00.2 real = 0:00:00.0 mem = 1752.3M
+Iteration  7: Total net bbox = 5.190e+03 (2.02e+03 3.17e+03)
+              Est.  stn bbox = 5.653e+03 (2.29e+03 3.37e+03)
+              cpu = 0:00:00.3 real = 0:00:00.0 mem = 1752.3M
+Move report: Timing Driven Placement moves 410 insts, mean move: 9.16 um, max move: 32.60 um
+	Max move on inst (U480): (59.13, 58.83) --> (44.13, 41.23)
+
+Finished Incremental Placement (cpu=0:00:00.9, real=0:00:01.0, mem=1752.2M)
+**WARN: (IMPSP-9025):	No scan chain specified/traced.
+Type 'man IMPSP-9025' for more detail.
+*** Starting refinePlace (0:00:28.6 mem=1752.3M) ***
+Total net bbox length = 1.091e+04 (4.516e+03 6.397e+03) (ext = 5.213e+03)
+Move report: Detail placement moves 410 insts, mean move: 1.94 um, max move: 11.07 um
+	Max move on inst (U501): (54.45, 41.86) --> (44.17, 41.07)
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1752.3MB
+Summary Report:
+Instances move: 410 (out of 410 movable)
+Instances flipped: 0
+Mean displacement: 1.94 um
+Max displacement: 11.07 um (Instance: U501) (54.45, 41.86) -> (44.17, 41.07)
+	Length: 9 sites, height: 1 rows, site name: 12T, cell type: sky130_osu_sc_12T_ms__inv_1
+Total net bbox length = 1.064e+04 (4.407e+03 6.234e+03) (ext = 5.141e+03)
+Runtime: CPU: 0:00:00.1 REAL: 0:00:00.0 MEM: 1752.3MB
+*** Finished refinePlace (0:00:28.6 mem=1752.3M) ***
+[NR-eGR] Track table information for default rule: 
+[NR-eGR] met1 has no routable track
+[NR-eGR] met2 has single uniform track structure
+[NR-eGR] met3 has single uniform track structure
+[NR-eGR] met4 has single uniform track structure
+[NR-eGR] met5 has single uniform track structure
+[NR-eGR] Started Read PG Shapes ( Curr Mem: 1752.26 MB )
+[NR-eGR] Read 0 PG shapes
+[NR-eGR] Finished Read PG Shapes ( CPU: 0.00 sec, Real: 0.00 sec, Curr Mem: 1752.26 MB )
+[NR-eGR] #Routing Blockages  : 0
+[NR-eGR] #Instance Blockages : 0
+[NR-eGR] #PG Blockages       : 0
+[NR-eGR] #Bump Blockages     : 0
+[NR-eGR] #Boundary Blockages : 0
+[NR-eGR] Num Prerouted Nets = 0  Num Prerouted Wires = 0
+[NR-eGR] Read numTotalNets=436  numIgnoredNets=0
+[NR-eGR] There are 1 clock nets ( 0 with NDR ).
+[NR-eGR] ============ Routing rule table ============
+[NR-eGR] Rule id: 0  Nets: 436 
+[NR-eGR] ========================================
+[NR-eGR] 
+[NR-eGR] Layer group 1: route 436 net(s) in layer range [2, 5]
+[NR-eGR] earlyGlobalRoute overflow of layer group 1: 3.31% H + 0.00% V. EstWL: 5.647680e+03um
+[NR-eGR] 
+[NR-eGR] Congestion Analysis By layer: (blocked Gcells are excluded) 
+[NR-eGR]                        OverCon           OverCon           OverCon           OverCon            
+[NR-eGR]                         #Gcell            #Gcell            #Gcell            #Gcell     %Gcell
+[NR-eGR]       Layer              (1-2)             (3-4)             (5-6)             (7-8)    OverCon 
+[NR-eGR] -------------------------------------------------------------------------------------------------
+[NR-eGR]    met1  (1)         0( 0.00%)         0( 0.00%)         0( 0.00%)         0( 0.00%)   ( 0.00%) 
+[NR-eGR]    met2  (2)         0( 0.00%)         0( 0.00%)         0( 0.00%)         0( 0.00%)   ( 0.00%) 
+[NR-eGR]    met3  (3)        51( 3.62%)        21( 1.49%)         4( 0.28%)         2( 0.14%)   ( 5.54%) 
+[NR-eGR]    met4  (4)         3( 0.21%)         1( 0.07%)         0( 0.00%)         0( 0.00%)   ( 0.28%) 
+[NR-eGR]    met5  (5)         4( 0.29%)         0( 0.00%)         0( 0.00%)         0( 0.00%)   ( 0.29%) 
+[NR-eGR] -------------------------------------------------------------------------------------------------
+[NR-eGR] Total               58( 1.04%)        22( 0.39%)         4( 0.07%)         2( 0.04%)   ( 1.54%) 
+[NR-eGR] 
+[NR-eGR] Overflow after earlyGlobalRoute (GR compatible) 4.22% H + 0.00% V
+[NR-eGR] Overflow after earlyGlobalRoute 6.06% H + 0.00% V
+Early Global Route congestion estimation runtime: 0.01 seconds, mem = 1752.3M
+Local HotSpot Analysis: normalized max congestion hotspot area = 2.00, normalized total congestion hotspot area = 3.00 (area is in unit of 4 std-cell row bins)
+[NR-eGR] --------------------------------------------------------------------------
+[NR-eGR]   met1  (1F) length: 0.000000e+00um, number of vias: 1300
+[NR-eGR]   met2  (2V) length: 3.156540e+03um, number of vias: 1582
+[NR-eGR]   met3  (3H) length: 1.763250e+03um, number of vias: 259
+[NR-eGR]   met4  (4V) length: 8.681950e+02um, number of vias: 195
+[NR-eGR]   met5  (5H) length: 5.608800e+02um, number of vias: 0
+[NR-eGR] Total length: 6.348865e+03um, number of vias: 3336
+[NR-eGR] --------------------------------------------------------------------------
+[NR-eGR] Total eGR-routed clock nets wire length: 1.424350e+02um 
+[NR-eGR] --------------------------------------------------------------------------
+Early Global Route wiring runtime: 0.01 seconds, mem = 1752.3M
+0 delay mode for cte disabled.
+
+*** Finished incrementalPlace (cpu=0:00:01.1, real=0:00:01.0)***
+Start to check current routing status for nets...
+All nets are already routed correctly.
+End to check current routing status for nets (mem=1752.2M)
+Extraction called for design 'mult_alone' of instances=410 and nets=444 using extraction engine 'preRoute' .
+PreRoute RC Extraction called for design mult_alone.
+RC Extraction called in multi-corner(1) mode.
+**WARN: (IMPEXT-6197):	The Cap table file is not specified. This will result in lower parasitic accuracy when using preRoute extraction or postRoute extraction with effort level 'low'. It is recommended to generate the Cap table file using the 'generateCapTbl' command and specify it before extraction using 'create_rc_corner/update_rc_corner -cap_table'.
+Type 'man IMPEXT-6197' for more detail.
+RCMode: PreRoute
+      RC Corner Indexes            0   
+Capacitance Scaling Factor   : 1.00000 
+Resistance Scaling Factor    : 1.00000 
+Clock Cap. Scaling Factor    : 1.00000 
+Clock Res. Scaling Factor    : 1.00000 
+Shrink Factor                : 1.00000
+PreRoute extraction is honoring NDR/Shielding/ExtraSpace for clock nets.
+Updating RC grid for preRoute extraction ...
+Initializing multi-corner resistance tables ...
+PreRoute RC Extraction DONE (CPU Time: 0:00:00.0  Real Time: 0:00:00.0  MEM: 1752.184M)
+Compute RC Scale Done ...
+**optDesign ... cpu = 0:00:11, real = 0:00:11, mem = 861.3M, totSessionCpu=0:00:29 **
+#################################################################################
+# Design Stage: PreRoute
+# Design Name: mult_alone
+# Design Mode: 130nm
+# Analysis Mode: MMMC OCV 
+# Parasitics Mode: No SPEF/RCDB
+# Signoff Settings: SI Off 
+#################################################################################
+Calculate early delays in OCV mode...
+Calculate late delays in OCV mode...
+Start delay calculation (fullDC) (1 T). (MEM=1758.71)
+Total number of fetched objects 444
+End delay calculation. (MEM=1827.13 CPU=0:00:00.1 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=1827.13 CPU=0:00:00.4 REAL=0:00:00.0)
+*** Timing Is met
+*** Check timing (0:00:00.0)
+*** Timing Is met
+*** Check timing (0:00:00.0)
+Info: 1 clock net  excluded from IPO operation.
+Begin: Area Reclaim Optimization
+*** AreaOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:00:30.7/0:00:32.5 (0.9), mem = 1861.5M
+Reclaim Optimization WNS Slack 0.000  TNS Slack 0.000 Density 57.85
++----------+---------+--------+--------+------------+--------+
+| Density  | Commits |  WNS   |  TNS   |    Real    |  Mem   |
++----------+---------+--------+--------+------------+--------+
+|    57.85%|        -|   0.000|   0.000|   0:00:00.0| 1861.5M|
+|    57.85%|        0|   0.000|   0.000|   0:00:00.0| 1861.5M|
+|    57.85%|        0|   0.000|   0.000|   0:00:00.0| 1861.5M|
+|    57.85%|        0|   0.000|   0.000|   0:00:00.0| 1861.5M|
+|    57.85%|        0|   0.000|   0.000|   0:00:00.0| 1861.5M|
++----------+---------+--------+--------+------------+--------+
+Reclaim Optimization End WNS Slack 0.000  TNS Slack 0.000 Density 57.85
+**** Begin NDR-Layer Usage Statistics ****
+0 Ndr or Layer constraints added by optimization 
+**** End NDR-Layer Usage Statistics ****
+End: Core Area Reclaim Optimization (cpu = 0:00:01.8) (real = 0:00:02.0) **
+*** Starting refinePlace (0:00:31.1 mem=1861.5M) ***
+Total net bbox length = 1.064e+04 (4.407e+03 6.234e+03) (ext = 5.141e+03)
+Move report: Detail placement moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1861.5MB
+Summary Report:
+Instances move: 0 (out of 410 movable)
+Instances flipped: 0
+Mean displacement: 0.00 um
+Max displacement: 0.00 um 
+Total net bbox length = 1.064e+04 (4.407e+03 6.234e+03) (ext = 5.141e+03)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1861.5MB
+*** Finished refinePlace (0:00:31.1 mem=1861.5M) ***
+*** maximum move = 0.00 um ***
+*** Finished re-routing un-routed nets (1861.5M) ***
+
+*** Finish Physical Update (cpu=0:00:00.1 real=0:00:00.0 mem=1880.6M) ***
+*** AreaOpt [finish] : cpu/real = 0:00:00.5/0:00:00.5 (1.0), totSession cpu/real = 0:00:31.2/0:00:32.9 (0.9), mem = 1880.6M
+End: Area Reclaim Optimization (cpu=0:00:02, real=0:00:02, mem=1808.55M, totSessionCpu=0:00:31).
+Begin: GigaOpt postEco DRV Optimization
+Info: 1 clock net  excluded from IPO operation.
+*** DrvOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:00:31.2/0:00:33.0 (0.9), mem = 1808.5M
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+|        max-tran       |        max-cap        |  max-fanout |  max-length |       setup       |        |        |        |       |          |         |
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+| nets | terms|  wViol  | nets | terms|  wViol  | nets | terms| nets | terms|   WNS   |   TNS   |  #Buf  |  #Inv  | #Resize|Density|   Real   |   Mem   |
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+|     0|     0|     0.00|     0|     0|     0.00|    17|    17|     0|     0|     2.51|     0.00|       0|       0|       0|  57.85|          |         |
+|     0|     0|     0.00|     0|     0|     0.00|    17|    17|     0|     0|     2.51|     0.00|       0|       0|       0|  57.85| 0:00:00.0|  1827.6M|
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+**** Begin NDR-Layer Usage Statistics ****
+0 Ndr or Layer constraints added by optimization 
+**** End NDR-Layer Usage Statistics ****
+
+*** Finish DRV Fixing (cpu=0:00:00.0 real=0:00:00.0 mem=1827.6M) ***
+
+*** DrvOpt [finish] : cpu/real = 0:00:00.8/0:00:00.8 (1.0), totSession cpu/real = 0:00:32.1/0:00:33.9 (0.9), mem = 1808.5M
+End: GigaOpt postEco DRV Optimization
+
+Active setup views:
+ setup_func
+  Dominating endpoints: 0
+  Dominating TNS: -0.000
+
+Extraction called for design 'mult_alone' of instances=410 and nets=444 using extraction engine 'preRoute' .
+PreRoute RC Extraction called for design mult_alone.
+RC Extraction called in multi-corner(1) mode.
+**WARN: (IMPEXT-6197):	The Cap table file is not specified. This will result in lower parasitic accuracy when using preRoute extraction or postRoute extraction with effort level 'low'. It is recommended to generate the Cap table file using the 'generateCapTbl' command and specify it before extraction using 'create_rc_corner/update_rc_corner -cap_table'.
+Type 'man IMPEXT-6197' for more detail.
+RCMode: PreRoute
+      RC Corner Indexes            0   
+Capacitance Scaling Factor   : 1.00000 
+Resistance Scaling Factor    : 1.00000 
+Clock Cap. Scaling Factor    : 1.00000 
+Clock Res. Scaling Factor    : 1.00000 
+Shrink Factor                : 1.00000
+PreRoute extraction is honoring NDR/Shielding/ExtraSpace for clock nets.
+Skipped RC grid update for preRoute extraction.
+Initializing multi-corner resistance tables ...
+PreRoute RC Extraction DONE (CPU Time: 0:00:00.0  Real Time: 0:00:00.0  MEM: 1775.555M)
+Skewing Data Summary (End_of_FINAL)
+--------------------------------------------------
+ Total skewed count:0
+--------------------------------------------------
+[NR-eGR] Track table information for default rule: 
+[NR-eGR] met1 has no routable track
+[NR-eGR] met2 has single uniform track structure
+[NR-eGR] met3 has single uniform track structure
+[NR-eGR] met4 has single uniform track structure
+[NR-eGR] met5 has single uniform track structure
+[NR-eGR] Started Read PG Shapes ( Curr Mem: 1775.55 MB )
+[NR-eGR] Read 0 PG shapes
+[NR-eGR] Finished Read PG Shapes ( CPU: 0.00 sec, Real: 0.00 sec, Curr Mem: 1775.55 MB )
+[NR-eGR] #Routing Blockages  : 0
+[NR-eGR] #Instance Blockages : 0
+[NR-eGR] #PG Blockages       : 0
+[NR-eGR] #Bump Blockages     : 0
+[NR-eGR] #Boundary Blockages : 0
+[NR-eGR] Num Prerouted Nets = 0  Num Prerouted Wires = 0
+[NR-eGR] Read numTotalNets=436  numIgnoredNets=0
+[NR-eGR] There are 1 clock nets ( 0 with NDR ).
+[NR-eGR] ============ Routing rule table ============
+[NR-eGR] Rule id: 0  Nets: 436 
+[NR-eGR] ========================================
+[NR-eGR] 
+[NR-eGR] Layer group 1: route 436 net(s) in layer range [2, 5]
+[NR-eGR] earlyGlobalRoute overflow of layer group 1: 3.31% H + 0.00% V. EstWL: 5.647680e+03um
+[NR-eGR] 
+[NR-eGR] Congestion Analysis By layer: (blocked Gcells are excluded) 
+[NR-eGR]                        OverCon           OverCon           OverCon           OverCon            
+[NR-eGR]                         #Gcell            #Gcell            #Gcell            #Gcell     %Gcell
+[NR-eGR]       Layer              (1-2)             (3-4)             (5-6)             (7-8)    OverCon 
+[NR-eGR] -------------------------------------------------------------------------------------------------
+[NR-eGR]    met1  (1)         0( 0.00%)         0( 0.00%)         0( 0.00%)         0( 0.00%)   ( 0.00%) 
+[NR-eGR]    met2  (2)         0( 0.00%)         0( 0.00%)         0( 0.00%)         0( 0.00%)   ( 0.00%) 
+[NR-eGR]    met3  (3)        51( 3.62%)        21( 1.49%)         4( 0.28%)         2( 0.14%)   ( 5.54%) 
+[NR-eGR]    met4  (4)         3( 0.21%)         1( 0.07%)         0( 0.00%)         0( 0.00%)   ( 0.28%) 
+[NR-eGR]    met5  (5)         4( 0.29%)         0( 0.00%)         0( 0.00%)         0( 0.00%)   ( 0.29%) 
+[NR-eGR] -------------------------------------------------------------------------------------------------
+[NR-eGR] Total               58( 1.04%)        22( 0.39%)         4( 0.07%)         2( 0.04%)   ( 1.54%) 
+[NR-eGR] 
+[NR-eGR] Overflow after earlyGlobalRoute (GR compatible) 4.22% H + 0.00% V
+[NR-eGR] Overflow after earlyGlobalRoute 6.06% H + 0.00% V
+[NR-eGR] Finished Early Global Route kernel ( CPU: 0.01 sec, Real: 0.01 sec, Curr Mem: 1775.55 MB )
+[hotspot] +------------+---------------+---------------+
+[hotspot] |            |   max hotspot | total hotspot |
+[hotspot] +------------+---------------+---------------+
+[hotspot] | normalized |          2.00 |          3.00 |
+[hotspot] +------------+---------------+---------------+
+Local HotSpot Analysis: normalized max congestion hotspot area = 2.00, normalized total congestion hotspot area = 3.00 (area is in unit of 4 std-cell row bins)
+[hotspot] top 2 congestion hotspot bounding boxes and scores of normalized hotspot
+[hotspot] +-----+-------------------------------------+---------------+
+[hotspot] | top |            hotspot bbox             | hotspot score |
+[hotspot] +-----+-------------------------------------+---------------+
+[hotspot] |  1  |    71.40    36.63    89.16    72.15 |        2.00   |
+[hotspot] +-----+-------------------------------------+---------------+
+[hotspot] |  2  |    53.64   107.67    71.40   125.43 |        1.00   |
+[hotspot] +-----+-------------------------------------+---------------+
+Starting delay calculation for Setup views
+#################################################################################
+# Design Stage: PreRoute
+# Design Name: mult_alone
+# Design Mode: 130nm
+# Analysis Mode: MMMC OCV 
+# Parasitics Mode: No SPEF/RCDB
+# Signoff Settings: SI Off 
+#################################################################################
+Calculate early delays in OCV mode...
+Calculate late delays in OCV mode...
+Start delay calculation (fullDC) (1 T). (MEM=1773.55)
+Total number of fetched objects 444
+End delay calculation. (MEM=1831.98 CPU=0:00:00.1 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=1831.98 CPU=0:00:00.4 REAL=0:00:00.0)
+*** Done Building Timing Graph (cpu=0:00:00.4 real=0:00:00.0 totSessionCpu=0:00:32.6 mem=1832.0M)
+Reported timing to dir RPT
+**optDesign ... cpu = 0:00:14, real = 0:00:14, mem = 915.2M, totSessionCpu=0:00:33 **
+
+------------------------------------------------------------
+     optDesign Final Summary                             
+------------------------------------------------------------
+
+Setup views included:
+ setup_func 
+
++--------------------+---------+---------+---------+
+|     Setup mode     |   all   | reg2reg | default |
++--------------------+---------+---------+---------+
+|           WNS (ns):|  2.508  |  4.307  |  2.508  |
+|           TNS (ns):|  0.000  |  0.000  |  0.000  |
+|    Violating Paths:|    0    |    0    |    0    |
+|          All Paths:|   48    |   16    |   48    |
++--------------------+---------+---------+---------+
+
++----------------+-------------------------------+------------------+
+|                |              Real             |       Total      |
+|    DRVs        +------------------+------------+------------------|
+|                |  Nr nets(terms)  | Worst Vio  |  Nr nets(terms)  |
++----------------+------------------+------------+------------------+
+|   max_cap      |      0 (0)       |   0.000    |      0 (0)       |
+|   max_tran     |      0 (0)       |   0.000    |      0 (0)       |
+|   max_fanout   |     17 (17)      |    -10     |     17 (17)      |
+|   max_length   |      0 (0)       |     0      |      0 (0)       |
++----------------+------------------+------------+------------------+
+
+Density: 57.854%
+Routing Overflow: 6.06% H and 0.00% V
+------------------------------------------------------------
+**optDesign ... cpu = 0:00:14, real = 0:00:16, mem = 917.3M, totSessionCpu=0:00:33 **
+*** Finished optDesign ***
+      timing.setup.tns  timing.setup.wns  snapshot
+UM:*          0.000 ns          2.508 ns  final
+      timing.setup.tns  timing.setup.wns  snapshot
+UM:                                       opt_design_prects
+**place_opt_design ... cpu = 0:00:17, real = 0:00:20, mem = 1771.2M **
+*** Finished GigaPlace ***
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPEXT-6197          3  The Cap table file is not specified. Thi...
+WARNING   IMPEXT-2882          4  Unable to find the resistance for via '%...
+WARNING   IMPSP-9025           2  No scan chain specified/traced.          
+WARNING   IMPSP-362            1  Site '%s' has %s std.Cell height, so ign...
+WARNING   IMPOPT-576           1  %d nets have unplaced terms.             
+WARNING   IMPOPT-665          34  %s : Net has unplaced terms or is connec...
+*** Message Summary: 45 warning(s), 0 error(s)
+
+<CMD> setTieHiLoMode -cell {sky130_osu_sc_12T_ms__tiehi sky130_osu_sc_12T_ms__tielo}
+<CMD> setDontUse sky130_osu_sc_12T_ms__tiehi false
+<CMD> setDontUse sky130_osu_sc_12T_ms__tielo false
+<CMD> addTieHiLo
+Options: No distance constraint, No Fan-out constraint.
+INFO: Total Number of Tie Cells (sky130_osu_sc_12T_ms__tiehi) placed: 0  
+INFO: Total Number of Tie Cells (sky130_osu_sc_12T_ms__tielo) placed: 0  
+<CMD> setDontUse sky130_osu_sc_12T_ms__tiehi true
+<CMD> setDontUse sky130_osu_sc_12T_ms__tielo true
+<CMD> um::pop_snapshot_stack
+<CMD> getOptMode -multiBitFlopOpt -quiet
+      timing.setup.tns  timing.setup.wns  snapshot
+UM:                                       place
+<CMD> um::get_metric_definition -name *.drc
+<CMD> um::get_metric_definition -name *.drc.layer:*
+<CMD> um::get_metric_definition -name *.drc.layer:*.type:*
+<CMD> um::get_metric_definition -name *.drc.type:*
+<CMD> um::get_metric_definition -name check.drc
+<CMD> um::get_metric_definition -name check.drc.antenna
+<CMD> um::get_metric_definition -name check.place.*
+<CMD> um::get_metric_definition -name clock.area.buffer
+<CMD> um::get_metric_definition -name clock.area.clkgate
+<CMD> um::get_metric_definition -name clock.area.inverter
+<CMD> um::get_metric_definition -name clock.area.logic
+<CMD> um::get_metric_definition -name clock.area.nonicg
+<CMD> um::get_metric_definition -name clock.area.total
+<CMD> um::get_metric_definition -name clock.area_distribution.buffer.base_cell:*
+<CMD> um::get_metric_definition -name clock.area_distribution.clkgate.base_cell:*
+<CMD> um::get_metric_definition -name clock.area_distribution.inverter.base_cell:*
+<CMD> um::get_metric_definition -name clock.area_distribution.logic.base_cell:*
+<CMD> um::get_metric_definition -name clock.area_distribution.nonicg.base_cell:*
+<CMD> um::get_metric_definition -name clock.buffer_depth_constraint.skew_group:*.*
+<CMD> um::get_metric_definition -name clock.capacitance.gate.leaf
+<CMD> um::get_metric_definition -name clock.capacitance.gate.top
+<CMD> um::get_metric_definition -name clock.capacitance.gate.trunk
+<CMD> um::get_metric_definition -name clock.capacitance.sink.*
+<CMD> um::get_metric_definition -name clock.capacitance.total.leaf
+<CMD> um::get_metric_definition -name clock.capacitance.total.top
+<CMD> um::get_metric_definition -name clock.capacitance.total.trunk
+<CMD> um::get_metric_definition -name clock.capacitance.wire.leaf
+<CMD> um::get_metric_definition -name clock.capacitance.wire.top
+<CMD> um::get_metric_definition -name clock.capacitance.wire.trunk
+<CMD> um::get_metric_definition -name clock.drv.nets.capacitance.*
+<CMD> um::get_metric_definition -name clock.drv.nets.capacitance.count
+<CMD> um::get_metric_definition -name clock.drv.nets.capacitance.max
+<CMD> um::get_metric_definition -name clock.drv.nets.fanout.*
+<CMD> um::get_metric_definition -name clock.drv.nets.fanout.count
+<CMD> um::get_metric_definition -name clock.drv.nets.fanout.max
+<CMD> um::get_metric_definition -name clock.drv.nets.length.*
+<CMD> um::get_metric_definition -name clock.drv.nets.length.count
+<CMD> um::get_metric_definition -name clock.drv.nets.length.max
+<CMD> um::get_metric_definition -name clock.drv.nets.remaining
+<CMD> um::get_metric_definition -name clock.drv.nets.resistance.*
+<CMD> um::get_metric_definition -name clock.drv.nets.resistance.count
+<CMD> um::get_metric_definition -name clock.drv.nets.resistance.max
+<CMD> um::get_metric_definition -name clock.drv.nets.unfixable
+<CMD> um::get_metric_definition -name clock.halo.clock_tree:*.count
+<CMD> um::get_metric_definition -name clock.halo.clock_tree:*.violations
+<CMD> um::get_metric_definition -name clock.instances.buffer
+<CMD> um::get_metric_definition -name clock.instances.buffer.creator.*
+<CMD> um::get_metric_definition -name clock.instances.clkgate
+<CMD> um::get_metric_definition -name clock.instances.inverter
+<CMD> um::get_metric_definition -name clock.instances.inverter.creator.*
+<CMD> um::get_metric_definition -name clock.instances.logic
+<CMD> um::get_metric_definition -name clock.instances.nonicg
+<CMD> um::get_metric_definition -name clock.instances.total
+<CMD> um::get_metric_definition -name clock.instances_distribution.buffer.base_cell:*
+<CMD> um::get_metric_definition -name clock.instances_distribution.clkgate.base_cell:*
+<CMD> um::get_metric_definition -name clock.instances_distribution.inverter.base_cell:*
+<CMD> um::get_metric_definition -name clock.instances_distribution.logic.base_cell:*
+<CMD> um::get_metric_definition -name clock.instances_distribution.nonicg.base_cell:*
+<CMD> um::get_metric_definition -name clock.latency.primary_reporting_skew_group.primary_half_corner.*
+<CMD> um::get_metric_definition -name clock.latency.skew_group:*.delay_corner:*.early.*
+<CMD> um::get_metric_definition -name clock.latency.skew_group:*.delay_corner:*.late.*
+<CMD> um::get_metric_definition -name clock.nets.length.leaf
+<CMD> um::get_metric_definition -name clock.nets.length.top
+<CMD> um::get_metric_definition -name clock.nets.length.total
+<CMD> um::get_metric_definition -name clock.nets.length.trunk
+<CMD> um::get_metric_definition -name clock.skew.primary_reporting_skew_group.primary_half_corner.*
+<CMD> um::get_metric_definition -name clock.skew.primary_reporting_skew_group.primary_half_corner.skew_band.*
+<CMD> um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.early.gate
+<CMD> um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.early.skew_band.*
+<CMD> um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.early.target
+<CMD> um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.early.target_met
+<CMD> um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.early.total
+<CMD> um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.early.wire
+<CMD> um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.late.gate
+<CMD> um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.late.skew_band.*
+<CMD> um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.late.target
+<CMD> um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.late.target_met
+<CMD> um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.late.total
+<CMD> um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.late.wire
+<CMD> um::get_metric_definition -name clock.stage_depth_constraint.*
+<CMD> um::get_metric_definition -name clock.transition.auto_target.delay_corner:*.early.clock_tree:*
+<CMD> um::get_metric_definition -name clock.transition.auto_target.delay_corner:*.late.clock_tree:*
+<CMD> um::get_metric_definition -name clock.transition.primary_half_corner.leaf.*.*
+<CMD> um::get_metric_definition -name clock.transition.primary_half_corner.leaf.*.max
+<CMD> um::get_metric_definition -name clock.transition.primary_half_corner.top.*.*
+<CMD> um::get_metric_definition -name clock.transition.primary_half_corner.top.*.max
+<CMD> um::get_metric_definition -name clock.transition.primary_half_corner.trunk.*.*
+<CMD> um::get_metric_definition -name clock.transition.primary_half_corner.trunk.*.max
+<CMD> um::get_metric_definition -name clock.transition.target.delay_corner:*.early.leaf.clock_tree:*
+<CMD> um::get_metric_definition -name clock.transition.target.delay_corner:*.early.top.clock_tree:*
+<CMD> um::get_metric_definition -name clock.transition.target.delay_corner:*.early.trunk.clock_tree:*
+<CMD> um::get_metric_definition -name clock.transition.target.delay_corner:*.late.leaf.clock_tree:*
+<CMD> um::get_metric_definition -name clock.transition.target.delay_corner:*.late.top.clock_tree:*
+<CMD> um::get_metric_definition -name clock.transition.target.delay_corner:*.late.trunk.clock_tree:*
+<CMD> um::get_metric_definition -name clock.transition.target.primary_half_corner.leaf.*
+<CMD> um::get_metric_definition -name clock.transition.target.primary_half_corner.top.*
+<CMD> um::get_metric_definition -name clock.transition.target.primary_half_corner.trunk.*
+<CMD> um::get_metric_definition -name design.area
+<CMD> um::get_metric_definition -name design.area.always_on
+<CMD> um::get_metric_definition -name design.area.blackbox
+<CMD> um::get_metric_definition -name design.area.buffer
+<CMD> um::get_metric_definition -name design.area.combinatorial
+<CMD> um::get_metric_definition -name design.area.hinst:*
+<CMD> um::get_metric_definition -name design.area.icg
+<CMD> um::get_metric_definition -name design.area.inverter
+<CMD> um::get_metric_definition -name design.area.io
+<CMD> um::get_metric_definition -name design.area.isolation
+<CMD> um::get_metric_definition -name design.area.latch
+<CMD> um::get_metric_definition -name design.area.level_shifter
+<CMD> um::get_metric_definition -name design.area.logical
+<CMD> um::get_metric_definition -name design.area.macro
+<CMD> um::get_metric_definition -name design.area.physical
+<CMD> um::get_metric_definition -name design.area.power_switch
+<CMD> um::get_metric_definition -name design.area.register
+<CMD> um::get_metric_definition -name design.area.std_cell
+<CMD> um::get_metric_definition -name design.area.vth:*
+<CMD> um::get_metric_definition -name design.area.vth:*.ratio
+<CMD> um::get_metric_definition -name design.blockages.place.area
+<CMD> um::get_metric_definition -name design.blockages.route.area
+<CMD> um::get_metric_definition -name design.blockages.route.area.layer:*
+<CMD> um::get_metric_definition -name design.congestion.hotspot.max
+<CMD> um::get_metric_definition -name design.congestion.hotspot.total
+<CMD> um::get_metric_definition -name design.density
+<CMD> um::get_metric_definition -name design.floorplan.image
+<CMD> um::get_metric_definition -name design.instances
+<CMD> um::get_metric_definition -name design.instances.always_on
+<CMD> um::get_metric_definition -name design.instances.blackbox
+<CMD> um::get_metric_definition -name design.instances.buffer
+<CMD> um::get_metric_definition -name design.instances.combinatorial
+<CMD> um::get_metric_definition -name design.instances.hinst:*
+<CMD> um::get_metric_definition -name design.instances.icg
+<CMD> um::get_metric_definition -name design.instances.inverter
+<CMD> um::get_metric_definition -name design.instances.io
+<CMD> um::get_metric_definition -name design.instances.isolation
+<CMD> um::get_metric_definition -name design.instances.latch
+<CMD> um::get_metric_definition -name design.instances.level_shifter
+<CMD> um::get_metric_definition -name design.instances.logical
+<CMD> um::get_metric_definition -name design.instances.macro
+<CMD> um::get_metric_definition -name design.instances.physical
+<CMD> um::get_metric_definition -name design.instances.power_switch
+<CMD> um::get_metric_definition -name design.instances.register
+<CMD> um::get_metric_definition -name design.instances.std_cell
+<CMD> um::get_metric_definition -name design.instances.vth:*
+<CMD> um::get_metric_definition -name design.instances.vth:*.ratio
+<CMD> um::get_metric_definition -name design.multibit.*
+<CMD> um::get_metric_definition -name design.name
+<CMD> um::get_metric_definition -name design.route.drc.image
+<CMD> um::get_metric_definition -name flow.cputime
+<CMD> um::get_metric_definition -name flow.cputime.total
+<CMD> um::get_metric_definition -name flow.last_child_snapshot
+<CMD> um::get_metric_definition -name flow.log
+<CMD> um::get_metric_definition -name flow.machine
+<CMD> um::get_metric_definition -name flow.machine.cpu.frequency
+<CMD> um::get_metric_definition -name flow.machine.cpu.model
+<CMD> um::get_metric_definition -name flow.machine.cpu.number
+<CMD> um::get_metric_definition -name flow.machine.hostname
+<CMD> um::get_metric_definition -name flow.machine.memory.free
+<CMD> um::get_metric_definition -name flow.machine.memory.total
+<CMD> um::get_metric_definition -name flow.machine.os
+<CMD> um::get_metric_definition -name flow.machine.swap.free
+<CMD> um::get_metric_definition -name flow.machine.swap.total
+<CMD> um::get_metric_definition -name flow.memory
+<CMD> um::get_metric_definition -name flow.memory.resident
+<CMD> um::get_metric_definition -name flow.memory.resident.peak
+<CMD> um::get_metric_definition -name flow.realtime
+<CMD> um::get_metric_definition -name flow.realtime.total
+<CMD> um::get_metric_definition -name flow.root_config
+<CMD> um::get_metric_definition -name flow.run_directory
+<CMD> um::get_metric_definition -name flow.run_tag
+<CMD> um::get_metric_definition -name flow.step.tcl
+<CMD> um::get_metric_definition -name flow.template.feature_enabled
+<CMD> um::get_metric_definition -name flow.template.type
+<CMD> um::get_metric_definition -name flow.tool_list
+<CMD> um::get_metric_definition -name flow.user
+<CMD> um::get_metric_definition -name messages
+<CMD> um::get_metric_definition -name name
+<CMD> um::get_metric_definition -name power
+<CMD> um::get_metric_definition -name power.clock
+<CMD> um::get_metric_definition -name power.hinst:*
+<CMD> um::get_metric_definition -name power.internal
+<CMD> um::get_metric_definition -name power.internal.hinst:*
+<CMD> um::get_metric_definition -name power.internal.type:*
+<CMD> um::get_metric_definition -name power.leakage
+<CMD> um::get_metric_definition -name power.leakage.hinst:*
+<CMD> um::get_metric_definition -name power.leakage.type:*
+<CMD> um::get_metric_definition -name power.switching
+<CMD> um::get_metric_definition -name power.switching.hinst:*
+<CMD> um::get_metric_definition -name power.switching.type:*
+<CMD> um::get_metric_definition -name route.drc
+<CMD> um::get_metric_definition -name route.drc.antenna
+<CMD> um::get_metric_definition -name route.drc.layer:*
+<CMD> um::get_metric_definition -name route.map.*
+<CMD> um::get_metric_definition -name route.overflow
+<CMD> um::get_metric_definition -name route.overflow.horizontal
+<CMD> um::get_metric_definition -name route.overflow.layer:*
+<CMD> um::get_metric_definition -name route.overflow.vertical
+<CMD> um::get_metric_definition -name route.shielding.*
+<CMD> um::get_metric_definition -name route.via
+<CMD> um::get_metric_definition -name route.via.layer:*
+<CMD> um::get_metric_definition -name route.via.multicut
+<CMD> um::get_metric_definition -name route.via.multicut.layer:*
+<CMD> um::get_metric_definition -name route.via.multicut.percentage
+<CMD> um::get_metric_definition -name route.via.singlecut
+<CMD> um::get_metric_definition -name route.via.singlecut.layer:*
+<CMD> um::get_metric_definition -name route.via.singlecut.percentage
+<CMD> um::get_metric_definition -name route.via.total
+<CMD> um::get_metric_definition -name route.wirelength
+<CMD> um::get_metric_definition -name timing.drv.max_cap.total
+<CMD> um::get_metric_definition -name timing.drv.max_cap.worst
+<CMD> um::get_metric_definition -name timing.drv.max_fanout.total
+<CMD> um::get_metric_definition -name timing.drv.max_fanout.worst
+<CMD> um::get_metric_definition -name timing.drv.max_length.total
+<CMD> um::get_metric_definition -name timing.drv.max_length.worst
+<CMD> um::get_metric_definition -name timing.drv.max_tran.total
+<CMD> um::get_metric_definition -name timing.drv.max_tran.worst
+<CMD> um::get_metric_definition -name timing.hold.feps
+<CMD> um::get_metric_definition -name timing.hold.feps.analysis_view:*
+<CMD> um::get_metric_definition -name timing.hold.feps.path_group:*
+<CMD> um::get_metric_definition -name timing.hold.feps.path_group:*.analysis_view:*
+<CMD> um::get_metric_definition -name timing.hold.feps.path_group:reg2reg
+<CMD> um::get_metric_definition -name timing.hold.histogram
+<CMD> um::get_metric_definition -name timing.hold.histogram.views
+<CMD> um::get_metric_definition -name timing.hold.pba.histogram
+<CMD> um::get_metric_definition -name timing.hold.pba.histogram.views
+<CMD> um::get_metric_definition -name timing.hold.tns
+<CMD> um::get_metric_definition -name timing.hold.tns.analysis_view:*
+<CMD> um::get_metric_definition -name timing.hold.tns.path_group:*
+<CMD> um::get_metric_definition -name timing.hold.tns.path_group:*.analysis_view:*
+<CMD> um::get_metric_definition -name timing.hold.tns.path_group:reg2reg
+<CMD> um::get_metric_definition -name timing.hold.wns
+<CMD> um::get_metric_definition -name timing.hold.wns.analysis_view:*
+<CMD> um::get_metric_definition -name timing.hold.wns.path_group:*
+<CMD> um::get_metric_definition -name timing.hold.wns.path_group:*.analysis_view:*
+<CMD> um::get_metric_definition -name timing.hold.wns.path_group:reg2reg
+<CMD> um::get_metric_definition -name timing.setup.feps
+<CMD> um::get_metric_definition -name timing.setup.feps.analysis_view:*
+<CMD> um::get_metric_definition -name timing.setup.feps.path_group:*
+<CMD> um::get_metric_definition -name timing.setup.feps.path_group:*.analysis_view:*
+<CMD> um::get_metric_definition -name timing.setup.feps.path_group:reg2reg
+<CMD> um::get_metric_definition -name timing.setup.histogram
+<CMD> um::get_metric_definition -name timing.setup.histogram.views
+<CMD> um::get_metric_definition -name timing.setup.pba.histogram
+<CMD> um::get_metric_definition -name timing.setup.pba.histogram.views
+<CMD> um::get_metric_definition -name timing.setup.tns
+<CMD> um::get_metric_definition -name timing.setup.tns.analysis_view:*
+<CMD> um::get_metric_definition -name timing.setup.tns.path_group:*
+<CMD> um::get_metric_definition -name timing.setup.tns.path_group:*.analysis_view:*
+<CMD> um::get_metric_definition -name timing.setup.tns.path_group:reg2reg
+<CMD> um::get_metric_definition -name timing.setup.type
+<CMD> um::get_metric_definition -name timing.setup.wns
+<CMD> um::get_metric_definition -name timing.setup.wns.analysis_view:*
+<CMD> um::get_metric_definition -name timing.setup.wns.path_group:*
+<CMD> um::get_metric_definition -name timing.setup.wns.path_group:*.analysis_view:*
+<CMD> um::get_metric_definition -name timing.setup.wns.path_group:reg2reg
+<CMD> um::get_metric_definition -name timing.si.glitches
+<CMD> um::get_metric_definition -name timing.si.noise
+<CMD> um::get_metric_definition -name transition.*
+<CMD> um::get_metric_definition -name transition.count
+<CMD> um::get_metric_definition -name transition.max
+<CMD> get_metric -raw -id current -uuid 1adca658-978e-40a8-b8d7-0b9379642428 clock.Routing.area.total
+<CMD> get_metric -raw -id current -uuid 1adca658-978e-40a8-b8d7-0b9379642428 clock.PostConditioning.area.total
+<CMD> get_metric -raw -id current -uuid 1adca658-978e-40a8-b8d7-0b9379642428 clock.eGRPC.area.total
+<CMD> get_metric -raw -id current -uuid 1adca658-978e-40a8-b8d7-0b9379642428 clock.Routing.area.total
+<CMD> get_metric -raw -id current -uuid 1adca658-978e-40a8-b8d7-0b9379642428 clock.Implementation.area.total
+<CMD> get_metric -raw -id current -uuid 1adca658-978e-40a8-b8d7-0b9379642428 clock.eGRPC.area.total
+<CMD> get_metric -raw -id current -uuid 1adca658-978e-40a8-b8d7-0b9379642428 clock.Construction.area.total
+<CMD> get_metric -raw -id current -uuid 1adca658-978e-40a8-b8d7-0b9379642428 clock.Implementation.area.total
+<CMD> get_metric -raw -id current -uuid ffe10ce0-1625-412f-b331-4a11825bb507 clock.Routing.area.total
+<CMD> get_metric -raw -id current -uuid ffe10ce0-1625-412f-b331-4a11825bb507 clock.PostConditioning.area.total
+<CMD> get_metric -raw -id current -uuid ffe10ce0-1625-412f-b331-4a11825bb507 clock.eGRPC.area.total
+<CMD> get_metric -raw -id current -uuid ffe10ce0-1625-412f-b331-4a11825bb507 clock.Routing.area.total
+<CMD> get_metric -raw -id current -uuid ffe10ce0-1625-412f-b331-4a11825bb507 clock.Implementation.area.total
+<CMD> get_metric -raw -id current -uuid ffe10ce0-1625-412f-b331-4a11825bb507 clock.eGRPC.area.total
+<CMD> get_metric -raw -id current -uuid ffe10ce0-1625-412f-b331-4a11825bb507 clock.Construction.area.total
+<CMD> get_metric -raw -id current -uuid ffe10ce0-1625-412f-b331-4a11825bb507 clock.Implementation.area.total
+<CMD> get_metric -raw -id current -uuid d726d74b-9291-4fbf-865f-732484065481 clock.Routing.area.total
+<CMD> get_metric -raw -id current -uuid d726d74b-9291-4fbf-865f-732484065481 clock.PostConditioning.area.total
+<CMD> get_metric -raw -id current -uuid d726d74b-9291-4fbf-865f-732484065481 clock.eGRPC.area.total
+<CMD> get_metric -raw -id current -uuid d726d74b-9291-4fbf-865f-732484065481 clock.Routing.area.total
+<CMD> get_metric -raw -id current -uuid d726d74b-9291-4fbf-865f-732484065481 clock.Implementation.area.total
+<CMD> get_metric -raw -id current -uuid d726d74b-9291-4fbf-865f-732484065481 clock.eGRPC.area.total
+<CMD> get_metric -raw -id current -uuid d726d74b-9291-4fbf-865f-732484065481 clock.Construction.area.total
+<CMD> get_metric -raw -id current -uuid d726d74b-9291-4fbf-865f-732484065481 clock.Implementation.area.total
+<CMD> get_metric -raw -id current -uuid ab700020-5b16-4de0-acff-f1ea9375cdb9 clock.Routing.area.total
+<CMD> get_metric -raw -id current -uuid ab700020-5b16-4de0-acff-f1ea9375cdb9 clock.PostConditioning.area.total
+<CMD> get_metric -raw -id current -uuid ab700020-5b16-4de0-acff-f1ea9375cdb9 clock.eGRPC.area.total
+<CMD> get_metric -raw -id current -uuid ab700020-5b16-4de0-acff-f1ea9375cdb9 clock.Routing.area.total
+<CMD> get_metric -raw -id current -uuid ab700020-5b16-4de0-acff-f1ea9375cdb9 clock.Implementation.area.total
+<CMD> get_metric -raw -id current -uuid ab700020-5b16-4de0-acff-f1ea9375cdb9 clock.eGRPC.area.total
+<CMD> get_metric -raw -id current -uuid ab700020-5b16-4de0-acff-f1ea9375cdb9 clock.Construction.area.total
+<CMD> get_metric -raw -id current -uuid ab700020-5b16-4de0-acff-f1ea9375cdb9 clock.Implementation.area.total
+<CMD> get_metric -raw -id current -uuid 6f96304e-23c9-4b15-9310-a2643eb27bc8 clock.Routing.area.total
+<CMD> get_metric -raw -id current -uuid 6f96304e-23c9-4b15-9310-a2643eb27bc8 clock.PostConditioning.area.total
+<CMD> get_metric -raw -id current -uuid 6f96304e-23c9-4b15-9310-a2643eb27bc8 clock.eGRPC.area.total
+<CMD> get_metric -raw -id current -uuid 6f96304e-23c9-4b15-9310-a2643eb27bc8 clock.Routing.area.total
+<CMD> get_metric -raw -id current -uuid 6f96304e-23c9-4b15-9310-a2643eb27bc8 clock.Implementation.area.total
+<CMD> get_metric -raw -id current -uuid 6f96304e-23c9-4b15-9310-a2643eb27bc8 clock.eGRPC.area.total
+<CMD> get_metric -raw -id current -uuid 6f96304e-23c9-4b15-9310-a2643eb27bc8 clock.Construction.area.total
+<CMD> get_metric -raw -id current -uuid 6f96304e-23c9-4b15-9310-a2643eb27bc8 clock.Implementation.area.total
+<CMD> get_metric -raw -id current -uuid fb34160b-b0d2-4a2a-ab29-1e9f0e66ca72 clock.Routing.area.total
+<CMD> get_metric -raw -id current -uuid fb34160b-b0d2-4a2a-ab29-1e9f0e66ca72 clock.PostConditioning.area.total
+<CMD> get_metric -raw -id current -uuid fb34160b-b0d2-4a2a-ab29-1e9f0e66ca72 clock.eGRPC.area.total
+<CMD> get_metric -raw -id current -uuid fb34160b-b0d2-4a2a-ab29-1e9f0e66ca72 clock.Routing.area.total
+<CMD> get_metric -raw -id current -uuid fb34160b-b0d2-4a2a-ab29-1e9f0e66ca72 clock.Implementation.area.total
+<CMD> get_metric -raw -id current -uuid fb34160b-b0d2-4a2a-ab29-1e9f0e66ca72 clock.eGRPC.area.total
+<CMD> get_metric -raw -id current -uuid fb34160b-b0d2-4a2a-ab29-1e9f0e66ca72 clock.Construction.area.total
+<CMD> get_metric -raw -id current -uuid fb34160b-b0d2-4a2a-ab29-1e9f0e66ca72 clock.Implementation.area.total
+<CMD> get_metric -raw -id current -uuid d13c0827-e5bb-48c8-99a1-1445ce5cfb62 clock.Routing.area.total
+<CMD> get_metric -raw -id current -uuid d13c0827-e5bb-48c8-99a1-1445ce5cfb62 clock.PostConditioning.area.total
+<CMD> get_metric -raw -id current -uuid d13c0827-e5bb-48c8-99a1-1445ce5cfb62 clock.eGRPC.area.total
+<CMD> get_metric -raw -id current -uuid d13c0827-e5bb-48c8-99a1-1445ce5cfb62 clock.Routing.area.total
+<CMD> get_metric -raw -id current -uuid d13c0827-e5bb-48c8-99a1-1445ce5cfb62 clock.Implementation.area.total
+<CMD> get_metric -raw -id current -uuid d13c0827-e5bb-48c8-99a1-1445ce5cfb62 clock.eGRPC.area.total
+<CMD> get_metric -raw -id current -uuid d13c0827-e5bb-48c8-99a1-1445ce5cfb62 clock.Construction.area.total
+<CMD> get_metric -raw -id current -uuid d13c0827-e5bb-48c8-99a1-1445ce5cfb62 clock.Implementation.area.total
+<CMD> get_metric -raw -id current -uuid deddd9df-6ffc-42ef-83e9-d80066971c44 clock.Routing.area.total
+<CMD> get_metric -raw -id current -uuid deddd9df-6ffc-42ef-83e9-d80066971c44 clock.PostConditioning.area.total
+<CMD> get_metric -raw -id current -uuid deddd9df-6ffc-42ef-83e9-d80066971c44 clock.eGRPC.area.total
+<CMD> get_metric -raw -id current -uuid deddd9df-6ffc-42ef-83e9-d80066971c44 clock.Routing.area.total
+<CMD> get_metric -raw -id current -uuid deddd9df-6ffc-42ef-83e9-d80066971c44 clock.Implementation.area.total
+<CMD> get_metric -raw -id current -uuid deddd9df-6ffc-42ef-83e9-d80066971c44 clock.eGRPC.area.total
+<CMD> get_metric -raw -id current -uuid deddd9df-6ffc-42ef-83e9-d80066971c44 clock.Construction.area.total
+<CMD> get_metric -raw -id current -uuid deddd9df-6ffc-42ef-83e9-d80066971c44 clock.Implementation.area.total
+<CMD> saveDesign DBS/place.enc -compress
+#% Begin save design ... (date=12/01 16:57:17, mem=875.3M)
+% Begin Save ccopt configuration ... (date=12/01 16:57:17, mem=877.3M)
+% End Save ccopt configuration ... (date=12/01 16:57:17, total cpu=0:00:00.0, real=0:00:00.0, peak res=878.2M, current mem=878.2M)
+% Begin Save netlist data ... (date=12/01 16:57:17, mem=878.2M)
+Writing Binary DB to DBS/place.enc.dat/mult_alone.v.bin in single-threaded mode...
+% End Save netlist data ... (date=12/01 16:57:17, total cpu=0:00:00.0, real=0:00:00.0, peak res=878.2M, current mem=878.2M)
+Saving congestion map file DBS/place.enc.dat/mult_alone.route.congmap.gz ...
+% Begin Save AAE data ... (date=12/01 16:57:17, mem=878.6M)
+Saving AAE Data ...
+% End Save AAE data ... (date=12/01 16:57:17, total cpu=0:00:00.0, real=0:00:00.0, peak res=878.7M, current mem=878.7M)
+% Begin Save clock tree data ... (date=12/01 16:57:18, mem=879.3M)
+% End Save clock tree data ... (date=12/01 16:57:18, total cpu=0:00:00.0, real=0:00:00.0, peak res=879.3M, current mem=879.3M)
+Saving preference file DBS/place.enc.dat/gui.pref.tcl ...
+Saving mode setting ...
+Saving global file ...
+% Begin Save floorplan data ... (date=12/01 16:57:18, mem=881.4M)
+Saving floorplan file ...
+% End Save floorplan data ... (date=12/01 16:57:18, total cpu=0:00:00.0, real=0:00:00.0, peak res=881.7M, current mem=881.7M)
+Saving PG file DBS/place.enc.dat/mult_alone.pg.gz
+*** Completed savePGFile (cpu=0:00:00.0 real=0:00:00.0 mem=1771.2M) ***
+Saving Drc markers ...
+... No Drc file written since there is no markers found.
+% Begin Save placement data ... (date=12/01 16:57:18, mem=881.7M)
+** Saving stdCellPlacement_binary (version# 2) ...
+Save Adaptive View Pruing View Names to Binary file
+% End Save placement data ... (date=12/01 16:57:18, total cpu=0:00:00.0, real=0:00:00.0, peak res=881.8M, current mem=881.8M)
+% Begin Save routing data ... (date=12/01 16:57:18, mem=881.8M)
+Saving route file ...
+*** Completed saveRoute (cpu=0:00:00.0 real=0:00:00.0 mem=1771.2M) ***
+% End Save routing data ... (date=12/01 16:57:18, total cpu=0:00:00.0, real=0:00:00.0, peak res=881.9M, current mem=881.9M)
+Saving property file DBS/place.enc.dat/mult_alone.prop
+*** Completed saveProperty (cpu=0:00:00.0 real=0:00:00.0 mem=1774.2M) ***
+Saving rc congestion map DBS/place.enc.dat/mult_alone.congmap.gz ...
+% Begin Save power constraints data ... (date=12/01 16:57:18, mem=882.3M)
+% End Save power constraints data ... (date=12/01 16:57:18, total cpu=0:00:00.0, real=0:00:01.0, peak res=882.4M, current mem=882.4M)
+rc_typ
+Generated self-contained design place.enc.dat
+#% End save design ... (date=12/01 16:57:20, total cpu=0:00:01.9, real=0:00:03.0, peak res=883.8M, current mem=883.8M)
+*** Message Summary: 0 warning(s), 0 error(s)
+
+<CMD> saveNetlist DBS/LEC/place.v.gz
+Writing Netlist "DBS/LEC/place.v.gz" ...
+<FF> ==============================================
+<FF>          COMPLETED STEP : place
+<FF>         ELAPSED RUNTIME : 0 days, 00:00:23
+<FF> ==============================================
+
+*** Memory Usage v#1 (Current mem = 1811.520M, initial mem = 497.086M) ***
+*** Message Summary: 469 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:35.1, real=0:00:39.0, mem=1811.5M) ---

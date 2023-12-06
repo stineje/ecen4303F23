@@ -1,0 +1,22 @@
+ 
+****************************************
+Report : hierarchy
+Design : mult_alone
+Version: R-2020.09-SP5
+Date   : Fri Dec  1 16:06:30 2023
+****************************************
+
+mult_alone
+    sky130_osu_sc_12T_ms__and2_1          sky130_osu_sc_12T_ms_tt_1P80_25C.ccs
+    sky130_osu_sc_12T_ms__aoi21_l         sky130_osu_sc_12T_ms_tt_1P80_25C.ccs
+    sky130_osu_sc_12T_ms__aoi22_l         sky130_osu_sc_12T_ms_tt_1P80_25C.ccs
+    sky130_osu_sc_12T_ms__dffr_1          sky130_osu_sc_12T_ms_tt_1P80_25C.ccs
+    sky130_osu_sc_12T_ms__inv_1           sky130_osu_sc_12T_ms_tt_1P80_25C.ccs
+    sky130_osu_sc_12T_ms__mux2_1          sky130_osu_sc_12T_ms_tt_1P80_25C.ccs
+    sky130_osu_sc_12T_ms__nand2_1         sky130_osu_sc_12T_ms_tt_1P80_25C.ccs
+    sky130_osu_sc_12T_ms__nor2_1          sky130_osu_sc_12T_ms_tt_1P80_25C.ccs
+    sky130_osu_sc_12T_ms__oai21_l         sky130_osu_sc_12T_ms_tt_1P80_25C.ccs
+    sky130_osu_sc_12T_ms__or2_1           sky130_osu_sc_12T_ms_tt_1P80_25C.ccs
+    sky130_osu_sc_12T_ms__xnor2_l         sky130_osu_sc_12T_ms_tt_1P80_25C.ccs
+    sky130_osu_sc_12T_ms__xor2_l          sky130_osu_sc_12T_ms_tt_1P80_25C.ccs
+1

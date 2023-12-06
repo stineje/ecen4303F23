@@ -1,0 +1,49 @@
+ 
+****************************************
+Report : constraint
+Design : mult_alone
+Version: R-2020.09-SP5
+Date   : Fri Dec  1 16:06:30 2023
+****************************************
+
+
+                                                   Weighted
+    Group (max_delay/setup)      Cost     Weight     Cost
+    -----------------------------------------------------
+    clk                      0.000000  1.000000  0.000000
+    default                  0.000000  1.000000  0.000000
+    -----------------------------------------------------
+    max_delay/setup                              0.000000
+
+                              Total Neg  Critical
+    Group (critical_range)      Slack    Endpoints   Cost
+    -----------------------------------------------------
+    clk                      0.000000         0  0.000000
+    default                  0.000000         0  0.000000
+    -----------------------------------------------------
+    critical_range                               0.000000
+
+                                                   Weighted
+    Group (min_delay/hold)       Cost     Weight     Cost
+    -----------------------------------------------------
+    clk                      8.827904  1.000000  8.827904
+    default                  0.000000  1.000000  0.000000
+    -----------------------------------------------------
+    min_delay/hold                               8.827904
+
+
+    Constraint                                       Cost
+    -----------------------------------------------------
+    multiport_net                                0.000000 (MET)
+    max_transition                               0.000000 (MET)
+    max_fanout                                   0.000000 (MET)
+    max_capacitance                              0.000000 (MET)
+    max_delay/setup                              0.000000 (MET)
+    sequential_clock_pulse_width                 0.000000 (MET)
+    critical_range                               0.000000 (MET)
+    min_delay/hold                               8.827904 (VIOLATED)
+    max_leakage_power                            1288.215698
+                                                          (VIOLATED)
+
+
+1

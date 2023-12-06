@@ -1,0 +1,31 @@
+#
+#MacroModel Section
+#
+
+
+#
+#Clock Section
+#
+
+#-----------------------------------------------------------
+# Generated from TEST_CONTROL_INST/g136/ZN
+#-----------------------------------------------------------
+AutoCTSRootPin   clk
+MaxDelay         950ps
+MinDelay         950ps
+MaxSkew          300ps
+SinkMaxTran      200ps
+BufMaxTran       200ps
+Obstruction      NO
+DetailReport     YES
+PadBufAfterGate     NO
+LevelBalanced     NO
+RouteClkNet      YES
+#PostOpt          NO
+#OptAddBuffer     NO
+#OptAddBufferLimit  50
+NoGating         NO
+Buffer BUFFD2BWP BUFFD3BWP BUFFD4BWP BUFFD6BWP BUFFD8BWP BUFFD12BWP INVD1BWP INVD2BWP INVD3BWP INVD4BWP INVD6BWP INVD8BWP INVD12BWP 
+END
+
+

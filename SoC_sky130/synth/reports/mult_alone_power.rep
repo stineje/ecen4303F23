@@ -1,0 +1,51 @@
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : mult_alone
+Version: R-2020.09-SP5
+Date   : Fri Dec  1 16:06:30 2023
+****************************************
+
+
+Library(s) Used:
+
+    sky130_osu_sc_12T_ms_tt_1P80_25C.ccs (File: /programs/pdk/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_tt_1P80_25C.ccs.db)
+
+
+Operating Conditions: PVT_1P8V_25C   Library: sky130_osu_sc_12T_ms_tt_1P80_25C.ccs
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 1.8  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+  Cell Internal Power  = 63.832718 uW   (34%)
+  Net Switching Power  = 122.659256 uW   (66%)
+                         ---------
+Total Dynamic Power    = 186.491974 uW  (100%)
+
+Cell Leakage Power     =  16.7154 nW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad           0.000000          0.000000          0.000000          0.000000  (   0.00%)
+memory           0.000000          0.000000          0.000000          0.000000  (   0.00%)
+black_box        0.000000          0.000000          0.000000          0.000000  (   0.00%)
+clock_network    0.000000          0.000000          0.000000          0.000000  (   0.00%)
+register       2.658710e-02        2.598199e-02          5.625411        5.257471e-02
+                                                                                 (  28.19%)
+sequential       0.000000          0.000000          0.000000          0.000000  (   0.00%)
+combinational  3.724562e-02        9.667733e-02         11.089975          0.133934
+                                                                                 (  71.81%)
+--------------------------------------------------------------------------------------------------
+Total          6.383273e-02 mW       0.122659 mW      16.715385 nW       0.186509 mW
+1

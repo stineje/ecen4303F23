@@ -1,0 +1,44 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : mult_alone
+Version: R-2020.09-SP5
+Date   : Fri Dec  1 16:06:30 2023
+****************************************
+
+
+   min_delay/hold ('clk' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   q_reg[6]/D               0.935534       0.283364 r     -0.652170 (VIOLATED)
+   q_reg[4]/D               0.935534       0.283364 r     -0.652170 (VIOLATED)
+   q_reg[14]/D              0.935534       0.283364 r     -0.652170 (VIOLATED)
+   q_reg[12]/D              0.935658       0.300898 r     -0.634760 (VIOLATED)
+   q_reg[2]/D               0.935656       0.300898 r     -0.634759 (VIOLATED)
+   q_reg[10]/D              0.935656       0.300898 r     -0.634759 (VIOLATED)
+   q_reg[8]/D               0.935655       0.300898 r     -0.634757 (VIOLATED)
+   q_reg[9]/D               0.935646       0.301937 r     -0.633710 (VIOLATED)
+   q_reg[0]/D               0.930997       0.360940 r     -0.570058 (VIOLATED)
+   q_reg[1]/D               0.935654       0.410943 r     -0.524711 (VIOLATED)
+   q_reg[13]/D              0.925868       0.476377 r     -0.449490 (VIOLATED)
+   q_reg[3]/D               0.925868       0.476385 r     -0.449483 (VIOLATED)
+   q_reg[15]/D              0.926994       0.479527 r     -0.447467 (VIOLATED)
+   q_reg[5]/D               0.925868       0.486034 r     -0.439835 (VIOLATED)
+   q_reg[7]/D               0.925872       0.515921 r     -0.409950 (VIOLATED)
+   q_reg[11]/D              0.926988       0.519330 r     -0.407658 (VIOLATED)
+
+
+   max_leakage_power
+
+                             Required        Actual
+   Design                   Leakage Power  Leakage Power     Slack
+   -----------------------------------------------------------------
+   mult_alone               0.000000       16.362764      -16.362764
+                                                                    (VIOLATED)
+
+
+1
