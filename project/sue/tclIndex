@@ -19,4 +19,4 @@ set auto_index(ICON_mux21) [list source [file join $dir mux21.sue]]
 set auto_index(SCHEMATIC_top) [list source [file join $dir top.sue]]
 set auto_index(SCHEMATIC_bit1a) [list source [file join $dir bit1a.sue]]
 set auto_index(ICON_bit1a) [list source [file join $dir bit1a.sue]]
-set mtimes {{FA.sue 1701881003} {inv.sue 1701881029} {dffpos.sue 1701881013} {mux21.sue 1701881062} {top.sue 1701880986} {bit1a.sue 1701880994}}
+set mtimes {{FA.sue 1701960237} {inv.sue 1701960237} {dffpos.sue 1701960237} {mux21.sue 1701960237} {top.sue 1701960237} {bit1a.sue 1701960237}}
